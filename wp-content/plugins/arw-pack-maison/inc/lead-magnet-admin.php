@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 const ARW_MAISON_LEAD_CAP = 'manage_options';
 
 add_action( 'admin_menu', function () {
-	$parent = defined( 'ARW_PULSE_ADMIN_SLUG' ) ? ARW_PULSE_ADMIN_SLUG : 'edit.php?post_type=' . ARW_MAISON_RULE_CPT;
+	$parent = 'edit.php?post_type=' . ARW_MAISON_RULE_CPT;
 	add_submenu_page(
 		$parent,
 		__( 'Lead magnet — Compatibilimètre', 'arw-maison' ),

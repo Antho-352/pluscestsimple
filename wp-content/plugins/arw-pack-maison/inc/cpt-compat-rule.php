@@ -47,7 +47,7 @@ function arw_maison_register_rule_cpt(): void {
 		'public'             => true,
 		'publicly_queryable' => true,
 		'show_ui'            => true,
-		'show_in_menu'       => defined( 'ARW_PULSE_ADMIN_SLUG' ) ? ARW_PULSE_ADMIN_SLUG : true,
+		'show_in_menu'       => true,
 		'show_in_rest'       => true,
 		'menu_icon'          => 'dashicons-yes-alt',
 		'supports'           => [ 'title', 'editor', 'excerpt', 'page-attributes', 'revisions' ],

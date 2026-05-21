@@ -66,7 +66,7 @@ add_action( 'wp_head', function () {
 
 // ─── Breadcrumbs integration with the theme ──────────────────────────────────
 
-add_filter( 'arw_pulse_breadcrumbs', function ( $crumbs ) {
+add_filter( 'pcs_breadcrumbs', function ( $crumbs ) {
 	if ( ! is_singular( ARW_MAISON_RULE_CPT ) ) { return $crumbs; }
 
 	$post_id = get_the_ID();

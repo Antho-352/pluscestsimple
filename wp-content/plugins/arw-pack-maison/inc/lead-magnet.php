@@ -21,7 +21,7 @@ const ARW_MAISON_LEAD_PDF_FILENAME = '12-erreurs.pdf';
 
 // ─── Whitelist form_type ─────────────────────────────────────────────────────
 
-add_filter( 'arw_pulse_form_types', function ( $types ) {
+add_filter( 'pcs_form_types', function ( $types ) {
 	$types[] = ARW_MAISON_LEAD_TYPE;
 	return $types;
 } );
@@ -92,7 +92,7 @@ function arw_maison_lead_settings(): array {
 
 // ─── Hook on submission : generate token + send email ────────────────────────
 
-add_action( 'arw_pulse_form_submitted', function ( $post_id, $req ) {
+add_action( 'pcs_form_submitted', function ( $post_id, $req ) {
 	if ( ( $req['form_type'] ?? '' ) !== ARW_MAISON_LEAD_TYPE ) { return; }
 
 	// Rate-limit dédié au lead-magnet : 3 envois max / heure / IP. Évite le

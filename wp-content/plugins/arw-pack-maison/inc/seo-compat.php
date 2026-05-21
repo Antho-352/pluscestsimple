@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 
 // ─── Meta description for rule pages ─────────────────────────────────────────
 
-add_filter( 'arw_pulse_meta_description', function ( $desc ) {
+add_filter( 'pcs_meta_description', function ( $desc ) {
 	if ( ! is_singular( ARW_MAISON_RULE_CPT ) ) { return $desc; }
 
 	$post_id     = get_the_ID();
@@ -56,7 +56,7 @@ add_filter( 'pre_get_document_title', function ( $title ) {
 	return sprintf( '%s : règles & conseils Compatibilimètre | %s', $term->name, get_bloginfo( 'name' ) );
 }, 99 );
 
-add_filter( 'arw_pulse_meta_description', function ( $desc ) {
+add_filter( 'pcs_meta_description', function ( $desc ) {
 	if ( ! is_tax( ARW_MAISON_CATEGORY_TAX ) ) { return $desc; }
 	$term = get_queried_object();
 	if ( ! $term || is_wp_error( $term ) ) { return $desc; }

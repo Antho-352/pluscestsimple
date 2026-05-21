@@ -28,7 +28,7 @@ const ARW_MAISON_ENRICH_FIELDS = [
 // ─── Admin menu ──────────────────────────────────────────────────────────────
 
 add_action( 'admin_menu', function () {
-	$parent = defined( 'ARW_PULSE_ADMIN_SLUG' ) ? ARW_PULSE_ADMIN_SLUG : 'edit.php?post_type=' . ARW_MAISON_RULE_CPT;
+	$parent = 'edit.php?post_type=' . ARW_MAISON_RULE_CPT;
 	add_submenu_page(
 		$parent,
 		__( 'Enrichissement v2', 'arw-maison' ),

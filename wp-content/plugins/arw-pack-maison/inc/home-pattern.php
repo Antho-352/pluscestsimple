@@ -35,21 +35,10 @@ add_filter( 'style_loader_tag', function ( $tag, $handle ) {
 	return $tag;
 }, 10, 2 );
 
-add_filter( 'arw_pulse_front_page_markup', function () {
-	return <<<BLOCKS
-<!-- wp:pattern {"slug":"arw-pulse/hero-front"} /-->
-
-<!-- wp:shortcode -->[arw_maison_compat_tease]<!-- /wp:shortcode -->
-
-<!-- wp:pattern {"slug":"arw-pulse/manifesto"} /-->
-
-<!-- wp:pattern {"slug":"arw-pulse/hero-featured"} /-->
-
-<!-- wp:pattern {"slug":"arw-pulse/grid-magazine"} /-->
-
-<!-- wp:shortcode -->[arw_lead_form variant="full"]<!-- /wp:shortcode -->
-BLOCKS;
-}, 20 );
+// Dispatcher home retiré : depuis le thème pluscestsimple v2.0, la home est éditée
+// directement en Gutenberg via les patterns du thème (hero-front, section-compatibilimetre,
+// section-newsletter, etc.). Le shortcode [arw_maison_compat_tease] reste disponible
+// pour usage ponctuel dans le contenu Gutenberg ou un widget.
 
 // ─── [arw_maison_compat_tease] : Compatibilimètre showcase section ────────────
 

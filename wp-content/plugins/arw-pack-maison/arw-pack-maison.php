@@ -1,22 +1,21 @@
 <?php
 /**
- * Plugin Name: ARW Pack — Maison
- * Description: Niche extension for the ARW Pulse theme : adds the Compatibilimètre tool (CPT arw_compat_rule + auto SEO pages + lead-magnet capture), Brevo sync module, and homepage patterns for home / renovation / decoration sites (pluscestsimple.com).
- * Version:     0.9.0
+ * Plugin Name: Compatibilimètre — pluscestsimple
+ * Description: Outil Compatibilimètre pour pluscestsimple.com : CPT arw_compat_rule (201 règles techniques DTU/normes), pages SEO long-tail auto, lead-magnet, sync Brevo (à venir). Conçu pour le thème pluscestsimple v2.0+.
+ * Version:     1.0.0
  * Author:      Anthony Russo
  * Requires PHP: 8.0
  *
  * Drop this folder in wp-content/plugins/ and activate via Plugins admin.
- * Or as mu-plugin : copy in wp-content/mu-plugins/ + add a loader file:
- *   wp-content/mu-plugins/arw-pack-maison.php :
- *   <?php require_once __DIR__ . '/arw-pack-maison/arw-pack-maison.php';
+ * Le CPT slug `arw_compat_rule` est conservé pour ne pas casser la DB des règles
+ * existantes. Les filtres exposés au thème sont préfixés pcs_ (pluscestsimple v2.0+).
  */
 
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
 // ─── Constants ───────────────────────────────────────────────────────────────
 
-const ARW_MAISON_VERSION = '0.9.0';
+const ARW_MAISON_VERSION = '1.0.0';
 
 define( 'ARW_MAISON_DIR', __DIR__ );
 define( 'ARW_MAISON_URL', plugin_dir_url( __FILE__ ) );
@@ -26,11 +25,13 @@ const ARW_MAISON_CATEGORY_TAX = 'arw_compat_category';
 
 // ─── Boot ─────────────────────────────────────────────────────────────────────
 
-// Admin warning if ARW Pulse theme isn't active.
+// Admin warning si le thème attendu n'est pas actif.
 add_action( 'admin_notices', function () {
-	$theme = wp_get_theme();
-	if ( 'ARW Pulse' !== $theme->get( 'Name' ) && 'arw-pulse' !== $theme->get_template() ) {
-		echo '<div class="notice notice-warning"><p><strong>ARW Pack — Maison</strong> : ce pack s\'appuie sur le thème ARW Pulse. Active-le pour un rendu optimal (schema JSON-LD, styles, perf hooks).</p></div>';
+	$theme    = wp_get_theme();
+	$expected = [ 'pluscestsimple', 'arw-pulse' ]; // arw-pulse temporairement toléré pendant la migration.
+	$current  = $theme->get_template();
+	if ( ! in_array( $current, $expected, true ) ) {
+		echo '<div class="notice notice-warning"><p><strong>Compatibilimètre</strong> : ce plugin est conçu pour le thème <em>Plus c\'est simple</em>. Le rendu peut être dégradé avec un autre thème (fonts non préchargées, breadcrumbs incomplets).</p></div>';
 	}
 } );
 
@@ -49,13 +50,12 @@ require_once ARW_MAISON_DIR . '/inc/home-content.php';
 require_once ARW_MAISON_DIR . '/inc/home-pattern.php';
 require_once ARW_MAISON_DIR . '/inc/enrichment-import.php';
 
-// ─── Theme integration : align font preload with the Editorial skin ─────────
+// ─── Theme integration : align font preload with the pluscestsimple theme ──
 //
-// The base theme preloads Inter + Space Grotesk by default. The Editorial skin
-// (used by pluscestsimple.com) uses Inter + Fraunces. We override the preload
-// list so we don't waste a preload on a font that isn't loaded.
+// Le thème pluscestsimple déclare Inter (body) + Fraunces (display). On
+// override la liste de preload pour ne charger que ces deux fonts.
 
-add_filter( 'arw_pulse_preload_fonts', function ( $fonts ) {
+add_filter( 'pcs_preload_fonts', function ( $fonts ) {
 	$theme_url = get_template_directory_uri();
 	return [
 		$theme_url . '/assets/fonts/inter-var.woff2',

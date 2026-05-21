@@ -29,27 +29,9 @@ function arw_maison_register_taxonomies(): void {
 
 add_action( 'init', 'arw_maison_register_taxonomies' );
 
-// Manually expose the taxonomy as a submenu under ARW Pulse parent.
-// (Auto-attachment doesn't happen when the CPT is nested under a parent slug.)
-add_action( 'admin_menu', function () {
-	if ( ! defined( 'ARW_PULSE_ADMIN_SLUG' ) ) { return; }
-	add_submenu_page(
-		ARW_PULSE_ADMIN_SLUG,
-		__( 'Catégories Compatibilimètre', 'arw-maison' ),
-		__( '⚙ Compatibilimètre — Catégories', 'arw-maison' ),
-		'manage_categories',
-		'edit-tags.php?taxonomy=' . ARW_MAISON_CATEGORY_TAX . '&post_type=' . ARW_MAISON_RULE_CPT
-	);
-}, 25 );
-
-// Highlight the parent menu when editing taxonomy terms (fixes the "submenu not active" UX bug).
-add_filter( 'parent_file', function ( $parent_file ) {
-	global $current_screen;
-	if ( $current_screen && $current_screen->taxonomy === ARW_MAISON_CATEGORY_TAX && defined( 'ARW_PULSE_ADMIN_SLUG' ) ) {
-		return ARW_PULSE_ADMIN_SLUG;
-	}
-	return $parent_file;
-} );
+// Le menu admin de la taxonomy est exposé automatiquement par WordPress sous
+// le menu du CPT (show_in_menu => true). Plus de nesting manuel sous un
+// ARW_PULSE_ADMIN_SLUG (le thème pluscestsimple n'a pas de menu admin centralisé).
 
 // ─── Default categories on activation ────────────────────────────────────────
 

@@ -1,37 +1,51 @@
-# ARW Pack — Maison
+# Compatibilimètre — pluscestsimple
 
-Plugin d'extension du thème **ARW Pulse** pour les sites maison / travaux / déco (premier site cible : pluscestsimple.com).
+Plugin WordPress sur-mesure pour le site [pluscestsimple.com](https://pluscestsimple.com). Implémente le **Compatibilimètre** : 201 règles techniques (DTU + normes) sur la compatibilité des matériaux et techniques de rénovation, avec recherche fuzzy zéro-requête (index JSON statique), pages SEO long-tail auto-générées, et lead-magnet "12 erreurs qui coûtent 10 000 €".
 
-Ajoute :
+**Compatible avec** : thème [pluscestsimple v2.0+](../../themes/pluscestsimple).
 
-- **Compatibilimètre** — outil signature : règles "puis-je faire X dans Y ?" avec verdict (compatible / sous conditions / déconseillé / interdit), explication, alternatives, refs DTU/normes.
-- CPT `arw_compat_rule` + taxonomy `arw_compat_category` (sols, murs, cuisine, structure, etc.).
-- Import CSV bulk pour entrer 80-100 règles d'un coup.
-- Génération automatique d'un index JSON statique (servi au front pour recherche fuzzy zéro requête).
-- (à venir Phase 3) page `/compatibilimetre/` avec recherche, page auto-générée par règle (long-tail SEO).
-- (à venir Phase 4) lead magnet — capture email après 3 consultations.
-- (à venir Phase 5) sync Brevo — push API contact à chaque submit.
-- (à venir Phase 6) home pattern via filtre `arw_pulse_front_page_markup`.
+---
 
-## État (v0.1.0 — Phase 2)
+## Fonctionnalités
 
-- ✓ Plugin bootstrap
-- ✓ CPT + meta box
-- ✓ Taxonomy + termes par défaut
-- ✓ Admin list columns + filtre par verdict
-- ✓ Import CSV bulk (avec dry-run)
-- ✓ Index JSON régénéré au save / delete / set_terms
-- ✓ Page admin "Index JSON" (rebuild manuel + URL + taille)
+- **CPT `arw_compat_rule`** (slug `compatibilimetre/regle/%name%`) : une règle = un cas concret. Verdict (compatible / sous conditions / déconseillé / interdit), explication, alternatives, refs DTU, diagnostic, coût, ordre des pros, erreurs fréquentes.
+- **Taxonomy `arw_compat_category`** (slug `compatibilimetre/categorie/%name%`, hierarchical) : sols, murs, cloisons, SDB, cuisine, structure, extérieur, chauffage, électricité, plomberie — créées automatiquement à l'activation.
+- **Import CSV** : page admin pour importer 80-100 règles d'un coup (dry-run + mapping verdict).
+- **Index JSON statique** : régénéré au save/delete/term-update. Servi au front pour recherche fuzzy zéro requête DB.
+- **Shortcodes** : `[arw_compatibilimetre]` (recherche + grille), `[arw_compat_rule_detail]` (fiche individuelle), `[arw_compat_related]` (règles liées).
+- **JSON-LD** : Article + BreadcrumbList custom pour chaque fiche règle.
+- **SEO** : title `<règle> — <verdict> | <site>`, meta description `<verdict> — <130 chars d'explication>`. Snippets Google actionnables.
+- **Lead-magnet** : capture email après 3 consultations de règle (blur + modal), envoi PDF "12 erreurs" par lien signé one-shot (token 24h).
+- **Sync Brevo** : à venir.
+
+---
 
 ## Installation
 
 1. `./package.sh` → génère `../arw-pack-maison.zip`
 2. WP admin → Plugins → Ajouter → Téléverser → `arw-pack-maison.zip` → Activer
-3. Vérifier : menu **ARW Pulse → Compatibilimètre** apparaît
-4. Vérifier : menu **ARW Pulse → Catégories** liste les 10 termes par défaut
-5. Importer un CSV via **ARW Pulse → Import CSV** (template ci-dessous)
+3. À l'activation : crée la taxonomy + 10 termes par défaut, la page `/compatibilimetre/`, copie le PDF par défaut dans `wp-content/uploads/arw-maison/private/`
+4. Importer les 201 règles via **Règles Compatibilimètre → Import CSV** (les 2 CSV à la racine du plugin : `seed-rules.csv` + `seed-rules-batch2.csv`)
 
-## CSV — format
+---
+
+## Intégration avec le thème pluscestsimple
+
+Le plugin s'appuie sur les hooks publics du thème (préfixés `pcs_`) :
+
+| Hook | Usage |
+|---|---|
+| `pcs_preload_fonts` | Override la liste de fonts à preload (Inter + Fraunces) |
+| `pcs_meta_description` | Meta description custom pour fiches règle + taxonomy compat |
+| `pcs_breadcrumbs` | Fil d'Ariane Schema.org enrichi : Accueil > Compatibilimètre > Catégorie > Fiche |
+| `pcs_form_types` | Whitelist du form_type `lead-magnet` pour le module form du thème |
+| `pcs_form_submitted` | Hook post-submit : génère le token, envoie l'email avec lien PDF |
+
+Aucun couplage dur : si le thème pluscestsimple n'est pas actif, un warning admin est affiché. Le plugin reste fonctionnel mais le rendu est dégradé (pas de préchargement fonts, breadcrumbs basiques, meta descriptions standards).
+
+---
+
+## CSV — format d'import
 
 ```
 title;category_slug;verdict;explanation;alternatives;keywords;dtu_refs
@@ -40,25 +54,8 @@ title;category_slug;verdict;explanation;alternatives;keywords;dtu_refs
 
 Verdicts acceptés : `compatible`, `conditional`, `discouraged`, `forbidden`.
 
-Catégories par défaut : `sols`, `murs`, `cloisons`, `sdb`, `cuisine`, `structure`, `exterieur`, `chauffage`, `electricite`, `plomberie` — créées automatiquement si manquantes.
+---
 
-## Architecture
+## License
 
-Structure conforme au pattern documenté dans `arw-pulse/docs/` :
-
-```
-arw-pack-maison/
-├── arw-pack-maison.php       # Plugin header + bootstrap + activation
-├── package.sh                # Zip → ../arw-pack-maison.zip
-├── inc/
-│   ├── taxonomies.php        # arw_compat_category + termes par défaut
-│   ├── cpt-compat-rule.php   # CPT + meta box + admin columns + filtre verdict
-│   ├── csv-import.php        # Page admin "Import CSV"
-│   └── json-export.php       # Index JSON statique + page admin "Index JSON"
-└── (Phase 3+) patterns/, templates/, assets/
-```
-
-Le pack respecte les règles d'intégration thème ↔ pack :
-- Aucun `require_once` du thème (guards `defined()` partout).
-- `show_in_menu` utilise `ARW_PULSE_ADMIN_SLUG` si défini, fallback sinon.
-- Aucune modification du thème pour ce site.
+GPL-2.0-or-later · Anthony Russo
