@@ -481,6 +481,154 @@ a:hover { color: var(--wp--preset--color--accent-secondary); text-decoration: no
 }
 
 /* ====================================================================
+   Sections de page d'accueil & patterns (.pcs-section)
+   ==================================================================== */
+
+.pcs-section {
+	padding-block: clamp(3rem, 6vw, 5rem);
+}
+.pcs-section + .pcs-section { padding-block-start: 0; }
+
+.pcs-eyebrow {
+	font-size: var(--wp--preset--font-size--xs);
+	font-weight: 600;
+	letter-spacing: 0.18em;
+	text-transform: uppercase;
+	margin: 0 0 1rem;
+}
+
+.pcs-section__title {
+	font-family: var(--wp--preset--font-family--display);
+	font-size: clamp(2rem, 5vw, 3.5rem);
+	font-weight: 300;
+	line-height: 1.05;
+	letter-spacing: -0.02em;
+	margin: 0 0 1.25rem;
+}
+
+.pcs-section__lead {
+	font-size: var(--wp--preset--font-size--md);
+	line-height: 1.6;
+	margin: 0 0 1.5rem;
+	max-width: 60ch;
+}
+
+/* Hero front */
+.pcs-hero-front { padding-block: clamp(4rem, 8vw, 7rem); }
+.pcs-hero-front__title {
+	font-family: var(--wp--preset--font-family--display);
+	font-size: clamp(2.5rem, 8vw, 6rem);
+	font-weight: 300;
+	line-height: 0.95;
+	letter-spacing: -0.04em;
+	margin: 0 0 1.5rem;
+	hyphens: none;
+}
+.pcs-hero-front__title em {
+	font-style: italic;
+	font-weight: 300;
+}
+.pcs-hero-front__desc {
+	font-size: var(--wp--preset--font-size--md);
+	line-height: 1.55;
+	margin: 0 0 2rem;
+	max-width: 56ch;
+}
+
+/* Section Featured (article à la une) */
+.pcs-section--featured .pcs-featured img {
+	border-radius: var(--wp--custom--radius--sm);
+	aspect-ratio: 16 / 9;
+	object-fit: cover;
+}
+.pcs-featured__title {
+	font-family: var(--wp--preset--font-family--display);
+	font-size: clamp(1.5rem, 3vw, 2.5rem);
+	font-weight: 400;
+	line-height: 1.15;
+	letter-spacing: -0.015em;
+	margin: 0.75rem 0 1rem;
+}
+.pcs-featured__title a {
+	color: var(--wp--preset--color--foreground);
+	text-decoration: none;
+}
+.pcs-featured__title a:hover { color: var(--wp--preset--color--accent); }
+
+/* Newsletter — inversé sombre */
+.pcs-section--newsletter {
+	text-align: left;
+}
+.pcs-section--newsletter .pcs-eyebrow { color: var(--wp--preset--color--accent-secondary) !important; }
+.pcs-newsletter-form {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+	margin-top: 1rem;
+}
+.pcs-newsletter-form input[type="email"] {
+	flex: 1 1 240px;
+	padding: 0.95rem 1.25rem;
+	background: var(--wp--preset--color--background);
+	color: var(--wp--preset--color--foreground);
+	border: 1px solid var(--wp--preset--color--background);
+	border-radius: 0;
+	font-family: inherit;
+	font-size: var(--wp--preset--font-size--base);
+}
+.pcs-newsletter-form input[type="email"]:focus {
+	outline: 2px solid var(--wp--preset--color--accent-secondary);
+	outline-offset: 2px;
+}
+.pcs-newsletter-form button[type="submit"] {
+	padding: 0.95rem 1.75rem;
+	background: var(--wp--preset--color--accent-secondary);
+	color: var(--wp--preset--color--foreground);
+	border: 1px solid var(--wp--preset--color--accent-secondary);
+	font-family: inherit;
+	font-size: var(--wp--preset--font-size--xs);
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+	cursor: pointer;
+	transition: background var(--pcs-dur-fast) var(--pcs-ease), color var(--pcs-dur-fast) var(--pcs-ease);
+}
+.pcs-newsletter-form button[type="submit"]:hover {
+	background: var(--wp--preset--color--background);
+	color: var(--wp--preset--color--foreground);
+	border-color: var(--wp--preset--color--background);
+}
+.pcs-newsletter-form__legal {
+	flex-basis: 100%;
+	font-size: var(--wp--preset--font-size--xs);
+	color: color-mix(in srgb, var(--wp--preset--color--background) 70%, transparent);
+	margin: 0.75rem 0 0;
+}
+
+/* Manifesto (Pourquoi) */
+.pcs-manifesto__title {
+	font-family: var(--wp--preset--font-family--display);
+	font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+	font-style: italic;
+	font-weight: 300;
+	line-height: 1.3;
+	letter-spacing: -0.015em;
+	margin: 0 0 1.5rem;
+}
+.pcs-manifesto__text {
+	font-size: var(--wp--preset--font-size--md);
+	line-height: 1.75;
+	margin: 0 0 1.5rem;
+}
+.pcs-manifesto__sig {
+	font-size: var(--wp--preset--font-size--xs);
+	font-weight: 600;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	margin: 0;
+}
+
+/* ====================================================================
    Gutenberg content wrapper — gère wide/full alignments
    ==================================================================== */
 

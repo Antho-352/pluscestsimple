@@ -8,19 +8,19 @@
  * Keywords: hero, accueil, titre
  */
 ?>
-<!-- wp:group {"tagName":"section","className":"pcs-hero-front alignfull","metadata":{"name":"Hero accueil"},"templateLock":"contentOnly","layout":{"type":"constrained","contentSize":"1180px"}} -->
-<section class="wp-block-group alignfull pcs-hero-front">
+<!-- wp:group {"tagName":"section","align":"full","className":"pcs-section pcs-hero-front","metadata":{"name":"Hero accueil"},"templateLock":"contentOnly","layout":{"type":"constrained","contentSize":"1180px"}} -->
+<section class="wp-block-group alignfull pcs-section pcs-hero-front">
 
-	<!-- wp:paragraph {"className":"pcs-hero-front__eyebrow","style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.18em","fontSize":"0.75rem"}},"textColor":"accent"} -->
-	<p class="pcs-hero-front__eyebrow has-accent-color has-text-color" style="font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase">Le média maison · déco · travaux · immo</p>
+	<!-- wp:paragraph {"className":"pcs-eyebrow","textColor":"accent"} -->
+	<p class="pcs-eyebrow has-accent-color has-text-color">Le média maison · déco · travaux · immo</p>
 	<!-- /wp:paragraph -->
 
-	<!-- wp:heading {"level":1,"className":"pcs-hero-front__title","style":{"typography":{"fontSize":"clamp(2.5rem, 8vw, 6rem)","lineHeight":"0.95","letterSpacing":"-0.04em","fontWeight":"300"}}} -->
-	<h1 class="wp-block-heading pcs-hero-front__title" style="font-size:clamp(2.5rem, 8vw, 6rem);font-style:normal;font-weight:300;letter-spacing:-0.04em;line-height:0.95">Refaire sa maison <em>sans se tromper.</em></h1>
+	<!-- wp:heading {"level":1,"className":"pcs-hero-front__title"} -->
+	<h1 class="wp-block-heading pcs-hero-front__title">Refaire sa maison <em>sans se tromper.</em></h1>
 	<!-- /wp:heading -->
 
-	<!-- wp:paragraph {"className":"pcs-hero-front__desc","style":{"typography":{"fontSize":"1.125rem","lineHeight":"1.5"}}} -->
-	<p class="pcs-hero-front__desc" style="font-size:1.125rem;line-height:1.5">Conseils déco, guides travaux, repères immobiliers. On vous épargne le scroll : ce qui marche, ce qui rate, et pourquoi.</p>
+	<!-- wp:paragraph {"className":"pcs-hero-front__desc"} -->
+	<p class="pcs-hero-front__desc">Conseils déco, guides travaux, repères immobiliers. On vous épargne le scroll : ce qui marche, ce qui rate, et pourquoi.</p>
 	<!-- /wp:paragraph -->
 
 	<!-- wp:buttons {"layout":{"type":"flex","flexWrap":"wrap"}} -->

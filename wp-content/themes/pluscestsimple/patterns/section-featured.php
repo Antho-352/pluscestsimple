@@ -8,25 +8,25 @@
  * Keywords: article, une, mise en avant
  */
 ?>
-<!-- wp:group {"tagName":"section","className":"pcs-section pcs-section--featured","metadata":{"name":"Article à la une"},"templateLock":"contentOnly","layout":{"type":"constrained","contentSize":"1180px"},"style":{"spacing":{"padding":{"top":"var:preset|spacing|70","bottom":"var:preset|spacing|70"}}}} -->
-<section class="wp-block-group pcs-section pcs-section--featured" style="padding-top:var(--wp--preset--spacing--70);padding-bottom:var(--wp--preset--spacing--70)">
+<!-- wp:group {"tagName":"section","align":"full","className":"pcs-section pcs-section--featured","metadata":{"name":"Article à la une"},"templateLock":"contentOnly","layout":{"type":"constrained","contentSize":"1180px"}} -->
+<section class="wp-block-group alignfull pcs-section pcs-section--featured">
 
-	<!-- wp:paragraph {"className":"pcs-eyebrow","textColor":"accent","style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.18em","fontSize":"0.75rem","fontWeight":"600"}}} -->
-	<p class="pcs-eyebrow has-accent-color has-text-color" style="font-size:0.75rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase">À la une</p>
+	<!-- wp:paragraph {"className":"pcs-eyebrow","textColor":"accent"} -->
+	<p class="pcs-eyebrow has-accent-color has-text-color">À la une</p>
 	<!-- /wp:paragraph -->
 
-	<!-- wp:query {"queryId":1,"query":{"perPage":1,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"only","inherit":false},"namespace":"pcs/featured","lock":{"move":false,"remove":true}} -->
+	<!-- wp:query {"queryId":1,"query":{"perPage":1,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false},"namespace":"pcs/featured","lock":{"move":false,"remove":true}} -->
 	<div class="wp-block-query">
 		<!-- wp:post-template {"lock":{"move":true,"remove":true}} -->
 
-			<!-- wp:group {"className":"pcs-hero-featured__inner","layout":{"type":"default"},"style":{"spacing":{"blockGap":"var:preset|spacing|50"}}} -->
-			<div class="wp-block-group pcs-hero-featured__inner">
+			<!-- wp:group {"className":"pcs-featured","layout":{"type":"default"}} -->
+			<div class="wp-block-group pcs-featured">
 
-				<!-- wp:post-featured-image {"isLink":true,"aspectRatio":"16/9","style":{"border":{"radius":"4px"}}} /-->
+				<!-- wp:post-featured-image {"isLink":true,"aspectRatio":"16/9"} /-->
 
 				<!-- wp:post-terms {"term":"category","className":"pcs-card__eyebrow"} /-->
 
-				<!-- wp:post-title {"isLink":true,"level":3,"style":{"typography":{"fontSize":"clamp(1.5rem, 3vw, 2.5rem)","fontWeight":"400","lineHeight":"1.15"}}} /-->
+				<!-- wp:post-title {"isLink":true,"level":3,"className":"pcs-featured__title"} /-->
 
 				<!-- wp:post-excerpt {"moreText":"Lire la suite"} /-->
 
