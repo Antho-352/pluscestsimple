@@ -17,20 +17,27 @@ define( 'PCS_DIR', get_template_directory() );
 define( 'PCS_URI', get_template_directory_uri() );
 
 $pcs_modules = [
-	'theme-supports', // after_setup_theme, image sizes, custom-logo, etc.
-	'menus',          // register_nav_menus + fallback wp_nav_menu
-	'enqueue',        // CSS / JS front + editor
-	'branding',       // Logo SVG fallback, favicon, apple-touch-icon, manifest
-	'seo',            // Meta tags, OG, Twitter, canonical, robots
-	'schema',         // JSON-LD : Organization, WebSite, Article, BreadcrumbList
-	'breadcrumbs',    // pcs_breadcrumbs() utilisable dans templates
-	'security',       // Headers HTTP, anti-enum, security.txt
-	'performance',    // Preload fonts, defer, fetchpriority
-	'reading-time',   // pcs_reading_time() + shortcode
-	'form',           // CPT pcs_submission + REST endpoint /pcs/v1/submit
-	'cookie-consent', // Bandeau natif Consent Mode v2
+	'theme-supports',  // after_setup_theme, image sizes, custom-logo, etc.
+	'menus',           // register_nav_menus + fallback wp_nav_menu
+	'enqueue',         // CSS / JS front + editor
+	'cleanup',         // Bloat removal (emoji, embed, xmlrpc, jQuery front)
+	'image',           // Tailles supplémentaires + <picture> AVIF/WebP + alt fallback
+	'branding',        // Logo SVG fallback, favicon, apple-touch-icon, manifest
+	'seo',             // Meta tags, OG, Twitter, canonical, robots
+	'schema',          // JSON-LD : Organization, WebSite, Article, BreadcrumbList
+	'breadcrumbs',     // pcs_breadcrumbs() utilisable dans templates
+	'security',        // Headers HTTP, anti-enum, security.txt
+	'performance',     // Preload fonts, defer, fetchpriority
+	'robots',          // robots.txt custom + sitemap declaration
+	'reading-time',    // pcs_reading_time() + shortcode
+	'structured-data', // Meta boxes FAQ + HowTo (consommé par schema.php)
+	'affiliate',       // Auto rel="sponsored nofollow" + disclosure
+	'form',            // CPT arw_submission + REST endpoint /pcs/v1/submit
+	'cookie-consent',  // Bandeau natif Consent Mode v2
+	'legal-defaults',  // Page admin mentions légales + placeholders
+	'identity',        // Page admin Identité & Social + bindings filtres
 	'view-transitions', // Meta tag + JS minimal pour view transitions
-	'category-base',  // Retire /category/ de l'URL des catégories
+	'category-base',   // Retire /category/ de l'URL des catégories
 ];
 
 foreach ( $pcs_modules as $pcs_module ) {
