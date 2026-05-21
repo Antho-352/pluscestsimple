@@ -1,0 +1,66 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"title": "Urban (citymoto)",
+	"settings": {
+		"color": {
+			"palette": [
+				{ "slug": "foreground", "color": "#ffffff", "name": "Foreground" },
+				{ "slug": "background", "color": "#0a0a0a", "name": "Background" },
+				{ "slug": "surface", "color": "#161616", "name": "Surface" },
+				{ "slug": "muted", "color": "#8a8a8a", "name": "Muted" },
+				{ "slug": "border", "color": "#232323", "name": "Border" },
+				{ "slug": "accent", "color": "#ffd600", "name": "Accent" },
+				{ "slug": "accent-contrast", "color": "#0a0a0a", "name": "Accent Contrast" }
+			]
+		},
+		"typography": {
+			"fontFamilies": [
+				{
+					"slug": "body",
+					"name": "Body",
+					"fontFamily": "'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif",
+					"fontFace": [
+						{ "fontFamily": "Inter", "fontStyle": "normal", "fontWeight": "400 700", "src": [ "file:./assets/fonts/inter-var.woff2" ], "fontDisplay": "swap" }
+					]
+				},
+				{
+					"slug": "display",
+					"name": "Display",
+					"fontFamily": "'Space Grotesk', 'Inter', -apple-system, system-ui, sans-serif",
+					"fontFace": [
+						{ "fontFamily": "Space Grotesk", "fontStyle": "normal", "fontWeight": "500 700", "src": [ "file:./assets/fonts/space-grotesk-var.woff2" ], "fontDisplay": "swap" }
+					]
+				},
+				{
+					"slug": "mono",
+					"name": "Mono",
+					"fontFamily": "'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace"
+				}
+			]
+		}
+	},
+	"styles": {
+		"color": {
+			"background": "var(--wp--preset--color--background)",
+			"text": "var(--wp--preset--color--foreground)"
+		},
+		"elements": {
+			"button": {
+				"color": {
+					"background": "var(--wp--preset--color--accent)",
+					"text": "var(--wp--preset--color--accent-contrast)"
+				},
+				":hover": {
+					"color": {
+						"background": "var(--wp--preset--color--foreground)",
+						"text": "var(--wp--preset--color--background)"
+					}
+				}
+			},
+			"link": {
+				"color": { "text": "var(--wp--preset--color--accent)" }
+			}
+		}
+	}
+}

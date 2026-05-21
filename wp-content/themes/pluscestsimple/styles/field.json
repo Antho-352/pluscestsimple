@@ -1,0 +1,68 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"title": "Field (outdoor)",
+	"settings": {
+		"color": {
+			"palette": [
+				{ "slug": "foreground",        "color": "#1a1a1a", "name": "Foreground" },
+				{ "slug": "background",        "color": "#faf7f0", "name": "Background" },
+				{ "slug": "surface",           "color": "#f0ead9", "name": "Surface" },
+				{ "slug": "muted",             "color": "#6b7a6b", "name": "Muted" },
+				{ "slug": "border",            "color": "#d8ceb4", "name": "Border" },
+				{ "slug": "accent",            "color": "#2d5f3f", "name": "Accent" },
+				{ "slug": "accent-secondary",  "color": "#c4512e", "name": "Accent Secondary" },
+				{ "slug": "accent-contrast",   "color": "#faf7f0", "name": "Accent Contrast" }
+			]
+		},
+		"typography": {
+			"fontFamilies": [
+				{
+					"slug": "body",
+					"name": "Body",
+					"fontFamily": "'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif",
+					"fontFace": [
+						{ "fontFamily": "Inter", "fontStyle": "normal", "fontWeight": "400 700", "src": [ "file:./assets/fonts/inter-var.woff2" ], "fontDisplay": "swap" }
+					]
+				},
+				{
+					"slug": "display",
+					"name": "Display",
+					"fontFamily": "'Fraunces', Georgia, 'Times New Roman', serif",
+					"fontFace": [
+						{ "fontFamily": "Fraunces", "fontStyle": "normal", "fontWeight": "300 900", "src": [ "file:./assets/fonts/fraunces-var.woff2" ], "fontDisplay": "swap" },
+						{ "fontFamily": "Fraunces", "fontStyle": "italic", "fontWeight": "300 900", "src": [ "file:./assets/fonts/fraunces-var-italic.woff2" ], "fontDisplay": "swap" }
+					]
+				},
+				{
+					"slug": "mono",
+					"name": "Mono",
+					"fontFamily": "'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace"
+				}
+			]
+		}
+	},
+	"styles": {
+		"color": {
+			"background": "var(--wp--preset--color--background)",
+			"text": "var(--wp--preset--color--foreground)"
+		},
+		"elements": {
+			"button": {
+				"color": {
+					"background": "var(--wp--preset--color--accent)",
+					"text": "var(--wp--preset--color--accent-contrast)"
+				},
+				":hover": {
+					"color": {
+						"background": "var(--wp--preset--color--foreground)",
+						"text": "var(--wp--preset--color--background)"
+					}
+				}
+			},
+			"link": {
+				"color": { "text": "var(--wp--preset--color--accent)" }
+			}
+		}
+	}
+}

@@ -1,0 +1,25 @@
+<!-- wp:group {"className":"arw-related","style":{"spacing":{"margin":{"top":"4rem"},"padding":{"top":"3rem"}},"border":{"top":{"color":"var:preset|color|border","width":"1px"}}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group arw-related" style="border-top:1px solid var(--wp--preset--color--border);margin-top:4rem;padding-top:3rem">
+
+	<!-- wp:heading {"level":2,"style":{"typography":{"fontSize":"var:preset|font-size|xl"}}} -->
+	<h2 class="wp-block-heading" style="font-size:var(--wp--preset--font-size--xl)">À lire ensuite</h2>
+	<!-- /wp:heading -->
+
+	<!-- wp:query {"queryId":0,"query":{"perPage":3,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false,"taxQuery":null},"align":"wide"} -->
+	<div class="wp-block-query alignwide">
+		<!-- wp:post-template {"layout":{"type":"grid","columnCount":3}} -->
+
+			<!-- wp:group {"className":"arw-card","layout":{"type":"default"}} -->
+			<div class="wp-block-group arw-card">
+				<!-- wp:post-featured-image {"isLink":true,"aspectRatio":"16/9","style":{"border":{"radius":"var:custom|radius|md"}}} /-->
+				<!-- wp:post-terms {"term":"category","className":"arw-card__eyebrow"} /-->
+				<!-- wp:post-title {"isLink":true,"className":"arw-card__title","style":{"typography":{"fontSize":"var:preset|font-size|lg"}}} /-->
+			</div>
+			<!-- /wp:group -->
+
+		<!-- /wp:post-template -->
+	</div>
+	<!-- /wp:query -->
+
+</div>
+<!-- /wp:group -->

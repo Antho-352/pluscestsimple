@@ -1,0 +1,24 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Éditeurs
+*.swp
+*.swo
+.idea/
+.vscode/
+.cursor/
+
+# WordPress — fichiers locaux / sensibles
+wp-config.php
+*.log
+
+# Build artifacts
+*.zip
+node_modules/
+vendor/
+dist/
+
+# Sauvegardes
+*.bak
+*.orig
