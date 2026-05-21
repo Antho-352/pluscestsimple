@@ -256,23 +256,50 @@ function pcs_init_content(): void {
 }
 
 /**
- * Supprime toutes les pages auto-seedées (meta _pcs_seeded='1') pour permettre
- * une recréation propre via pcs_init_content(). Préserve les pages éditées
- * manuellement (qui n'ont pas le meta) ou ajoutées par l'utilisateur.
+ * Supprime toutes les pages seedées pour permettre une recréation propre.
+ * Match par DEUX critères (OR) :
+ *   1. meta `_pcs_seeded='1'` (pages créées en v2.1.1+)
+ *   2. slug correspondant à un slug seedé connu (pages créées en v2.1.0
+ *      ou v2.1.1 avant l'ajout du meta — sinon le reset ne voit rien)
+ *
+ * ⚠️ Si l'utilisateur a édité ces pages (intro perso, sections ajoutées),
+ * les modifs sont perdues. C'est le tradeoff pour récupérer les nouveaux
+ * patterns du thème dans les pages.
  */
 function pcs_reset_seeded_pages(): int {
-	$posts = get_posts( [
+	// Liste des slugs gérés par le seed.
+	$seeded_slugs = array_keys( pcs_content_structure() );
+	$seeded_slugs = array_merge( $seeded_slugs, array_keys( pcs_content_utility_pages() ) );
+
+	$ids = [];
+
+	// Critère 1 : pages avec meta _pcs_seeded=1
+	$by_meta = get_posts( [
 		'post_type'      => 'page',
 		'post_status'    => 'any',
 		'posts_per_page' => -1,
 		'meta_key'       => '_pcs_seeded',
 		'meta_value'     => '1',
 		'fields'         => 'ids',
+		'no_found_rows'  => true,
 	] );
+	$ids = array_merge( $ids, $by_meta );
+
+	// Critère 2 : pages dont le slug correspond à un slug seedé connu
+	foreach ( $seeded_slugs as $slug ) {
+		$page = get_page_by_path( $slug, OBJECT, 'page' );
+		if ( $page instanceof WP_Post ) {
+			$ids[] = $page->ID;
+		}
+	}
+
+	$ids   = array_unique( array_map( 'intval', $ids ) );
 	$count = 0;
-	foreach ( $posts as $post_id ) {
-		wp_delete_post( $post_id, true );
-		++$count;
+	foreach ( $ids as $id ) {
+		if ( $id > 0 ) {
+			wp_delete_post( $id, true );
+			++$count;
+		}
 	}
 	return $count;
 }

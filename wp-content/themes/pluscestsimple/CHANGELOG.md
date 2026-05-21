@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.1.3] — 2026-05-21
+
+### Fixes retours user (debug)
+- **« Reset des pages seedées » disait "0 page supprimée"** : cause = les pages créées en v2.1.0/v2.1.1 n'ont pas le meta `_pcs_seeded=1` (ajouté seulement après). Fix : matcher aussi par slug (pas que par meta). `pcs_reset_seeded_pages()` regarde maintenant les 11 slugs seedés connus en plus du meta. Les pages de l'historique seront enfin supprimées-recréées
+- **Query Loop inaccessible dans « À la une » et « Sélection de la semaine »** : cause = `templateLock: contentOnly` sur le wrapper `<section>` du pattern → Gutenberg considère le pattern comme une « Composition » fermée non-éditable. L'utilisateur voyait « Modifier la composition » au lieu de pouvoir cliquer sur le bloc Query Loop. Fix : retrait du `templateLock` sur le wrapper de `section-featured` et `section-weekly`. Le `lock` reste sur le post-template interne (structure de carte intacte) mais le Query Loop devient directement sélectionnable
+
 ## [2.1.2] — 2026-05-21
 
 ### Fix critique — pages catégories réellement vides

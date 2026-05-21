@@ -8,7 +8,7 @@
  * Keywords: article, une, mise en avant
  */
 ?>
-<!-- wp:group {"tagName":"section","align":"full","className":"pcs-section pcs-section--featured","metadata":{"name":"Article à la une"},"templateLock":"contentOnly","layout":{"type":"constrained","contentSize":"1180px"}} -->
+<!-- wp:group {"tagName":"section","align":"full","className":"pcs-section pcs-section--featured","layout":{"type":"constrained","contentSize":"1180px"}} -->
 <section class="wp-block-group alignfull pcs-section pcs-section--featured">
 
 	<!-- wp:paragraph {"className":"pcs-eyebrow","textColor":"accent"} -->

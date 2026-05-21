@@ -8,7 +8,7 @@
  * Keywords: articles, semaine, grille, liste
  */
 ?>
-<!-- wp:group {"tagName":"section","align":"full","className":"pcs-section pcs-section--weekly","metadata":{"name":"Sélection de la semaine"},"templateLock":"contentOnly","layout":{"type":"constrained","contentSize":"1180px"}} -->
+<!-- wp:group {"tagName":"section","align":"full","className":"pcs-section pcs-section--weekly","layout":{"type":"constrained","contentSize":"1180px"}} -->
 <section class="wp-block-group alignfull pcs-section pcs-section--weekly">
 
 	<!-- wp:paragraph {"className":"pcs-eyebrow","textColor":"accent"} -->
