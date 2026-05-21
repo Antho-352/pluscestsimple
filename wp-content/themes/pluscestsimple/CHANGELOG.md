@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.1.4] — 2026-05-21
+
+### Fix critique — bannière de la home affichée sur toutes les pages catégories
+- **Cause** : le pattern `banner-slot` (générique) contenait `[pcs_banner slot="homepage-mid"]` codé en dur. Le pattern `category-rich` l'utilisait → toutes les pages pilier affichaient la bannière du slot homepage-mid (au lieu de slots dédiés)
+- **Fix** : éclatement en 4 patterns dédiés, un par slot :
+  - `pluscestsimple/banner-slot` (default = `in-article`)
+  - `pluscestsimple/banner-slot-homepage` (= `homepage-mid`)
+  - `pluscestsimple/banner-slot-category-intro` (= `category-intro`)
+  - `pluscestsimple/banner-slot-category-mid` (= `category-mid`)
+- Le pattern `category-rich` utilise désormais `category-intro` (après l'intro) et `category-mid` (au milieu) — le slot `homepage-mid` n'apparaît plus que sur la home
+- Retrait du `templateLock: contentOnly` sur le wrapper du banner-slot (l'utilisateur peut éditer le shortcode pour basculer manuellement vers un autre slot si besoin)
+
 ## [2.1.3] — 2026-05-21
 
 ### Fixes retours user (debug)

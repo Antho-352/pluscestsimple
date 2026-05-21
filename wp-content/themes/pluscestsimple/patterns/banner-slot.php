@@ -1,18 +1,18 @@
 <?php
 /**
- * Title: Bannière — emplacement
+ * Title: Bannière — In-article (générique)
  * Slug: pluscestsimple/banner-slot
  * Categories: pcs-section
- * Description: Emplacement pour une bannière (requiert le plugin Bannières). Choisir le slot via le shortcode.
+ * Description: Bannière du slot "in-article" (à insérer dans le corps d'un article). Requiert le plugin Bannières.
  * Inserter: yes
- * Keywords: banner, bannière, sponsor, slot
+ * Keywords: banner, bannière, article
  */
 ?>
-<!-- wp:group {"align":"wide","className":"pcs-banner-wrap","metadata":{"name":"Bannière"},"templateLock":"contentOnly","layout":{"type":"constrained"}} -->
+<!-- wp:group {"align":"wide","className":"pcs-banner-wrap","layout":{"type":"constrained"}} -->
 <div class="wp-block-group alignwide pcs-banner-wrap">
 
 	<!-- wp:shortcode -->
-	[pcs_banner slot="homepage-mid"]
+	[pcs_banner slot="in-article"]
 	<!-- /wp:shortcode -->
 
 </div>
