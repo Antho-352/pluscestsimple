@@ -39,6 +39,8 @@ $pcs_modules = [
 	'patterns',        // Catégories de patterns (les patterns sont dans /patterns/)
 	'view-transitions', // Meta tag + JS minimal pour view transitions
 	'category-base',   // Retire /category/ de l'URL des catégories
+	'init-content',    // Auto-création des catégories + pages structurelles (idempotent)
+	'lead-resources',  // CPT pcs_lead_resource + mécanique token signé pour PDF lead-magnet
 ];
 
 foreach ( $pcs_modules as $pcs_module ) {

@@ -29,7 +29,10 @@
 		<input type="email" id="pcs-newsletter-email" name="email" required autocomplete="email" placeholder="vous@exemple.com">
 		<input type="text" name="hp" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
 		<button type="submit">Recevoir le guide</button>
-		<p class="pcs-newsletter-form__legal">En vous inscrivant, vous acceptez de recevoir nos emails. Désabonnement en un clic. Aucune revente.</p>
+		<label class="pcs-newsletter-form__consent">
+			<input type="checkbox" name="consent" value="1" required>
+			<span>J'accepte de recevoir le guide PDF et la lettre mensuelle de Plus c'est simple. Désabonnement en 1 clic. Aucune revente — <a href="/mentions-legales/">en savoir plus</a>.</span>
+		</label>
 	</form>
 	<!-- /wp:html -->
 

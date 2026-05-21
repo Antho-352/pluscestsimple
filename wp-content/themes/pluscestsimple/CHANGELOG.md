@@ -1,5 +1,38 @@
 # Changelog
 
+## [2.1.0] — 2026-05-21
+
+### Phase 2.5 — Arborescence éditoriale
+- `inc/init-content.php` : module idempotent qui crée automatiquement les 6 catégories pilier (Décoration, Travaux, Jardin, Architecture, Immobilier, Lifestyle) + leurs 22 sous-catégories + les pages WP correspondantes (Accueil, Le carnet, Outils, Annuaire, Travailler avec nous, et une page par pilier). Respect strict de la stratégie D1 (slug catégorie `-cat` suffixé, slug page nu)
+- Page admin `Outils → PCS Init content` : aperçu de la structure cible + bouton de re-seed
+
+### Phase 3 — Patterns éditoriaux (9 nouveaux)
+- `pluscestsimple/block-faq` : FAQ accordéon natif (`core/details`), 3 questions par défaut
+- `pluscestsimple/banner-slot` : emplacement bannière (intègre le plugin Bannières via shortcode `[pcs_banner slot="..."]`)
+- `pluscestsimple/before-after` : format signature anti-IA (2 colonnes images + texte structuré + facts list)
+- `pluscestsimple/directory-teaser` : encart pleine largeur pointant vers l'annuaire
+- `pluscestsimple/pillar-card` : carte d'entrée vers une catégorie
+- `pluscestsimple/section-pillars` : grille des 6 cartes pilier (pour la home)
+- `pluscestsimple/section-editorial` : section éditoriale standard (titre + lead + liste de liens articles + "tout voir")
+- `pluscestsimple/newsletter-capture` : variante compacte du formulaire newsletter (inline article)
+- `pluscestsimple/category-rich` : template complet d'une page catégorie (intro + bannière + 3 sections éditoriales + Query Loop + FAQ + maillage)
+- `pluscestsimple/page-travailler` : page « Travailler avec nous » avec 3 cartes d'offres + formulaire de brief + email direct
+- `pluscestsimple/article-pilier-tendances` : structure d'un article pilier annuel avec CTA de téléchargement du PDF
+
+### Phase 5 — Newsletter RGPD
+- Checkbox de consentement explicite (required) ajoutée à `section-newsletter` et `newsletter-capture`
+- Lien vers Mentions légales dans le label de consentement
+- CSS dédié `.pcs-newsletter-form__consent` (clear contrast sur fond sombre + clair)
+
+### Phase 6 — Lead Resources (mécanique générique PDF par email)
+- `inc/lead-resources.php` : CPT `pcs_lead_resource` accessible via Outils → Ressources. Champs : titre, fichier PDF (uploadé manuellement dans `wp-content/uploads/pcs-resources/private/`), form_type associé, sujet email, corps email (HTML avec placeholder `{LINK}`)
+- Hook `pcs_form_submitted` : si une ressource matche le form_type soumis, génère un token signé (24h TTL) et envoie l'email avec le lien de téléchargement
+- REST endpoint `/wp-json/pcs/v1/lead-download?t=TOKEN` : stream le PDF privé (vérification token + TTL)
+- Dossier privé créé automatiquement à la 1ère init avec `.htaccess deny` (anti-accès direct)
+
+### CSS
+- +~200 lignes : `.pcs-section--faq` (accordéon), `.pcs-banner-wrap`, `.pcs-before-after`, `.pcs-pillar-card`, `.pcs-link-list`, `.pcs-section__more`, `.pcs-offers`, `.pcs-contact-form`, `.pcs-newsletter-form__consent`, `.pcs-newsletter-inline`
+
 ## [2.0.2] — 2026-05-21
 
 ### Fixes patterns

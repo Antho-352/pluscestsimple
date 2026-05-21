@@ -1,0 +1,18 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "pcs/banner-slot",
+	"title": "Emplacement bannière",
+	"category": "design",
+	"icon": "megaphone",
+	"description": "Affiche la bannière active du slot sélectionné.",
+	"keywords": ["banner", "publicité", "sponsor"],
+	"textdomain": "pluscestsimple",
+	"attributes": {
+		"slot": { "type": "string", "default": "homepage-mid" }
+	},
+	"supports": {
+		"html": false,
+		"align": ["wide", "full"]
+	}
+}

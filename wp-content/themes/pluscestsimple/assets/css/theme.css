@@ -481,6 +481,299 @@ a:hover { color: var(--wp--preset--color--accent-secondary); text-decoration: no
 }
 
 /* ====================================================================
+   Patterns supplémentaires (Phase 3)
+   ==================================================================== */
+
+/* FAQ accordéon (utilise core/details) */
+.pcs-section--faq .wp-block-details {
+	border: 1px solid var(--wp--preset--color--border);
+	border-radius: var(--wp--custom--radius--sm);
+	padding: 1rem 1.25rem;
+	margin-block: 0.5rem;
+}
+.pcs-section--faq .wp-block-details summary {
+	font-family: var(--wp--preset--font-family--display);
+	font-weight: 400;
+	font-size: var(--wp--preset--font-size--md);
+	cursor: pointer;
+	padding-right: 1.5rem;
+	position: relative;
+	letter-spacing: -0.01em;
+	color: var(--wp--preset--color--foreground);
+}
+.pcs-section--faq .wp-block-details summary::-webkit-details-marker { display: none; }
+.pcs-section--faq .wp-block-details summary::after {
+	content: "+";
+	position: absolute;
+	right: 0;
+	top: 50%;
+	transform: translateY(-50%);
+	color: var(--wp--preset--color--accent);
+	font-size: 1.5em;
+	line-height: 1;
+}
+.pcs-section--faq .wp-block-details[open] summary::after { content: "−"; }
+.pcs-section--faq .wp-block-details[open] {
+	background: color-mix(in srgb, var(--wp--preset--color--surface) 60%, transparent);
+}
+.pcs-section--faq .wp-block-details p {
+	margin-top: 0.75rem;
+	color: var(--wp--preset--color--muted);
+}
+
+/* Bannière wrap */
+.pcs-banner-wrap {
+	margin-block: 2rem;
+	text-align: center;
+}
+.pcs-banner {
+	display: inline-block;
+	position: relative;
+	max-width: 100%;
+}
+.pcs-banner__label {
+	display: block;
+	font-size: var(--wp--preset--font-size--xs);
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.12em;
+	color: var(--wp--preset--color--muted);
+	margin-bottom: 0.5rem;
+}
+.pcs-banner__img {
+	display: block;
+	max-width: 100%;
+	height: auto;
+	border-radius: var(--wp--custom--radius--sm);
+}
+.pcs-banner__link { display: inline-block; }
+
+/* Before / After */
+.pcs-before-after {
+	background: var(--wp--preset--color--surface);
+	padding: clamp(1.5rem, 3vw, 2.5rem);
+	border-radius: var(--wp--custom--radius--md);
+}
+.pcs-before-after__grid img {
+	aspect-ratio: 4 / 3;
+	object-fit: cover;
+	width: 100%;
+	border-radius: var(--wp--custom--radius--sm);
+}
+.pcs-before-after__facts {
+	list-style: none;
+	padding: 0;
+	margin-top: 1rem;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+	gap: 0.5rem 1.5rem;
+	font-size: var(--wp--preset--font-size--sm);
+	color: var(--wp--preset--color--muted);
+}
+
+/* Directory teaser (background accent) */
+.pcs-section--directory .pcs-eyebrow { color: var(--wp--preset--color--accent-secondary) !important; }
+
+/* Pillar cards (carte d'entrée catégorie) */
+.pcs-pillars-grid {
+	gap: clamp(1rem, 2vw, 1.5rem);
+}
+.pcs-pillar-card {
+	padding: clamp(1.25rem, 2.5vw, 2rem);
+	background: var(--wp--preset--color--surface);
+	border-radius: var(--wp--custom--radius--md);
+	transition: transform var(--pcs-dur-fast) var(--pcs-ease), background var(--pcs-dur-fast) var(--pcs-ease);
+}
+.pcs-pillar-card:hover {
+	transform: translateY(-2px);
+	background: color-mix(in srgb, var(--wp--preset--color--accent) 8%, var(--wp--preset--color--background));
+}
+.pcs-pillar-card__title {
+	font-family: var(--wp--preset--font-family--display);
+	font-size: var(--wp--preset--font-size--xl);
+	font-weight: 400;
+	margin: 0 0 0.5rem;
+	letter-spacing: -0.015em;
+}
+.pcs-pillar-card__title a {
+	color: var(--wp--preset--color--foreground);
+	text-decoration: none;
+}
+.pcs-pillar-card__title a:hover { color: var(--wp--preset--color--accent); }
+.pcs-pillar-card__desc {
+	color: var(--wp--preset--color--muted);
+	font-size: var(--wp--preset--font-size--sm);
+	margin: 0 0 0.75rem;
+}
+.pcs-pillar-card__cta a {
+	color: var(--wp--preset--color--accent);
+	font-weight: 600;
+	font-size: var(--wp--preset--font-size--sm);
+	text-decoration: none;
+}
+
+/* Section éditoriale (liste de liens articles) */
+.pcs-link-list {
+	list-style: none;
+	padding: 0;
+	margin: 1rem 0;
+}
+.pcs-link-list li {
+	padding-block: 0.5rem;
+	border-bottom: 1px solid var(--wp--preset--color--border);
+}
+.pcs-link-list a {
+	color: var(--wp--preset--color--foreground);
+	text-decoration: none;
+	display: inline-block;
+}
+.pcs-link-list a:hover {
+	color: var(--wp--preset--color--accent);
+	text-decoration: underline;
+}
+.pcs-section__more {
+	margin-top: 1rem;
+}
+.pcs-section__more a {
+	color: var(--wp--preset--color--accent);
+	font-weight: 600;
+	text-decoration: none;
+	font-size: var(--wp--preset--font-size--sm);
+}
+
+/* Consentement RGPD checkbox newsletter */
+.pcs-newsletter-form__consent {
+	flex-basis: 100%;
+	display: flex;
+	align-items: flex-start;
+	gap: 0.5rem;
+	font-size: var(--wp--preset--font-size--xs);
+	margin-top: 0.75rem;
+	cursor: pointer;
+	line-height: 1.4;
+	color: color-mix(in srgb, var(--wp--preset--color--background) 80%, transparent);
+}
+.pcs-newsletter-form__consent input[type="checkbox"] {
+	margin-top: 0.15em;
+	accent-color: var(--wp--preset--color--accent-secondary);
+	flex-shrink: 0;
+}
+.pcs-newsletter-form__consent a {
+	color: inherit;
+	text-decoration: underline;
+}
+
+/* Newsletter inline (variante non-pleine-largeur) */
+.pcs-newsletter-inline {
+	background: var(--wp--preset--color--surface);
+	padding: clamp(1.5rem, 3vw, 2rem);
+	border-radius: var(--wp--custom--radius--md);
+	margin-block: clamp(2rem, 4vw, 3rem);
+}
+.pcs-newsletter-inline__title {
+	font-family: var(--wp--preset--font-family--display);
+	font-size: var(--wp--preset--font-size--xl);
+	font-weight: 400;
+	margin: 0 0 0.5rem;
+	letter-spacing: -0.015em;
+}
+.pcs-newsletter-form--inline { gap: 0.5rem; }
+.pcs-newsletter-form--inline input[type="email"] {
+	background: var(--wp--preset--color--background);
+	color: var(--wp--preset--color--foreground);
+	border: 1px solid var(--wp--preset--color--border);
+}
+.pcs-newsletter-form--inline button[type="submit"] {
+	background: var(--wp--preset--color--accent);
+	color: var(--wp--preset--color--accent-contrast);
+	border-color: var(--wp--preset--color--accent);
+}
+.pcs-newsletter-form--inline button[type="submit"]:hover {
+	background: var(--wp--preset--color--accent-secondary);
+	border-color: var(--wp--preset--color--accent-secondary);
+	color: var(--wp--preset--color--foreground);
+}
+.pcs-newsletter-form--inline .pcs-newsletter-form__consent {
+	color: var(--wp--preset--color--muted);
+}
+
+/* Page Travailler */
+.pcs-offers { gap: clamp(1rem, 2vw, 1.5rem); margin-block: 2rem; }
+.pcs-offer-card {
+	padding: 1.5rem;
+	background: var(--wp--preset--color--surface);
+	border-radius: var(--wp--custom--radius--md);
+}
+.pcs-offer-card h3 {
+	font-family: var(--wp--preset--font-family--display);
+	font-size: var(--wp--preset--font-size--lg);
+	font-weight: 400;
+	margin: 0 0 0.75rem;
+}
+.pcs-contact-form {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	max-width: 560px;
+	margin-block: 1.5rem;
+}
+.pcs-contact-form label {
+	font-size: var(--wp--preset--font-size--sm);
+	font-weight: 600;
+	margin-top: 0.75rem;
+}
+.pcs-contact-form input,
+.pcs-contact-form textarea {
+	padding: 0.75rem 1rem;
+	border: 1px solid var(--wp--preset--color--border);
+	border-radius: var(--wp--custom--radius--sm);
+	font-family: inherit;
+	font-size: var(--wp--preset--font-size--base);
+	background: var(--wp--preset--color--background);
+	color: var(--wp--preset--color--foreground);
+}
+.pcs-contact-form button[type="submit"] {
+	margin-top: 1.5rem;
+	padding: 0.95rem 1.75rem;
+	background: var(--wp--preset--color--accent);
+	color: var(--wp--preset--color--accent-contrast);
+	border: 1px solid var(--wp--preset--color--accent);
+	font-family: inherit;
+	font-size: var(--wp--preset--font-size--xs);
+	font-weight: 500;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+	cursor: pointer;
+}
+.pcs-contact-form button[type="submit"]:hover {
+	background: var(--wp--preset--color--accent-secondary);
+	border-color: var(--wp--preset--color--accent-secondary);
+}
+.pcs-form__legal,
+.pcs-newsletter-form__legal {
+	font-size: var(--wp--preset--font-size--xs);
+	color: var(--wp--preset--color--muted);
+	margin-top: 0.5rem;
+}
+.pcs-page-travailler__email {
+	margin-top: 1.5rem;
+	padding: 1rem;
+	background: var(--wp--preset--color--surface);
+	border-radius: var(--wp--custom--radius--sm);
+}
+
+/* Category page (template category-rich) */
+.pcs-section--cat-loop {
+	margin-block: clamp(2rem, 4vw, 3rem);
+}
+.pcs-section--maillage {
+	background: var(--wp--preset--color--surface);
+	padding: clamp(2rem, 4vw, 3rem);
+	border-radius: var(--wp--custom--radius--md);
+	margin-top: clamp(2rem, 4vw, 3rem);
+}
+
+/* ====================================================================
    Sections de page d'accueil & patterns (.pcs-section)
    ==================================================================== */
 

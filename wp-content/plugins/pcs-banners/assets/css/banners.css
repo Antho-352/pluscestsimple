@@ -1,0 +1,73 @@
+/**
+ * pcs-banners — styles front
+ * Convention BEM-light : .pcs-banner / .pcs-banner__label / .pcs-banner__img / .pcs-banner__link
+ * Modificateurs : .pcs-banner--display, .pcs-banner--sponsored, .pcs-banner--affilie, .pcs-banner--slot-*
+ */
+
+.pcs-banner {
+	display: block;
+	margin: 1.5rem auto;
+	max-width: 100%;
+	text-align: center;
+	font-family: inherit;
+}
+
+.pcs-banner__label {
+	display: inline-block;
+	margin: 0 0 0.5rem 0;
+	padding: 0.15rem 0.6rem;
+	font-size: 0.7rem;
+	font-weight: 600;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	color: #555;
+	background: #f3f3f3;
+	border-radius: 3px;
+	line-height: 1.4;
+}
+
+.pcs-banner__link {
+	display: inline-block;
+	line-height: 0;
+	text-decoration: none;
+	transition: opacity 0.15s ease-in-out;
+}
+
+.pcs-banner__link:hover,
+.pcs-banner__link:focus-visible {
+	opacity: 0.92;
+}
+
+.pcs-banner__img {
+	display: inline-block;
+	max-width: 100%;
+	height: auto;
+	border: 0;
+	border-radius: 4px;
+}
+
+/* Variantes par type — couleurs d'étiquette discrètes pour cohérence éditoriale */
+
+.pcs-banner--sponsored .pcs-banner__label {
+	color: #8a5400;
+	background: #fff3e0;
+}
+
+.pcs-banner--affilie .pcs-banner__label {
+	color: #1f5b2c;
+	background: #e8f5e9;
+}
+
+/* Slots full-width pour les billboards (970x250) */
+
+.pcs-banner--slot-homepage-mid,
+.pcs-banner--slot-category-intro {
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+}
+
+/* Slot in-article : marge réduite, intégration in-text */
+
+.pcs-banner--slot-in-article {
+	margin: 1rem auto;
+}
