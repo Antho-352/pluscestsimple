@@ -3,7 +3,7 @@
  * Title: Section — Article à la une (1 article)
  * Slug: pluscestsimple/section-featured
  * Categories: pcs-section
- * Description: Met en avant le dernier article publié (Query Loop verrouillé, 1 résultat).
+ * Description: Met en avant un article. Par défaut : le plus récent. Pour épingler un article spécifique : Articles → cocher « Épingler cet article ». Pour changer le nombre, cliquer sur le bloc Query → Inspector → "Articles par page".
  * Inserter: yes
  * Keywords: article, une, mise en avant
  */
@@ -15,7 +15,7 @@
 	<p class="pcs-eyebrow has-accent-color has-text-color">À la une</p>
 	<!-- /wp:paragraph -->
 
-	<!-- wp:query {"queryId":1,"query":{"perPage":1,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false},"namespace":"pcs/featured","lock":{"move":false,"remove":true}} -->
+	<!-- wp:query {"queryId":1,"query":{"perPage":1,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"first","inherit":false},"namespace":"pcs/featured"} -->
 	<div class="wp-block-query">
 		<!-- wp:post-template {"lock":{"move":true,"remove":true}} -->
 

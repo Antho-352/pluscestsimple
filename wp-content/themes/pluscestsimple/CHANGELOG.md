@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.1.1] — 2026-05-21
+
+### Fixes (retours premier déploiement v2.1.0)
+- **Fil d'Ariane sur 2 lignes** : ajout de `display:flex` sur le `<ol>` interne de `pcs_breadcrumbs()` (le wrapper `<nav>` était déjà flex mais pas la liste). Les crumbs s'alignent maintenant sur une seule ligne avec wrap auto si overflow
+- **Section « Pourquoi Plus c'est simple » visuellement perdue** : ajout de `backgroundColor: surface` pour différencier visuellement la section éditoriale comme un encart
+- **Section « À la une » non-configurable** : retrait du `lock` sur le bloc Query. L'utilisateur peut désormais éditer perPage, sticky, taxQuery directement dans l'Inspector. Seul le post-template reste verrouillé (structure de carte intacte). `sticky: "first"` par défaut : si un article est épinglé dans Articles → Éditer → « Épingler cet article », il prend la place du featured ; sinon c'est le plus récent
+- **Page « Travailler avec nous » double titre** : init-content assigne désormais `tpl-wide` à cette page (sans header automatique). Le H1 du pattern devient l'unique
+- **Page « Annuaire » placeholder vide** : init-content y insère le shortcode `[pcs_directory limit="12"]` + tpl-wide
+- **Pages catégories pilier placeholder vide** : init-content y insère désormais le pattern `pluscestsimple/category-rich` au lieu d'un simple `<p>` (l'utilisateur a directement la structure éditable avec Query Loop). L'intro éditoriale passe en `post_excerpt` pour rester accessible
+- **Bouton « Reset des pages seedées »** ajouté à la page admin `Outils → PCS Init content` : supprime les pages avec meta `_pcs_seeded=1` et les recrée avec le contenu standard du thème (patterns à jour). Les pages éditées manuellement ou ajoutées par l'utilisateur sont préservées
+
 ## [2.1.0] — 2026-05-21
 
 ### Phase 2.5 — Arborescence éditoriale

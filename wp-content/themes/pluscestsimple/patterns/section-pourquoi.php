@@ -8,8 +8,8 @@
  * Keywords: manifeste, pourquoi, edito
  */
 ?>
-<!-- wp:group {"tagName":"section","align":"full","className":"pcs-section pcs-section--manifesto","metadata":{"name":"Pourquoi Plus c'est simple"},"templateLock":"contentOnly","layout":{"type":"constrained","contentSize":"760px"}} -->
-<section class="wp-block-group alignfull pcs-section pcs-section--manifesto">
+<!-- wp:group {"tagName":"section","align":"full","className":"pcs-section pcs-section--manifesto","metadata":{"name":"Pourquoi Plus c'est simple"},"templateLock":"contentOnly","backgroundColor":"surface","layout":{"type":"constrained","contentSize":"760px"}} -->
+<section class="wp-block-group alignfull pcs-section pcs-section--manifesto has-surface-background-color has-background">
 
 	<!-- wp:paragraph {"className":"pcs-eyebrow","textColor":"accent"} -->
 	<p class="pcs-eyebrow has-accent-color has-text-color">Manifeste</p>

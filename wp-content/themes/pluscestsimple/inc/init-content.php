@@ -108,12 +108,12 @@ function pcs_content_utility_pages(): array {
 		],
 		'annuaire' => [
 			'title'    => 'Annuaire',
-			'template' => '',
-			'content'  => '<!-- wp:paragraph --><p>L\'annuaire national des magasins déco / maison. Filtres par type et par région.</p><!-- /wp:paragraph -->',
+			'template' => 'page-templates/tpl-wide.php',
+			'content'  => "<!-- wp:heading {\"level\":1} --><h1 class=\"wp-block-heading\">Annuaire des magasins déco / maison</h1><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>L'annuaire national, filtrable par type et région. Données officielles (Sirene), géocodées, mises à jour.</p><!-- /wp:paragraph -->\n\n<!-- wp:shortcode -->[pcs_directory limit=\"12\"]<!-- /wp:shortcode -->",
 		],
 		'travailler-avec-nous' => [
 			'title'    => 'Travailler avec nous',
-			'template' => '',
+			'template' => 'page-templates/tpl-wide.php',
 			'content'  => "<!-- wp:pattern {\"slug\":\"pluscestsimple/page-travailler\"} /-->",
 		],
 	];
@@ -164,22 +164,23 @@ function pcs_init_content(): void {
 			] );
 		}
 
-		// 3. Page pilier (slug nu)
+		// 3. Page pilier (slug nu) avec pattern category-rich pré-rempli
 		$existing_page = get_page_by_path( $slug_root );
 		if ( ! $existing_page ) {
 			$page_content = sprintf(
-				"<!-- wp:paragraph --><p>%s</p><!-- /wp:paragraph -->",
-				esc_html( $data['page_intro'] )
+				"<!-- wp:pattern {\"slug\":\"pluscestsimple/category-rich\"} /-->",
 			);
 			$page_id = wp_insert_post( [
 				'post_title'   => $data['label'],
 				'post_name'    => $slug_root,
 				'post_status'  => 'publish',
 				'post_type'    => 'page',
+				'post_excerpt' => $data['page_intro'],
 				'post_content' => $page_content,
 			] );
 			if ( $page_id && ! is_wp_error( $page_id ) ) {
 				update_post_meta( $page_id, '_wp_page_template', 'page-templates/tpl-wide.php' );
+				update_post_meta( $page_id, '_pcs_seeded', '1' );
 			}
 		}
 	}
@@ -197,10 +198,35 @@ function pcs_init_content(): void {
 			'post_type'    => 'page',
 			'post_content' => $page_data['content'],
 		] );
-		if ( $page_id && ! is_wp_error( $page_id ) && $page_data['template'] ) {
-			update_post_meta( $page_id, '_wp_page_template', $page_data['template'] );
+		if ( $page_id && ! is_wp_error( $page_id ) ) {
+			update_post_meta( $page_id, '_pcs_seeded', '1' );
+			if ( $page_data['template'] ) {
+				update_post_meta( $page_id, '_wp_page_template', $page_data['template'] );
+			}
 		}
 	}
+}
+
+/**
+ * Supprime toutes les pages auto-seedées (meta _pcs_seeded='1') pour permettre
+ * une recréation propre via pcs_init_content(). Préserve les pages éditées
+ * manuellement (qui n'ont pas le meta) ou ajoutées par l'utilisateur.
+ */
+function pcs_reset_seeded_pages(): int {
+	$posts = get_posts( [
+		'post_type'      => 'page',
+		'post_status'    => 'any',
+		'posts_per_page' => -1,
+		'meta_key'       => '_pcs_seeded',
+		'meta_value'     => '1',
+		'fields'         => 'ids',
+	] );
+	$count = 0;
+	foreach ( $posts as $post_id ) {
+		wp_delete_post( $post_id, true );
+		++$count;
+	}
+	return $count;
 }
 
 /**
@@ -240,16 +266,30 @@ function pcs_init_content_page(): void {
 		update_option( 'pcs_content_seeded', PCS_VERSION );
 		echo '<div class="notice notice-success"><p>' . esc_html__( 'Contenu re-seedé avec succès. Catégories et pages vérifiées.', 'pluscestsimple' ) . '</p></div>';
 	}
+	if ( isset( $_POST['pcs_reset_pages'] ) && check_admin_referer( 'pcs_reseed_content' ) ) {
+		$deleted = pcs_reset_seeded_pages();
+		delete_option( 'pcs_content_seeded' );
+		pcs_init_content();
+		update_option( 'pcs_content_seeded', PCS_VERSION );
+		printf(
+			'<div class="notice notice-success"><p>%d page(s) auto-seedée(s) supprimée(s) et recréée(s) avec le contenu standard du thème.</p></div>',
+			$deleted
+		);
+	}
 	?>
 	<div class="wrap">
 		<h1><?php esc_html_e( 'Plus c\'est simple — Initialisation du contenu', 'pluscestsimple' ); ?></h1>
 		<p><?php esc_html_e( 'Crée (ou met à jour) la structure éditoriale : 6 catégories pilier + sous-catégories + pages WP correspondantes. Idempotent — ne touche pas aux contenus existants.', 'pluscestsimple' ); ?></p>
-		<form method="post">
+		<form method="post" style="display:flex;gap:1rem;flex-wrap:wrap;align-items:center">
 			<?php wp_nonce_field( 'pcs_reseed_content' ); ?>
 			<button type="submit" name="pcs_reseed" class="button button-primary">
-				<?php esc_html_e( 'Relancer le seed', 'pluscestsimple' ); ?>
+				<?php esc_html_e( 'Re-seed (skip existant)', 'pluscestsimple' ); ?>
+			</button>
+			<button type="submit" name="pcs_reset_pages" class="button button-secondary" onclick="return confirm('Supprime les pages auto-seedées (meta _pcs_seeded=1) et les recrée avec le contenu standard du thème (patterns à jour). Les pages éditées manuellement et celles que TU as ajoutées sont préservées. Continuer ?');" style="color:#d63638">
+				<?php esc_html_e( 'Reset des pages seedées', 'pluscestsimple' ); ?>
 			</button>
 		</form>
+		<p class="description"><strong>Re-seed</strong> : ajoute les éléments manquants seulement (catégories, sous-cat, pages absentes). <strong>Reset</strong> : supprime les pages créées par le seed et les recrée — utilisé après une mise à jour du thème pour récupérer les nouveaux patterns dans les pages pilier.</p>
 
 		<h2><?php esc_html_e( 'Structure cible', 'pluscestsimple' ); ?></h2>
 		<table class="widefat striped">
