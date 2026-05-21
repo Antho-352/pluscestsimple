@@ -711,6 +711,60 @@ a:hover { color: var(--wp--preset--color--accent-secondary); text-decoration: no
 .pcs-no-results .pcs-searchform { margin-inline: auto; }
 
 /* ====================================================================
+   Sitemap (template tpl-sitemap.php)
+   ==================================================================== */
+
+.pcs-sitemap {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+	gap: clamp(2rem, 4vw, 3rem);
+	padding-block: var(--wp--preset--spacing--70);
+}
+.pcs-sitemap__title {
+	font-family: var(--wp--preset--font-family--display);
+	font-weight: 400;
+	font-size: var(--wp--preset--font-size--lg);
+	margin: 0 0 1rem;
+	padding-bottom: 0.5rem;
+	border-bottom: 1px solid var(--wp--preset--color--border);
+}
+.pcs-sitemap__list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	font-size: var(--wp--preset--font-size--sm);
+}
+.pcs-sitemap__list li {
+	display: flex;
+	gap: 0.5rem;
+	justify-content: space-between;
+	align-items: baseline;
+	padding-block: 0.5rem;
+	border-bottom: 1px solid color-mix(in srgb, var(--wp--preset--color--border) 50%, transparent);
+}
+.pcs-sitemap__list a {
+	color: var(--wp--preset--color--foreground);
+	text-decoration: none;
+	flex: 1;
+	min-width: 0;
+}
+.pcs-sitemap__list a:hover { color: var(--wp--preset--color--accent); }
+.pcs-sitemap__count,
+.pcs-sitemap__date {
+	color: var(--wp--preset--color--muted);
+	font-size: var(--wp--preset--font-size--xs);
+	font-variant-numeric: tabular-nums;
+	flex-shrink: 0;
+}
+/* Inclut children pages (page_item) générées par wp_list_pages */
+.pcs-sitemap__list .children {
+	list-style: none;
+	padding-left: 1rem;
+	margin-top: 0.5rem;
+	border-left: 2px solid var(--wp--preset--color--border);
+}
+
+/* ====================================================================
    Breadcrumbs (rendu via pcs_breadcrumbs() côté PHP)
    ==================================================================== */
 
