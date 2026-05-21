@@ -1,5 +1,30 @@
 # Changelog
 
+## [2.3.0] — 2026-05-22
+
+### Refactor structurel pages catégories — sections = sous-catégories WordPress
+
+**Le malentendu corrigé** : les sections H2 des pages pilier n'étaient pas des "mini-articles" mais des **vraies sous-catégories WP** (Pièces, Styles, Petit budget pour Décoration, etc.). Chaque section présente désormais brièvement sa sous-cat avec liens partenaires intégrés + bouton CTA vers la sous-catégorie WP.
+
+#### 6 patterns category-{pilier} refactorisés
+- Sections H2 : **20 sous-catégories** au total (3-4 par pilier) avec H2 = nom sous-cat, lead 60-90 mots avec 1-2 liens partenaires in-text, bouton CTA `is-style-outline` vers `/<slug-sous-cat>-cat/`
+- Plus de listes fictives de titres d'articles à créer
+- Section maillage : `align="wide"` + grille 2-3 colonnes avec espacement
+- Section Query Loop "Tous les articles" : `display:grid` forcé en 3 colonnes (2 sur tablette, 1 sur mobile), `perPage:9` conservé
+
+#### Filter PHP Query Loop catégorie
+- `inc/category-query-filter.php` : hook `query_loop_block_query_vars` qui détecte les pages pilier (slug ∈ decoration/travaux/jardin/architecture/immobilier/lifestyle) et injecte automatiquement un `tax_query` ciblant la catégorie `<slug>-cat`. Plus besoin de connaître le term ID dans le pattern. Compatible WP 7.0+.
+
+#### Menu dropdown desktop
+- Sous-menus cachés par défaut (`opacity:0`, `visibility:hidden`)
+- Visibles au `:hover` ou `:focus-within` du parent avec animation fade + slide
+- Chevron `▾` ajouté après les items avec sous-menu (rotation au hover)
+- Bordure + ombre + background sur le sous-menu (carte flottante)
+- Mobile : pas de dropdown, sous-menus inline dans l'overlay (comportement WP standard)
+
+#### Formulaires
+- Styles génériques `.pcs-content form` et `.pcs-page__content form` pour tout `<form>` brut dans le contenu (Contact, formulaires inline) — input/label/textarea/submit alignés en colonne, focus accent
+
 ## [2.2.1] — 2026-05-21
 
 ### Fixes retours user

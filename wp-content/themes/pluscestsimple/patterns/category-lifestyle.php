@@ -34,9 +34,13 @@
 		<p class="pcs-section__lead">KonMari, FlyLady, 5S, Zen To Done : quatre méthodes comparées, aucune universelle. Cas d'échec documentés (tri des livres, tri des papiers). Combinaison efficace : KonMari pour le tri initial massif, FlyLady pour l'entretien long terme. Tarif home organiser : 40-80 €/h province, 80-120 €/h Paris/IDF. Pour le rangement modulable accessible, <a href="https://www.ikea.com/fr/fr/cat/algot-systeme-11468/" class="pcs-link-partner" rel="sponsored nofollow noopener">IKEA Algot</a> à partir de 30 €/m linéaire. Pour le massif bois rangement durable, <a href="https://www.tikamoon.com/" class="pcs-link-partner" rel="sponsored nofollow noopener">Tikamoon</a>.</p>
 		<!-- /wp:paragraph -->
 
-		<!-- wp:paragraph {"className":"pcs-section__more"} -->
-		<p class="pcs-section__more"><a href="/lifestyle-rangement-cat/">Voir tous les articles Rangement & organisation →</a></p>
-		<!-- /wp:paragraph -->
+		<!-- wp:buttons -->
+		<div class="wp-block-buttons">
+			<!-- wp:button {"className":"is-style-outline"} -->
+			<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/lifestyle-rangement-cat/">Voir tous les articles Rangement & organisation →</a></div>
+			<!-- /wp:button -->
+		</div>
+		<!-- /wp:buttons -->
 
 	</section>
 	<!-- /wp:group -->
@@ -52,9 +56,13 @@
 		<p class="pcs-section__lead">T3 moyen 66 m² (INSEE), T2 environ 47 m² — la quasi-totalité des contenus "recevoir" est calibrée pour 110 m² et un îlot de cuisine. Apéro dînatoire 8 personnes en 30 m² : préparation J-2/J-1/jour J, configurations table basse + tabourets pliants 15 € la pièce (IKEA Frosta). Quantités étalon par adulte : 150-200 g de pain, 1/3 à 1/2 bouteille de vin, 80-100 g de fromage, 80 g de charcuterie. Pas de Pinterest-anxiety, pas de hygge à 200 € — les invités viennent pour vous.</p>
 		<!-- /wp:paragraph -->
 
-		<!-- wp:paragraph {"className":"pcs-section__more"} -->
-		<p class="pcs-section__more"><a href="/lifestyle-recevoir-cat/">Voir tous les articles Recevoir →</a></p>
-		<!-- /wp:paragraph -->
+		<!-- wp:buttons -->
+		<div class="wp-block-buttons">
+			<!-- wp:button {"className":"is-style-outline"} -->
+			<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/lifestyle-recevoir-cat/">Voir tous les articles Recevoir →</a></div>
+			<!-- /wp:button -->
+		</div>
+		<!-- /wp:buttons -->
 
 	</section>
 	<!-- /wp:group -->
@@ -72,9 +80,13 @@
 		<p class="pcs-section__lead">Bien-être réel = bien-être mesuré. Qualité de l'air (<a href="https://www.oqai.fr/">OQAI</a> : intérieur 5-7× plus pollué que dehors, aérer 10 min matin et soir), température ADEME (19 °C pièces de vie, 16-17 °C chambres), éclairage circadien chaud 2 700 K à partir de 19 h. Pour mesurer concrètement : <a href="https://www.netatmo.com/fr-fr/aircare/homecoach" class="pcs-link-partner" rel="sponsored nofollow noopener">Netatmo Home Coach</a> (CO₂, humidité, température, ~100 €). Hub automatisations : <a href="https://www.aqara.com/en/product/hub-m2/" class="pcs-link-partner" rel="sponsored nofollow noopener">Aqara Hub M2</a>. Éclairage circadien : <a href="https://www.philips-hue.com/fr-fr" class="pcs-link-partner" rel="sponsored nofollow noopener">Philips Hue White Ambiance</a>.</p>
 		<!-- /wp:paragraph -->
 
-		<!-- wp:paragraph {"className":"pcs-section__more"} -->
-		<p class="pcs-section__more"><a href="/lifestyle-bien-etre-chez-soi-cat/">Voir tous les articles Bien-être chez soi →</a></p>
-		<!-- /wp:paragraph -->
+		<!-- wp:buttons -->
+		<div class="wp-block-buttons">
+			<!-- wp:button {"className":"is-style-outline"} -->
+			<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/lifestyle-bien-etre-chez-soi-cat/">Voir tous les articles Bien-être chez soi →</a></div>
+			<!-- /wp:button -->
+		</div>
+		<!-- /wp:buttons -->
 
 	</section>
 	<!-- /wp:group -->

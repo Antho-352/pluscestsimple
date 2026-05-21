@@ -34,9 +34,13 @@
 		<p class="pcs-section__lead">Reconnaître son style de maison pour mieux la rénover : haussmannien (1850-1900), maisons de bourg en pierre (XIXᵉ), longères, fermettes, art déco (1920-1940), pavillons reconstruction (1950-1975), maisons RT (post-2000). Identifier l'époque change tout — type de mur, matériau d'origine, mode constructif, contraintes ABF si périmètre protégé. Pas un magazine de belles demeures : un outil de diagnostic avant d'engager un devis. Conseil gratuit pour relire un projet avant dépôt : <a href="https://www.fncaue.com/">CAUE</a> de votre département.</p>
 		<!-- /wp:paragraph -->
 
-		<!-- wp:paragraph {"className":"pcs-section__more"} -->
-		<p class="pcs-section__more"><a href="/architecture-styles-epoques-cat/">Voir tous les articles Styles & époques →</a></p>
-		<!-- /wp:paragraph -->
+		<!-- wp:buttons -->
+		<div class="wp-block-buttons">
+			<!-- wp:button {"className":"is-style-outline"} -->
+			<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/architecture-styles-epoques-cat/">Voir tous les articles Styles & époques →</a></div>
+			<!-- /wp:button -->
+		</div>
+		<!-- /wp:buttons -->
 
 	</section>
 	<!-- /wp:group -->
@@ -52,9 +56,13 @@
 		<p class="pcs-section__lead">Bâti ancien (pisé, pierre, colombages) = perspirance obligatoire. Refus du polystyrène sur pierre, refus du ciment sur enduits à la chaux : ces erreurs piègent l'humidité et dégradent le mur en quelques hivers. Près d'un tiers du parc bâti français est en périmètre protégé (article L. 621-30 du Code du patrimoine, périmètre 500 m autour d'un monument historique). Pour les chaux hydrauliques naturelles NHL, <a href="https://www.saint-astier.com/" class="pcs-link-partner" rel="sponsored nofollow noopener">Saint-Astier</a> (Périgord). Ressources gratuites : <a href="https://www.fncaue.com/">CAUE</a>, <a href="https://www.anil.org/lanil-et-les-adil/votre-adil/">ADIL</a>, <a href="https://france-renov.gouv.fr/">France Rénov'</a>.</p>
 		<!-- /wp:paragraph -->
 
-		<!-- wp:paragraph {"className":"pcs-section__more"} -->
-		<p class="pcs-section__more"><a href="/architecture-renovation-patrimoine-cat/">Voir tous les articles Rénovation du patrimoine →</a></p>
-		<!-- /wp:paragraph -->
+		<!-- wp:buttons -->
+		<div class="wp-block-buttons">
+			<!-- wp:button {"className":"is-style-outline"} -->
+			<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/architecture-renovation-patrimoine-cat/">Voir tous les articles Rénovation du patrimoine →</a></div>
+			<!-- /wp:button -->
+		</div>
+		<!-- /wp:buttons -->
 
 	</section>
 	<!-- /wp:group -->
@@ -72,9 +80,13 @@
 		<p class="pcs-section__lead">Seuils sans permis de construire : moins de 5 m² aucune autorisation, 5-20 m² déclaration préalable, 20-40 m² en zone urbaine du PLU avec total ≤ 150 m² déclaration suffit, au-delà permis de construire. Architecte obligatoire au-delà de 150 m² (article L. 431-3 du Code de l'urbanisme). Fourchettes : extension parpaing 1 200-2 000 €/m², ossature bois 1 800-3 000 €/m², véranda 900-3 500 €/m². Pour l'audit énergétique réglementaire, <a href="https://www.hellio.com/" class="pcs-link-partner" rel="sponsored nofollow noopener">Hellio</a> et <a href="https://www.effy.fr/" class="pcs-link-partner" rel="sponsored nofollow noopener">Effy</a>.</p>
 		<!-- /wp:paragraph -->
 
-		<!-- wp:paragraph {"className":"pcs-section__more"} -->
-		<p class="pcs-section__more"><a href="/architecture-extensions-cat/">Voir tous les articles Extensions →</a></p>
-		<!-- /wp:paragraph -->
+		<!-- wp:buttons -->
+		<div class="wp-block-buttons">
+			<!-- wp:button {"className":"is-style-outline"} -->
+			<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/architecture-extensions-cat/">Voir tous les articles Extensions →</a></div>
+			<!-- /wp:button -->
+		</div>
+		<!-- /wp:buttons -->
 
 	</section>
 	<!-- /wp:group -->

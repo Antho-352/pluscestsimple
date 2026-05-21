@@ -34,9 +34,13 @@
 		<p class="pcs-section__lead">Une pièce n'est pas une autre. Salon de famille avec enfants et chien, chambre orientée nord, salle de bain sans fenêtre, couloir d'1,20 m de large, entrée à optimiser : chacune impose ses arbitrages avant ses inspirations. Pour le mobilier de structure qui doit tenir dix ans, <a href="https://www.laredoute.fr/pplp/500230.aspx" class="pcs-link-partner" rel="sponsored nofollow noopener">La Redoute Intérieurs</a> offre un rapport qualité-prix honnête avec un SAV qui existe. Pour les bois massifs durables, <a href="https://www.tikamoon.com" class="pcs-link-partner" rel="sponsored nofollow noopener">Tikamoon</a> reste la référence française accessible avec garantie cinq ans.</p>
 		<!-- /wp:paragraph -->
 
-		<!-- wp:paragraph {"className":"pcs-section__more"} -->
-		<p class="pcs-section__more"><a href="/decoration-pieces-cat/">Voir tous les articles Pièces →</a></p>
-		<!-- /wp:paragraph -->
+		<!-- wp:buttons -->
+		<div class="wp-block-buttons">
+			<!-- wp:button {"className":"is-style-outline"} -->
+			<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/decoration-pieces-cat/">Voir tous les articles Pièces →</a></div>
+			<!-- /wp:button -->
+		</div>
+		<!-- /wp:buttons -->
 
 	</section>
 	<!-- /wp:group -->
@@ -52,9 +56,13 @@
 		<p class="pcs-section__lead">Japandi mature, wabi-sabi, brutaliste modernisé, scandinave 2.0 : on regarde ce qui dure 10 ans et ce qui se démode en 3. Notre horizon temps : 3 ans (hype), 10 ans (intemporel), 30 ans (regret possible). Pour les pièces fortes qui traversent les styles, le vintage chiné chez <a href="https://www.selency.fr" class="pcs-link-partner" rel="sponsored nofollow noopener">Selency</a> tient mieux qu'un clone neuf à 200 €. Pour du massif français qui passe les modes, <a href="https://www.tikamoon.com" class="pcs-link-partner" rel="sponsored nofollow noopener">Tikamoon</a>.</p>
 		<!-- /wp:paragraph -->
 
-		<!-- wp:paragraph {"className":"pcs-section__more"} -->
-		<p class="pcs-section__more"><a href="/decoration-styles-cat/">Voir tous les articles Styles →</a></p>
-		<!-- /wp:paragraph -->
+		<!-- wp:buttons -->
+		<div class="wp-block-buttons">
+			<!-- wp:button {"className":"is-style-outline"} -->
+			<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/decoration-styles-cat/">Voir tous les articles Styles →</a></div>
+			<!-- /wp:button -->
+		</div>
+		<!-- /wp:buttons -->
 
 	</section>
 	<!-- /wp:group -->
@@ -72,9 +80,13 @@
 		<p class="pcs-section__lead">Sous 200 €, on ne change pas un canapé : on transforme une ambiance avec textiles, éclairage repensé et un mur peint — un pot <a href="https://www.ressource-peintures.com" class="pcs-link-partner" rel="sponsored nofollow noopener">Ressource Peintures</a> tient dix ans sans jaunir et rentabilise ses 40-60 €/L. Sous 500 €, on attaque la seconde main sérieuse : <a href="https://www.selency.fr" class="pcs-link-partner" rel="sponsored nofollow noopener">Selency</a> pour le vintage authentifié, <a href="https://www.label-emmaus.co" class="pcs-link-partner" rel="sponsored nofollow noopener">Label Emmaüs</a> pour le mobilier réemployé à prix solidaire. Sous 1 500 €, on peut entièrement repenser une pièce.</p>
 		<!-- /wp:paragraph -->
 
-		<!-- wp:paragraph {"className":"pcs-section__more"} -->
-		<p class="pcs-section__more"><a href="/decoration-petit-budget-cat/">Voir tous les articles Petit budget →</a></p>
-		<!-- /wp:paragraph -->
+		<!-- wp:buttons -->
+		<div class="wp-block-buttons">
+			<!-- wp:button {"className":"is-style-outline"} -->
+			<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/decoration-petit-budget-cat/">Voir tous les articles Petit budget →</a></div>
+			<!-- /wp:button -->
+		</div>
+		<!-- /wp:buttons -->
 
 	</section>
 	<!-- /wp:group -->

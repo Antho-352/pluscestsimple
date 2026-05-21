@@ -55,9 +55,17 @@ add_filter(
 			return $query;
 		}
 
-		// Injecte le tax_query category sans écraser les autres paramètres
-		// du Query Loop (perPage, order, etc. configurés par l'utilisateur).
-		$query['category__in'] = [ (int) $term->term_id ];
+		// Injecte le tax_query category. On utilise tax_query (plutôt que
+		// category__in) pour être compatible avec WP_Query strict + ne pas
+		// écraser les autres paramètres (perPage, order, etc.).
+		$query['tax_query'] = [
+			[
+				'taxonomy'         => 'category',
+				'field'            => 'term_id',
+				'terms'            => [ (int) $term->term_id ],
+				'include_children' => true,
+			],
+		];
 
 		return $query;
 	},

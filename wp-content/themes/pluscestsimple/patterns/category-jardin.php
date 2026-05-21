@@ -34,9 +34,13 @@
 		<p class="pcs-section__lead">Démarrer un potager en France 2026, c'est d'abord comprendre sa zone climatique avant la première graine. Tomates, courgettes, poivrons : pas avant les Saints de Glace (11-13 mai) en zone tempérée, plus tard en altitude. Surfaces et budgets de démarrage : 4 m² balcon (80-150 €), 20 m² carré (250-500 €), 100 m² pleine terre (600-1 200 €). Pour les graines fiables, <a href="https://www.graines-baumaux.fr" class="pcs-link-partner" rel="sponsored nofollow noopener">Baumaux</a> (grainetier vosgien fondé 1943) et <a href="https://www.promessedefleurs.com" class="pcs-link-partner" rel="sponsored nofollow noopener">Promesse de Fleurs</a> tiennent la référence.</p>
 		<!-- /wp:paragraph -->
 
-		<!-- wp:paragraph {"className":"pcs-section__more"} -->
-		<p class="pcs-section__more"><a href="/jardin-potager-cat/">Voir tous les articles Potager →</a></p>
-		<!-- /wp:paragraph -->
+		<!-- wp:buttons -->
+		<div class="wp-block-buttons">
+			<!-- wp:button {"className":"is-style-outline"} -->
+			<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/jardin-potager-cat/">Voir tous les articles Potager →</a></div>
+			<!-- /wp:button -->
+		</div>
+		<!-- /wp:buttons -->
 
 	</section>
 	<!-- /wp:group -->
@@ -52,9 +56,13 @@
 		<p class="pcs-section__lead">Terrasse, allée, clôture, plantations structurelles : ce qui compose un jardin durable et chiffré. Honoraires paysagistes 25-65 € HT/h (+15-25 % en Île-de-France), terrasse bois posée 40-90 €/m² (européen) jusqu'à 150 €/m² (exotique), dallage pierre 30-105 €/m². Conception + travaux clé en main : 5 000-15 000 € pour un jardin moyen. Pour les fournitures (carrés potagers, terreau, outillage), <a href="https://www.truffaut.com" class="pcs-link-partner" rel="sponsored nofollow noopener">Truffaut</a> et <a href="https://www.jardiland.com" class="pcs-link-partner" rel="sponsored nofollow noopener">Jardiland</a> couvrent l'essentiel.</p>
 		<!-- /wp:paragraph -->
 
-		<!-- wp:paragraph {"className":"pcs-section__more"} -->
-		<p class="pcs-section__more"><a href="/jardin-amenagement-paysage-cat/">Voir tous les articles Aménagement & paysage →</a></p>
-		<!-- /wp:paragraph -->
+		<!-- wp:buttons -->
+		<div class="wp-block-buttons">
+			<!-- wp:button {"className":"is-style-outline"} -->
+			<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/jardin-amenagement-paysage-cat/">Voir tous les articles Aménagement & paysage →</a></div>
+			<!-- /wp:button -->
+		</div>
+		<!-- /wp:buttons -->
 
 	</section>
 	<!-- /wp:group -->
@@ -72,9 +80,13 @@
 		<p class="pcs-section__lead">Calendrier par zone climatique (méditerranéenne, océanique, continentale, montagne) : Saints de Glace (11-13 mai), périodes de taille (16 mars-15 août interdit pour les agriculteurs PAC, l'<a href="https://www.ofb.gouv.fr/">OFB</a> recommande la même fenêtre pour les particuliers afin de protéger la nidification), arrêtés sécheresse (sanction 1 500 € — contravention de 5ᵉ classe). Récupérateur 300 L : 60-90 € en grande surface ; 500-1 000 L en cuve aérienne 200-500 €. Vendu chez <a href="https://www.gammvert.fr" class="pcs-link-partner" rel="sponsored nofollow noopener">Gamm Vert</a> et <a href="https://www.botanic.com" class="pcs-link-partner" rel="sponsored nofollow noopener">Botanic</a>.</p>
 		<!-- /wp:paragraph -->
 
-		<!-- wp:paragraph {"className":"pcs-section__more"} -->
-		<p class="pcs-section__more"><a href="/jardin-entretien-cat/">Voir tous les articles Entretien (saisons) →</a></p>
-		<!-- /wp:paragraph -->
+		<!-- wp:buttons -->
+		<div class="wp-block-buttons">
+			<!-- wp:button {"className":"is-style-outline"} -->
+			<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/jardin-entretien-cat/">Voir tous les articles Entretien (saisons) →</a></div>
+			<!-- /wp:button -->
+		</div>
+		<!-- /wp:buttons -->
 
 	</section>
 	<!-- /wp:group -->
@@ -90,9 +102,13 @@
 		<p class="pcs-section__lead">Charge admissible balcon : 350 kg/m² (norme Eurocode/DTU 43.1) — un pot de 40 L rempli pèse 55-70 kg. Volume de pot minimum : tomate, poivron, aubergine 40 L (profondeur 40 cm, non négociable) ; courgette compacte 40-50 L. Règlement de copropriété : pots posés au sol libres, jardinières fixées en rambarde interdites, écoulement sur balcon inférieur interdit. Pour le matériel petite surface bio et éco-conçu, <a href="https://www.greenweez.com" class="pcs-link-partner" rel="sponsored nofollow noopener">Greenweez</a>.</p>
 		<!-- /wp:paragraph -->
 
-		<!-- wp:paragraph {"className":"pcs-section__more"} -->
-		<p class="pcs-section__more"><a href="/jardin-balcon-terrasse-cat/">Voir tous les articles Balcon & terrasse →</a></p>
-		<!-- /wp:paragraph -->
+		<!-- wp:buttons -->
+		<div class="wp-block-buttons">
+			<!-- wp:button {"className":"is-style-outline"} -->
+			<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/jardin-balcon-terrasse-cat/">Voir tous les articles Balcon & terrasse →</a></div>
+			<!-- /wp:button -->
+		</div>
+		<!-- /wp:buttons -->
 
 	</section>
 	<!-- /wp:group -->

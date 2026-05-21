@@ -34,9 +34,13 @@
 		<p class="pcs-section__lead">Capacité d'emprunt réelle (taux 3-3,5 %, apport 15-20 %, HCSF 35 % maintenu en 2026), parcours chronologique du compromis à l'acte, coût réel notaire 7-8 % dans l'ancien (DMTO total 6,32 % dans 82 départements depuis avril 2025, mesure temporaire jusqu'au 31 mars 2028). PTZ 2026 élargi aux zones B2 et C pour le neuf, plafonds revalorisés. Pour valider votre HCSF avant de chercher un bien, <a href="https://www.pretto.fr" class="pcs-link-partner" rel="sponsored nofollow noopener">Pretto</a> et <a href="https://www.empruntis.com" class="pcs-link-partner" rel="sponsored nofollow noopener">Empruntis</a> proposent du courtage gratuit.</p>
 		<!-- /wp:paragraph -->
 
-		<!-- wp:paragraph {"className":"pcs-section__more"} -->
-		<p class="pcs-section__more"><a href="/immobilier-acheter-cat/">Voir tous les articles Acheter →</a></p>
-		<!-- /wp:paragraph -->
+		<!-- wp:buttons -->
+		<div class="wp-block-buttons">
+			<!-- wp:button {"className":"is-style-outline"} -->
+			<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/immobilier-acheter-cat/">Voir tous les articles Acheter →</a></div>
+			<!-- /wp:button -->
+		</div>
+		<!-- /wp:buttons -->
 
 	</section>
 	<!-- /wp:group -->
@@ -52,9 +56,13 @@
 		<p class="pcs-section__lead">Bailleur dans un marché tendu en 2026 : G interdits à la location depuis le 1er janvier 2025 (ni nouveau bail, ni renouvellement, ni reconduction tacite), F au 1er janvier 2028, E au 1er janvier 2034. Audit énergétique obligatoire à la vente pour les maisons individuelles classées E, F ou G en métropole (E depuis le 1er janvier 2025). Pour publier une annonce, <a href="https://www.seloger.com" class="pcs-link-partner" rel="sponsored nofollow noopener">SeLoger</a> et <a href="https://www.pap.fr" class="pcs-link-partner" rel="sponsored nofollow noopener">PAP</a> couvrent l'essentiel.</p>
 		<!-- /wp:paragraph -->
 
-		<!-- wp:paragraph {"className":"pcs-section__more"} -->
-		<p class="pcs-section__more"><a href="/immobilier-louer-investir-cat/">Voir tous les articles Louer & investir →</a></p>
-		<!-- /wp:paragraph -->
+		<!-- wp:buttons -->
+		<div class="wp-block-buttons">
+			<!-- wp:button {"className":"is-style-outline"} -->
+			<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/immobilier-louer-investir-cat/">Voir tous les articles Louer & investir →</a></div>
+			<!-- /wp:button -->
+		</div>
+		<!-- /wp:buttons -->
 
 	</section>
 	<!-- /wp:group -->
@@ -72,9 +80,13 @@
 		<p class="pcs-section__lead">Méthode DVF (base <a href="https://www.data.gouv.fr/fr/datasets/demandes-de-valeurs-foncieres/">Demandes de Valeurs Foncières</a>, gratuite) pour estimer un prix de marché réel. Travaux qui rapportent au m², négociation possible sur un bien classé F ou G (l'audit obligatoire chiffre les travaux que l'acheteur fera). Pour la cartographie 3D et la vue satellite avant déplacement, <a href="https://www.bienici.com" class="pcs-link-partner" rel="sponsored nofollow noopener">Bien'ici</a>. Ressources gratuites : <a href="https://www.immobilier.notaires.fr/fr/frais-de-notaire">Notaires.fr</a>, <a href="https://www.service-public.fr/">Service-Public.fr</a>.</p>
 		<!-- /wp:paragraph -->
 
-		<!-- wp:paragraph {"className":"pcs-section__more"} -->
-		<p class="pcs-section__more"><a href="/immobilier-vendre-cat/">Voir tous les articles Vendre →</a></p>
-		<!-- /wp:paragraph -->
+		<!-- wp:buttons -->
+		<div class="wp-block-buttons">
+			<!-- wp:button {"className":"is-style-outline"} -->
+			<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/immobilier-vendre-cat/">Voir tous les articles Vendre →</a></div>
+			<!-- /wp:button -->
+		</div>
+		<!-- /wp:buttons -->
 
 	</section>
 	<!-- /wp:group -->

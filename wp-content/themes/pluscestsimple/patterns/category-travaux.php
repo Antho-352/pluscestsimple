@@ -34,9 +34,13 @@
 		<p class="pcs-section__lead">Salle de bains, cuisine, chambre, salon : chaque pièce déclenche un chantier différent — diagnostic réseaux (électricité, plomberie, ventilation) avant la déco, conformité DTU 60.1 plomberie et DTU 25.41 cloisons, copropriété pour les pièces humides. Pour comparer matériaux et outillage en grande surface avant de signer un devis, <a href="https://www.leroymerlin.fr" class="pcs-link-partner" rel="sponsored nofollow noopener">Leroy Merlin</a> et <a href="https://www.castorama.fr" class="pcs-link-partner" rel="sponsored nofollow noopener">Castorama</a> couvrent l'essentiel.</p>
 		<!-- /wp:paragraph -->
 
-		<!-- wp:paragraph {"className":"pcs-section__more"} -->
-		<p class="pcs-section__more"><a href="/travaux-par-piece-cat/">Voir tous les articles Par pièce →</a></p>
-		<!-- /wp:paragraph -->
+		<!-- wp:buttons -->
+		<div class="wp-block-buttons">
+			<!-- wp:button {"className":"is-style-outline"} -->
+			<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/travaux-par-piece-cat/">Voir tous les articles Par pièce →</a></div>
+			<!-- /wp:button -->
+		</div>
+		<!-- /wp:buttons -->
 
 	</section>
 	<!-- /wp:group -->
@@ -52,9 +56,13 @@
 		<p class="pcs-section__lead">Démolir, redresser, isoler : les fondamentaux du chantier qui décident de la suite. Bâti d'avant 1948 : matériaux perspirants obligatoires (chaux, chanvre, fibre de bois), refus du ciment sur pierre et du polystyrène sur murs anciens. Diagnostic ventilation avant chantier. Pour les matériaux pro à prix négociés (15-25 % d'écart vs grande surface sur carrelage, placo, isolant), <a href="https://www.pointp.fr" class="pcs-link-partner" rel="sponsored nofollow noopener">Point.P</a> en négoce.</p>
 		<!-- /wp:paragraph -->
 
-		<!-- wp:paragraph {"className":"pcs-section__more"} -->
-		<p class="pcs-section__more"><a href="/travaux-gros-second-oeuvre-cat/">Voir tous les articles Gros & second œuvre →</a></p>
-		<!-- /wp:paragraph -->
+		<!-- wp:buttons -->
+		<div class="wp-block-buttons">
+			<!-- wp:button {"className":"is-style-outline"} -->
+			<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/travaux-gros-second-oeuvre-cat/">Voir tous les articles Gros & second œuvre →</a></div>
+			<!-- /wp:button -->
+		</div>
+		<!-- /wp:buttons -->
 
 	</section>
 	<!-- /wp:group -->
@@ -72,9 +80,13 @@
 		<p class="pcs-section__lead">MaPrimeRénov 2026 a refondu ses règles : ITE/ITI et chaudières biomasse sorties du parcours par geste, plafonds 30 000 € HT (2 classes DPE gagnées) et 40 000 € HT (3 classes ou plus), Mon Accompagnateur Rénov' obligatoire en parcours accompagné. Au 1er janvier 2026, le coefficient d'énergie primaire de l'électricité passe à 1,9 (contre 2,3) — certains logements gagnent une classe DPE sans rénover. Pour piloter audit + dossier MPR, <a href="https://www.effy.fr" class="pcs-link-partner" rel="sponsored nofollow noopener">Effy</a> et <a href="https://www.hellio.com" class="pcs-link-partner" rel="sponsored nofollow noopener">Hellio</a> gèrent l'accompagnement.</p>
 		<!-- /wp:paragraph -->
 
-		<!-- wp:paragraph {"className":"pcs-section__more"} -->
-		<p class="pcs-section__more"><a href="/travaux-renovation-energetique-cat/">Voir tous les articles Rénovation énergétique →</a></p>
-		<!-- /wp:paragraph -->
+		<!-- wp:buttons -->
+		<div class="wp-block-buttons">
+			<!-- wp:button {"className":"is-style-outline"} -->
+			<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/travaux-renovation-energetique-cat/">Voir tous les articles Rénovation énergétique →</a></div>
+			<!-- /wp:button -->
+		</div>
+		<!-- /wp:buttons -->
 
 	</section>
 	<!-- /wp:group -->
@@ -90,9 +102,13 @@
 		<p class="pcs-section__lead">Prix réels au m² par âge de bâti et région : avant 1948 entre 900 et 1 500 €/m², années 70-90 entre 500 et 900 €/m², récent 300-600 €/m² ; Île-de-France +25 à 40 % sur la main d'œuvre. Sur un chantier à 80 000 €, 10 à 15 % sont négociables, le reste non. Devis comparés ligne par ligne, calendrier de décaissement, lecture des zones floues d'un devis. Pour comparer 3 devis sur un même geste, <a href="https://www.ootravaux.fr" class="pcs-link-partner" rel="sponsored nofollow noopener">Ootravaux</a> reste utile.</p>
 		<!-- /wp:paragraph -->
 
-		<!-- wp:paragraph {"className":"pcs-section__more"} -->
-		<p class="pcs-section__more"><a href="/travaux-budget-aides-cat/">Voir tous les articles Budget & aides →</a></p>
-		<!-- /wp:paragraph -->
+		<!-- wp:buttons -->
+		<div class="wp-block-buttons">
+			<!-- wp:button {"className":"is-style-outline"} -->
+			<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/travaux-budget-aides-cat/">Voir tous les articles Budget & aides →</a></div>
+			<!-- /wp:button -->
+		</div>
+		<!-- /wp:buttons -->
 
 	</section>
 	<!-- /wp:group -->
