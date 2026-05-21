@@ -1,5 +1,10 @@
 # Changelog
 
+## [2.0.1] — 2026-05-21
+
+### Fixes
+- **Bandeau cookies** : sélecteurs CSS désynchronisés avec le HTML porté (mismatch `.pcs-consent__btn` vs `[data-consent]`). Le bandeau s'affichait sans styles. Refonte du CSS pour cibler les sélecteurs réels (`#pcs-consent`, `.pcs-consent__inner`, `.pcs-consent__text`, `[data-consent]`, `.is-primary`, `.pcs-consent__custom`).
+
 ## [2.0.0] — 2026-05-21
 
 ### Refonte complète : passage du thème FSE arw-pulse vers thème classique PHP
