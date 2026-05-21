@@ -189,23 +189,34 @@ function pcs_init_content(): void {
 			] );
 		}
 
-		// 3. Page pilier (slug nu) avec pattern category-rich inliné
+		// 3. Page pilier (slug nu) avec pattern spécifique au pilier (sinon fallback générique)
 		$existing_page = get_page_by_path( $slug_root );
 		if ( ! $existing_page ) {
-			$page_content = pcs_get_pattern_content( 'pluscestsimple/category-rich' );
-			// Personnalise le H1 et l'intro avec les valeurs de la catégorie.
-			$page_content = preg_replace(
-				'/Nom de la catégorie — à remplacer/',
-				esc_html( $data['label'] ),
-				$page_content,
-				1
-			);
-			$page_content = preg_replace(
-				'/Intro éditoriale \(150-250 mots\)[^<]*\./',
-				esc_html( $data['page_intro'] ),
-				$page_content,
-				1
-			);
+			// Tente d'abord le pattern spécifique au pilier (contient H1, intro, sections, FAQ, partenaires propres).
+			$pattern_slug = 'pluscestsimple/category-' . $slug_root;
+			$page_content = pcs_get_pattern_content( $pattern_slug );
+
+			// Détection fallback : si le pattern spécifique n'a pas été trouvé, pcs_get_pattern_content
+			// renvoie une référence `<!-- wp:pattern ... /-->` (signature : commence par `<!-- wp:pattern`).
+			// Dans ce cas on tombe sur le pattern générique category-rich avec personnalisation H1/intro.
+			$is_fallback_ref = strpos( $page_content, '<!-- wp:pattern' ) === 0;
+			if ( $is_fallback_ref ) {
+				$page_content = pcs_get_pattern_content( 'pluscestsimple/category-rich' );
+				// Personnalise le H1 et l'intro avec les valeurs de la catégorie (uniquement sur le générique).
+				$page_content = preg_replace(
+					'/Nom de la catégorie — à remplacer/',
+					esc_html( $data['label'] ),
+					$page_content,
+					1
+				);
+				$page_content = preg_replace(
+					'/Intro éditoriale \(150-250 mots\)[^<]*\./',
+					esc_html( $data['page_intro'] ),
+					$page_content,
+					1
+				);
+			}
+
 			$page_id = wp_insert_post( [
 				'post_title'   => $data['label'],
 				'post_name'    => $slug_root,

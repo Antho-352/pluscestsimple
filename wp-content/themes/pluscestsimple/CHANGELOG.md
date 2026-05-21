@@ -1,5 +1,49 @@
 # Changelog
 
+## [2.2.0] — 2026-05-21
+
+### Pages catégories — 6 patterns dédiés avec contenu rédigé final
+
+Aboutissement du pipeline 4 phases (recherche → copywriting → SEO+relecture → injection) sur les 6 piliers du site :
+
+- **6 patterns Gutenberg natifs** créés dans `/patterns/category-{pilier}.php` :
+  - `category-decoration` (« Décoration : ce qui marche vraiment chez vous, et combien ça coûte »)
+  - `category-travaux` (« Travaux et rénovation : comprendre avant d'engager 30 000 € »)
+  - `category-jardin` (potager + balcon copro + climat 2026)
+  - `category-architecture` (ABF + extensions + 2 H2 en profondeur)
+  - `category-immobilier` (DPE + coût réel achat + aides 2026, YMYL-compliant)
+  - `category-lifestyle` (rangement comparé + bien-être mesurable + recevoir 30 m²)
+
+Chaque pattern contient :
+- H1 + intro éditoriale 150-200 mots (MC en 1ère phrase)
+- Pattern `disclosure-partners` (bandeau ⓘ)
+- Bannière `category-intro` (slot dédié)
+- 2-3 sections H2 avec leads 100-150 mots et liens partenaires in-text (`class="pcs-link-partner" rel="sponsored nofollow noopener"`)
+- Bannière `category-mid` (slot dédié)
+- Query Loop avec `inherit:true` (filtre auto par catégorie courante)
+- FAQ avec 3-5 wp:details + Schema FAQ JSON-LD inline
+- Section partenaires (6 cartes spécifiques par pilier)
+- Maillage interne 6 liens vers autres piliers
+
+### Sources fact-checkées (WebSearch foreground)
+- Service-Public.fr, Légifrance, Notaires.fr (immobilier YMYL)
+- Anah, France Rénov', Ministère de l'Écologie (travaux)
+- Code du patrimoine, code de l'urbanisme (architecture)
+- OFB, ADEME, code rural (jardin)
+- OQAI, INSEE, ADEME (lifestyle)
+- Sites officiels des marques (vérification garanties, prix, disponibilité)
+
+### Modifications init-content.php
+- `pcs_init_content()` : pour chaque pilier, tente d'abord d'inliner le pattern spécifique `category-{pilier}`, fallback sur `category-rich` générique si le pattern spécifique n'est pas trouvé
+- Personnalisation H1/intro appliquée seulement sur le fallback générique (les patterns spécifiques ont déjà leur H1/intro propres)
+
+### À faire après upload v2.2.0
+1. Apparence → Thèmes → Téléverser → pluscestsimple.zip → Remplacer
+2. Outils → PCS Init content → bouton rouge « Reset des pages seedées »
+3. Les 6 pages pilier sont recréées avec leur contenu spécifique éditable
+4. Vérification rapide : ouvrir Pages → Décoration / Travaux / Jardin / Architecture / Immobilier / Lifestyle → contenu visible et éditable bloc par bloc
+5. Personnaliser les URLs des partenaires (placeholders `#` → vraies URLs avec tracking d'affiliation)
+
 ## [2.1.5] — 2026-05-21
 
 ### Partenaires (V2+ validée)
