@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Mockup — Page Décoration (V2+) — Plus c'est simple</title>
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fraunces:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&display=swap">
+
+	<!-- Variables WP injectées normalement par theme.json -->
+	<style>
+		:root {
+			--wp--preset--color--foreground: #0c0e0d;
+			--wp--preset--color--background: #f7f1e6;
+			--wp--preset--color--surface: #efe7d3;
+			--wp--preset--color--muted: #5b5648;
+			--wp--preset--color--border: #d8cbb0;
+			--wp--preset--color--accent: #1f3a2e;
+			--wp--preset--color--accent-secondary: #a78a4d;
+			--wp--preset--color--accent-contrast: #f7f1e6;
+
+			--wp--preset--font-family--body: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+			--wp--preset--font-family--display: 'Fraunces', Georgia, 'Times New Roman', serif;
+			--wp--preset--font-family--mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+			--wp--preset--font-size--xs: 0.75rem;
+			--wp--preset--font-size--sm: 0.875rem;
+			--wp--preset--font-size--base: 1rem;
+			--wp--preset--font-size--md: 1.125rem;
+			--wp--preset--font-size--lg: 1.5rem;
+			--wp--preset--font-size--xl: 2rem;
+			--wp--preset--font-size--2xl: 2.75rem;
+			--wp--preset--font-size--3xl: 3.75rem;
+			--wp--preset--font-size--4xl: 5rem;
+
+			--wp--preset--spacing--10: 0.25rem;
+			--wp--preset--spacing--20: 0.5rem;
+			--wp--preset--spacing--30: 0.75rem;
+			--wp--preset--spacing--40: 1rem;
+			--wp--preset--spacing--50: 1.5rem;
+			--wp--preset--spacing--60: 2rem;
+			--wp--preset--spacing--70: 3rem;
+			--wp--preset--spacing--80: 4rem;
+			--wp--preset--spacing--90: 6rem;
+
+			--wp--custom--radius--none: 0;
+			--wp--custom--radius--sm: 4px;
+			--wp--custom--radius--md: 8px;
+			--wp--custom--radius--lg: 16px;
+			--wp--custom--radius--pill: 999px;
+			--wp--custom--transition--fast: 160ms cubic-bezier(0.2, 0, 0, 1);
+			--wp--custom--transition--base: 260ms cubic-bezier(0.2, 0, 0, 1);
+
+			--wp--style--global--content-size: 720px;
+			--wp--style--global--wide-size: 1180px;
+		}
+	</style>
+
+	<!-- CSS du thème -->
+	<link rel="stylesheet" href="../wp-content/themes/pluscestsimple/assets/css/theme.css">
+
+	<!-- Composants nouveaux : disclosure + partenaires + liens partenaires -->
+	<style>
+		/* Disclosure partenaires en haut de page */
+		.pcs-disclosure-bar {
+			display: flex;
+			gap: 0.5rem;
+			align-items: flex-start;
+			background: var(--wp--preset--color--surface);
+			border-left: 3px solid var(--wp--preset--color--accent-secondary);
+			color: var(--wp--preset--color--muted);
+			padding: 0.75rem 1rem;
+			border-radius: var(--wp--custom--radius--sm);
+			font-size: var(--wp--preset--font-size--sm);
+			line-height: 1.5;
+			margin: 0 0 2rem;
+		}
+		.pcs-disclosure-bar a {
+			color: var(--wp--preset--color--accent);
+			text-decoration: underline;
+		}
+		.pcs-disclosure-bar__icon {
+			flex-shrink: 0;
+			color: var(--wp--preset--color--accent-secondary);
+			font-weight: 600;
+		}
+
+		/* Liens partenaires in-text */
+		.pcs-link-partner {
+			color: var(--wp--preset--color--accent);
+			text-decoration: underline;
+			text-decoration-style: dotted;
+			text-underline-offset: 0.2em;
+		}
+		.pcs-link-partner::after {
+			content: "†";
+			font-size: 0.7em;
+			vertical-align: super;
+			margin-left: 0.15em;
+			color: var(--wp--preset--color--accent-secondary);
+			font-weight: 400;
+		}
+		.pcs-link-partner:hover {
+			color: var(--wp--preset--color--accent-secondary);
+			text-decoration-style: solid;
+		}
+
+		/* Section partenaires */
+		.pcs-partners {
+			background: var(--wp--preset--color--surface);
+			padding: clamp(2rem, 5vw, 3.5rem);
+			border-radius: var(--wp--custom--radius--md);
+			margin-block: clamp(2rem, 4vw, 3rem);
+		}
+		.pcs-partners__grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+			gap: clamp(1rem, 2.5vw, 1.5rem);
+			margin-block: 2rem 1.5rem;
+			list-style: none;
+			padding: 0;
+		}
+		.pcs-partner-card {
+			position: relative;
+			background: var(--wp--preset--color--background);
+			border: 1px solid var(--wp--preset--color--border);
+			border-radius: var(--wp--custom--radius--sm);
+			padding: 1.5rem 1.25rem 1.25rem;
+			display: flex;
+			flex-direction: column;
+			gap: 0.5rem;
+			transition: transform var(--wp--custom--transition--fast), border-color var(--wp--custom--transition--fast);
+		}
+		.pcs-partner-card:hover {
+			transform: translateY(-2px);
+			border-color: var(--wp--preset--color--accent-secondary);
+		}
+		.pcs-partner-card__badge {
+			position: absolute;
+			top: 0.5rem;
+			right: 0.5rem;
+			font-size: 0.625rem;
+			font-weight: 600;
+			text-transform: uppercase;
+			letter-spacing: 0.08em;
+			color: var(--wp--preset--color--accent-secondary);
+			background: transparent;
+			border: 1px solid var(--wp--preset--color--accent-secondary);
+			padding: 0.15rem 0.5rem;
+			border-radius: var(--wp--custom--radius--pill);
+		}
+		.pcs-partner-card__logo {
+			height: 48px;
+			display: flex;
+			align-items: center;
+			justify-content: flex-start;
+			font-family: var(--wp--preset--font-family--display);
+			font-weight: 500;
+			font-size: 1.25rem;
+			color: var(--wp--preset--color--accent);
+			letter-spacing: -0.01em;
+		}
+		.pcs-partner-card__name {
+			font-family: var(--wp--preset--font-family--display);
+			font-size: var(--wp--preset--font-size--lg);
+			font-weight: 400;
+			margin: 0;
+			letter-spacing: -0.015em;
+		}
+		.pcs-partner-card__pitch {
+			color: var(--wp--preset--color--muted);
+			font-size: var(--wp--preset--font-size--sm);
+			line-height: 1.5;
+			margin: 0;
+			flex: 1;
+		}
+		.pcs-partner-card__cta {
+			margin: 0.75rem 0 0;
+		}
+		.pcs-partner-card__cta a {
+			color: var(--wp--preset--color--accent);
+			font-weight: 600;
+			font-size: var(--wp--preset--font-size--sm);
+			text-decoration: none;
+		}
+		.pcs-partner-card__cta a:hover {
+			color: var(--wp--preset--color--accent-secondary);
+		}
+		.pcs-partners__charter {
+			margin: 1rem 0 0;
+			font-size: var(--wp--preset--font-size--sm);
+			color: var(--wp--preset--color--muted);
+			text-align: center;
+		}
+		.pcs-partners__charter a {
+			color: var(--wp--preset--color--accent);
+			text-decoration: underline;
+		}
+		.pcs-partners__charter a + a {
+			margin-left: 0.75rem;
+		}
+
+		/* Cards Query Loop simulées (placeholders) */
+		.pcs-mockup-img {
+			width: 100%;
+			aspect-ratio: 4 / 3;
+			background:
+				linear-gradient(135deg, var(--wp--preset--color--accent) 0%, var(--wp--preset--color--accent-secondary) 100%);
+			color: var(--wp--preset--color--background);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-family: var(--wp--preset--font-family--display);
+			font-size: 1rem;
+			font-style: italic;
+			border-radius: var(--wp--custom--radius--sm);
+			letter-spacing: 0.04em;
+			text-transform: uppercase;
+			opacity: 0.7;
+		}
+
+		/* Mockup-only : indicateur de scroll */
+		.pcs-mockup-banner-placeholder {
+			padding: 2.5rem 1rem;
+			background: repeating-linear-gradient(
+				45deg,
+				var(--wp--preset--color--surface),
+				var(--wp--preset--color--surface) 10px,
+				var(--wp--preset--color--border) 10px,
+				var(--wp--preset--color--border) 20px
+			);
+			border-radius: var(--wp--custom--radius--sm);
+			text-align: center;
+			color: var(--wp--preset--color--muted);
+			font-size: var(--wp--preset--font-size--sm);
+			margin-block: 1.5rem;
+		}
+	</style>
+</head>
+<body class="pcs-mockup">
+
+<header class="pcs-header" data-scroll-compact>
+	<div class="pcs-container pcs-header__inner">
+		<div class="pcs-header__brand">
+			<a class="pcs-site-title" href="#" rel="home">Plus <em style="font-family:var(--wp--preset--font-family--display);font-style:italic;font-weight:400">c'est</em> simple.</a>
+		</div>
+		<div id="pcs-primary-menu" class="pcs-header__nav">
+			<nav class="pcs-nav pcs-nav--primary">
+				<ul class="pcs-nav__list">
+					<li class="menu-item current-menu-item"><a href="#">Décoration</a></li>
+					<li class="menu-item"><a href="#">Travaux</a></li>
+					<li class="menu-item"><a href="#">Jardin</a></li>
+					<li class="menu-item"><a href="#">Architecture</a></li>
+					<li class="menu-item"><a href="#">Immobilier</a></li>
+					<li class="menu-item"><a href="#">Lifestyle</a></li>
+					<li class="menu-item"><a href="#">Outils</a></li>
+					<li class="menu-item"><a href="#">Annuaire</a></li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</header>
+
+<main id="pcs-main" class="pcs-main">
+
+	<article id="post-1" class="pcs-page pcs-page--wide">
+
+		<div class="pcs-content pcs-page__content">
+
+			<!-- Disclosure -->
+			<p class="pcs-disclosure-bar">
+				<span class="pcs-disclosure-bar__icon" aria-hidden="true">ⓘ</span>
+				<span>Cette page contient des liens partenaires <a href="#">(†)</a>. Plus c'est simple peut percevoir une commission si vous achetez via ces liens, sans surcoût pour vous. Nos recommandations restent indépendantes — voir <a href="#">notre charte partenaires</a>.</span>
+			</p>
+
+			<!-- H1 + intro -->
+			<h1>Décoration intérieure 2026 : guides concrets</h1>
+
+			<p class="pcs-archive__intro">
+				Refaire son salon, trouver le bon vintage sans se ruiner, comprendre pourquoi un japandi vu sur Pinterest peut tomber à plat chez vous : la décoration est moins une histoire de tendances que de contraintes (budget, location, lumière, surface). On vous épargne les listicles « 10 idées tendances » : ici, des guides chiffrés, des erreurs documentées, et le cadre légal quand il compte (caution locataire, copropriété, ABF). Du concret.
+			</p>
+
+			<!-- Bannière category-intro placeholder -->
+			<div class="pcs-mockup-banner-placeholder">
+				[ Bannière 970×250 — slot <code>category-intro</code> — gérée via le plugin Bannières ]
+			</div>
+
+			<!-- Section 1 : Par pièce -->
+			<section class="pcs-section pcs-section--editorial">
+				<p class="pcs-eyebrow" style="color:var(--wp--preset--color--accent)">Au quotidien</p>
+				<h2 class="pcs-section__title">Décorer pièce par pièce</h2>
+				<p class="pcs-section__lead">
+					Salon, cuisine, chambre, salle de bain, entrée : on prend chaque pièce avec ses contraintes propres (surface, lumière, copropriété pour la cuisine et la SDB). Côté mobilier moyenne gamme, on aime <a href="#" class="pcs-link-partner">La Redoute Intérieurs</a> pour son rapport qualité-prix et son SAV honnête. Pour le vintage haut de gamme, <a href="#" class="pcs-link-partner">Selency</a> source par des chineurs pros (pas de marketplace anonyme). À éviter : les places de marché sans garantie de provenance, qui ramènent souvent du droposhipping mal labellisé.
+				</p>
+				<ul class="pcs-link-list">
+					<li><a href="#">Comment décorer un salon de moins de 20 m²</a></li>
+					<li><a href="#">Cuisine ouverte : les pièges acoustiques à anticiper</a></li>
+					<li><a href="#">Chambre — l'éclairage qui change tout (et combien ça coûte)</a></li>
+					<li><a href="#">Petite salle de bain : 5 m² mais ergonomique</a></li>
+				</ul>
+				<p class="pcs-section__more"><a href="#">Tout voir →</a></p>
+			</section>
+
+			<!-- Section 2 : Petit budget -->
+			<section class="pcs-section pcs-section--editorial">
+				<p class="pcs-eyebrow" style="color:var(--wp--preset--color--accent)">Sans se ruiner</p>
+				<h2 class="pcs-section__title">Décorer petit budget</h2>
+				<p class="pcs-section__lead">
+					Sous 500 €, sous 1 500 €, sous 5 000 € : les paliers chiffrés qu'on documente vraiment. Pour les meubles, <a href="#" class="pcs-link-partner">Emmaüs</a> et <a href="#" class="pcs-link-partner">Selency</a> couvrent 80 % des besoins à prix maîtrisé. Pour la peinture qui dure 10 ans, <a href="#" class="pcs-link-partner">Ressource Peintures</a> est plus chère à l'achat mais imbattable sur la durée. Et trois principes anti-erreur : tester avant de peindre, mesurer avant d'acheter, garder une caisse à outils minimum.
+				</p>
+				<ul class="pcs-link-list">
+					<li><a href="#">Refaire son salon pour 300 € avec Emmaüs (cas réel chiffré)</a></li>
+					<li><a href="#">Vintage chiné : où aller, à quel prix, ce qu'on trouve vraiment</a></li>
+					<li><a href="#">Peinture — les marques abordables qui tiennent 10 ans</a></li>
+					<li><a href="#">DIY déco : les 3 outils minimum pour démarrer</a></li>
+				</ul>
+				<p class="pcs-section__more"><a href="#">Tout voir →</a></p>
+			</section>
+
+			<!-- Bannière category-mid placeholder -->
+			<div class="pcs-mockup-banner-placeholder">
+				[ Bannière 970×250 — slot <code>category-mid</code> ]
+			</div>
+
+			<!-- Section 3 : Styles -->
+			<section class="pcs-section pcs-section--editorial">
+				<p class="pcs-eyebrow" style="color:var(--wp--preset--color--accent)">Faire des choix qui tiennent</p>
+				<h2 class="pcs-section__title">Styles 2026 — ce qui dure, ce qui se démode</h2>
+				<p class="pcs-section__lead">
+					Japandi, wabi-sabi, brutaliste, scandinave version 2.0 : on regarde ce qui tient 10 ans et ce qui se démode en 3. Notre horizon temps : 3 ans (hype), 10 ans (intemporel), 30 ans (régret). Pour le mobilier massif français qui traverse les styles, <a href="#" class="pcs-link-partner">Tikamoon</a> reste une référence. Côté inspiration honnête, on suit aussi le travail des architectes d'intérieur indépendants — pas les comptes Insta qui font de la déco-marketing.
+				</p>
+				<ul class="pcs-link-list">
+					<li><a href="#">Japandi : 5 ans après la hype, le bilan</a></li>
+					<li><a href="#">Brutaliste chez soi — pour qui ça marche vraiment</a></li>
+					<li><a href="#">Scandinave : pourquoi le vrai n'a rien à voir avec Ikea</a></li>
+				</ul>
+				<p class="pcs-section__more"><a href="#">Tout voir →</a></p>
+			</section>
+
+			<!-- Query Loop simulé -->
+			<section class="pcs-section pcs-section--cat-loop">
+				<p class="pcs-eyebrow" style="color:var(--wp--preset--color--accent)">À lire</p>
+				<h2 class="pcs-section__title">Tous les articles déco</h2>
+				<div class="pcs-card-grid">
+					<article class="pcs-card">
+						<a class="pcs-card__media" href="#"><div class="pcs-mockup-img">Article 1</div></a>
+						<div class="pcs-card__body">
+							<p class="pcs-card__eyebrow"><a href="#">Salon</a></p>
+							<h2 class="pcs-card__title"><a href="#">Décorer un salon en location sans toucher aux murs</a></h2>
+							<p class="pcs-card__excerpt">5 leviers concrets pour transformer une pièce sans perdre sa caution.</p>
+							<p class="pcs-card__meta"><time>12 mai 2026</time> <span class="pcs-card__sep">·</span> <span>6 min</span></p>
+						</div>
+					</article>
+					<article class="pcs-card">
+						<a class="pcs-card__media" href="#"><div class="pcs-mockup-img">Article 2</div></a>
+						<div class="pcs-card__body">
+							<p class="pcs-card__eyebrow"><a href="#">Petit budget</a></p>
+							<h2 class="pcs-card__title"><a href="#">300 € pour refaire son entrée : la méthode complète</a></h2>
+							<p class="pcs-card__excerpt">Peinture, miroir, console, patère — où acheter et combien.</p>
+							<p class="pcs-card__meta"><time>8 mai 2026</time> <span class="pcs-card__sep">·</span> <span>8 min</span></p>
+						</div>
+					</article>
+					<article class="pcs-card">
+						<a class="pcs-card__media" href="#"><div class="pcs-mockup-img">Article 3</div></a>
+						<div class="pcs-card__body">
+							<p class="pcs-card__eyebrow"><a href="#">Styles</a></p>
+							<h2 class="pcs-card__title"><a href="#">Japandi : qu'est-ce qui reste en 2026 ?</a></h2>
+							<p class="pcs-card__excerpt">5 ans après la déferlante Pinterest, ce qui a tenu chez les vrais habitants.</p>
+							<p class="pcs-card__meta"><time>3 mai 2026</time> <span class="pcs-card__sep">·</span> <span>7 min</span></p>
+						</div>
+					</article>
+				</div>
+			</section>
+
+			<!-- FAQ -->
+			<section class="pcs-section pcs-section--faq">
+				<p class="pcs-eyebrow" style="color:var(--wp--preset--color--accent)">Questions fréquentes</p>
+				<h2 class="pcs-section__title">Vos questions sur la déco</h2>
+				<details class="wp-block-details pcs-faq__item">
+					<summary>Comment décorer sans repeindre quand on loue ?</summary>
+					<p>Loi française du 6 juillet 1989 : peinture neutre obligatoire à la sortie sauf accord écrit du bailleur. Solutions sans repeindre : papier peint adhésif (à tester sur un mur invisible — risque sur peinture mate récente), grands tableaux ou tentures, étagères murales légères (chevilles à expansion = trous bouchables). Notre guide complet liste les leviers par budget et type de support.</p>
+				</details>
+				<details class="wp-block-details pcs-faq__item">
+					<summary>Quel budget réaliste pour refaire un salon ?</summary>
+					<p>Trois paliers documentés : 300-800 € (Emmaüs + DIY + 1 pièce maîtresse), 1 500-3 000 € (mobilier moyenne gamme La Redoute / Tikamoon + peinture pro), 5 000 € et + (architecte d'intérieur conseil + mobilier qualité). Les coûts cachés à anticiper : enlèvement de l'ancien mobilier (~80 €), petit outillage si DIY (~150 €), retouches peinture (~50 €).</p>
+				</details>
+				<details class="wp-block-details pcs-faq__item">
+					<summary>Pinterest et Instagram me déstabilisent — comment ne pas se planter ?</summary>
+					<p>Règle anti-Pinterest-anxiety : si une déco vue n'est pas chiffrée et géolocalisée (= « ce salon est dans un T2 parisien de 38 m² avec 2 fenêtres nord, budget total déclaré 3 200 € »), elle n'est pas reproductible chez vous. Posez-vous 3 questions avant d'épingler : quelle surface, quelle lumière, quel budget réel. Si vous n'avez pas les 3 informations, passez votre chemin.</p>
+				</details>
+			</section>
+
+			<!-- SECTION PARTENAIRES (nouveau) -->
+			<section class="pcs-section pcs-partners">
+				<p class="pcs-eyebrow" style="color:var(--wp--preset--color--accent)">Notre sélection</p>
+				<h2 class="pcs-section__title">Nos partenaires déco</h2>
+				<p class="pcs-section__lead">
+					Sélectionnés pour la qualité, la transparence et le service client. On choisit nos partenaires comme on choisirait pour nous — et on peut dire non quand un partenaire ne tient pas la qualité.
+				</p>
+				<div class="pcs-partners__grid">
+
+					<article class="pcs-partner-card">
+						<span class="pcs-partner-card__badge">Partenaire</span>
+						<div class="pcs-partner-card__logo">Selency</div>
+						<h3 class="pcs-partner-card__name">Selency</h3>
+						<p class="pcs-partner-card__pitch">Vintage haut de gamme, brocante sourcée par des chineurs pros. Garantie de provenance.</p>
+						<p class="pcs-partner-card__cta"><a href="#" class="pcs-link-partner">Voir Selency</a></p>
+					</article>
+
+					<article class="pcs-partner-card">
+						<span class="pcs-partner-card__badge">Partenaire</span>
+						<div class="pcs-partner-card__logo">La Redoute Int.</div>
+						<h3 class="pcs-partner-card__name">La Redoute Intérieurs</h3>
+						<p class="pcs-partner-card__pitch">Mobilier moyenne gamme français, SAV reconnu. Le bon plan rapport qualité-prix.</p>
+						<p class="pcs-partner-card__cta"><a href="#" class="pcs-link-partner">Voir La Redoute</a></p>
+					</article>
+
+					<article class="pcs-partner-card">
+						<span class="pcs-partner-card__badge">Partenaire</span>
+						<div class="pcs-partner-card__logo">Tikamoon</div>
+						<h3 class="pcs-partner-card__name">Tikamoon</h3>
+						<p class="pcs-partner-card__pitch">Massif français traversant les styles. Made in France quand c'est marqué.</p>
+						<p class="pcs-partner-card__cta"><a href="#" class="pcs-link-partner">Voir Tikamoon</a></p>
+					</article>
+
+					<article class="pcs-partner-card">
+						<span class="pcs-partner-card__badge">Partenaire</span>
+						<div class="pcs-partner-card__logo">Ressource</div>
+						<h3 class="pcs-partner-card__name">Ressource Peintures</h3>
+						<p class="pcs-partner-card__pitch">Peinture pro qui dure 10 ans. Plus chère à l'achat, imbattable au m² sur la durée.</p>
+						<p class="pcs-partner-card__cta"><a href="#" class="pcs-link-partner">Voir Ressource</a></p>
+					</article>
+
+					<article class="pcs-partner-card">
+						<span class="pcs-partner-card__badge">Partenaire</span>
+						<div class="pcs-partner-card__logo">Castorama</div>
+						<h3 class="pcs-partner-card__name">Castorama</h3>
+						<p class="pcs-partner-card__pitch">Bricolage grand public, large catalogue, clic & collect partout en France.</p>
+						<p class="pcs-partner-card__cta"><a href="#" class="pcs-link-partner">Voir Castorama</a></p>
+					</article>
+
+					<article class="pcs-partner-card">
+						<span class="pcs-partner-card__badge">Partenaire</span>
+						<div class="pcs-partner-card__logo">Emmaüs</div>
+						<h3 class="pcs-partner-card__name">Label Emmaüs</h3>
+						<p class="pcs-partner-card__pitch">Seconde main solidaire. Catalogue en ligne large, prix accessibles, sens.</p>
+						<p class="pcs-partner-card__cta"><a href="#" class="pcs-link-partner">Voir Label Emmaüs</a></p>
+					</article>
+
+				</div>
+				<p class="pcs-partners__charter">
+					<a href="#">Pourquoi ces partenaires ?</a>
+					<a href="#">Devenir partenaire</a>
+				</p>
+			</section>
+
+			<!-- Maillage interne -->
+			<section class="pcs-section pcs-section--maillage">
+				<p class="pcs-eyebrow" style="color:var(--wp--preset--color--accent)">Aller plus loin</p>
+				<h2 class="pcs-section__title">Voir aussi</h2>
+				<ul class="pcs-link-list">
+					<li><a href="#">Travaux</a></li>
+					<li><a href="#">Jardin</a></li>
+					<li><a href="#">Architecture</a></li>
+					<li><a href="#">Immobilier</a></li>
+					<li><a href="#">Lifestyle</a></li>
+					<li><a href="#">Travailler avec nous</a></li>
+				</ul>
+			</section>
+
+		</div>
+	</article>
+
+</main>
+
+<footer class="pcs-footer">
+	<div class="pcs-container pcs-footer__inner">
+		<div class="pcs-footer__brand">
+			<p class="pcs-site-title" style="font-family:var(--wp--preset--font-family--display);font-size:var(--wp--preset--font-size--lg);margin:0">Plus c'est simple.</p>
+			<p class="pcs-footer__tagline">Le média maison · déco · travaux · immo</p>
+		</div>
+		<nav class="pcs-nav pcs-nav--footer">
+			<ul class="pcs-nav__list">
+				<li class="menu-item"><a href="#">Mentions légales</a></li>
+				<li class="menu-item"><a href="#">Travailler avec nous</a></li>
+				<li class="menu-item"><a href="#">Plan du site</a></li>
+				<li class="menu-item"><a href="#">Charte partenaires</a></li>
+				<li class="menu-item"><a href="#">Contact</a></li>
+			</ul>
+		</nav>
+	</div>
+	<div class="pcs-container pcs-footer__bottom">
+		<p class="pcs-footer__copy">© 2026 Plus c'est simple</p>
+		<p><a class="pcs-consent-open" href="#">Préférences cookies</a></p>
+	</div>
+</footer>
+
+</body>
+</html>
