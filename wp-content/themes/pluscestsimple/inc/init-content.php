@@ -94,7 +94,7 @@ function pcs_content_utility_pages(): array {
 		'accueil' => [
 			'title'    => 'Accueil',
 			'template' => 'page-templates/tpl-wide.php',
-			'content'  => "<!-- wp:pattern {\"slug\":\"pluscestsimple/hero-front\"} /-->\n\n<!-- wp:pattern {\"slug\":\"pluscestsimple/section-pourquoi\"} /-->\n\n<!-- wp:pattern {\"slug\":\"pluscestsimple/section-compatibilimetre\"} /-->\n\n<!-- wp:pattern {\"slug\":\"pluscestsimple/section-featured\"} /-->\n\n<!-- wp:pattern {\"slug\":\"pluscestsimple/section-weekly\"} /-->\n\n<!-- wp:pattern {\"slug\":\"pluscestsimple/section-newsletter\"} /-->",
+			'content'  => '__ACCUEIL__',
 		],
 		'le-carnet' => [
 			'title'    => 'Le carnet',
@@ -104,7 +104,7 @@ function pcs_content_utility_pages(): array {
 		'outils' => [
 			'title'    => 'Outils',
 			'template' => 'page-templates/tpl-wide.php',
-			'content'  => "<!-- wp:heading {\"level\":1} --><h1 class=\"wp-block-heading\">Nos outils</h1><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>Les outils maison de Plus c'est simple, pour avancer dans vos projets sans pirouette.</p><!-- /wp:paragraph -->\n\n<!-- wp:pattern {\"slug\":\"pluscestsimple/section-compatibilimetre\"} /-->",
+			'content'  => '__OUTILS__',
 		],
 		'annuaire' => [
 			'title'    => 'Annuaire',
@@ -114,9 +114,29 @@ function pcs_content_utility_pages(): array {
 		'travailler-avec-nous' => [
 			'title'    => 'Travailler avec nous',
 			'template' => 'page-templates/tpl-wide.php',
-			'content'  => "<!-- wp:pattern {\"slug\":\"pluscestsimple/page-travailler\"} /-->",
+			'content'  => '__PATTERN__:pluscestsimple/page-travailler',
 		],
 	];
+}
+
+/**
+ * Récupère le contenu HTML d'un pattern enregistré (avec ses blocs inlinés).
+ * Permet d'insérer le pattern "déplié" dans post_content plutôt qu'une
+ * simple référence `<!-- wp:pattern -->` qui apparaît comme un bloc fermé
+ * dans l'éditeur Gutenberg.
+ *
+ * Fallback : si le pattern n'est pas trouvé (cache pas peuplé), renvoie la
+ * référence WP qui sera résolue dynamiquement au rendu front.
+ */
+function pcs_get_pattern_content( string $slug ): string {
+	if ( class_exists( 'WP_Block_Patterns_Registry' ) ) {
+		$reg     = WP_Block_Patterns_Registry::get_instance();
+		$pattern = $reg->get_registered( $slug );
+		if ( $pattern && ! empty( $pattern['content'] ) ) {
+			return (string) $pattern['content'];
+		}
+	}
+	return '<!-- wp:pattern {"slug":"' . esc_attr( $slug ) . '"} /-->';
 }
 
 /**
@@ -164,11 +184,22 @@ function pcs_init_content(): void {
 			] );
 		}
 
-		// 3. Page pilier (slug nu) avec pattern category-rich pré-rempli
+		// 3. Page pilier (slug nu) avec pattern category-rich inliné
 		$existing_page = get_page_by_path( $slug_root );
 		if ( ! $existing_page ) {
-			$page_content = sprintf(
-				"<!-- wp:pattern {\"slug\":\"pluscestsimple/category-rich\"} /-->",
+			$page_content = pcs_get_pattern_content( 'pluscestsimple/category-rich' );
+			// Personnalise le H1 et l'intro avec les valeurs de la catégorie.
+			$page_content = preg_replace(
+				'/Nom de la catégorie — à remplacer/',
+				esc_html( $data['label'] ),
+				$page_content,
+				1
+			);
+			$page_content = preg_replace(
+				'/Intro éditoriale \(150-250 mots\)[^<]*\./',
+				esc_html( $data['page_intro'] ),
+				$page_content,
+				1
 			);
 			$page_id = wp_insert_post( [
 				'post_title'   => $data['label'],
@@ -191,12 +222,29 @@ function pcs_init_content(): void {
 		if ( $existing ) {
 			continue;
 		}
+		// Résolution des contenus spéciaux (sentinels) avec patterns inlinés.
+		$content = $page_data['content'];
+		if ( strpos( $content, '__PATTERN__:' ) === 0 ) {
+			$pattern_slug = trim( substr( $content, strlen( '__PATTERN__:' ) ) );
+			$content      = pcs_get_pattern_content( $pattern_slug );
+		} elseif ( $content === '__ACCUEIL__' ) {
+			$slugs   = [ 'hero-front', 'section-pillars', 'section-pourquoi', 'section-compatibilimetre', 'section-featured', 'section-weekly', 'section-newsletter', 'directory-teaser' ];
+			$content = '';
+			foreach ( $slugs as $s ) {
+				$content .= pcs_get_pattern_content( 'pluscestsimple/' . $s ) . "\n\n";
+			}
+		} elseif ( $content === '__OUTILS__' ) {
+			$content  = "<!-- wp:heading {\"level\":1} --><h1 class=\"wp-block-heading\">Nos outils</h1><!-- /wp:heading -->\n\n";
+			$content .= "<!-- wp:paragraph --><p>Les outils maison de Plus c'est simple, pour avancer dans vos projets sans pirouette.</p><!-- /wp:paragraph -->\n\n";
+			$content .= pcs_get_pattern_content( 'pluscestsimple/section-compatibilimetre' );
+		}
+
 		$page_id = wp_insert_post( [
 			'post_title'   => $page_data['title'],
 			'post_name'    => $page_slug,
 			'post_status'  => 'publish',
 			'post_type'    => 'page',
-			'post_content' => $page_data['content'],
+			'post_content' => $content,
 		] );
 		if ( $page_id && ! is_wp_error( $page_id ) ) {
 			update_post_meta( $page_id, '_pcs_seeded', '1' );

@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.1.2] — 2026-05-21
+
+### Fix critique — pages catégories réellement vides
+- **Cause** : le post_content contenait `<!-- wp:pattern {"slug":"..."} /-->` (référence) au lieu du contenu inliné. En éditeur Gutenberg, ça apparaissait comme un bloc « Composition » fermé non éditable. En front, le rendu marchait mais l'utilisateur ne pouvait pas modifier les textes
+- **Fix** : nouvelle fonction `pcs_get_pattern_content( $slug )` qui résout le pattern via `WP_Block_Patterns_Registry` et retourne son contenu HTML inliné. Utilisée pour toutes les pages auto-seedées (Accueil, Outils, Annuaire, Travailler avec nous, et les 6 pages pilier)
+- Bonus : pages pilier ont désormais le H1 et l'intro pré-remplis avec le label et la description de leur catégorie (au lieu du placeholder « Nom de la catégorie — à remplacer »)
+- Bonus : Accueil seedée inclut maintenant les 8 patterns en cascade (hero + 6 piliers + pourquoi + compat + featured + weekly + newsletter + directory-teaser)
+
 ## [2.1.1] — 2026-05-21
 
 ### Fixes (retours premier déploiement v2.1.0)
