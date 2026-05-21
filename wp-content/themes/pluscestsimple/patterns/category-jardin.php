@@ -3,7 +3,7 @@
  * Title: Page catégorie — Jardin
  * Slug: pluscestsimple/category-jardin
  * Categories: pcs-page
- * Description: Page pilier Jardin : intro, 3 sections H2 (potager, balcon/terrasse, climat/eau/légal), FAQ, partenaires, maillage.
+ * Description: Page pilier Jardin : intro, 4 sous-sections (Potager, Aménagement & paysage, Entretien, Balcon & terrasse), Query Loop catégorie, FAQ, partenaires, maillage.
  * Inserter: yes
  * Keywords: jardin, potager, balcon, pilier, catégorie
  */
@@ -23,65 +23,37 @@
 
 	<!-- wp:pattern {"slug":"pluscestsimple/banner-slot-category-intro"} /-->
 
-	<!-- wp:group {"tagName":"section","className":"pcs-section pcs-section--editorial","layout":{"type":"constrained"}} -->
-	<section class="wp-block-group pcs-section pcs-section--editorial">
-
-		<!-- wp:paragraph {"className":"pcs-eyebrow","textColor":"accent"} -->
-		<p class="pcs-eyebrow has-accent-color has-text-color">Première année</p>
-		<!-- /wp:paragraph -->
+	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-section--subcat","layout":{"type":"constrained"}} -->
+	<section class="wp-block-group alignwide pcs-section pcs-section--subcat">
 
 		<!-- wp:heading {"level":2,"className":"pcs-section__title"} -->
-		<h2 class="wp-block-heading pcs-section__title">Potager : démarrer (et tenir la première année)</h2>
+		<h2 class="wp-block-heading pcs-section__title">Potager</h2>
 		<!-- /wp:heading -->
 
 		<!-- wp:paragraph {"className":"pcs-section__lead"} -->
-		<p class="pcs-section__lead">Le potager est l'entrée la plus fréquente sur cette page, et la verticale où l'on abandonne le plus vite. Trois raisons reviennent : sol mal préparé, plantation trop serrée, mauvaise fenêtre de semis pour la région. Aucune de ces erreurs n'est inévitable, mais elles coûtent toutes une saison. La surface décide tout : 4 m² balcon (80-150 € de démarrage, aromatiques + salades + radis + 2-3 tomates cerises), 20 m² carré (250-500 € la première année, panier pour 2 adultes mai-octobre), 100 m² pleine terre (600-1 200 €, autonomie partielle 6 mois). Le calendrier national n'existe pas : tomates, courgettes, poivrons partout pas avant les Saints de Glace (11, 12 et 13 mai — Mamert, Pancrace, Servais), plus tard en altitude. Un test de sol en kit (15-25 € chez <a href="https://www.truffaut.com" class="pcs-link-partner" rel="sponsored nofollow noopener">Truffaut</a> ou <a href="https://www.jardiland.com" class="pcs-link-partner" rel="sponsored nofollow noopener">Jardiland</a>) règle la question avant de planter.</p>
+		<p class="pcs-section__lead">Démarrer un potager en France 2026, c'est d'abord comprendre sa zone climatique avant la première graine. Tomates, courgettes, poivrons : pas avant les Saints de Glace (11-13 mai) en zone tempérée, plus tard en altitude. Surfaces et budgets de démarrage : 4 m² balcon (80-150 €), 20 m² carré (250-500 €), 100 m² pleine terre (600-1 200 €). Pour les graines fiables, <a href="https://www.graines-baumaux.fr" class="pcs-link-partner" rel="sponsored nofollow noopener">Baumaux</a> (grainetier vosgien fondé 1943) et <a href="https://www.promessedefleurs.com" class="pcs-link-partner" rel="sponsored nofollow noopener">Promesse de Fleurs</a> tiennent la référence.</p>
 		<!-- /wp:paragraph -->
 
-		<!-- wp:list {"className":"pcs-link-list"} -->
-		<ul class="wp-block-list pcs-link-list">
-			<li><a href="#">Démarrer un potager 20 m² : check-list complète première année</a></li>
-			<li><a href="#">Calendrier de plantation par zone climatique française</a></li>
-			<li><a href="#">Préparer un sol de potager : amendement, compost, corne broyée</a></li>
-			<li><a href="#">Outils essentiels (et ceux qui ne servent à rien)</a></li>
-			<li><a href="#">Les erreurs qui coûtent une saison entière</a></li>
-		</ul>
-		<!-- /wp:list -->
-
 		<!-- wp:paragraph {"className":"pcs-section__more"} -->
-		<p class="pcs-section__more"><a href="/category/jardin-potager-cat/">Tout voir →</a></p>
+		<p class="pcs-section__more"><a href="/jardin-potager-cat/">Voir tous les articles Potager →</a></p>
 		<!-- /wp:paragraph -->
 
 	</section>
 	<!-- /wp:group -->
 
-	<!-- wp:group {"tagName":"section","className":"pcs-section pcs-section--editorial","layout":{"type":"constrained"}} -->
-	<section class="wp-block-group pcs-section pcs-section--editorial">
-
-		<!-- wp:paragraph {"className":"pcs-eyebrow","textColor":"accent"} -->
-		<p class="pcs-eyebrow has-accent-color has-text-color">Potager urbain</p>
-		<!-- /wp:paragraph -->
+	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-section--subcat","layout":{"type":"constrained"}} -->
+	<section class="wp-block-group alignwide pcs-section pcs-section--subcat">
 
 		<!-- wp:heading {"level":2,"className":"pcs-section__title"} -->
-		<h2 class="wp-block-heading pcs-section__title">Balcon et terrasse : potager urbain réaliste</h2>
+		<h2 class="wp-block-heading pcs-section__title">Aménagement & paysage</h2>
 		<!-- /wp:heading -->
 
 		<!-- wp:paragraph {"className":"pcs-section__lead"} -->
-		<p class="pcs-section__lead">Sur un balcon, tout n'est pas possible et les conseils génériques font perdre une saison. Quatre paramètres décident à votre place : exposition (4-6 h de soleil minimum pour les fruitiers, 2-3 h suffisent pour les feuilles), poids supporté par la dalle (350 kg/m² selon Eurocode/DTU 43.1 — un pot de 40 L rempli pèse 55-70 kg), volume de pot (40 L minimum pour tomates, poivrons, aubergines, profondeur 40 cm — non négociable), règlement de copropriété. Pour les pots posés au sol, aucun texte ne l'interdit. Restent trois interdits récurrents : jardinières fixées en rambarde, écoulement d'eau sur le balcon du dessous, fixations percées en façade. Lire le règlement avant d'acheter <a href="https://www.castorama.fr/jardin" class="pcs-link-partner" rel="sponsored nofollow noopener">Castorama jardin</a> ou <a href="https://www.leroymerlin.fr/c/jardin-1300101144" class="pcs-link-partner" rel="sponsored nofollow noopener">Leroy Merlin extérieur</a>. Le meilleur ratio temps-rendement-prix sur balcon : aromatiques en pot — semences fiables chez <a href="https://www.promessedefleurs.com" class="pcs-link-partner" rel="sponsored nofollow noopener">Promesse de Fleurs</a> et <a href="https://www.graines-baumaux.fr" class="pcs-link-partner" rel="sponsored nofollow noopener">Baumaux</a>.</p>
+		<p class="pcs-section__lead">Terrasse, allée, clôture, plantations structurelles : ce qui compose un jardin durable et chiffré. Honoraires paysagistes 25-65 € HT/h (+15-25 % en Île-de-France), terrasse bois posée 40-90 €/m² (européen) jusqu'à 150 €/m² (exotique), dallage pierre 30-105 €/m². Conception + travaux clé en main : 5 000-15 000 € pour un jardin moyen. Pour les fournitures (carrés potagers, terreau, outillage), <a href="https://www.truffaut.com" class="pcs-link-partner" rel="sponsored nofollow noopener">Truffaut</a> et <a href="https://www.jardiland.com" class="pcs-link-partner" rel="sponsored nofollow noopener">Jardiland</a> couvrent l'essentiel.</p>
 		<!-- /wp:paragraph -->
 
-		<!-- wp:list {"className":"pcs-link-list"} -->
-		<ul class="wp-block-list pcs-link-list">
-			<li><a href="#">Volume de pot minimum par culture (tomate, courgette, aromatiques)</a></li>
-			<li><a href="#">Charge admissible d'un balcon : ce que la copro vous laisse réellement faire</a></li>
-			<li><a href="#">Aromatiques en pot : six pieds pour 50 € qui durent toute la saison</a></li>
-			<li><a href="#">Balcon nord vs balcon sud : ce que chaque exposition permet</a></li>
-			<li><a href="#">Règlement de copropriété : ce qui passe et ce qui demande l'AG</a></li>
-		</ul>
-		<!-- /wp:list -->
-
 		<!-- wp:paragraph {"className":"pcs-section__more"} -->
-		<p class="pcs-section__more"><a href="/category/jardin-balcon-terrasse-cat/">Tout voir →</a></p>
+		<p class="pcs-section__more"><a href="/jardin-amenagement-paysage-cat/">Voir tous les articles Aménagement & paysage →</a></p>
 		<!-- /wp:paragraph -->
 
 	</section>
@@ -89,48 +61,52 @@
 
 	<!-- wp:pattern {"slug":"pluscestsimple/banner-slot-category-mid"} /-->
 
-	<!-- wp:group {"tagName":"section","className":"pcs-section pcs-section--editorial","layout":{"type":"constrained"}} -->
-	<section class="wp-block-group pcs-section pcs-section--editorial">
-
-		<!-- wp:paragraph {"className":"pcs-eyebrow","textColor":"accent"} -->
-		<p class="pcs-eyebrow has-accent-color has-text-color">Climat 2026</p>
-		<!-- /wp:paragraph -->
+	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-section--subcat","layout":{"type":"constrained"}} -->
+	<section class="wp-block-group alignwide pcs-section pcs-section--subcat">
 
 		<!-- wp:heading {"level":2,"className":"pcs-section__title"} -->
-		<h2 class="wp-block-heading pcs-section__title">Climat 2026, eau et cadre légal</h2>
+		<h2 class="wp-block-heading pcs-section__title">Entretien (saisons)</h2>
 		<!-- /wp:heading -->
 
 		<!-- wp:paragraph {"className":"pcs-section__lead"} -->
-		<p class="pcs-section__lead">Trois sujets que les guides classiques ignorent et qui décident pourtant de ce qui tient dans votre jardin : les arrêtés sécheresse (quatre niveaux pris par arrêté préfectoral, sanction 1 500 € pour un particulier — contravention de 5ᵉ classe, article 131-13-5° du Code pénal — jusqu'à 3 000 € en récidive), la loi biodiversité sur les haies (l'<a href="https://www.ofb.gouv.fr/">OFB</a> recommande de ne pas tailler du 15 mars au 31 juillet pour protéger la nidification), et le recul du gazon dans la moitié sud. Un jardin pensé en 2026 part du principe qu'il sera arrosé 0-2 fois par semaine en juillet-août, pas tous les jours. Récupérateur 300 L : 60-90 € en grande surface, 500-1 000 L sur cuve aérienne 200-500 €. Vendu chez <a href="https://www.gammvert.fr" class="pcs-link-partner" rel="sponsored nofollow noopener">Gamm Vert</a>, <a href="https://www.botanic.com" class="pcs-link-partner" rel="sponsored nofollow noopener">Botanic</a>, <a href="https://www.greenweez.com" class="pcs-link-partner" rel="sponsored nofollow noopener">Greenweez</a> pour la version éco-conçue. Vérifier l'arrêté en cours sur le site de votre préfecture, mis à jour chaque semaine en saison.</p>
+		<p class="pcs-section__lead">Calendrier par zone climatique (méditerranéenne, océanique, continentale, montagne) : Saints de Glace (11-13 mai), périodes de taille (16 mars-15 août interdit pour les agriculteurs PAC, l'<a href="https://www.ofb.gouv.fr/">OFB</a> recommande la même fenêtre pour les particuliers afin de protéger la nidification), arrêtés sécheresse (sanction 1 500 € — contravention de 5ᵉ classe). Récupérateur 300 L : 60-90 € en grande surface ; 500-1 000 L en cuve aérienne 200-500 €. Vendu chez <a href="https://www.gammvert.fr" class="pcs-link-partner" rel="sponsored nofollow noopener">Gamm Vert</a> et <a href="https://www.botanic.com" class="pcs-link-partner" rel="sponsored nofollow noopener">Botanic</a>.</p>
 		<!-- /wp:paragraph -->
 
-		<!-- wp:list {"className":"pcs-link-list"} -->
-		<ul class="wp-block-list pcs-link-list">
-			<li><a href="#">Arrêtés sécheresse : ce qui reste autorisé à chaque niveau</a></li>
-			<li><a href="#">Récupérateur d'eau de pluie : volume, ROI, pose</a></li>
-			<li><a href="#">Taille des haies : périodes interdites pour les particuliers</a></li>
-			<li><a href="#">Alternatives au gazon : prairie fleurie, couvre-sol, paillage minéral</a></li>
-			<li><a href="#">Locataire au jardin : ce qu'on a le droit de planter ou de modifier</a></li>
-		</ul>
-		<!-- /wp:list -->
-
 		<!-- wp:paragraph {"className":"pcs-section__more"} -->
-		<p class="pcs-section__more"><a href="/category/jardin-entretien-cat/">Tout voir →</a></p>
+		<p class="pcs-section__more"><a href="/jardin-entretien-cat/">Voir tous les articles Entretien (saisons) →</a></p>
 		<!-- /wp:paragraph -->
 
 	</section>
 	<!-- /wp:group -->
 
-	<!-- wp:group {"tagName":"section","className":"pcs-section pcs-section--cat-loop","layout":{"type":"constrained"}} -->
-	<section class="wp-block-group pcs-section pcs-section--cat-loop">
+	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-section--subcat","layout":{"type":"constrained"}} -->
+	<section class="wp-block-group alignwide pcs-section pcs-section--subcat">
 
 		<!-- wp:heading {"level":2,"className":"pcs-section__title"} -->
-		<h2 class="wp-block-heading pcs-section__title">Tous les articles</h2>
+		<h2 class="wp-block-heading pcs-section__title">Balcon & terrasse</h2>
 		<!-- /wp:heading -->
 
-		<!-- wp:query {"queryId":10,"query":{"perPage":9,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":true},"namespace":"pcs/cat-loop"} -->
+		<!-- wp:paragraph {"className":"pcs-section__lead"} -->
+		<p class="pcs-section__lead">Charge admissible balcon : 350 kg/m² (norme Eurocode/DTU 43.1) — un pot de 40 L rempli pèse 55-70 kg. Volume de pot minimum : tomate, poivron, aubergine 40 L (profondeur 40 cm, non négociable) ; courgette compacte 40-50 L. Règlement de copropriété : pots posés au sol libres, jardinières fixées en rambarde interdites, écoulement sur balcon inférieur interdit. Pour le matériel petite surface bio et éco-conçu, <a href="https://www.greenweez.com" class="pcs-link-partner" rel="sponsored nofollow noopener">Greenweez</a>.</p>
+		<!-- /wp:paragraph -->
+
+		<!-- wp:paragraph {"className":"pcs-section__more"} -->
+		<p class="pcs-section__more"><a href="/jardin-balcon-terrasse-cat/">Voir tous les articles Balcon & terrasse →</a></p>
+		<!-- /wp:paragraph -->
+
+	</section>
+	<!-- /wp:group -->
+
+	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-section--cat-loop","layout":{"type":"constrained"}} -->
+	<section class="wp-block-group alignwide pcs-section pcs-section--cat-loop">
+
+		<!-- wp:heading {"level":2,"className":"pcs-section__title"} -->
+		<h2 class="wp-block-heading pcs-section__title">Tous les articles Jardin</h2>
+		<!-- /wp:heading -->
+
+		<!-- wp:query {"queryId":10,"query":{"perPage":9,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false},"namespace":"pcs/cat-loop"} -->
 		<div class="wp-block-query">
-			<!-- wp:post-template {"className":"pcs-card-grid","lock":{"move":true,"remove":true}} -->
+			<!-- wp:post-template {"className":"pcs-card-grid","lock":{"move":true,"remove":true},"layout":{"type":"grid","columnCount":3,"minimumColumnWidth":null}} -->
 				<!-- wp:group {"tagName":"article","className":"pcs-card"} -->
 				<article class="wp-block-group pcs-card">
 					<!-- wp:post-featured-image {"isLink":true,"aspectRatio":"4/3","className":"pcs-card__media"} /-->
@@ -146,6 +122,11 @@
 				<!-- wp:query-pagination-numbers /-->
 				<!-- wp:query-pagination-next /-->
 			<!-- /wp:query-pagination -->
+			<!-- wp:query-no-results -->
+				<!-- wp:paragraph -->
+				<p>Aucun article publié dans cette catégorie pour le moment. <a href="/le-carnet/">Voir tous les articles du carnet →</a></p>
+				<!-- /wp:paragraph -->
+			<!-- /wp:query-no-results -->
 		</div>
 		<!-- /wp:query -->
 
@@ -349,8 +330,8 @@
 	</section>
 	<!-- /wp:group -->
 
-	<!-- wp:group {"tagName":"section","className":"pcs-section pcs-section--maillage","layout":{"type":"constrained"}} -->
-	<section class="wp-block-group pcs-section pcs-section--maillage">
+	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-section--maillage","layout":{"type":"constrained"}} -->
+	<section class="wp-block-group alignwide pcs-section pcs-section--maillage">
 
 		<!-- wp:paragraph {"className":"pcs-eyebrow","textColor":"accent"} -->
 		<p class="pcs-eyebrow has-accent-color has-text-color">Aller plus loin</p>

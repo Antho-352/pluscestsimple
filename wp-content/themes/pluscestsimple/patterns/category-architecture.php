@@ -3,7 +3,7 @@
  * Title: Page catégorie — Architecture
  * Slug: pluscestsimple/category-architecture
  * Categories: pcs-page
- * Description: Page pilier Architecture : intro, 2 sections H2 (ABF décodé, extensions PLU), FAQ, partenaires (3 ressources publiques + 3 partenaires), maillage.
+ * Description: Page pilier Architecture : intro, 3 sous-sections (Styles & époques, Rénovation du patrimoine, Extensions), Query Loop catégorie, FAQ, partenaires (3 ressources publiques + 3 partenaires), maillage.
  * Inserter: yes
  * Keywords: architecture, ABF, extension, PLU, pilier, catégorie
  */
@@ -23,65 +23,37 @@
 
 	<!-- wp:pattern {"slug":"pluscestsimple/banner-slot-category-intro"} /-->
 
-	<!-- wp:group {"tagName":"section","className":"pcs-section pcs-section--editorial","layout":{"type":"constrained"}} -->
-	<section class="wp-block-group pcs-section pcs-section--editorial">
-
-		<!-- wp:paragraph {"className":"pcs-eyebrow","textColor":"accent"} -->
-		<p class="pcs-eyebrow has-accent-color has-text-color">Secteur protégé</p>
-		<!-- /wp:paragraph -->
+	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-section--subcat","layout":{"type":"constrained"}} -->
+	<section class="wp-block-group alignwide pcs-section pcs-section--subcat">
 
 		<!-- wp:heading {"level":2,"className":"pcs-section__title"} -->
-		<h2 class="wp-block-heading pcs-section__title">ABF décodé : ce que vous pouvez (vraiment) faire en secteur protégé</h2>
+		<h2 class="wp-block-heading pcs-section__title">Styles & époques</h2>
 		<!-- /wp:heading -->
 
 		<!-- wp:paragraph {"className":"pcs-section__lead"} -->
-		<p class="pcs-section__lead">Près d'un tiers du parc bâti français se trouve dans un périmètre protégé au titre des monuments historiques ou des sites patrimoniaux. Si c'est votre cas, tout travail visible depuis l'extérieur — changer une fenêtre, repeindre un volet, refaire une toiture, poser une véranda, ravaler une façade — passe par l'avis de l'ABF (Architecte des Bâtiments de France). Trois sources fiables pour vérifier : l'<a href="https://atlas.patrimoines.culture.gouv.fr/">Atlas des Patrimoines</a> du ministère de la Culture, le <a href="https://www.geoportail-urbanisme.gouv.fr/">Géoportail de l'Urbanisme</a>, et le service urbanisme de votre mairie. Le périmètre classique autour d'un monument historique est de 500 mètres (article L. 621-30 du Code du patrimoine), adaptable par un Périmètre Délimité des Abords créé par la loi LCAP du 7 juillet 2016. Un refus n'est jamais définitif : vous avez 2 mois pour saisir le préfet de région, qui saisit la CRPA. Un passage gratuit au <a href="https://www.fncaue.com/">CAUE</a> de votre département pour relire le projet avant dépôt change radicalement les chances d'acceptation au premier coup.</p>
+		<p class="pcs-section__lead">Reconnaître son style de maison pour mieux la rénover : haussmannien (1850-1900), maisons de bourg en pierre (XIXᵉ), longères, fermettes, art déco (1920-1940), pavillons reconstruction (1950-1975), maisons RT (post-2000). Identifier l'époque change tout — type de mur, matériau d'origine, mode constructif, contraintes ABF si périmètre protégé. Pas un magazine de belles demeures : un outil de diagnostic avant d'engager un devis. Conseil gratuit pour relire un projet avant dépôt : <a href="https://www.fncaue.com/">CAUE</a> de votre département.</p>
 		<!-- /wp:paragraph -->
 
-		<!-- wp:list {"className":"pcs-link-list"} -->
-		<ul class="wp-block-list pcs-link-list">
-			<li><a href="#">Vérifier si votre maison est en périmètre ABF : 3 outils gratuits</a></li>
-			<li><a href="#">Ce que l'ABF accepte ou refuse : 5 cas concrets</a></li>
-			<li><a href="#">Avis défavorable ABF : la procédure de recours qui marche</a></li>
-			<li><a href="#">Menuiseries en secteur protégé : bois, alu, PVC, ce qui passe</a></li>
-			<li><a href="#">Panneaux solaires et monuments historiques : ce qui est possible</a></li>
-		</ul>
-		<!-- /wp:list -->
-
 		<!-- wp:paragraph {"className":"pcs-section__more"} -->
-		<p class="pcs-section__more"><a href="/category/architecture-renovation-patrimoine-cat/">Tout voir →</a></p>
+		<p class="pcs-section__more"><a href="/architecture-styles-epoques-cat/">Voir tous les articles Styles & époques →</a></p>
 		<!-- /wp:paragraph -->
 
 	</section>
 	<!-- /wp:group -->
 
-	<!-- wp:group {"tagName":"section","className":"pcs-section pcs-section--editorial","layout":{"type":"constrained"}} -->
-	<section class="wp-block-group pcs-section pcs-section--editorial">
-
-		<!-- wp:paragraph {"className":"pcs-eyebrow","textColor":"accent"} -->
-		<p class="pcs-eyebrow has-accent-color has-text-color">Avant l'architecte</p>
-		<!-- /wp:paragraph -->
+	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-section--subcat","layout":{"type":"constrained"}} -->
+	<section class="wp-block-group alignwide pcs-section pcs-section--subcat">
 
 		<!-- wp:heading {"level":2,"className":"pcs-section__title"} -->
-		<h2 class="wp-block-heading pcs-section__title">Extension : faisable, contrainte, impossible (le diagnostic avant l'architecte)</h2>
+		<h2 class="wp-block-heading pcs-section__title">Rénovation du patrimoine</h2>
 		<!-- /wp:heading -->
 
 		<!-- wp:paragraph {"className":"pcs-section__lead"} -->
-		<p class="pcs-section__lead">L'extension est le projet rêvé numéro un des propriétaires. C'est aussi la première source de refus de permis et de chantiers abandonnés. Les seuils nationaux : moins de 5 m², aucune autorisation. Entre 5 et 20 m² : déclaration préalable. Entre 20 et 40 m² en zone urbaine du PLU avec total ≤ 150 m² après travaux : déclaration suffit. Au-delà de 40 m² ou si le total dépasse 150 m² : permis de construire obligatoire. Surface totale > 150 m² : recours à un architecte obligatoire (article L. 431-3 du Code de l'urbanisme, décret du 5 mai 2017). Le vrai blocage reste le PLU local : coefficient d'emprise au sol, hauteur maximale, prospect. Fourchettes constatées : extension parpaing 1 200-2 000 €/m², ossature bois 1 800-3 000 €/m², véranda 900-3 500 €/m², surélévation 1 500-5 000 €/m². Avant de chiffrer, un rendez-vous gratuit avec le <a href="https://www.fncaue.com/">CAUE</a> de votre département valide la faisabilité en 1 heure, plans cadastraux et PLU en main. Pour l'audit énergétique réglementaire, <a href="https://www.effy.fr/" class="pcs-link-partner" rel="sponsored nofollow noopener">Effy</a> ou <a href="https://www.hellio.com/" class="pcs-link-partner" rel="sponsored nofollow noopener">Hellio</a> gèrent les dossiers MaPrimeRénov Parcours Accompagné.</p>
+		<p class="pcs-section__lead">Bâti ancien (pisé, pierre, colombages) = perspirance obligatoire. Refus du polystyrène sur pierre, refus du ciment sur enduits à la chaux : ces erreurs piègent l'humidité et dégradent le mur en quelques hivers. Près d'un tiers du parc bâti français est en périmètre protégé (article L. 621-30 du Code du patrimoine, périmètre 500 m autour d'un monument historique). Pour les chaux hydrauliques naturelles NHL, <a href="https://www.saint-astier.com/" class="pcs-link-partner" rel="sponsored nofollow noopener">Saint-Astier</a> (Périgord). Ressources gratuites : <a href="https://www.fncaue.com/">CAUE</a>, <a href="https://www.anil.org/lanil-et-les-adil/votre-adil/">ADIL</a>, <a href="https://france-renov.gouv.fr/">France Rénov'</a>.</p>
 		<!-- /wp:paragraph -->
 
-		<!-- wp:list {"className":"pcs-link-list"} -->
-		<ul class="wp-block-list pcs-link-list">
-			<li><a href="#">Extension sans permis : les seuils 20 m² / 40 m² / 150 m² expliqués</a></li>
-			<li><a href="#">Lire son PLU : CES, hauteur, prospect, le trio qui tue les projets</a></li>
-			<li><a href="#">Extension bois vs parpaing vs véranda : ce qui dure, ce qui coûte</a></li>
-			<li><a href="#">Surélévation : faisabilité, diagnostic structure, prix réel</a></li>
-			<li><a href="#">Le rendez-vous CAUE gratuit avant tout projet d'extension</a></li>
-		</ul>
-		<!-- /wp:list -->
-
 		<!-- wp:paragraph {"className":"pcs-section__more"} -->
-		<p class="pcs-section__more"><a href="/category/architecture-extensions-cat/">Tout voir →</a></p>
+		<p class="pcs-section__more"><a href="/architecture-renovation-patrimoine-cat/">Voir tous les articles Rénovation du patrimoine →</a></p>
 		<!-- /wp:paragraph -->
 
 	</section>
@@ -89,16 +61,34 @@
 
 	<!-- wp:pattern {"slug":"pluscestsimple/banner-slot-category-mid"} /-->
 
-	<!-- wp:group {"tagName":"section","className":"pcs-section pcs-section--cat-loop","layout":{"type":"constrained"}} -->
-	<section class="wp-block-group pcs-section pcs-section--cat-loop">
+	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-section--subcat","layout":{"type":"constrained"}} -->
+	<section class="wp-block-group alignwide pcs-section pcs-section--subcat">
 
 		<!-- wp:heading {"level":2,"className":"pcs-section__title"} -->
-		<h2 class="wp-block-heading pcs-section__title">Tous les articles</h2>
+		<h2 class="wp-block-heading pcs-section__title">Extensions</h2>
 		<!-- /wp:heading -->
 
-		<!-- wp:query {"queryId":10,"query":{"perPage":9,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":true},"namespace":"pcs/cat-loop"} -->
+		<!-- wp:paragraph {"className":"pcs-section__lead"} -->
+		<p class="pcs-section__lead">Seuils sans permis de construire : moins de 5 m² aucune autorisation, 5-20 m² déclaration préalable, 20-40 m² en zone urbaine du PLU avec total ≤ 150 m² déclaration suffit, au-delà permis de construire. Architecte obligatoire au-delà de 150 m² (article L. 431-3 du Code de l'urbanisme). Fourchettes : extension parpaing 1 200-2 000 €/m², ossature bois 1 800-3 000 €/m², véranda 900-3 500 €/m². Pour l'audit énergétique réglementaire, <a href="https://www.hellio.com/" class="pcs-link-partner" rel="sponsored nofollow noopener">Hellio</a> et <a href="https://www.effy.fr/" class="pcs-link-partner" rel="sponsored nofollow noopener">Effy</a>.</p>
+		<!-- /wp:paragraph -->
+
+		<!-- wp:paragraph {"className":"pcs-section__more"} -->
+		<p class="pcs-section__more"><a href="/architecture-extensions-cat/">Voir tous les articles Extensions →</a></p>
+		<!-- /wp:paragraph -->
+
+	</section>
+	<!-- /wp:group -->
+
+	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-section--cat-loop","layout":{"type":"constrained"}} -->
+	<section class="wp-block-group alignwide pcs-section pcs-section--cat-loop">
+
+		<!-- wp:heading {"level":2,"className":"pcs-section__title"} -->
+		<h2 class="wp-block-heading pcs-section__title">Tous les articles Architecture</h2>
+		<!-- /wp:heading -->
+
+		<!-- wp:query {"queryId":10,"query":{"perPage":9,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false},"namespace":"pcs/cat-loop"} -->
 		<div class="wp-block-query">
-			<!-- wp:post-template {"className":"pcs-card-grid","lock":{"move":true,"remove":true}} -->
+			<!-- wp:post-template {"className":"pcs-card-grid","lock":{"move":true,"remove":true},"layout":{"type":"grid","columnCount":3,"minimumColumnWidth":null}} -->
 				<!-- wp:group {"tagName":"article","className":"pcs-card"} -->
 				<article class="wp-block-group pcs-card">
 					<!-- wp:post-featured-image {"isLink":true,"aspectRatio":"4/3","className":"pcs-card__media"} /-->
@@ -114,6 +104,11 @@
 				<!-- wp:query-pagination-numbers /-->
 				<!-- wp:query-pagination-next /-->
 			<!-- /wp:query-pagination -->
+			<!-- wp:query-no-results -->
+				<!-- wp:paragraph -->
+				<p>Aucun article publié dans cette catégorie pour le moment. <a href="/le-carnet/">Voir tous les articles du carnet →</a></p>
+				<!-- /wp:paragraph -->
+			<!-- /wp:query-no-results -->
 		</div>
 		<!-- /wp:query -->
 
@@ -301,8 +296,8 @@
 	</section>
 	<!-- /wp:group -->
 
-	<!-- wp:group {"tagName":"section","className":"pcs-section pcs-section--maillage","layout":{"type":"constrained"}} -->
-	<section class="wp-block-group pcs-section pcs-section--maillage">
+	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-section--maillage","layout":{"type":"constrained"}} -->
+	<section class="wp-block-group alignwide pcs-section pcs-section--maillage">
 
 		<!-- wp:paragraph {"className":"pcs-eyebrow","textColor":"accent"} -->
 		<p class="pcs-eyebrow has-accent-color has-text-color">Aller plus loin</p>

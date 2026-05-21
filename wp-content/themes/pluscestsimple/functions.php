@@ -41,6 +41,7 @@ $pcs_modules = [
 	'category-base',   // Retire /category/ de l'URL des catégories
 	'init-content',    // Auto-création des catégories + pages structurelles (idempotent)
 	'lead-resources',  // CPT pcs_lead_resource + mécanique token signé pour PDF lead-magnet
+	'category-query-filter', // Filtre auto Query Loop pages pilier → catégorie correspondante
 ];
 
 foreach ( $pcs_modules as $pcs_module ) {

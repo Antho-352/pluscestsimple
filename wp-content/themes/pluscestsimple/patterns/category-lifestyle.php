@@ -3,7 +3,7 @@
  * Title: Page catégorie — Lifestyle
  * Slug: pluscestsimple/category-lifestyle
  * Categories: pcs-page
- * Description: Page pilier Lifestyle : intro, 3 sections H2 (méthodes de rangement, bien-être mesurable, recevoir), FAQ, partenaires, maillage.
+ * Description: Page pilier Lifestyle : intro, 3 sous-sections (Rangement & organisation, Recevoir, Bien-être chez soi), Query Loop catégorie, FAQ, partenaires, maillage.
  * Inserter: yes
  * Keywords: lifestyle, organisation, bien-être, recevoir, pilier, catégorie
  */
@@ -23,65 +23,37 @@
 
 	<!-- wp:pattern {"slug":"pluscestsimple/banner-slot-category-intro"} /-->
 
-	<!-- wp:group {"tagName":"section","className":"pcs-section pcs-section--editorial","layout":{"type":"constrained"}} -->
-	<section class="wp-block-group pcs-section pcs-section--editorial">
-
-		<!-- wp:paragraph {"className":"pcs-eyebrow","textColor":"accent"} -->
-		<p class="pcs-eyebrow has-accent-color has-text-color">Méthodes comparées</p>
-		<!-- /wp:paragraph -->
+	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-section--subcat","layout":{"type":"constrained"}} -->
+	<section class="wp-block-group alignwide pcs-section pcs-section--subcat">
 
 		<!-- wp:heading {"level":2,"className":"pcs-section__title"} -->
-		<h2 class="wp-block-heading pcs-section__title">Méthodes de rangement : laquelle pour vous</h2>
+		<h2 class="wp-block-heading pcs-section__title">Rangement & organisation</h2>
 		<!-- /wp:heading -->
 
 		<!-- wp:paragraph {"className":"pcs-section__lead"} -->
-		<p class="pcs-section__lead">KonMari, FlyLady, 5S, Zen To Done : quatre méthodes vendues comme universelles, aucune ne l'est. KonMari (Marie Kondo) : tri intensif par catégories dans un ordre imposé, sessions longues, plusieurs jours bloqués sur une semaine — pour célibataire ou couple sans enfants, abandon fréquent au tri des livres ou des papiers. FlyLady (Marla Cilley) : micro-tâches quotidiennes de 15 minutes par zone, rotation hebdomadaire sur 5 zones, programme "Baby Steps" de 31 jours — pour foyer avec enfants, télétravail, profil régulier. 5S (origine Toyota, formalisée par Takashi Osada en 1991) : seiri/seiton/seiso/seiketsu/shitsuke — pour profil ingénieur, garage, atelier, buanderie. Zen To Done (Leo Babauta, 2008) : 10 habitudes empilées progressivement, focus simplicité radicale. Tarif d'un home organiser : 40 à 80 €/h en province, 80 à 120 €/h à Paris et IDF. Pour le rangement modulable, <a href="https://www.ikea.com/fr/fr/cat/algot-systeme-11468/" class="pcs-link-partner" rel="sponsored nofollow noopener">IKEA Algot</a> à partir de 30 € le mètre linéaire reste imbattable ; pour les meubles de rangement intermédiaires, <a href="https://www.laredoute.fr/" class="pcs-link-partner" rel="sponsored nofollow noopener">La Redoute Intérieurs</a> ; pour le bois massif durable, <a href="https://www.tikamoon.com/" class="pcs-link-partner" rel="sponsored nofollow noopener">Tikamoon</a>.</p>
+		<p class="pcs-section__lead">KonMari, FlyLady, 5S, Zen To Done : quatre méthodes comparées, aucune universelle. Cas d'échec documentés (tri des livres, tri des papiers). Combinaison efficace : KonMari pour le tri initial massif, FlyLady pour l'entretien long terme. Tarif home organiser : 40-80 €/h province, 80-120 €/h Paris/IDF. Pour le rangement modulable accessible, <a href="https://www.ikea.com/fr/fr/cat/algot-systeme-11468/" class="pcs-link-partner" rel="sponsored nofollow noopener">IKEA Algot</a> à partir de 30 €/m linéaire. Pour le massif bois rangement durable, <a href="https://www.tikamoon.com/" class="pcs-link-partner" rel="sponsored nofollow noopener">Tikamoon</a>.</p>
 		<!-- /wp:paragraph -->
 
-		<!-- wp:list {"className":"pcs-link-list"} -->
-		<ul class="wp-block-list pcs-link-list">
-			<li><a href="#">KonMari vs FlyLady vs 5S vs ZTD : tableau comparatif honnête</a></li>
-			<li><a href="#">Cas d'échec documentés des 4 grandes méthodes de rangement</a></li>
-			<li><a href="#">Combiner KonMari (tri initial) et FlyLady (entretien) : le mode opératoire</a></li>
-			<li><a href="#">Tarif home organiser en France 2026 : ce qu'on paie vraiment</a></li>
-			<li><a href="#">Méthode 5S Toyota appliquée au garage : guide pratique</a></li>
-		</ul>
-		<!-- /wp:list -->
-
 		<!-- wp:paragraph {"className":"pcs-section__more"} -->
-		<p class="pcs-section__more"><a href="/category/lifestyle-rangement-cat/">Tout voir →</a></p>
+		<p class="pcs-section__more"><a href="/lifestyle-rangement-cat/">Voir tous les articles Rangement & organisation →</a></p>
 		<!-- /wp:paragraph -->
 
 	</section>
 	<!-- /wp:group -->
 
-	<!-- wp:group {"tagName":"section","className":"pcs-section pcs-section--editorial","layout":{"type":"constrained"}} -->
-	<section class="wp-block-group pcs-section pcs-section--editorial">
-
-		<!-- wp:paragraph {"className":"pcs-eyebrow","textColor":"accent"} -->
-		<p class="pcs-eyebrow has-accent-color has-text-color">Bien-être mesurable</p>
-		<!-- /wp:paragraph -->
+	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-section--subcat","layout":{"type":"constrained"}} -->
+	<section class="wp-block-group alignwide pcs-section pcs-section--subcat">
 
 		<!-- wp:heading {"level":2,"className":"pcs-section__title"} -->
-		<h2 class="wp-block-heading pcs-section__title">Bien-être chez soi : ce qui se mesure</h2>
+		<h2 class="wp-block-heading pcs-section__title">Recevoir</h2>
 		<!-- /wp:heading -->
 
 		<!-- wp:paragraph {"className":"pcs-section__lead"} -->
-		<p class="pcs-section__lead">Les magazines féminins traitent le bien-être à la maison comme un état d'âme. Le bien-être réel, lui, se mesure. Trois leviers, trois unités, trois sources d'autorité. Air intérieur : l'<a href="https://www.oqai.fr/">OQAI</a> documente un air 5 à 7 fois plus pollué que l'air extérieur (campagne nationale Logements) — aérer 10 min matin et soir, vérifier la VMC, capteur CO₂ portable 50-200 €. Lumière (rythme circadien) : éclairage chaud (2 700 K) à partir de 19 h, éclairage froid (4 000 K) au matin et au bureau, pas d'écran au lit (retard d'endormissement documenté de 30 à 60 min). Bruit (<a href="https://www.qualitel.org/">Qualitel</a>, code de la construction) : en location sans travaux, on peut gagner 3 à 7 dB avec tapis épais, bibliothèques pleines, joints adhésifs, rideaux acoustiques 3 à 5 kg/m². Température recommandée par l'<a href="https://www.ademe.fr/">ADEME</a> : 19 °C dans les pièces de vie, 16 à 17 °C dans les chambres. Pour mesurer concrètement, <a href="https://www.netatmo.com/fr-fr/aircare/homecoach" class="pcs-link-partner" rel="sponsored nofollow noopener">Netatmo Home Coach</a> reste la référence accessible. Éclairage circadien automatisé : <a href="https://www.philips-hue.com/fr-fr" class="pcs-link-partner" rel="sponsored nofollow noopener">Philips Hue White Ambiance</a>.</p>
+		<p class="pcs-section__lead">T3 moyen 66 m² (INSEE), T2 environ 47 m² — la quasi-totalité des contenus "recevoir" est calibrée pour 110 m² et un îlot de cuisine. Apéro dînatoire 8 personnes en 30 m² : préparation J-2/J-1/jour J, configurations table basse + tabourets pliants 15 € la pièce (IKEA Frosta). Quantités étalon par adulte : 150-200 g de pain, 1/3 à 1/2 bouteille de vin, 80-100 g de fromage, 80 g de charcuterie. Pas de Pinterest-anxiety, pas de hygge à 200 € — les invités viennent pour vous.</p>
 		<!-- /wp:paragraph -->
 
-		<!-- wp:list {"className":"pcs-link-list"} -->
-		<ul class="wp-block-list pcs-link-list">
-			<li><a href="#">Qualité de l'air intérieur : 5 gestes mesurables (OQAI)</a></li>
-			<li><a href="#">Rythme circadien à la maison : éclairage chaud/froid selon l'heure</a></li>
-			<li><a href="#">Isolation phonique en location : 3 à 7 dB sans travaux</a></li>
-			<li><a href="#">Température et hygrométrie : la norme ADEME 19 °C / 16-17 °C</a></li>
-			<li><a href="#">Désencombrement digital : tri des câbles et notifications</a></li>
-		</ul>
-		<!-- /wp:list -->
-
 		<!-- wp:paragraph {"className":"pcs-section__more"} -->
-		<p class="pcs-section__more"><a href="/category/lifestyle-bien-etre-chez-soi-cat/">Tout voir →</a></p>
+		<p class="pcs-section__more"><a href="/lifestyle-recevoir-cat/">Voir tous les articles Recevoir →</a></p>
 		<!-- /wp:paragraph -->
 
 	</section>
@@ -89,48 +61,34 @@
 
 	<!-- wp:pattern {"slug":"pluscestsimple/banner-slot-category-mid"} /-->
 
-	<!-- wp:group {"tagName":"section","className":"pcs-section pcs-section--editorial","layout":{"type":"constrained"}} -->
-	<section class="wp-block-group pcs-section pcs-section--editorial">
-
-		<!-- wp:paragraph {"className":"pcs-eyebrow","textColor":"accent"} -->
-		<p class="pcs-eyebrow has-accent-color has-text-color">Petit logement</p>
-		<!-- /wp:paragraph -->
+	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-section--subcat","layout":{"type":"constrained"}} -->
+	<section class="wp-block-group alignwide pcs-section pcs-section--subcat">
 
 		<!-- wp:heading {"level":2,"className":"pcs-section__title"} -->
-		<h2 class="wp-block-heading pcs-section__title">Recevoir dans un petit logement (en vrai)</h2>
+		<h2 class="wp-block-heading pcs-section__title">Bien-être chez soi</h2>
 		<!-- /wp:heading -->
 
 		<!-- wp:paragraph {"className":"pcs-section__lead"} -->
-		<p class="pcs-section__lead">Selon une enquête Opinion Way, environ 30 % des Français déclarent ne pas recevoir chez eux, principal motif invoqué : peur du regard. En France, le T3 moyen en parc social mesure 66 m² (<a href="https://www.insee.fr/fr/statistiques">INSEE</a>), le T2 environ 47 m². La quasi-totalité des contenus "recevoir" est calibrée pour 110 m² et un îlot de cuisine. Apéro dînatoire 8 personnes en 30 m² : préparation J-2 (courses, vaisselle sortie), J-1 (tout en froid), jour J (sortir 1 h avant, musique 30 min avant, ne rien cuisiner après l'arrivée). Configuration : table basse poussée contre un mur, plateaux superposés, 4 places assises minimum, reste debout. Tabourets pliants à 15 € la pièce (IKEA Frosta). Quantités étalon : 150-200 g de pain, 1/3 à 1/2 bouteille de vin, 80-100 g de fromage, 80 g de charcuterie, 200 g de légumes, 150-180 g de viande/poisson par adulte. Branche d'eucalyptus à 3-5 € chez le fleuriste, pas de centre de table compliqué — l'horizontale est plus belle qu'un volume. Recevoir avec enfants sans chambre d'amis : canapé-lit ou matelas gonflable, annoncer la configuration à l'invitation. Pas de surprise.</p>
+		<p class="pcs-section__lead">Bien-être réel = bien-être mesuré. Qualité de l'air (<a href="https://www.oqai.fr/">OQAI</a> : intérieur 5-7× plus pollué que dehors, aérer 10 min matin et soir), température ADEME (19 °C pièces de vie, 16-17 °C chambres), éclairage circadien chaud 2 700 K à partir de 19 h. Pour mesurer concrètement : <a href="https://www.netatmo.com/fr-fr/aircare/homecoach" class="pcs-link-partner" rel="sponsored nofollow noopener">Netatmo Home Coach</a> (CO₂, humidité, température, ~100 €). Hub automatisations : <a href="https://www.aqara.com/en/product/hub-m2/" class="pcs-link-partner" rel="sponsored nofollow noopener">Aqara Hub M2</a>. Éclairage circadien : <a href="https://www.philips-hue.com/fr-fr" class="pcs-link-partner" rel="sponsored nofollow noopener">Philips Hue White Ambiance</a>.</p>
 		<!-- /wp:paragraph -->
 
-		<!-- wp:list {"className":"pcs-link-list"} -->
-		<ul class="wp-block-list pcs-link-list">
-			<li><a href="#">Apéro dînatoire 8 personnes dans 30 m² : la logistique complète</a></li>
-			<li><a href="#">Quantités étalon par personne (pain, vin, fromage, viande)</a></li>
-			<li><a href="#">Dresser une table de fête sans investir : 30 € maximum</a></li>
-			<li><a href="#">Recevoir avec enfants sans chambre d'amis : configurations qui marchent</a></li>
-			<li><a href="#">Dîner 6 sans salle à manger : tréteaux, plateaux, organisation</a></li>
-		</ul>
-		<!-- /wp:list -->
-
 		<!-- wp:paragraph {"className":"pcs-section__more"} -->
-		<p class="pcs-section__more"><a href="/category/lifestyle-recevoir-cat/">Tout voir →</a></p>
+		<p class="pcs-section__more"><a href="/lifestyle-bien-etre-chez-soi-cat/">Voir tous les articles Bien-être chez soi →</a></p>
 		<!-- /wp:paragraph -->
 
 	</section>
 	<!-- /wp:group -->
 
-	<!-- wp:group {"tagName":"section","className":"pcs-section pcs-section--cat-loop","layout":{"type":"constrained"}} -->
-	<section class="wp-block-group pcs-section pcs-section--cat-loop">
+	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-section--cat-loop","layout":{"type":"constrained"}} -->
+	<section class="wp-block-group alignwide pcs-section pcs-section--cat-loop">
 
 		<!-- wp:heading {"level":2,"className":"pcs-section__title"} -->
-		<h2 class="wp-block-heading pcs-section__title">Tous les articles</h2>
+		<h2 class="wp-block-heading pcs-section__title">Tous les articles Lifestyle</h2>
 		<!-- /wp:heading -->
 
-		<!-- wp:query {"queryId":10,"query":{"perPage":9,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":true},"namespace":"pcs/cat-loop"} -->
+		<!-- wp:query {"queryId":10,"query":{"perPage":9,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false},"namespace":"pcs/cat-loop"} -->
 		<div class="wp-block-query">
-			<!-- wp:post-template {"className":"pcs-card-grid","lock":{"move":true,"remove":true}} -->
+			<!-- wp:post-template {"className":"pcs-card-grid","lock":{"move":true,"remove":true},"layout":{"type":"grid","columnCount":3,"minimumColumnWidth":null}} -->
 				<!-- wp:group {"tagName":"article","className":"pcs-card"} -->
 				<article class="wp-block-group pcs-card">
 					<!-- wp:post-featured-image {"isLink":true,"aspectRatio":"4/3","className":"pcs-card__media"} /-->
@@ -146,6 +104,11 @@
 				<!-- wp:query-pagination-numbers /-->
 				<!-- wp:query-pagination-next /-->
 			<!-- /wp:query-pagination -->
+			<!-- wp:query-no-results -->
+				<!-- wp:paragraph -->
+				<p>Aucun article publié dans cette catégorie pour le moment. <a href="/le-carnet/">Voir tous les articles du carnet →</a></p>
+				<!-- /wp:paragraph -->
+			<!-- /wp:query-no-results -->
 		</div>
 		<!-- /wp:query -->
 
@@ -333,8 +296,8 @@
 	</section>
 	<!-- /wp:group -->
 
-	<!-- wp:group {"tagName":"section","className":"pcs-section pcs-section--maillage","layout":{"type":"constrained"}} -->
-	<section class="wp-block-group pcs-section pcs-section--maillage">
+	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-section--maillage","layout":{"type":"constrained"}} -->
+	<section class="wp-block-group alignwide pcs-section pcs-section--maillage">
 
 		<!-- wp:paragraph {"className":"pcs-eyebrow","textColor":"accent"} -->
 		<p class="pcs-eyebrow has-accent-color has-text-color">Aller plus loin</p>

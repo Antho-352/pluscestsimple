@@ -3,7 +3,7 @@
  * Title: Page catégorie — Immobilier
  * Slug: pluscestsimple/category-immobilier
  * Categories: pcs-page
- * Description: Page pilier Immobilier : intro, 3 sections H2 (DPE, coût réel, aides 2026), FAQ, partenaires, maillage.
+ * Description: Page pilier Immobilier : intro, 3 sous-sections (Acheter, Louer & investir, Vendre), Query Loop catégorie, FAQ, partenaires, maillage.
  * Inserter: yes
  * Keywords: immobilier, achat, vente, location, DPE, pilier, catégorie
  */
@@ -23,65 +23,37 @@
 
 	<!-- wp:pattern {"slug":"pluscestsimple/banner-slot-category-intro"} /-->
 
-	<!-- wp:group {"tagName":"section","className":"pcs-section pcs-section--editorial","layout":{"type":"constrained"}} -->
-	<section class="wp-block-group pcs-section pcs-section--editorial">
-
-		<!-- wp:paragraph {"className":"pcs-eyebrow","textColor":"accent"} -->
-		<p class="pcs-eyebrow has-accent-color has-text-color">Variable centrale 2026</p>
-		<!-- /wp:paragraph -->
+	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-section--subcat","layout":{"type":"constrained"}} -->
+	<section class="wp-block-group alignwide pcs-section pcs-section--subcat">
 
 		<!-- wp:heading {"level":2,"className":"pcs-section__title"} -->
-		<h2 class="wp-block-heading pcs-section__title">DPE : la variable qui change tout en 2026</h2>
+		<h2 class="wp-block-heading pcs-section__title">Acheter</h2>
 		<!-- /wp:heading -->
 
 		<!-- wp:paragraph {"className":"pcs-section__lead"} -->
-		<p class="pcs-section__lead">Le DPE n'est plus une étiquette de fond de dossier. C'est la variable qui décide si un bien se vend rapidement ou stagne, s'il peut continuer à être loué après 2028, si la banque finance, si la négociation est ouverte côté acheteur. La loi Climat et Résilience interdit progressivement la location des passoires : G interdits depuis le 1er janvier 2025 (ni nouveau bail, ni renouvellement, ni reconduction tacite — les baux en cours signés avant 2025 peuvent se poursuivre jusqu'à leur fin contractuelle), F au 1er janvier 2028, E au 1er janvier 2034. Calendrier décalé en Outre-mer (G en 2028, F en 2031, E en 2034). Pour vendre une maison individuelle classée E, F ou G en métropole, l'audit énergétique est obligatoire : F et G depuis avril 2023, E depuis le 1er janvier 2025 — compter en moyenne 750 € pour une maison de 90-120 m² (fourchette 500 à 1 500 €). Réforme méthode DPE au 1er janvier 2026 : le coefficient de conversion de l'électricité passe à 1,9 (contre 2,3), près de 850 000 logements chauffés à l'électricité sortent du statut passoire sans travaux. Tous les DPE édités avant 2026 restent valables et peuvent être mis à jour gratuitement, sans nouvelle visite, via l'<a href="https://observatoire-dpe-audit.ademe.fr/">Observatoire DPE-Audit de l'Ademe</a>. Sources officielles : <a href="https://www.service-public.fr/">Service-Public.fr</a> et <a href="https://www.anil.org/">ANIL</a>.</p>
+		<p class="pcs-section__lead">Capacité d'emprunt réelle (taux 3-3,5 %, apport 15-20 %, HCSF 35 % maintenu en 2026), parcours chronologique du compromis à l'acte, coût réel notaire 7-8 % dans l'ancien (DMTO total 6,32 % dans 82 départements depuis avril 2025, mesure temporaire jusqu'au 31 mars 2028). PTZ 2026 élargi aux zones B2 et C pour le neuf, plafonds revalorisés. Pour valider votre HCSF avant de chercher un bien, <a href="https://www.pretto.fr" class="pcs-link-partner" rel="sponsored nofollow noopener">Pretto</a> et <a href="https://www.empruntis.com" class="pcs-link-partner" rel="sponsored nofollow noopener">Empruntis</a> proposent du courtage gratuit.</p>
 		<!-- /wp:paragraph -->
 
-		<!-- wp:list {"className":"pcs-link-list"} -->
-		<ul class="wp-block-list pcs-link-list">
-			<li><a href="#">DPE 2026 : ce que la réforme du coefficient électricité change vraiment</a></li>
-			<li><a href="#">Calendrier interdiction de location : 2025, 2028, 2034 et l'Outre-mer</a></li>
-			<li><a href="#">Audit énergétique obligatoire à la vente : qui, prix, validité 5 ans</a></li>
-			<li><a href="#">Mettre à jour gratuitement son DPE après le 1er janvier 2026</a></li>
-			<li><a href="#">Vendre un logement classé F ou G : ce qu'on peut négocier</a></li>
-		</ul>
-		<!-- /wp:list -->
-
 		<!-- wp:paragraph {"className":"pcs-section__more"} -->
-		<p class="pcs-section__more"><a href="/category/immobilier-vendre-cat/">Tout voir →</a></p>
+		<p class="pcs-section__more"><a href="/immobilier-acheter-cat/">Voir tous les articles Acheter →</a></p>
 		<!-- /wp:paragraph -->
 
 	</section>
 	<!-- /wp:group -->
 
-	<!-- wp:group {"tagName":"section","className":"pcs-section pcs-section--editorial","layout":{"type":"constrained"}} -->
-	<section class="wp-block-group pcs-section pcs-section--editorial">
-
-		<!-- wp:paragraph {"className":"pcs-eyebrow","textColor":"accent"} -->
-		<p class="pcs-eyebrow has-accent-color has-text-color">Au-delà du prix affiché</p>
-		<!-- /wp:paragraph -->
+	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-section--subcat","layout":{"type":"constrained"}} -->
+	<section class="wp-block-group alignwide pcs-section pcs-section--subcat">
 
 		<!-- wp:heading {"level":2,"className":"pcs-section__title"} -->
-		<h2 class="wp-block-heading pcs-section__title">Coût réel d'un achat (au-delà du prix affiché)</h2>
+		<h2 class="wp-block-heading pcs-section__title">Louer & investir</h2>
 		<!-- /wp:heading -->
 
 		<!-- wp:paragraph {"className":"pcs-section__lead"} -->
-		<p class="pcs-section__lead">Le prix affiché ne fait jamais le total. En 2026, pour un appartement ancien à 250 000 €, vous payez en plus : frais de notaire (7 à 8 % dans l'ancien, soit ~17 500 à 20 000 € sur ce prix — dont environ 80 % de taxes reversées à l'État et au département, 10 % d'émoluments réglementés, 10 % de débours), hausse DMTO depuis avril 2025 (82 départements ont voté le relèvement du taux à 5 %, portant le total à 6,32 %, mesure temporaire jusqu'au 31 mars 2028, exonération possible pour les primo-accédants si voté par le département), frais bancaires + garantie (1 500 à 3 500 €), apport personnel requis (15 à 20 % du prix), fonds de travaux ALUR (minimum 5 % du budget prévisionnel annuel des charges, obligatoire en copropriété de plus de 10 ans), travaux votés en AG dont vous héritez, taxe foncière, travaux DPE éventuels. Surcoût caché total : facilement +10 à +15 % sur le prix affiché. Pour le neuf, frais de notaire réduits à 2-3 %. Outil de référence pour estimer un prix de marché : la base <a href="https://www.data.gouv.fr/fr/datasets/demandes-de-valeurs-foncieres/">DVF (Demande de Valeurs Foncières)</a>, gratuite. Pour les annonces, comparer <a href="#" class="pcs-link-partner" rel="sponsored nofollow noopener">SeLoger</a>, <a href="#" class="pcs-link-partner" rel="sponsored nofollow noopener">PAP</a> et <a href="#" class="pcs-link-partner" rel="sponsored nofollow noopener">Bien'ici</a> reste utile.</p>
+		<p class="pcs-section__lead">Bailleur dans un marché tendu en 2026 : G interdits à la location depuis le 1er janvier 2025 (ni nouveau bail, ni renouvellement, ni reconduction tacite), F au 1er janvier 2028, E au 1er janvier 2034. Audit énergétique obligatoire à la vente pour les maisons individuelles classées E, F ou G en métropole (E depuis le 1er janvier 2025). Pour publier une annonce, <a href="https://www.seloger.com" class="pcs-link-partner" rel="sponsored nofollow noopener">SeLoger</a> et <a href="https://www.pap.fr" class="pcs-link-partner" rel="sponsored nofollow noopener">PAP</a> couvrent l'essentiel.</p>
 		<!-- /wp:paragraph -->
 
-		<!-- wp:list {"className":"pcs-link-list"} -->
-		<ul class="wp-block-list pcs-link-list">
-			<li><a href="#">Frais de notaire 2026 : composition réelle (80 % de taxes)</a></li>
-			<li><a href="#">DMTO majoré dans 82 départements : où s'applique la hausse 6,32 %</a></li>
-			<li><a href="#">Exonération primo-accédant DMTO : qui peut en bénéficier</a></li>
-			<li><a href="#">Fonds de travaux ALUR : ce qui s'ajoute à votre achat en copropriété</a></li>
-			<li><a href="#">Apport 15-20 % et HCSF 35 % : la nouvelle norme bancaire</a></li>
-		</ul>
-		<!-- /wp:list -->
-
 		<!-- wp:paragraph {"className":"pcs-section__more"} -->
-		<p class="pcs-section__more"><a href="/category/immobilier-acheter-cat/">Tout voir →</a></p>
+		<p class="pcs-section__more"><a href="/immobilier-louer-investir-cat/">Voir tous les articles Louer & investir →</a></p>
 		<!-- /wp:paragraph -->
 
 	</section>
@@ -89,48 +61,34 @@
 
 	<!-- wp:pattern {"slug":"pluscestsimple/banner-slot-category-mid"} /-->
 
-	<!-- wp:group {"tagName":"section","className":"pcs-section pcs-section--editorial","layout":{"type":"constrained"}} -->
-	<section class="wp-block-group pcs-section pcs-section--editorial">
-
-		<!-- wp:paragraph {"className":"pcs-eyebrow","textColor":"accent"} -->
-		<p class="pcs-eyebrow has-accent-color has-text-color">Aides 2026</p>
-		<!-- /wp:paragraph -->
+	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-section--subcat","layout":{"type":"constrained"}} -->
+	<section class="wp-block-group alignwide pcs-section pcs-section--subcat">
 
 		<!-- wp:heading {"level":2,"className":"pcs-section__title"} -->
-		<h2 class="wp-block-heading pcs-section__title">Aides 2026 pour un ménage normal : PTZ et MaPrimeRénov</h2>
+		<h2 class="wp-block-heading pcs-section__title">Vendre</h2>
 		<!-- /wp:heading -->
 
 		<!-- wp:paragraph {"className":"pcs-section__lead"} -->
-		<p class="pcs-section__lead">Deux dispositifs concernent directement les ménages qui achètent leur résidence principale ou rénovent leur logement en 2026. PTZ 2026 : élargi par décret du 29 mars 2025 aux zones B2 et C pour le neuf depuis le 1er avril 2025, plafonds de revenus revalorisés de 8 à 13 % selon les zones (environ 26 000 € pour une personne seule en zone B2), montant jusqu'à 50 % du coût total en zone tendue (A et B1), 30 % en zones B2 et C. Pour l'ancien, le PTZ reste éligible si vous prévoyez des travaux représentant au moins 25 % du coût total. MaPrimeRénov 2026 : guichet rouvert le 23 février 2026 à 12h, budget annuel 3,6 milliards d'euros, deux parcours actifs (par geste et rénovation d'ampleur, jusqu'à 80 % d'un plafond de 40 000 € pour les ménages très modestes). Depuis le 1er janvier 2026, l'isolation des murs et les chaudières biomasse sont sorties du parcours par geste. Rendez-vous obligatoire avec un conseiller France Rénov' avant tout dépôt en rénovation d'ampleur. Taux d'endettement HCSF maintenu à 35 % du revenu net en 2026, sans assouplissement. Pour la simulation de capacité, <a href="#" class="pcs-link-partner" rel="sponsored nofollow noopener">Pretto</a> et <a href="#" class="pcs-link-partner" rel="sponsored nofollow noopener">Empruntis</a> proposent du courtage gratuit ; pour la rénovation énergétique, <a href="#" class="pcs-link-partner" rel="sponsored nofollow noopener">Effy</a> gère les dossiers. Sources : <a href="https://www.service-public.fr/particuliers/vosdroits/F10871">Service-Public.fr — PTZ</a>, <a href="https://france-renov.gouv.fr/">France Rénov'</a> et <a href="https://www.anah.fr/">Anah</a>.</p>
+		<p class="pcs-section__lead">Méthode DVF (base <a href="https://www.data.gouv.fr/fr/datasets/demandes-de-valeurs-foncieres/">Demandes de Valeurs Foncières</a>, gratuite) pour estimer un prix de marché réel. Travaux qui rapportent au m², négociation possible sur un bien classé F ou G (l'audit obligatoire chiffre les travaux que l'acheteur fera). Pour la cartographie 3D et la vue satellite avant déplacement, <a href="https://www.bienici.com" class="pcs-link-partner" rel="sponsored nofollow noopener">Bien'ici</a>. Ressources gratuites : <a href="https://www.immobilier.notaires.fr/fr/frais-de-notaire">Notaires.fr</a>, <a href="https://www.service-public.fr/">Service-Public.fr</a>.</p>
 		<!-- /wp:paragraph -->
 
-		<!-- wp:list {"className":"pcs-link-list"} -->
-		<ul class="wp-block-list pcs-link-list">
-			<li><a href="#">PTZ 2026 ancien avec travaux : conditions et plafonds par zone</a></li>
-			<li><a href="#">PTZ 2026 neuf : élargissement B2/C et plafonds revalorisés</a></li>
-			<li><a href="#">MaPrimeRénov 2026 : parcours geste vs ampleur, ce qui a changé</a></li>
-			<li><a href="#">Cumul des aides immobilières : PTZ + MPR + éco-PTZ + TVA 5,5 %</a></li>
-			<li><a href="#">HCSF 35 % et durée 25 ans : la norme bancaire 2026</a></li>
-		</ul>
-		<!-- /wp:list -->
-
 		<!-- wp:paragraph {"className":"pcs-section__more"} -->
-		<p class="pcs-section__more"><a href="/category/immobilier-louer-investir-cat/">Tout voir →</a></p>
+		<p class="pcs-section__more"><a href="/immobilier-vendre-cat/">Voir tous les articles Vendre →</a></p>
 		<!-- /wp:paragraph -->
 
 	</section>
 	<!-- /wp:group -->
 
-	<!-- wp:group {"tagName":"section","className":"pcs-section pcs-section--cat-loop","layout":{"type":"constrained"}} -->
-	<section class="wp-block-group pcs-section pcs-section--cat-loop">
+	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-section--cat-loop","layout":{"type":"constrained"}} -->
+	<section class="wp-block-group alignwide pcs-section pcs-section--cat-loop">
 
 		<!-- wp:heading {"level":2,"className":"pcs-section__title"} -->
-		<h2 class="wp-block-heading pcs-section__title">Tous les articles</h2>
+		<h2 class="wp-block-heading pcs-section__title">Tous les articles Immobilier</h2>
 		<!-- /wp:heading -->
 
-		<!-- wp:query {"queryId":10,"query":{"perPage":9,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":true},"namespace":"pcs/cat-loop"} -->
+		<!-- wp:query {"queryId":10,"query":{"perPage":9,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false},"namespace":"pcs/cat-loop"} -->
 		<div class="wp-block-query">
-			<!-- wp:post-template {"className":"pcs-card-grid","lock":{"move":true,"remove":true}} -->
+			<!-- wp:post-template {"className":"pcs-card-grid","lock":{"move":true,"remove":true},"layout":{"type":"grid","columnCount":3,"minimumColumnWidth":null}} -->
 				<!-- wp:group {"tagName":"article","className":"pcs-card"} -->
 				<article class="wp-block-group pcs-card">
 					<!-- wp:post-featured-image {"isLink":true,"aspectRatio":"4/3","className":"pcs-card__media"} /-->
@@ -146,6 +104,11 @@
 				<!-- wp:query-pagination-numbers /-->
 				<!-- wp:query-pagination-next /-->
 			<!-- /wp:query-pagination -->
+			<!-- wp:query-no-results -->
+				<!-- wp:paragraph -->
+				<p>Aucun article publié dans cette catégorie pour le moment. <a href="/le-carnet/">Voir tous les articles du carnet →</a></p>
+				<!-- /wp:paragraph -->
+			<!-- /wp:query-no-results -->
 		</div>
 		<!-- /wp:query -->
 
@@ -280,7 +243,7 @@
 				<div class="pcs-partner-card__logo">SeLoger</div>
 				<h3 class="pcs-partner-card__name">SeLoger</h3>
 				<p class="pcs-partner-card__pitch">Portail d'annonces achat, vente, location, baromètre par ville, recherche avancée. Repère national pour comparer les prix de marché par quartier.</p>
-				<p class="pcs-partner-card__cta"><a href="#" class="pcs-link-partner" rel="sponsored nofollow noopener">Voir SeLoger</a></p>
+				<p class="pcs-partner-card__cta"><a href="https://www.seloger.com" class="pcs-link-partner" rel="sponsored nofollow noopener">Voir SeLoger</a></p>
 			</article>
 
 			<article class="pcs-partner-card">
@@ -288,7 +251,7 @@
 				<div class="pcs-partner-card__logo">PAP</div>
 				<h3 class="pcs-partner-card__name">PAP (Particulier à Particulier)</h3>
 				<p class="pcs-partner-card__pitch">Annonces de particulier à particulier, modèles de baux téléchargeables, ton anti-agence assumé. Utile pour louer ou vendre sans agence et économiser les frais.</p>
-				<p class="pcs-partner-card__cta"><a href="#" class="pcs-link-partner" rel="sponsored nofollow noopener">Voir PAP</a></p>
+				<p class="pcs-partner-card__cta"><a href="https://www.pap.fr" class="pcs-link-partner" rel="sponsored nofollow noopener">Voir PAP</a></p>
 			</article>
 
 			<article class="pcs-partner-card">
@@ -296,7 +259,7 @@
 				<div class="pcs-partner-card__logo">Pretto</div>
 				<h3 class="pcs-partner-card__name">Pretto</h3>
 				<p class="pcs-partner-card__pitch">Courtier en ligne gratuit, simulation de capacité d'emprunt instantanée, négociation banque. Utile pour valider votre HCSF 35 % avant de chercher un bien.</p>
-				<p class="pcs-partner-card__cta"><a href="#" class="pcs-link-partner" rel="sponsored nofollow noopener">Voir Pretto</a></p>
+				<p class="pcs-partner-card__cta"><a href="https://www.pretto.fr" class="pcs-link-partner" rel="sponsored nofollow noopener">Voir Pretto</a></p>
 			</article>
 
 			<article class="pcs-partner-card">
@@ -304,7 +267,7 @@
 				<div class="pcs-partner-card__logo">Empruntis</div>
 				<h3 class="pcs-partner-card__name">Empruntis</h3>
 				<p class="pcs-partner-card__pitch">Comparateur de crédit immobilier et assurance emprunteur, courtage gratuit. Bon complément à Pretto pour cross-checker la meilleure offre bancaire.</p>
-				<p class="pcs-partner-card__cta"><a href="#" class="pcs-link-partner" rel="sponsored nofollow noopener">Voir Empruntis</a></p>
+				<p class="pcs-partner-card__cta"><a href="https://www.empruntis.com" class="pcs-link-partner" rel="sponsored nofollow noopener">Voir Empruntis</a></p>
 			</article>
 
 			<article class="pcs-partner-card">
@@ -312,7 +275,7 @@
 				<div class="pcs-partner-card__logo">Effy</div>
 				<h3 class="pcs-partner-card__name">Effy</h3>
 				<p class="pcs-partner-card__pitch">Réseau d'artisans RGE certifiés, devis travaux rénovation énergétique, audit énergétique réglementaire à la vente. Utile pour sortir d'un DPE F ou G avant de mettre en vente.</p>
-				<p class="pcs-partner-card__cta"><a href="#" class="pcs-link-partner" rel="sponsored nofollow noopener">Voir Effy</a></p>
+				<p class="pcs-partner-card__cta"><a href="https://www.effy.fr" class="pcs-link-partner" rel="sponsored nofollow noopener">Voir Effy</a></p>
 			</article>
 
 			<article class="pcs-partner-card">
@@ -320,7 +283,7 @@
 				<div class="pcs-partner-card__logo">Bien'ici</div>
 				<h3 class="pcs-partner-card__name">Bien'ici</h3>
 				<p class="pcs-partner-card__pitch">Cartographie immobilière 3D, annonces géolocalisées, vue satellite et plan de masse. Pratique pour visualiser un quartier avant déplacement physique.</p>
-				<p class="pcs-partner-card__cta"><a href="#" class="pcs-link-partner" rel="sponsored nofollow noopener">Voir Bien'ici</a></p>
+				<p class="pcs-partner-card__cta"><a href="https://www.bienici.com" class="pcs-link-partner" rel="sponsored nofollow noopener">Voir Bien'ici</a></p>
 			</article>
 
 		</div>
@@ -333,8 +296,8 @@
 	</section>
 	<!-- /wp:group -->
 
-	<!-- wp:group {"tagName":"section","className":"pcs-section pcs-section--maillage","layout":{"type":"constrained"}} -->
-	<section class="wp-block-group pcs-section pcs-section--maillage">
+	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-section--maillage","layout":{"type":"constrained"}} -->
+	<section class="wp-block-group alignwide pcs-section pcs-section--maillage">
 
 		<!-- wp:paragraph {"className":"pcs-eyebrow","textColor":"accent"} -->
 		<p class="pcs-eyebrow has-accent-color has-text-color">Aller plus loin</p>

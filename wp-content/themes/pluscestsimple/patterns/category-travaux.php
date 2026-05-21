@@ -3,7 +3,7 @@
  * Title: Page catégorie — Travaux
  * Slug: pluscestsimple/category-travaux
  * Categories: pcs-page
- * Description: Page pilier Travaux : intro, 3 sections H2 (aides 2026, budget, maison ancienne), FAQ, partenaires, maillage.
+ * Description: Page pilier Travaux : intro, 4 sous-sections (Par pièce, Gros & second œuvre, Rénovation énergétique, Budget & aides), Query Loop catégorie, FAQ, partenaires, maillage.
  * Inserter: yes
  * Keywords: travaux, rénovation, pilier, catégorie
  */
@@ -23,65 +23,37 @@
 
 	<!-- wp:pattern {"slug":"pluscestsimple/banner-slot-category-intro"} /-->
 
-	<!-- wp:group {"tagName":"section","className":"pcs-section pcs-section--editorial","layout":{"type":"constrained"}} -->
-	<section class="wp-block-group pcs-section pcs-section--editorial">
-
-		<!-- wp:paragraph {"className":"pcs-eyebrow","textColor":"accent"} -->
-		<p class="pcs-eyebrow has-accent-color has-text-color">Le sujet brûlant</p>
-		<!-- /wp:paragraph -->
+	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-section--subcat","layout":{"type":"constrained"}} -->
+	<section class="wp-block-group alignwide pcs-section pcs-section--subcat">
 
 		<!-- wp:heading {"level":2,"className":"pcs-section__title"} -->
-		<h2 class="wp-block-heading pcs-section__title">Aides 2026 et travaux qui paient vraiment</h2>
+		<h2 class="wp-block-heading pcs-section__title">Par pièce</h2>
 		<!-- /wp:heading -->
 
 		<!-- wp:paragraph {"className":"pcs-section__lead"} -->
-		<p class="pcs-section__lead">2026 a tout changé pour la rénovation énergétique et ses aides. L'isolation des murs (ITE/ITI) et les chaudières biomasse sont sorties du parcours par geste de MaPrimeRénov : elles ne sont plus financées qu'en rénovation d'ampleur, avec un plafond de dépenses éligibles abaissé à 30 000 € HT pour un gain de 2 classes DPE et 40 000 € HT pour 3 classes ou plus. Le parcours accompagné est réservé aux logements E, F ou G et impose un accompagnement obligatoire (Mon Accompagnateur Rénov'). Côté locatif : G interdits depuis janvier 2025, F en 2028, E en 2034. L'audit énergétique obligatoire à la vente concerne les F/G depuis avril 2023, les E depuis le 1er janvier 2025. Et au 1er janvier 2026, le coefficient d'énergie primaire de l'électricité passe de 2,3 à 1,9 : certains logements chauffés à l'électrique gagnent une classe DPE sans rénover. Pour la pompe à chaleur, les pros labellisés <a href="https://www.effy.fr" class="pcs-link-partner" rel="sponsored nofollow noopener">Effy</a> ou <a href="https://www.hellio.com" class="pcs-link-partner" rel="sponsored nofollow noopener">Hellio</a> gèrent les dossiers ; pour les combles, comparer via <a href="https://www.ootravaux.fr" class="pcs-link-partner" rel="sponsored nofollow noopener">Ootravaux</a> reste utile. Sources : <a href="https://france-renov.gouv.fr/">France Rénov'</a>, <a href="https://www.anah.fr/">Anah</a>, <a href="https://www.service-public.fr/">Service-Public.fr</a>.</p>
+		<p class="pcs-section__lead">Salle de bains, cuisine, chambre, salon : chaque pièce déclenche un chantier différent — diagnostic réseaux (électricité, plomberie, ventilation) avant la déco, conformité DTU 60.1 plomberie et DTU 25.41 cloisons, copropriété pour les pièces humides. Pour comparer matériaux et outillage en grande surface avant de signer un devis, <a href="https://www.leroymerlin.fr" class="pcs-link-partner" rel="sponsored nofollow noopener">Leroy Merlin</a> et <a href="https://www.castorama.fr" class="pcs-link-partner" rel="sponsored nofollow noopener">Castorama</a> couvrent l'essentiel.</p>
 		<!-- /wp:paragraph -->
 
-		<!-- wp:list {"className":"pcs-link-list"} -->
-		<ul class="wp-block-list pcs-link-list">
-			<li><a href="#">MaPrimeRénov 2026 : parcours geste vs ampleur expliqué</a></li>
-			<li><a href="#">Cumul des aides : MPR + CEE + éco-PTZ + TVA 5,5 % + locales</a></li>
-			<li><a href="#">Isolation combles : le geste roi, ROI inférieur à 5 ans</a></li>
-			<li><a href="#">DPE et passoires thermiques : calendrier 2025-2034</a></li>
-			<li><a href="#">Audit énergétique obligatoire : qui, prix, impact</a></li>
-		</ul>
-		<!-- /wp:list -->
-
 		<!-- wp:paragraph {"className":"pcs-section__more"} -->
-		<p class="pcs-section__more"><a href="/category/travaux-renovation-energetique-cat/">Tout voir →</a></p>
+		<p class="pcs-section__more"><a href="/travaux-par-piece-cat/">Voir tous les articles Par pièce →</a></p>
 		<!-- /wp:paragraph -->
 
 	</section>
 	<!-- /wp:group -->
 
-	<!-- wp:group {"tagName":"section","className":"pcs-section pcs-section--editorial","layout":{"type":"constrained"}} -->
-	<section class="wp-block-group pcs-section pcs-section--editorial">
-
-		<!-- wp:paragraph {"className":"pcs-eyebrow","textColor":"accent"} -->
-		<p class="pcs-eyebrow has-accent-color has-text-color">Le vrai prix au m²</p>
-		<!-- /wp:paragraph -->
+	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-section--subcat","layout":{"type":"constrained"}} -->
+	<section class="wp-block-group alignwide pcs-section pcs-section--subcat">
 
 		<!-- wp:heading {"level":2,"className":"pcs-section__title"} -->
-		<h2 class="wp-block-heading pcs-section__title">Combien coûte votre chantier (et le coût rénovation maison ancienne décodé)</h2>
+		<h2 class="wp-block-heading pcs-section__title">Gros & second œuvre</h2>
 		<!-- /wp:heading -->
 
 		<!-- wp:paragraph {"className":"pcs-section__lead"} -->
-		<p class="pcs-section__lead">Les fourchettes "250 à 4 000 €/m²" qu'on lit partout ne servent à rien. Le vrai prix d'une rénovation maison dépend de la région (Île-de-France +25 à 40 %), de l'âge du bâti (maison avant 1948 : 900-1 500 €/m², années 70-90 : 500-900 €/m², récent : 300-600 €/m²), de l'état initial des réseaux et du périmètre. Sur PCS, on publie des devis réels comparés sur des cas types nommés. Décomposition ligne par ligne : main d'œuvre, matériaux, dépose, évacuation, aléas. Sur les matériaux, comparer une grande surface comme <a href="https://www.leroymerlin.fr" class="pcs-link-partner" rel="sponsored nofollow noopener">Leroy Merlin</a> et un négoce pro tel que <a href="https://www.pointp.fr" class="pcs-link-partner" rel="sponsored nofollow noopener">Point.P</a> donne 15 à 25 % d'écart sur le carrelage, le placo ou l'isolant. Spoiler chiffré : sur un chantier à 80 000 €, 10 à 15 % sont négociables, le reste non.</p>
+		<p class="pcs-section__lead">Démolir, redresser, isoler : les fondamentaux du chantier qui décident de la suite. Bâti d'avant 1948 : matériaux perspirants obligatoires (chaux, chanvre, fibre de bois), refus du ciment sur pierre et du polystyrène sur murs anciens. Diagnostic ventilation avant chantier. Pour les matériaux pro à prix négociés (15-25 % d'écart vs grande surface sur carrelage, placo, isolant), <a href="https://www.pointp.fr" class="pcs-link-partner" rel="sponsored nofollow noopener">Point.P</a> en négoce.</p>
 		<!-- /wp:paragraph -->
 
-		<!-- wp:list {"className":"pcs-link-list"} -->
-		<ul class="wp-block-list pcs-link-list">
-			<li><a href="#">Rénovation maison ancienne 100 m² : 3 devis comparés ligne par ligne</a></li>
-			<li><a href="#">Appartement parisien 60 m² : le vrai prix d'une refonte</a></li>
-			<li><a href="#">Coûts cachés : déchets, dépose, échafaudage, coordination</a></li>
-			<li><a href="#">Lire un devis artisan : les zones floues à débusquer</a></li>
-			<li><a href="#">Marge de négociation par corps d'état : ce qui se discute vraiment</a></li>
-		</ul>
-		<!-- /wp:list -->
-
 		<!-- wp:paragraph {"className":"pcs-section__more"} -->
-		<p class="pcs-section__more"><a href="/category/travaux-budget-aides-cat/">Tout voir →</a></p>
+		<p class="pcs-section__more"><a href="/travaux-gros-second-oeuvre-cat/">Voir tous les articles Gros & second œuvre →</a></p>
 		<!-- /wp:paragraph -->
 
 	</section>
@@ -89,48 +61,52 @@
 
 	<!-- wp:pattern {"slug":"pluscestsimple/banner-slot-category-mid"} /-->
 
-	<!-- wp:group {"tagName":"section","className":"pcs-section pcs-section--editorial","layout":{"type":"constrained"}} -->
-	<section class="wp-block-group pcs-section pcs-section--editorial">
-
-		<!-- wp:paragraph {"className":"pcs-eyebrow","textColor":"accent"} -->
-		<p class="pcs-eyebrow has-accent-color has-text-color">Bâti d'avant 1948</p>
-		<!-- /wp:paragraph -->
+	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-section--subcat","layout":{"type":"constrained"}} -->
+	<section class="wp-block-group alignwide pcs-section pcs-section--subcat">
 
 		<!-- wp:heading {"level":2,"className":"pcs-section__title"} -->
-		<h2 class="wp-block-heading pcs-section__title">Maison ancienne sans la casser</h2>
+		<h2 class="wp-block-heading pcs-section__title">Rénovation énergétique</h2>
 		<!-- /wp:heading -->
 
 		<!-- wp:paragraph {"className":"pcs-section__lead"} -->
-		<p class="pcs-section__lead">Une maison en pierre, pisé ou colombages obéit à des règles techniques inverses du bâti récent : elle a besoin de respirer. Trois erreurs ruinent des murs centenaires chaque mois. Le ciment posé sur la pierre bloque la migration de vapeur et accélère la dégradation — basculer sur enduit chaux. Le polystyrène collé en isolation par l'intérieur crée une condensation qui pourrit les structures bois : préférer chaux-chanvre, fibre de bois, ouate de cellulose. Le remplacement des huisseries par du PVC ultra-étanche sans VMC compensatoire fait monter l'humidité jusqu'aux moisissures en deux hivers. Diagnostic ventilation obligatoire avant chantier ; cloisons sous DTU 25.41 (version février 2022), plomberie sous DTU 60.1. Pour les matériaux perspirants, <a href="https://www.saint-gobain.fr" class="pcs-link-partner" rel="sponsored nofollow noopener">Saint-Gobain</a> tient la gamme. Un artisan formé bâti ancien (RGE Qualibat ou Maisons Paysannes de France) reste indispensable.</p>
+		<p class="pcs-section__lead">MaPrimeRénov 2026 a refondu ses règles : ITE/ITI et chaudières biomasse sorties du parcours par geste, plafonds 30 000 € HT (2 classes DPE gagnées) et 40 000 € HT (3 classes ou plus), Mon Accompagnateur Rénov' obligatoire en parcours accompagné. Au 1er janvier 2026, le coefficient d'énergie primaire de l'électricité passe à 1,9 (contre 2,3) — certains logements gagnent une classe DPE sans rénover. Pour piloter audit + dossier MPR, <a href="https://www.effy.fr" class="pcs-link-partner" rel="sponsored nofollow noopener">Effy</a> et <a href="https://www.hellio.com" class="pcs-link-partner" rel="sponsored nofollow noopener">Hellio</a> gèrent l'accompagnement.</p>
 		<!-- /wp:paragraph -->
 
-		<!-- wp:list {"className":"pcs-link-list"} -->
-		<ul class="wp-block-list pcs-link-list">
-			<li><a href="#">Humidité murs en pierre : causes, faux remèdes, vraies solutions</a></li>
-			<li><a href="#">Isoler une maison ancienne sans piéger l'humidité (chaux, chanvre, fibre bois)</a></li>
-			<li><a href="#">Pourquoi l'enduit ciment a tué votre mur en pierre (et le coût de reprise)</a></li>
-			<li><a href="#">VMC obligatoire ou pas : simple flux vs double flux</a></li>
-			<li><a href="#">Charpente ancienne : 5 signes d'alerte avant ruine</a></li>
-		</ul>
-		<!-- /wp:list -->
-
 		<!-- wp:paragraph {"className":"pcs-section__more"} -->
-		<p class="pcs-section__more"><a href="/category/travaux-gros-second-oeuvre-cat/">Tout voir →</a></p>
+		<p class="pcs-section__more"><a href="/travaux-renovation-energetique-cat/">Voir tous les articles Rénovation énergétique →</a></p>
 		<!-- /wp:paragraph -->
 
 	</section>
 	<!-- /wp:group -->
 
-	<!-- wp:group {"tagName":"section","className":"pcs-section pcs-section--cat-loop","layout":{"type":"constrained"}} -->
-	<section class="wp-block-group pcs-section pcs-section--cat-loop">
+	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-section--subcat","layout":{"type":"constrained"}} -->
+	<section class="wp-block-group alignwide pcs-section pcs-section--subcat">
 
 		<!-- wp:heading {"level":2,"className":"pcs-section__title"} -->
-		<h2 class="wp-block-heading pcs-section__title">Tous les articles</h2>
+		<h2 class="wp-block-heading pcs-section__title">Budget & aides</h2>
 		<!-- /wp:heading -->
 
-		<!-- wp:query {"queryId":10,"query":{"perPage":9,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":true},"namespace":"pcs/cat-loop"} -->
+		<!-- wp:paragraph {"className":"pcs-section__lead"} -->
+		<p class="pcs-section__lead">Prix réels au m² par âge de bâti et région : avant 1948 entre 900 et 1 500 €/m², années 70-90 entre 500 et 900 €/m², récent 300-600 €/m² ; Île-de-France +25 à 40 % sur la main d'œuvre. Sur un chantier à 80 000 €, 10 à 15 % sont négociables, le reste non. Devis comparés ligne par ligne, calendrier de décaissement, lecture des zones floues d'un devis. Pour comparer 3 devis sur un même geste, <a href="https://www.ootravaux.fr" class="pcs-link-partner" rel="sponsored nofollow noopener">Ootravaux</a> reste utile.</p>
+		<!-- /wp:paragraph -->
+
+		<!-- wp:paragraph {"className":"pcs-section__more"} -->
+		<p class="pcs-section__more"><a href="/travaux-budget-aides-cat/">Voir tous les articles Budget & aides →</a></p>
+		<!-- /wp:paragraph -->
+
+	</section>
+	<!-- /wp:group -->
+
+	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-section--cat-loop","layout":{"type":"constrained"}} -->
+	<section class="wp-block-group alignwide pcs-section pcs-section--cat-loop">
+
+		<!-- wp:heading {"level":2,"className":"pcs-section__title"} -->
+		<h2 class="wp-block-heading pcs-section__title">Tous les articles Travaux</h2>
+		<!-- /wp:heading -->
+
+		<!-- wp:query {"queryId":10,"query":{"perPage":9,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false},"namespace":"pcs/cat-loop"} -->
 		<div class="wp-block-query">
-			<!-- wp:post-template {"className":"pcs-card-grid","lock":{"move":true,"remove":true}} -->
+			<!-- wp:post-template {"className":"pcs-card-grid","lock":{"move":true,"remove":true},"layout":{"type":"grid","columnCount":3,"minimumColumnWidth":null}} -->
 				<!-- wp:group {"tagName":"article","className":"pcs-card"} -->
 				<article class="wp-block-group pcs-card">
 					<!-- wp:post-featured-image {"isLink":true,"aspectRatio":"4/3","className":"pcs-card__media"} /-->
@@ -146,6 +122,11 @@
 				<!-- wp:query-pagination-numbers /-->
 				<!-- wp:query-pagination-next /-->
 			<!-- /wp:query-pagination -->
+			<!-- wp:query-no-results -->
+				<!-- wp:paragraph -->
+				<p>Aucun article publié dans cette catégorie pour le moment. <a href="/le-carnet/">Voir tous les articles du carnet →</a></p>
+				<!-- /wp:paragraph -->
+			<!-- /wp:query-no-results -->
 		</div>
 		<!-- /wp:query -->
 
@@ -333,8 +314,8 @@
 	</section>
 	<!-- /wp:group -->
 
-	<!-- wp:group {"tagName":"section","className":"pcs-section pcs-section--maillage","layout":{"type":"constrained"}} -->
-	<section class="wp-block-group pcs-section pcs-section--maillage">
+	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-section--maillage","layout":{"type":"constrained"}} -->
+	<section class="wp-block-group alignwide pcs-section pcs-section--maillage">
 
 		<!-- wp:paragraph {"className":"pcs-eyebrow","textColor":"accent"} -->
 		<p class="pcs-eyebrow has-accent-color has-text-color">Aller plus loin</p>

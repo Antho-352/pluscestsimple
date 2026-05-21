@@ -3,7 +3,7 @@
  * Title: Page catégorie — Décoration
  * Slug: pluscestsimple/category-decoration
  * Categories: pcs-page
- * Description: Page pilier Décoration : intro, 3 sections H2 (petit budget, pièce par pièce, styles), FAQ, partenaires, maillage.
+ * Description: Page pilier Décoration : intro, 3 sous-sections (Pièces, Styles, Petit budget), Query Loop catégorie, FAQ, partenaires, maillage.
  * Inserter: yes
  * Keywords: décoration, intérieur, pilier, catégorie
  */
@@ -23,65 +23,37 @@
 
 	<!-- wp:pattern {"slug":"pluscestsimple/banner-slot-category-intro"} /-->
 
-	<!-- wp:group {"tagName":"section","className":"pcs-section pcs-section--editorial","layout":{"type":"constrained"}} -->
-	<section class="wp-block-group pcs-section pcs-section--editorial">
-
-		<!-- wp:paragraph {"className":"pcs-eyebrow","textColor":"accent"} -->
-		<p class="pcs-eyebrow has-accent-color has-text-color">Le palier 200 €</p>
-		<!-- /wp:paragraph -->
+	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-section--subcat","layout":{"type":"constrained"}} -->
+	<section class="wp-block-group alignwide pcs-section pcs-section--subcat">
 
 		<!-- wp:heading {"level":2,"className":"pcs-section__title"} -->
-		<h2 class="wp-block-heading pcs-section__title">Décorer petit budget : ce qu'on peut vraiment faire</h2>
+		<h2 class="wp-block-heading pcs-section__title">Pièces</h2>
 		<!-- /wp:heading -->
 
 		<!-- wp:paragraph {"className":"pcs-section__lead"} -->
-		<p class="pcs-section__lead">Sous 200 €, on ne change pas un canapé. On peut transformer une ambiance avec des textiles, un éclairage repensé et un mur peint — un pot de peinture <a href="https://www.ressource-peintures.com" class="pcs-link-partner" rel="sponsored nofollow noopener">Ressource Peintures</a> tient dix ans sans jaunir, ce qui rentabilise les 40 à 60 € du litre. Sous 500 €, on attaque la seconde main sérieuse : <a href="https://www.selency.fr" class="pcs-link-partner" rel="sponsored nofollow noopener">Selency</a> pour le vintage sourcé par chineurs pros, avec authentification des pièces signées, <a href="https://www.label-emmaus.co" class="pcs-link-partner" rel="sponsored nofollow noopener">Label Emmaüs</a> pour le mobilier réemployé à prix solidaire. Sous 1 500 €, on peut entièrement repenser une pièce. Au-delà, on entre dans l'arbitrage neuf de qualité versus pièces fortes d'occasion — souvent mieux faites que leur équivalent neuf à prix égal.</p>
+		<p class="pcs-section__lead">Une pièce n'est pas une autre. Salon de famille avec enfants et chien, chambre orientée nord, salle de bain sans fenêtre, couloir d'1,20 m de large, entrée à optimiser : chacune impose ses arbitrages avant ses inspirations. Pour le mobilier de structure qui doit tenir dix ans, <a href="https://www.laredoute.fr/pplp/500230.aspx" class="pcs-link-partner" rel="sponsored nofollow noopener">La Redoute Intérieurs</a> offre un rapport qualité-prix honnête avec un SAV qui existe. Pour les bois massifs durables, <a href="https://www.tikamoon.com" class="pcs-link-partner" rel="sponsored nofollow noopener">Tikamoon</a> reste la référence française accessible avec garantie cinq ans.</p>
 		<!-- /wp:paragraph -->
 
-		<!-- wp:list {"className":"pcs-link-list"} -->
-		<ul class="wp-block-list pcs-link-list">
-			<li><a href="#">Relooker son salon pour moins de 200 € (et ce qui reste impossible à ce prix)</a></li>
-			<li><a href="#">Acheter du mobilier d'occasion sans se faire avoir : check-list 12 points</a></li>
-			<li><a href="#">IKEA vs Maisons du Monde vs La Redoute : comparatif sur cas réels</a></li>
-			<li><a href="#">Les hacks IKEA qui valent le coup (et les cinq qui n'en valent pas)</a></li>
-			<li><a href="#">Coût réel pour adopter chaque tendance 2026 (de 50 € à 3 000 €)</a></li>
-		</ul>
-		<!-- /wp:list -->
-
 		<!-- wp:paragraph {"className":"pcs-section__more"} -->
-		<p class="pcs-section__more"><a href="/category/decoration-petit-budget-cat/">Tout voir →</a></p>
+		<p class="pcs-section__more"><a href="/decoration-pieces-cat/">Voir tous les articles Pièces →</a></p>
 		<!-- /wp:paragraph -->
 
 	</section>
 	<!-- /wp:group -->
 
-	<!-- wp:group {"tagName":"section","className":"pcs-section pcs-section--editorial","layout":{"type":"constrained"}} -->
-	<section class="wp-block-group pcs-section pcs-section--editorial">
-
-		<!-- wp:paragraph {"className":"pcs-eyebrow","textColor":"accent"} -->
-		<p class="pcs-eyebrow has-accent-color has-text-color">Pièce par pièce</p>
-		<!-- /wp:paragraph -->
+	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-section--subcat","layout":{"type":"constrained"}} -->
+	<section class="wp-block-group alignwide pcs-section pcs-section--subcat">
 
 		<!-- wp:heading {"level":2,"className":"pcs-section__title"} -->
-		<h2 class="wp-block-heading pcs-section__title">Décoration intérieure pièce par pièce : adapter au lieu de copier</h2>
+		<h2 class="wp-block-heading pcs-section__title">Styles</h2>
 		<!-- /wp:heading -->
 
 		<!-- wp:paragraph {"className":"pcs-section__lead"} -->
-		<p class="pcs-section__lead">Une pièce n'est pas une autre. Salon de famille avec enfants et chien, chambre orientée nord, salle de bain sans fenêtre, couloir d'1,20 m de large : chacune impose ses arbitrages avant ses inspirations. Pour le mobilier de structure qui doit tenir dix ans — canapé, lit, rangements — <a href="https://www.laredoute.fr/pplp/500230.aspx" class="pcs-link-partner" rel="sponsored nofollow noopener">La Redoute Intérieurs</a> offre un rapport qualité-prix honnête et un SAV qui existe. Pour les bois massifs durables, <a href="https://www.tikamoon.com" class="pcs-link-partner" rel="sponsored nofollow noopener">Tikamoon</a> reste la référence française accessible, avec une garantie constructeur de cinq ans. Nos guides partent toujours du diagnostic — orientation, surface, lumière, usage, copropriété pour les pièces humides — avant de proposer des solutions chiffrées. Pas de "10 idées pour transformer votre cuisine" sans savoir si la vôtre est ouverte ou fermée.</p>
+		<p class="pcs-section__lead">Japandi mature, wabi-sabi, brutaliste modernisé, scandinave 2.0 : on regarde ce qui dure 10 ans et ce qui se démode en 3. Notre horizon temps : 3 ans (hype), 10 ans (intemporel), 30 ans (regret possible). Pour les pièces fortes qui traversent les styles, le vintage chiné chez <a href="https://www.selency.fr" class="pcs-link-partner" rel="sponsored nofollow noopener">Selency</a> tient mieux qu'un clone neuf à 200 €. Pour du massif français qui passe les modes, <a href="https://www.tikamoon.com" class="pcs-link-partner" rel="sponsored nofollow noopener">Tikamoon</a>.</p>
 		<!-- /wp:paragraph -->
 
-		<!-- wp:list {"className":"pcs-link-list"} -->
-		<ul class="wp-block-list pcs-link-list">
-			<li><a href="#">Décorer un salon : le guide complet par surface (15, 25, 40 m²)</a></li>
-			<li><a href="#">Décoration chambre adulte, enfant, ado : trois traitements différents</a></li>
-			<li><a href="#">Cuisine ouverte vs cuisine fermée : choisir selon votre vraie vie</a></li>
-			<li><a href="#">Salle de bain sans fenêtre : ventilation, lumière, couleurs</a></li>
-			<li><a href="#">Entrée et couloir : optimiser les 4 m² qui structurent toute la maison</a></li>
-		</ul>
-		<!-- /wp:list -->
-
 		<!-- wp:paragraph {"className":"pcs-section__more"} -->
-		<p class="pcs-section__more"><a href="/category/decoration-pieces-cat/">Tout voir →</a></p>
+		<p class="pcs-section__more"><a href="/decoration-styles-cat/">Voir tous les articles Styles →</a></p>
 		<!-- /wp:paragraph -->
 
 	</section>
@@ -89,48 +61,34 @@
 
 	<!-- wp:pattern {"slug":"pluscestsimple/banner-slot-category-mid"} /-->
 
-	<!-- wp:group {"tagName":"section","className":"pcs-section pcs-section--editorial","layout":{"type":"constrained"}} -->
-	<section class="wp-block-group pcs-section pcs-section--editorial">
-
-		<!-- wp:paragraph {"className":"pcs-eyebrow","textColor":"accent"} -->
-		<p class="pcs-eyebrow has-accent-color has-text-color">Styles 2026</p>
-		<!-- /wp:paragraph -->
+	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-section--subcat","layout":{"type":"constrained"}} -->
+	<section class="wp-block-group alignwide pcs-section pcs-section--subcat">
 
 		<!-- wp:heading {"level":2,"className":"pcs-section__title"} -->
-		<h2 class="wp-block-heading pcs-section__title">Styles qui durent, styles qui se démodent</h2>
+		<h2 class="wp-block-heading pcs-section__title">Petit budget</h2>
 		<!-- /wp:heading -->
 
 		<!-- wp:paragraph {"className":"pcs-section__lead"} -->
-		<p class="pcs-section__lead">Tous les styles ne vieillissent pas pareil et tous ne supportent pas le quotidien d'une famille française. Le japandi mature tient bien en 2026, moins gadget qu'en 2022, avec des lignes plus souples et l'arrivée du brun et du vert forêt. L'industriel brut a saturé ; sa version modernisée — lignes épurées, bois clair, plus de lumière — tient mieux. Le wabi-sabi reste une philosophie davantage qu'un style transposable hors loft parisien. Notre horizon temps : 3 ans (hype), 10 ans (intemporel), 30 ans (regret possible). Pour les pièces fortes qui traversent les styles, on regarde aussi le vintage chiné chez <a href="https://www.selency.fr" class="pcs-link-partner" rel="sponsored nofollow noopener">Selency</a> — un fauteuil scandinave des années 60 sera encore là dans vingt ans, le clone neuf à 200 €, non. Et chez <a href="https://www.castorama.fr" class="pcs-link-partner" rel="sponsored nofollow noopener">Castorama</a>, on prend le consommable et l'outillage, pas les meubles de structure.</p>
+		<p class="pcs-section__lead">Sous 200 €, on ne change pas un canapé : on transforme une ambiance avec textiles, éclairage repensé et un mur peint — un pot <a href="https://www.ressource-peintures.com" class="pcs-link-partner" rel="sponsored nofollow noopener">Ressource Peintures</a> tient dix ans sans jaunir et rentabilise ses 40-60 €/L. Sous 500 €, on attaque la seconde main sérieuse : <a href="https://www.selency.fr" class="pcs-link-partner" rel="sponsored nofollow noopener">Selency</a> pour le vintage authentifié, <a href="https://www.label-emmaus.co" class="pcs-link-partner" rel="sponsored nofollow noopener">Label Emmaüs</a> pour le mobilier réemployé à prix solidaire. Sous 1 500 €, on peut entièrement repenser une pièce.</p>
 		<!-- /wp:paragraph -->
 
-		<!-- wp:list {"className":"pcs-link-list"} -->
-		<ul class="wp-block-list pcs-link-list">
-			<li><a href="#">Les grands styles déco 2026 passés au crible critique</a></li>
-			<li><a href="#">Pourquoi votre intérieur ressemble à un Airbnb (et comment en sortir)</a></li>
-			<li><a href="#">Identifier son style sans copier Pinterest : méthode en 4 étapes</a></li>
-			<li><a href="#">Tendances couleur 2026 : ce qu'on garde, ce qu'on évite sur grandes surfaces</a></li>
-			<li><a href="#">L'erreur du tout-coordonné : pourquoi votre déco "fait catalogue"</a></li>
-		</ul>
-		<!-- /wp:list -->
-
 		<!-- wp:paragraph {"className":"pcs-section__more"} -->
-		<p class="pcs-section__more"><a href="/category/decoration-styles-cat/">Tout voir →</a></p>
+		<p class="pcs-section__more"><a href="/decoration-petit-budget-cat/">Voir tous les articles Petit budget →</a></p>
 		<!-- /wp:paragraph -->
 
 	</section>
 	<!-- /wp:group -->
 
-	<!-- wp:group {"tagName":"section","className":"pcs-section pcs-section--cat-loop","layout":{"type":"constrained"}} -->
-	<section class="wp-block-group pcs-section pcs-section--cat-loop">
+	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-section--cat-loop","layout":{"type":"constrained"}} -->
+	<section class="wp-block-group alignwide pcs-section pcs-section--cat-loop">
 
 		<!-- wp:heading {"level":2,"className":"pcs-section__title"} -->
-		<h2 class="wp-block-heading pcs-section__title">Tous les articles</h2>
+		<h2 class="wp-block-heading pcs-section__title">Tous les articles Décoration</h2>
 		<!-- /wp:heading -->
 
-		<!-- wp:query {"queryId":10,"query":{"perPage":9,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":true},"namespace":"pcs/cat-loop"} -->
+		<!-- wp:query {"queryId":10,"query":{"perPage":9,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false},"namespace":"pcs/cat-loop"} -->
 		<div class="wp-block-query">
-			<!-- wp:post-template {"className":"pcs-card-grid","lock":{"move":true,"remove":true}} -->
+			<!-- wp:post-template {"className":"pcs-card-grid","lock":{"move":true,"remove":true},"layout":{"type":"grid","columnCount":3,"minimumColumnWidth":null}} -->
 				<!-- wp:group {"tagName":"article","className":"pcs-card"} -->
 				<article class="wp-block-group pcs-card">
 					<!-- wp:post-featured-image {"isLink":true,"aspectRatio":"4/3","className":"pcs-card__media"} /-->
@@ -146,6 +104,11 @@
 				<!-- wp:query-pagination-numbers /-->
 				<!-- wp:query-pagination-next /-->
 			<!-- /wp:query-pagination -->
+			<!-- wp:query-no-results -->
+				<!-- wp:paragraph -->
+				<p>Aucun article publié dans cette catégorie pour le moment. <a href="/le-carnet/">Voir tous les articles du carnet →</a></p>
+				<!-- /wp:paragraph -->
+			<!-- /wp:query-no-results -->
 		</div>
 		<!-- /wp:query -->
 
@@ -333,8 +296,8 @@
 	</section>
 	<!-- /wp:group -->
 
-	<!-- wp:group {"tagName":"section","className":"pcs-section pcs-section--maillage","layout":{"type":"constrained"}} -->
-	<section class="wp-block-group pcs-section pcs-section--maillage">
+	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-section--maillage","layout":{"type":"constrained"}} -->
+	<section class="wp-block-group alignwide pcs-section pcs-section--maillage">
 
 		<!-- wp:paragraph {"className":"pcs-eyebrow","textColor":"accent"} -->
 		<p class="pcs-eyebrow has-accent-color has-text-color">Aller plus loin</p>

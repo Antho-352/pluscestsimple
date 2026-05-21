@@ -51,10 +51,10 @@
 				}
 			],
 			"fontSizes": [
-				{ "slug": "xs",   "size": "0.75rem",  "fluid": false, "name": "XS" },
-				{ "slug": "sm",   "size": "0.875rem", "fluid": false, "name": "SM" },
-				{ "slug": "base", "size": "1rem",     "fluid": { "min": "1rem", "max": "1.0625rem" }, "name": "Base" },
-				{ "slug": "md",   "size": "1.125rem", "fluid": { "min": "1.0625rem", "max": "1.1875rem" }, "name": "MD" },
+				{ "slug": "xs",   "size": "0.6875rem", "fluid": false, "name": "XS" },
+				{ "slug": "sm",   "size": "0.8125rem", "fluid": false, "name": "SM" },
+				{ "slug": "base", "size": "0.875rem",  "fluid": { "min": "0.875rem", "max": "0.9375rem" }, "name": "Base" },
+				{ "slug": "md",   "size": "1rem",      "fluid": { "min": "0.9375rem", "max": "1.0625rem" }, "name": "MD" },
 				{ "slug": "lg",   "size": "1.5rem",   "fluid": { "min": "1.25rem", "max": "1.625rem" }, "name": "LG" },
 				{ "slug": "xl",   "size": "2rem",     "fluid": { "min": "1.625rem", "max": "2.25rem" }, "name": "XL" },
 				{ "slug": "2xl",  "size": "2.75rem",  "fluid": { "min": "2rem", "max": "3rem" }, "name": "2XL" },

@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.2.1] — 2026-05-21
+
+### Fixes retours user
+- **Formulaire Contact moche** : ajout de styles génériques `.pcs-content form` et `.pcs-page__content form` (input + label + textarea + button submit en colonne, padding cohérent, focus accent). Tout form HTML brut dans le contenu Gutenberg est désormais stylé automatiquement, plus besoin de classe dédiée
+- **Pattern section-pillars** : passage de 6 à 5 cartes (Immobilier retiré), titre H2 « Cinq terrains, une méthode », layout grid avec minimumColumnWidth pour rendu auto sur les écrans
+- **Pattern section-pourquoi** : contentSize passé de 760 à 1080px pour respirer plus en largeur (le manifeste reste centré mais sur 1080 au lieu de 760)
+- **Ordre __ACCUEIL__** : section-pourquoi remontée avant section-pillars dans la liste auto-seed (manifeste avant les piliers, plus narratif)
+
 ## [2.2.0] — 2026-05-21
 
 ### Pages catégories — 6 patterns dédiés avec contenu rédigé final

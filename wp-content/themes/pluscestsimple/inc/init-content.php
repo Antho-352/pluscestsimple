@@ -244,7 +244,7 @@ function pcs_init_content(): void {
 			$pattern_slug = trim( substr( $content, strlen( '__PATTERN__:' ) ) );
 			$content      = pcs_get_pattern_content( $pattern_slug );
 		} elseif ( $content === '__ACCUEIL__' ) {
-			$slugs   = [ 'hero-front', 'section-pillars', 'section-pourquoi', 'section-compatibilimetre', 'section-featured', 'section-weekly', 'section-newsletter', 'directory-teaser' ];
+			$slugs   = [ 'hero-front', 'section-pourquoi', 'section-pillars', 'section-compatibilimetre', 'section-featured', 'section-weekly', 'section-newsletter', 'directory-teaser' ];
 			$content = '';
 			foreach ( $slugs as $s ) {
 				$content .= pcs_get_pattern_content( 'pluscestsimple/' . $s ) . "\n\n";

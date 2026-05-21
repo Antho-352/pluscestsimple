@@ -47,7 +47,7 @@ body {
 	background: var(--wp--preset--color--background);
 	color: var(--wp--preset--color--foreground);
 	font-family: var(--wp--preset--font-family--body);
-	font-size: var(--wp--preset--font-size--base);
+	font-size: 0.875rem;
 	line-height: 1.7;
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
@@ -179,7 +179,7 @@ a:hover { color: var(--wp--preset--color--accent-secondary); text-decoration: no
 	.pcs-header__brand .custom-logo { height: 44px; }
 }
 
-/* Nav primaire desktop */
+/* Nav primaire desktop avec dropdown sous-menus */
 .pcs-nav { font-family: var(--wp--preset--font-family--display); }
 .pcs-nav--primary { font-size: var(--wp--preset--font-size--sm); letter-spacing: 0.02em; font-weight: 500; }
 .pcs-nav__list {
@@ -190,16 +190,22 @@ a:hover { color: var(--wp--preset--color--accent-secondary); text-decoration: no
 	gap: clamp(1rem, 2.5vw, 2rem);
 	align-items: center;
 }
-.pcs-nav__list a,
-.pcs-nav .menu-item a {
+.pcs-nav .menu-item {
+	position: relative;
+}
+.pcs-nav__list > .menu-item > a,
+.pcs-nav .menu-item > a {
 	color: var(--wp--preset--color--foreground);
 	text-decoration: none;
 	position: relative;
 	padding-block: 0.35rem;
 	transition: color var(--pcs-dur-fast) var(--pcs-ease);
+	display: inline-flex;
+	align-items: center;
+	gap: 0.25rem;
 }
-.pcs-nav__list a::after,
-.pcs-nav .menu-item a::after {
+/* Soulignement animé desktop */
+.pcs-nav__list > .menu-item > a::after {
 	content: "";
 	position: absolute;
 	left: 0;
@@ -209,10 +215,82 @@ a:hover { color: var(--wp--preset--color--accent-secondary); text-decoration: no
 	background: var(--wp--preset--color--accent);
 	transition: right var(--pcs-dur) var(--pcs-ease);
 }
-.pcs-nav .menu-item:hover a::after,
-.pcs-nav .menu-item.current-menu-item a::after { right: 0; }
-.pcs-nav .menu-item:hover a,
-.pcs-nav .menu-item.current-menu-item a { color: var(--wp--preset--color--accent); }
+.pcs-nav__list > .menu-item:hover > a::after,
+.pcs-nav__list > .menu-item.current-menu-item > a::after,
+.pcs-nav__list > .menu-item.current-menu-parent > a::after,
+.pcs-nav__list > .menu-item.current-menu-ancestor > a::after { right: 0; }
+.pcs-nav__list > .menu-item:hover > a,
+.pcs-nav__list > .menu-item.current-menu-item > a,
+.pcs-nav__list > .menu-item.current-menu-parent > a { color: var(--wp--preset--color--accent); }
+
+/* Chevron si sous-menu présent (menu-item-has-children est ajouté par WP automatiquement) */
+.pcs-nav .menu-item-has-children > a::before {
+	content: "";
+	display: inline-block;
+	width: 0;
+	height: 0;
+	border-left: 4px solid transparent;
+	border-right: 4px solid transparent;
+	border-top: 4px solid currentColor;
+	margin-right: 0.35rem;
+	transition: transform var(--pcs-dur-fast) var(--pcs-ease);
+	vertical-align: 0.15em;
+	order: 2;
+	margin-left: 0.35rem;
+	margin-right: 0;
+}
+.pcs-nav .menu-item-has-children:hover > a::before {
+	transform: rotate(180deg);
+}
+
+/* Sous-menu déroulant (caché par défaut, hover-visible desktop) */
+.pcs-nav .sub-menu {
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	transform: translateX(-50%) translateY(-8px);
+	min-width: 220px;
+	background: var(--wp--preset--color--background);
+	border: 1px solid var(--wp--preset--color--border);
+	border-radius: var(--wp--custom--radius--sm);
+	box-shadow: 0 12px 32px color-mix(in srgb, var(--wp--preset--color--foreground) 12%, transparent);
+	padding: 0.5rem 0;
+	list-style: none;
+	margin: 0;
+	z-index: 100;
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity var(--pcs-dur-fast) var(--pcs-ease), transform var(--pcs-dur-fast) var(--pcs-ease), visibility var(--pcs-dur-fast) var(--pcs-ease);
+	display: block;
+	flex-direction: column;
+	gap: 0;
+}
+.pcs-nav .menu-item-has-children:hover > .sub-menu,
+.pcs-nav .menu-item-has-children:focus-within > .sub-menu {
+	opacity: 1;
+	visibility: visible;
+	transform: translateX(-50%) translateY(0);
+}
+.pcs-nav .sub-menu .menu-item {
+	display: block;
+	width: 100%;
+}
+.pcs-nav .sub-menu .menu-item a {
+	display: block;
+	padding: 0.5rem 1rem;
+	color: var(--wp--preset--color--foreground);
+	text-decoration: none;
+	font-size: var(--wp--preset--font-size--sm);
+	font-weight: 400;
+	letter-spacing: 0;
+	transition: background var(--pcs-dur-fast) var(--pcs-ease), color var(--pcs-dur-fast) var(--pcs-ease);
+}
+.pcs-nav .sub-menu .menu-item a::after { display: none; }
+.pcs-nav .sub-menu .menu-item a:hover,
+.pcs-nav .sub-menu .menu-item.current-menu-item a {
+	background: var(--wp--preset--color--surface);
+	color: var(--wp--preset--color--accent);
+}
 
 /* Hamburger button (visible mobile, hidden desktop) */
 .pcs-menu-toggle {
@@ -478,6 +556,94 @@ a:hover { color: var(--wp--preset--color--accent-secondary); text-decoration: no
 	background: var(--wp--preset--color--foreground);
 	color: var(--wp--preset--color--background);
 	border-color: var(--wp--preset--color--foreground);
+}
+
+/* ====================================================================
+   Formulaires dans le contenu Gutenberg (Contact, Travailler, etc.)
+   Styling générique pour tout <form> qui n'a pas de classe dédiée.
+   ==================================================================== */
+
+.pcs-content form,
+.pcs-page__content form {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	max-width: 560px;
+	margin-block: 1.5rem;
+}
+.pcs-content form label,
+.pcs-page__content form label {
+	font-size: var(--wp--preset--font-size--sm);
+	font-weight: 600;
+	margin-top: 0.75rem;
+	display: block;
+}
+.pcs-content form input[type="text"],
+.pcs-content form input[type="email"],
+.pcs-content form input[type="tel"],
+.pcs-content form input[type="url"],
+.pcs-content form input[type="search"],
+.pcs-content form textarea,
+.pcs-content form select,
+.pcs-page__content form input[type="text"],
+.pcs-page__content form input[type="email"],
+.pcs-page__content form input[type="tel"],
+.pcs-page__content form input[type="url"],
+.pcs-page__content form input[type="search"],
+.pcs-page__content form textarea,
+.pcs-page__content form select {
+	padding: 0.75rem 1rem;
+	border: 1px solid var(--wp--preset--color--border);
+	border-radius: var(--wp--custom--radius--sm);
+	font-family: inherit;
+	font-size: var(--wp--preset--font-size--base);
+	background: var(--wp--preset--color--background);
+	color: var(--wp--preset--color--foreground);
+	width: 100%;
+	display: block;
+	box-sizing: border-box;
+	margin-block: 0 0.5rem;
+}
+.pcs-content form input:focus,
+.pcs-content form textarea:focus,
+.pcs-content form select:focus,
+.pcs-page__content form input:focus,
+.pcs-page__content form textarea:focus,
+.pcs-page__content form select:focus {
+	outline: 2px solid var(--wp--preset--color--accent);
+	outline-offset: 0;
+	border-color: var(--wp--preset--color--accent);
+}
+.pcs-content form textarea,
+.pcs-page__content form textarea {
+	min-height: 140px;
+	resize: vertical;
+}
+.pcs-content form button[type="submit"],
+.pcs-content form input[type="submit"],
+.pcs-page__content form button[type="submit"],
+.pcs-page__content form input[type="submit"] {
+	margin-top: 1.5rem;
+	padding: 0.95rem 1.75rem;
+	background: var(--wp--preset--color--accent);
+	color: var(--wp--preset--color--accent-contrast);
+	border: 1px solid var(--wp--preset--color--accent);
+	font-family: inherit;
+	font-size: var(--wp--preset--font-size--xs);
+	font-weight: 500;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+	cursor: pointer;
+	align-self: flex-start;
+	width: auto;
+}
+.pcs-content form button[type="submit"]:hover,
+.pcs-content form input[type="submit"]:hover,
+.pcs-page__content form button[type="submit"]:hover,
+.pcs-page__content form input[type="submit"]:hover {
+	background: var(--wp--preset--color--accent-secondary);
+	border-color: var(--wp--preset--color--accent-secondary);
+	color: var(--wp--preset--color--foreground);
 }
 
 /* ====================================================================
@@ -912,9 +1078,52 @@ a.pcs-link-partner:hover {
 }
 .pcs-section--maillage {
 	background: var(--wp--preset--color--surface);
-	padding: clamp(2rem, 4vw, 3rem);
+	padding: clamp(2.5rem, 5vw, 4rem) clamp(2rem, 5vw, 3.5rem);
 	border-radius: var(--wp--custom--radius--md);
 	margin-top: clamp(2rem, 4vw, 3rem);
+	margin-inline: 0;
+}
+.pcs-section--maillage .pcs-link-list {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+	gap: 0;
+}
+.pcs-section--maillage .pcs-link-list li {
+	padding: 0.75rem 0;
+}
+
+/* Sous-section catégorie (Pièces, Styles, etc.) */
+.pcs-section--subcat {
+	padding-block: clamp(2rem, 4vw, 2.5rem);
+	border-bottom: 1px solid var(--wp--preset--color--border);
+}
+.pcs-section--subcat:last-of-type {
+	border-bottom: 0;
+}
+.pcs-section--subcat .pcs-section__title {
+	font-size: clamp(1.5rem, 3vw, 2.25rem);
+	margin-bottom: 0.75rem;
+}
+.pcs-section--subcat .pcs-section__lead {
+	margin-bottom: 1rem;
+}
+.pcs-section--subcat .pcs-section__more a {
+	color: var(--wp--preset--color--accent);
+	font-weight: 600;
+	font-size: var(--wp--preset--font-size--sm);
+	text-decoration: none;
+	border-bottom: 1px solid currentColor;
+	padding-bottom: 1px;
+}
+.pcs-section--subcat .pcs-section__more a:hover {
+	color: var(--wp--preset--color--accent-secondary);
+}
+
+/* Pages catégories : élargir le contenu */
+.pcs-page .pcs-content,
+.single-category .pcs-content,
+.pcs-page--wide .pcs-content {
+	max-width: var(--wp--style--global--wide-size, 1180px);
 }
 
 /* ====================================================================
