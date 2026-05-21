@@ -1,5 +1,24 @@
 # Changelog
 
+## [2.1.5] — 2026-05-21
+
+### Partenaires (V2+ validée)
+Trois nouveaux composants pour monétisation native, transparence RGPD + ARPP :
+
+- **Pattern `disclosure-partners`** : bandeau d'information en haut de page (ⓘ + lien vers la charte). À insérer sur toute page contenant des liens partenaires
+- **Pattern `section-partners`** : section « Notre sélection partenaires » avec 6 cartes éditables (badge, logo texte, nom, pitch, CTA vers le partenaire avec rel="sponsored nofollow noopener")
+- **Pattern `charte-partenaires`** : contenu de la page `/charte-partenaires/` (critères de sélection, mécaniques de rémunération, engagement d'indépendance, contact partenariat)
+- **Page `/charte-partenaires/`** auto-seedée via init-content (tpl-wide)
+- **Convention CSS `.pcs-link-partner`** : liens partenaires in-text avec underline pointillé + picto † discret en super
+- **Pattern `category-rich` mis à jour** : disclosure en haut, section partners avant le maillage
+
+### CSS
++~150 lignes pour `.pcs-disclosure-bar`, `.pcs-link-partner`, `.pcs-partners`, `.pcs-partner-card` et variantes.
+
+### À faire après upload v2.1.5
+1. Outils → PCS Init content → Reset des pages seedées (récupère la nouvelle structure des pages pilier + crée la page charte-partenaires)
+2. Personnaliser les 6 cartes partenaires (texte, marques, URLs) dans le pattern `section-partners` une fois inséré dans chaque page pilier
+
 ## [2.1.4] — 2026-05-21
 
 ### Fix critique — bannière de la home affichée sur toutes les pages catégories

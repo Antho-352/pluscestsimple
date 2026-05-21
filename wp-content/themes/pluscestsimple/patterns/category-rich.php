@@ -19,6 +19,8 @@
 	<p class="pcs-archive__intro">Intro éditoriale (150-250 mots) qui cible le terme large de la catégorie. Pose l'angle, le périmètre, ce qu'on trouve ici, ce qu'on n'y trouve pas. Doit être lue par un humain et utile au SEO.</p>
 	<!-- /wp:paragraph -->
 
+	<!-- wp:pattern {"slug":"pluscestsimple/disclosure-partners"} /-->
+
 	<!-- wp:pattern {"slug":"pluscestsimple/banner-slot-category-intro"} /-->
 
 	<!-- wp:pattern {"slug":"pluscestsimple/section-editorial"} /-->
@@ -61,6 +63,8 @@
 	<!-- /wp:group -->
 
 	<!-- wp:pattern {"slug":"pluscestsimple/block-faq"} /-->
+
+	<!-- wp:pattern {"slug":"pluscestsimple/section-partners"} /-->
 
 	<!-- wp:group {"tagName":"section","className":"pcs-section pcs-section--maillage","layout":{"type":"constrained"}} -->
 	<section class="wp-block-group pcs-section pcs-section--maillage">

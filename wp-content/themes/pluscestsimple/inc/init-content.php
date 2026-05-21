@@ -116,6 +116,11 @@ function pcs_content_utility_pages(): array {
 			'template' => 'page-templates/tpl-wide.php',
 			'content'  => '__PATTERN__:pluscestsimple/page-travailler',
 		],
+		'charte-partenaires' => [
+			'title'    => 'Charte partenaires',
+			'template' => 'page-templates/tpl-wide.php',
+			'content'  => '__PATTERN__:pluscestsimple/charte-partenaires',
+		],
 	];
 }
 
