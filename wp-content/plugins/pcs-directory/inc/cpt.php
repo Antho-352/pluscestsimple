@@ -100,13 +100,14 @@ function pcs_directory_get_meta_schema(): array {
  */
 function pcs_directory_register_meta(): void {
 	foreach ( pcs_directory_get_meta_schema() as $key => $def ) {
+		$is_array = 'array' === $def['type'];
 		register_post_meta(
 			PCS_DIR_CPT,
 			$key,
 			[
-				'type'         => 'array' === $def['type'] ? 'array' : $def['type'],
-				'single'       => true,
-				'show_in_rest' => 'array' === $def['type']
+				'type'          => $is_array ? 'array' : $def['type'],
+				'single'        => true,
+				'show_in_rest'  => $is_array
 					? [ 'schema' => [ 'type' => 'array', 'items' => [ 'type' => 'string' ] ] ]
 					: true,
 				'auth_callback' => function () {

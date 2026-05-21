@@ -74,21 +74,27 @@ if ( is_admin() ) {
 
 // ─── Assets frontend ─────────────────────────────────────────────────────────
 
+// On register systématiquement, on enqueue conditionnellement. Le shortcode
+// [pcs_directory] (potentiellement posé sur n'importe quelle page) peut alors
+// appeler wp_enqueue_style/script('pcs-directory') sans avoir à re-déclarer.
 add_action( 'wp_enqueue_scripts', function () {
+	wp_register_style(
+		'pcs-directory',
+		PCS_DIR_URL . 'assets/css/directory.css',
+		[],
+		PCS_DIR_VERSION
+	);
+	wp_register_script(
+		'pcs-directory',
+		PCS_DIR_URL . 'assets/js/directory.js',
+		[],
+		PCS_DIR_VERSION,
+		true
+	);
+
 	if ( is_post_type_archive( PCS_DIR_CPT ) || is_singular( PCS_DIR_CPT ) || is_tax( [ PCS_DIR_TAX_TYPE, PCS_DIR_TAX_REGION, PCS_DIR_TAX_VILLE ] ) ) {
-		wp_enqueue_style(
-			'pcs-directory',
-			PCS_DIR_URL . 'assets/css/directory.css',
-			[],
-			PCS_DIR_VERSION
-		);
-		wp_enqueue_script(
-			'pcs-directory',
-			PCS_DIR_URL . 'assets/js/directory.js',
-			[],
-			PCS_DIR_VERSION,
-			true
-		);
+		wp_enqueue_style( 'pcs-directory' );
+		wp_enqueue_script( 'pcs-directory' );
 	}
 } );
 
