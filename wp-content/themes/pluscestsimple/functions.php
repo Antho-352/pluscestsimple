@@ -36,6 +36,7 @@ $pcs_modules = [
 	'cookie-consent',  // Bandeau natif Consent Mode v2
 	'legal-defaults',  // Page admin mentions légales + placeholders
 	'identity',        // Page admin Identité & Social + bindings filtres
+	'patterns',        // Catégories de patterns (les patterns sont dans /patterns/)
 	'view-transitions', // Meta tag + JS minimal pour view transitions
 	'category-base',   // Retire /category/ de l'URL des catégories
 ];
