@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.4.4] — 2026-05-22
+
+### Fixes
+
+- **Double chevron menu (fix définitif)** : la règle générique `.pcs-nav .menu-item-has-children > a::before` (triangle CSS) était en conflit de spécificité avec l'override `!important` de v2.4.3. Correction propre : sélecteur restreint à `.pcs-nav:not(.pcs-nav--primary)` — le `::before` triangle n'est **jamais** activé sur la nav primaire, éliminant tout conflit de cascade.
+- **Espace intro → "À la une" réduit** : `.pcs-banner-wrap--category-intro { margin-block: 0.5rem }` — le slot bannière vide générait `margin-block: 2rem` même sans contenu.
+- **Cards partenaires — badge chevauche le nom** : `padding-top: 1.5rem → 2.5rem` sur `.pcs-partner-card` — le badge `position: absolute; top: 0.5rem` ne déborde plus sur le H3.
+
 ## [2.4.3] — 2026-05-22
 
 ### Fixes

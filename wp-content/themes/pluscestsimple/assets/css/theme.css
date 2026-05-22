@@ -223,8 +223,10 @@ a:hover { color: var(--wp--preset--color--accent-secondary); text-decoration: no
 .pcs-nav__list > .menu-item.current-menu-item > a,
 .pcs-nav__list > .menu-item.current-menu-parent > a { color: var(--wp--preset--color--accent); }
 
-/* Chevron si sous-menu présent (menu-item-has-children est ajouté par WP automatiquement) */
-.pcs-nav .menu-item-has-children > a::before {
+/* Chevron ::before triangle CSS — UNIQUEMENT pour les navs non-primaires (ex: mobile fallback).
+   La nav primaire utilise ::after avec le caractère ▾ (voir section pcs-nav--primary).
+   Le :not() évite tout conflit de cascade/spécificité avec l'override. */
+.pcs-nav:not(.pcs-nav--primary) .menu-item-has-children > a::before {
 	content: "";
 	display: inline-block;
 	width: 0;
@@ -239,7 +241,7 @@ a:hover { color: var(--wp--preset--color--accent-secondary); text-decoration: no
 	margin-left: 0.35rem;
 	margin-right: 0;
 }
-.pcs-nav .menu-item-has-children:hover > a::before {
+.pcs-nav:not(.pcs-nav--primary) .menu-item-has-children:hover > a::before {
 	transform: rotate(180deg);
 }
 
@@ -343,12 +345,6 @@ a:hover { color: var(--wp--preset--color--accent-secondary); text-decoration: no
 .pcs-nav--primary .menu-item-has-children > a > svg,
 .pcs-nav--primary button.wp-block-navigation-submenu__toggle {
 	display: none !important;
-}
-/* Supprime le ::before triangle (règle générique .pcs-nav) sur la nav primaire
-   → le seul chevron affiché est le ▾ via ::after ci-dessous. */
-.pcs-nav--primary .menu-item-has-children > a::before {
-	display: none !important;
-	content: none !important;
 }
 /* Chevron uniquement sur le PREMIER niveau de menu (pas dans les sous-menus). */
 .pcs-nav--primary > .pcs-nav__list > .menu-item-has-children > a::after,
@@ -815,7 +811,7 @@ a.pcs-link-partner:hover {
 	background: var(--wp--preset--color--background);
 	border: 1px solid var(--wp--preset--color--border);
 	border-radius: var(--wp--custom--radius--sm);
-	padding: 1.5rem 1.25rem 1.25rem;
+	padding: 2.5rem 1.25rem 1.25rem;
 	display: flex;
 	flex-direction: column;
 	gap: 0.5rem;
@@ -926,6 +922,11 @@ a.pcs-link-partner:hover {
 .pcs-banner-wrap {
 	margin-block: 2rem;
 	text-align: center;
+}
+/* Slot bannière "category-intro" : margin réduit pour éviter l'espace excessif
+   entre l'intro texte et la section "À la une" quand le slot est vide. */
+.pcs-banner-wrap--category-intro {
+	margin-block: 0.5rem;
 }
 .pcs-banner {
 	display: inline-block;
