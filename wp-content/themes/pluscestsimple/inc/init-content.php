@@ -28,9 +28,9 @@ function pcs_content_structure(): array {
 		'decoration' => [
 			'label'    => 'Décoration',
 			'sub_cats' => [
-				'pieces'        => 'Pièces',
-				'styles'        => 'Styles',
-				'petit-budget'  => 'Petit budget',
+				'par-piece'       => 'Par pièce',
+				'styles'          => 'Styles',
+				'petits-budgets'  => 'Petits budgets',
 			],
 			'page_intro' => 'Conseils déco pièce par pièce, styles signatures et idées petit budget. Du concret, du vécu, des choix argumentés.',
 		],
@@ -38,30 +38,26 @@ function pcs_content_structure(): array {
 			'label'    => 'Travaux',
 			'sub_cats' => [
 				'par-piece'              => 'Par pièce',
-				'gros-second-oeuvre'     => 'Gros & second œuvre',
+				'gros-oeuvre'            => 'Gros œuvre',
 				'renovation-energetique' => 'Rénovation énergétique',
-				'budget-aides'           => 'Budget & aides',
 			],
 			'page_intro' => 'Tout pour rénover sans se tromper : guides par pièce, repères techniques (DTU, normes), budgets réels et aides publiques.',
 		],
 		'jardin' => [
 			'label'    => 'Jardin',
 			'sub_cats' => [
-				'potager'              => 'Potager',
-				'amenagement-paysage'  => 'Aménagement & paysage',
-				'entretien'            => 'Entretien (saisons)',
-				'balcon-terrasse'      => 'Balcon & terrasse',
+				'amenagement-exterieur' => 'Aménagement extérieur',
+				'entretien'             => 'Entretien',
 			],
-			'page_intro' => 'Du potager au balcon, de l\'aménagement paysager à l\'entretien saisonnier : repères concrets pour faire pousser et durer.',
+			'page_intro' => 'De l\'aménagement extérieur à l\'entretien saisonnier : repères concrets pour faire pousser et durer.',
 		],
 		'architecture' => [
 			'label'    => 'Architecture',
 			'sub_cats' => [
-				'styles-epoques'         => 'Styles & époques',
-				'renovation-patrimoine'  => 'Rénovation du patrimoine',
-				'extensions'             => 'Extensions',
+				'styles-epoques' => 'Styles & époques',
+				'extensions'     => 'Extensions',
 			],
-			'page_intro' => 'Comprendre l\'architecture pour mieux rénover : styles, époques, patrimoine et extensions modernes.',
+			'page_intro' => 'Comprendre l\'architecture pour mieux rénover : styles, époques et extensions modernes.',
 		],
 		'immobilier' => [
 			'label'    => 'Immobilier',
@@ -75,11 +71,10 @@ function pcs_content_structure(): array {
 		'lifestyle' => [
 			'label'    => 'Lifestyle',
 			'sub_cats' => [
-				'rangement'        => 'Rangement & organisation',
-				'recevoir'         => 'Recevoir',
-				'bien-etre-chez-soi' => 'Bien-être chez soi',
+				'bien-etre-accessoires' => 'Bien-être & accessoires',
+				'rangement-nettoyage'   => 'Rangement & nettoyage',
 			],
-			'page_intro' => 'Bien vivre chez soi : organisation, art de recevoir, bien-être quotidien.',
+			'page_intro' => 'Bien vivre chez soi : organisation, bien-être et accessoires utiles au quotidien.',
 		],
 	];
 }

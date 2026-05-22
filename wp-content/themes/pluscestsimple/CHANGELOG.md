@@ -1,5 +1,40 @@
 # Changelog
 
+## [2.4.0] — 2026-05-22
+
+### Nouvelle structure des pages catégories
+Validation visuelle du user, ordre final :
+1. Intro éditoriale
+2. Bannière category-intro
+3. « À la une » — 3 premiers articles (Query Loop #11, offset 0)
+4. Bouton « Voir tous les articles → » qui scroll vers ancre `#all-articles`
+5. Sous-section 1 (texte + lien partenaire + bouton CTA vers sous-cat)
+6. Bannière category-mid
+7. Sous-section 2 (idem)
+8. Sous-section 3 (s'il y en a)
+9. « Tous les articles » avec ancre `#all-articles` — 12 articles (offset 3 pour éviter doublon avec le top)
+10. FAQ + Schema JSON-LD
+11. Maillage « Voir aussi »
+12. Section partenaires
+13. **Disclosure partenaires DÉPLACÉ tout en bas** (était en haut avant)
+
+### Nouvelle nomenclature des sous-catégories
+- **Décoration** : Par pièce, Styles, Petits budgets
+- **Travaux** : Par pièce, Gros œuvre, Rénovation énergétique
+- **Jardin** : Aménagement extérieur, Entretien (de 4 sous-cat à 2)
+- **Architecture** : Styles & époques, Extensions (de 3 à 2, Rénovation du patrimoine retirée)
+- **Immobilier** : Acheter, Louer & investir, Vendre (inchangé)
+- **Lifestyle** : Bien-être & accessoires, Rangement & nettoyage (Recevoir retirée)
+
+### Cards Query Loop simplifiées
+- Plus de `wp:post-excerpt` dans les Query Loops des pages catégories — juste image, catégorie (eyebrow), titre, date
+
+### CSS
+- **Double chevron menu fixé** : masquage des icônes natives WP (`.wp-block-navigation__submenu-icon`, `> svg`, `button.wp-block-navigation-submenu__toggle`) — notre chevron `▾` via `::after` reste l'unique source
+- **5 cartes piliers sur 1 ligne** : grid 5 colonnes forcé sur desktop, H3 réduit à `font-size:lg`, gap resserré
+- **Padding sections fond** : règle générique `.pcs-section.has-background { padding-block: clamp(2.5rem, 5vw, 4rem) }` — fix l'effet "collé en haut" sur manifeste, partenaires, directory teaser
+- **Section partenaires** : padding internal augmenté + margin top resserré
+
 ## [2.3.0] — 2026-05-22
 
 ### Refactor structurel pages catégories — sections = sous-catégories WordPress

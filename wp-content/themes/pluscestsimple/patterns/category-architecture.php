@@ -3,7 +3,7 @@
  * Title: Page catégorie — Architecture
  * Slug: pluscestsimple/category-architecture
  * Categories: pcs-page
- * Description: Page pilier Architecture : intro, 3 sous-sections (Styles & époques, Rénovation du patrimoine, Extensions), Query Loop catégorie, FAQ, partenaires (3 ressources publiques + 3 partenaires), maillage.
+ * Description: Page pilier Architecture : intro, bannière, à la une (3), 2 sous-sections (Styles & époques, Extensions), bannière mid, tous les articles (12 offset 3), FAQ, partenaires (3 ressources publiques + 3 partenaires), maillage, disclosure en bas.
  * Inserter: yes
  * Keywords: architecture, ABF, extension, PLU, pilier, catégorie
  */
@@ -19,25 +19,34 @@
 	<p class="pcs-archive__intro">Avant de coller du polystyrène sur un mur en pierre, de boucher une fenêtre cintrée ou de signer un devis d'extension, il faut d'abord savoir ce qu'on a entre les mains. C'est l'idée de cette rubrique architecture maison : pas un magazine de belles demeures d'architecte, mais la première étape concrète d'une rénovation qui ne ruine pas un logement. On part de votre maison réelle. Un haussmannien de 1880 ne se rénove pas comme un pavillon de 1975. Une longère en pisé n'aime pas le ciment. Un bien dans le périmètre d'un monument historique impose des volets, des menuiseries et des couleurs précises. Une extension de 38 m² ne déclenche pas le même Cerfa qu'une extension de 41 m². Ces nuances valent des milliers d'euros et la santé physique du bâti. Vous trouverez ici comment identifier le style et l'époque de votre maison, comprendre ce que vous pouvez et ne pouvez pas faire (PLU, ABF, surface), rénover sans abîmer un bâti ancien, et tirer parti des ressources publiques gratuites trop peu utilisées (CAUE, ADIL, France Rénov'). Décider mieux, dépenser moins, ne pas casser ce qui tient.</p>
 	<!-- /wp:paragraph -->
 
-	<!-- wp:pattern {"slug":"pluscestsimple/disclosure-partners"} /-->
-
 	<!-- wp:pattern {"slug":"pluscestsimple/banner-slot-category-intro"} /-->
 
-	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-section--subcat","layout":{"type":"constrained"}} -->
-	<section class="wp-block-group alignwide pcs-section pcs-section--subcat">
+	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-section--cat-top","layout":{"type":"constrained"}} -->
+	<section class="wp-block-group alignwide pcs-section pcs-section--cat-top">
 
 		<!-- wp:heading {"level":2,"className":"pcs-section__title"} -->
-		<h2 class="wp-block-heading pcs-section__title">Styles & époques</h2>
+		<h2 class="wp-block-heading pcs-section__title">À la une</h2>
 		<!-- /wp:heading -->
 
-		<!-- wp:paragraph {"className":"pcs-section__lead"} -->
-		<p class="pcs-section__lead">Reconnaître son style de maison pour mieux la rénover : haussmannien (1850-1900), maisons de bourg en pierre (XIXᵉ), longères, fermettes, art déco (1920-1940), pavillons reconstruction (1950-1975), maisons RT (post-2000). Identifier l'époque change tout — type de mur, matériau d'origine, mode constructif, contraintes ABF si périmètre protégé. Pas un magazine de belles demeures : un outil de diagnostic avant d'engager un devis. Conseil gratuit pour relire un projet avant dépôt : <a href="https://www.fncaue.com/">CAUE</a> de votre département.</p>
-		<!-- /wp:paragraph -->
+		<!-- wp:query {"queryId":11,"query":{"perPage":3,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false},"namespace":"pcs/cat-loop"} -->
+		<div class="wp-block-query">
+			<!-- wp:post-template {"lock":{"move":true,"remove":true}} -->
+				<!-- wp:group {"tagName":"article","className":"pcs-card","layout":{"type":"default"}} -->
+				<article class="wp-block-group pcs-card">
+					<!-- wp:post-featured-image {"isLink":true,"aspectRatio":"4/3","className":"pcs-card__media"} /-->
+					<!-- wp:post-terms {"term":"category","className":"pcs-card__eyebrow"} /-->
+					<!-- wp:post-title {"isLink":true,"level":3,"className":"pcs-card__title"} /-->
+					<!-- wp:post-date {"format":"j F Y","className":"pcs-card__meta"} /-->
+				</article>
+				<!-- /wp:group -->
+			<!-- /wp:post-template -->
+		</div>
+		<!-- /wp:query -->
 
 		<!-- wp:buttons -->
 		<div class="wp-block-buttons">
 			<!-- wp:button {"className":"is-style-outline"} -->
-			<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/architecture-styles-epoques-cat/">Voir tous les articles Styles & époques →</a></div>
+			<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="#all-articles">Voir tous les articles →</a></div>
 			<!-- /wp:button -->
 		</div>
 		<!-- /wp:buttons -->
@@ -49,17 +58,17 @@
 	<section class="wp-block-group alignwide pcs-section pcs-section--subcat">
 
 		<!-- wp:heading {"level":2,"className":"pcs-section__title"} -->
-		<h2 class="wp-block-heading pcs-section__title">Rénovation du patrimoine</h2>
+		<h2 class="wp-block-heading pcs-section__title">Styles & époques</h2>
 		<!-- /wp:heading -->
 
 		<!-- wp:paragraph {"className":"pcs-section__lead"} -->
-		<p class="pcs-section__lead">Bâti ancien (pisé, pierre, colombages) = perspirance obligatoire. Refus du polystyrène sur pierre, refus du ciment sur enduits à la chaux : ces erreurs piègent l'humidité et dégradent le mur en quelques hivers. Près d'un tiers du parc bâti français est en périmètre protégé (article L. 621-30 du Code du patrimoine, périmètre 500 m autour d'un monument historique). Pour les chaux hydrauliques naturelles NHL, <a href="https://www.saint-astier.com/" class="pcs-link-partner" rel="sponsored nofollow noopener">Saint-Astier</a> (Périgord). Ressources gratuites : <a href="https://www.fncaue.com/">CAUE</a>, <a href="https://www.anil.org/lanil-et-les-adil/votre-adil/">ADIL</a>, <a href="https://france-renov.gouv.fr/">France Rénov'</a>.</p>
+		<p class="pcs-section__lead">Reconnaître son style de maison pour mieux la rénover : haussmannien (1850-1900), maisons de bourg en pierre (XIXᵉ), longères, fermettes, art déco (1920-1940), pavillons reconstruction (1950-1975), maisons RT (post-2000). Identifier l'époque change tout — type de mur, matériau d'origine, mode constructif, contraintes ABF si périmètre protégé. Bâti d'avant 1948 = perspirance obligatoire, refus du polystyrène sur pierre, refus du ciment sur enduits à la chaux. Pour les chaux hydrauliques naturelles NHL, <a href="https://www.saint-astier.com/" class="pcs-link-partner" rel="sponsored nofollow noopener">Saint-Astier</a> (Périgord). Conseil gratuit avant dépôt : <a href="https://www.fncaue.com/">CAUE</a> de votre département.</p>
 		<!-- /wp:paragraph -->
 
 		<!-- wp:buttons -->
 		<div class="wp-block-buttons">
 			<!-- wp:button {"className":"is-style-outline"} -->
-			<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/architecture-renovation-patrimoine-cat/">Voir tous les articles Rénovation du patrimoine →</a></div>
+			<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/architecture-styles-epoques-cat/">Voir tous les articles Styles & époques →</a></div>
 			<!-- /wp:button -->
 		</div>
 		<!-- /wp:buttons -->
@@ -91,22 +100,21 @@
 	</section>
 	<!-- /wp:group -->
 
-	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-section--cat-loop","layout":{"type":"constrained"}} -->
-	<section class="wp-block-group alignwide pcs-section pcs-section--cat-loop">
+	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-section--cat-loop","layout":{"type":"constrained"},"anchor":"all-articles"} -->
+	<section id="all-articles" class="wp-block-group alignwide pcs-section pcs-section--cat-loop">
 
 		<!-- wp:heading {"level":2,"className":"pcs-section__title"} -->
-		<h2 class="wp-block-heading pcs-section__title">Tous les articles Architecture</h2>
+		<h2 class="wp-block-heading pcs-section__title">Tous les articles</h2>
 		<!-- /wp:heading -->
 
-		<!-- wp:query {"queryId":10,"query":{"perPage":9,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false},"namespace":"pcs/cat-loop"} -->
+		<!-- wp:query {"queryId":10,"query":{"perPage":12,"pages":0,"offset":3,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false},"namespace":"pcs/cat-loop"} -->
 		<div class="wp-block-query">
-			<!-- wp:post-template {"className":"pcs-card-grid","lock":{"move":true,"remove":true},"layout":{"type":"grid","columnCount":3,"minimumColumnWidth":null}} -->
-				<!-- wp:group {"tagName":"article","className":"pcs-card"} -->
+			<!-- wp:post-template {"lock":{"move":true,"remove":true}} -->
+				<!-- wp:group {"tagName":"article","className":"pcs-card","layout":{"type":"default"}} -->
 				<article class="wp-block-group pcs-card">
 					<!-- wp:post-featured-image {"isLink":true,"aspectRatio":"4/3","className":"pcs-card__media"} /-->
 					<!-- wp:post-terms {"term":"category","className":"pcs-card__eyebrow"} /-->
 					<!-- wp:post-title {"isLink":true,"level":3,"className":"pcs-card__title"} /-->
-					<!-- wp:post-excerpt /-->
 					<!-- wp:post-date {"format":"j F Y","className":"pcs-card__meta"} /-->
 				</article>
 				<!-- /wp:group -->
@@ -116,11 +124,6 @@
 				<!-- wp:query-pagination-numbers /-->
 				<!-- wp:query-pagination-next /-->
 			<!-- /wp:query-pagination -->
-			<!-- wp:query-no-results -->
-				<!-- wp:paragraph -->
-				<p>Aucun article publié dans cette catégorie pour le moment. <a href="/le-carnet/">Voir tous les articles du carnet →</a></p>
-				<!-- /wp:paragraph -->
-			<!-- /wp:query-no-results -->
 		</div>
 		<!-- /wp:query -->
 
@@ -232,6 +235,31 @@
 	</section>
 	<!-- /wp:group -->
 
+	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-section--maillage","layout":{"type":"constrained"}} -->
+	<section class="wp-block-group alignwide pcs-section pcs-section--maillage">
+
+		<!-- wp:paragraph {"className":"pcs-eyebrow","textColor":"accent"} -->
+		<p class="pcs-eyebrow has-accent-color has-text-color">Aller plus loin</p>
+		<!-- /wp:paragraph -->
+
+		<!-- wp:heading {"level":2,"className":"pcs-section__title"} -->
+		<h2 class="wp-block-heading pcs-section__title">Voir aussi</h2>
+		<!-- /wp:heading -->
+
+		<!-- wp:list {"className":"pcs-link-list"} -->
+		<ul class="wp-block-list pcs-link-list">
+			<li><a href="/travaux/">Du gros œuvre à la finition : entreprises, devis, calendrier de chantier</a></li>
+			<li><a href="/compatibilimetre/">Tester si votre projet d'extension ou de rénovation est compatible avec votre bâti, votre PLU et votre budget</a></li>
+			<li><a href="/immobilier/">Acheter une maison ancienne : ce que la façade et la structure révèlent avant l'offre</a></li>
+			<li><a href="/decoration/">Une fois le bâti respecté, la décoration suit le style de la maison</a></li>
+			<li><a href="/jardin/">Aménager les abords : haies, murs, clôtures et règles ABF côté extérieur</a></li>
+			<li><a href="/lifestyle/">Habiter une maison ancienne au quotidien : usages, entretien, transmission</a></li>
+		</ul>
+		<!-- /wp:list -->
+
+	</section>
+	<!-- /wp:group -->
+
 	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-partners","layout":{"type":"constrained"}} -->
 	<section class="wp-block-group alignwide pcs-section pcs-partners">
 
@@ -308,30 +336,7 @@
 	</section>
 	<!-- /wp:group -->
 
-	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-section--maillage","layout":{"type":"constrained"}} -->
-	<section class="wp-block-group alignwide pcs-section pcs-section--maillage">
-
-		<!-- wp:paragraph {"className":"pcs-eyebrow","textColor":"accent"} -->
-		<p class="pcs-eyebrow has-accent-color has-text-color">Aller plus loin</p>
-		<!-- /wp:paragraph -->
-
-		<!-- wp:heading {"level":2,"className":"pcs-section__title"} -->
-		<h2 class="wp-block-heading pcs-section__title">Voir aussi</h2>
-		<!-- /wp:heading -->
-
-		<!-- wp:list {"className":"pcs-link-list"} -->
-		<ul class="wp-block-list pcs-link-list">
-			<li><a href="/travaux/">Du gros œuvre à la finition : entreprises, devis, calendrier de chantier</a></li>
-			<li><a href="/compatibilimetre/">Tester si votre projet d'extension ou de rénovation est compatible avec votre bâti, votre PLU et votre budget</a></li>
-			<li><a href="/immobilier/">Acheter une maison ancienne : ce que la façade et la structure révèlent avant l'offre</a></li>
-			<li><a href="/decoration/">Une fois le bâti respecté, la décoration suit le style de la maison</a></li>
-			<li><a href="/jardin/">Aménager les abords : haies, murs, clôtures et règles ABF côté extérieur</a></li>
-			<li><a href="/lifestyle/">Habiter une maison ancienne au quotidien : usages, entretien, transmission</a></li>
-		</ul>
-		<!-- /wp:list -->
-
-	</section>
-	<!-- /wp:group -->
+	<!-- wp:pattern {"slug":"pluscestsimple/disclosure-partners"} /-->
 
 </div>
 <!-- /wp:group -->

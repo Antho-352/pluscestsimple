@@ -3,7 +3,7 @@
  * Title: Page catégorie — Travaux
  * Slug: pluscestsimple/category-travaux
  * Categories: pcs-page
- * Description: Page pilier Travaux : intro, 4 sous-sections (Par pièce, Gros & second œuvre, Rénovation énergétique, Budget & aides), Query Loop catégorie, FAQ, partenaires, maillage.
+ * Description: Page pilier Travaux : intro, bannière, à la une (3), 3 sous-sections (Par pièce, Gros œuvre, Rénovation énergétique), bannière mid, tous les articles (12 offset 3), FAQ, partenaires, maillage, disclosure en bas.
  * Inserter: yes
  * Keywords: travaux, rénovation, pilier, catégorie
  */
@@ -19,9 +19,40 @@
 	<p class="pcs-archive__intro">La rénovation maison reste le sujet le plus anxiogène du logement français. Un devis qui varie du simple au triple. Un dispositif MaPrimeRénov refondu chaque année qui rend obsolètes la moitié des articles en ligne. Un voisin de copropriété qui bloque vos travaux trois mois. Une maison ancienne qui se dégrade après une isolation moderne mal pensée. Et le contenu qu'on trouve n'aide pas : des fourchettes "250 à 4 000 €/m²" recopiées partout, des guides MaPrimeRénov rédigés en 2023 toujours en première page, des marketplaces qui poussent à demander un devis avant d'avoir compris le projet. Sur Plus c'est simple, on prend le problème à l'envers. On part d'un cas réel — un appartement de 60 m² à rénover à Paris, une maison en pierre de 1900 avec remontées capillaires, un DPE F à sortir avant 2028 — et on explique ce que dit la loi en 2026, ce que coûte vraiment chaque poste, et ce qui peut tuer le chantier. Pas de marketplace déguisée, pas de fourchette inutile. De la décision documentée.</p>
 	<!-- /wp:paragraph -->
 
-	<!-- wp:pattern {"slug":"pluscestsimple/disclosure-partners"} /-->
-
 	<!-- wp:pattern {"slug":"pluscestsimple/banner-slot-category-intro"} /-->
+
+	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-section--cat-top","layout":{"type":"constrained"}} -->
+	<section class="wp-block-group alignwide pcs-section pcs-section--cat-top">
+
+		<!-- wp:heading {"level":2,"className":"pcs-section__title"} -->
+		<h2 class="wp-block-heading pcs-section__title">À la une</h2>
+		<!-- /wp:heading -->
+
+		<!-- wp:query {"queryId":11,"query":{"perPage":3,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false},"namespace":"pcs/cat-loop"} -->
+		<div class="wp-block-query">
+			<!-- wp:post-template {"lock":{"move":true,"remove":true}} -->
+				<!-- wp:group {"tagName":"article","className":"pcs-card","layout":{"type":"default"}} -->
+				<article class="wp-block-group pcs-card">
+					<!-- wp:post-featured-image {"isLink":true,"aspectRatio":"4/3","className":"pcs-card__media"} /-->
+					<!-- wp:post-terms {"term":"category","className":"pcs-card__eyebrow"} /-->
+					<!-- wp:post-title {"isLink":true,"level":3,"className":"pcs-card__title"} /-->
+					<!-- wp:post-date {"format":"j F Y","className":"pcs-card__meta"} /-->
+				</article>
+				<!-- /wp:group -->
+			<!-- /wp:post-template -->
+		</div>
+		<!-- /wp:query -->
+
+		<!-- wp:buttons -->
+		<div class="wp-block-buttons">
+			<!-- wp:button {"className":"is-style-outline"} -->
+			<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="#all-articles">Voir tous les articles →</a></div>
+			<!-- /wp:button -->
+		</div>
+		<!-- /wp:buttons -->
+
+	</section>
+	<!-- /wp:group -->
 
 	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-section--subcat","layout":{"type":"constrained"}} -->
 	<section class="wp-block-group alignwide pcs-section pcs-section--subcat">
@@ -45,29 +76,29 @@
 	</section>
 	<!-- /wp:group -->
 
+	<!-- wp:pattern {"slug":"pluscestsimple/banner-slot-category-mid"} /-->
+
 	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-section--subcat","layout":{"type":"constrained"}} -->
 	<section class="wp-block-group alignwide pcs-section pcs-section--subcat">
 
 		<!-- wp:heading {"level":2,"className":"pcs-section__title"} -->
-		<h2 class="wp-block-heading pcs-section__title">Gros & second œuvre</h2>
+		<h2 class="wp-block-heading pcs-section__title">Gros œuvre</h2>
 		<!-- /wp:heading -->
 
 		<!-- wp:paragraph {"className":"pcs-section__lead"} -->
-		<p class="pcs-section__lead">Démolir, redresser, isoler : les fondamentaux du chantier qui décident de la suite. Bâti d'avant 1948 : matériaux perspirants obligatoires (chaux, chanvre, fibre de bois), refus du ciment sur pierre et du polystyrène sur murs anciens. Diagnostic ventilation avant chantier. Pour les matériaux pro à prix négociés (15-25 % d'écart vs grande surface sur carrelage, placo, isolant), <a href="https://www.pointp.fr" class="pcs-link-partner" rel="sponsored nofollow noopener">Point.P</a> en négoce.</p>
+		<p class="pcs-section__lead">Démolir, redresser, isoler : les fondamentaux du chantier qui décident de la suite. Bâti d'avant 1948 : matériaux perspirants obligatoires (chaux, chanvre, fibre de bois), refus du ciment sur pierre et du polystyrène sur murs anciens. Diagnostic ventilation avant chantier. Pour les matériaux pro à prix négociés (15-25 % d'écart vs grande surface sur carrelage, placo, isolant), <a href="https://www.pointp.fr" class="pcs-link-partner" rel="sponsored nofollow noopener">Point.P</a> en négoce. Pour comparer 3 devis sur un même geste structurel, <a href="https://www.ootravaux.fr" class="pcs-link-partner" rel="sponsored nofollow noopener">Ootravaux</a>.</p>
 		<!-- /wp:paragraph -->
 
 		<!-- wp:buttons -->
 		<div class="wp-block-buttons">
 			<!-- wp:button {"className":"is-style-outline"} -->
-			<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/travaux-gros-second-oeuvre-cat/">Voir tous les articles Gros & second œuvre →</a></div>
+			<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/travaux-gros-oeuvre-cat/">Voir tous les articles Gros œuvre →</a></div>
 			<!-- /wp:button -->
 		</div>
 		<!-- /wp:buttons -->
 
 	</section>
 	<!-- /wp:group -->
-
-	<!-- wp:pattern {"slug":"pluscestsimple/banner-slot-category-mid"} /-->
 
 	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-section--subcat","layout":{"type":"constrained"}} -->
 	<section class="wp-block-group alignwide pcs-section pcs-section--subcat">
@@ -91,44 +122,21 @@
 	</section>
 	<!-- /wp:group -->
 
-	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-section--subcat","layout":{"type":"constrained"}} -->
-	<section class="wp-block-group alignwide pcs-section pcs-section--subcat">
+	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-section--cat-loop","layout":{"type":"constrained"},"anchor":"all-articles"} -->
+	<section id="all-articles" class="wp-block-group alignwide pcs-section pcs-section--cat-loop">
 
 		<!-- wp:heading {"level":2,"className":"pcs-section__title"} -->
-		<h2 class="wp-block-heading pcs-section__title">Budget & aides</h2>
+		<h2 class="wp-block-heading pcs-section__title">Tous les articles</h2>
 		<!-- /wp:heading -->
 
-		<!-- wp:paragraph {"className":"pcs-section__lead"} -->
-		<p class="pcs-section__lead">Prix réels au m² par âge de bâti et région : avant 1948 entre 900 et 1 500 €/m², années 70-90 entre 500 et 900 €/m², récent 300-600 €/m² ; Île-de-France +25 à 40 % sur la main d'œuvre. Sur un chantier à 80 000 €, 10 à 15 % sont négociables, le reste non. Devis comparés ligne par ligne, calendrier de décaissement, lecture des zones floues d'un devis. Pour comparer 3 devis sur un même geste, <a href="https://www.ootravaux.fr" class="pcs-link-partner" rel="sponsored nofollow noopener">Ootravaux</a> reste utile.</p>
-		<!-- /wp:paragraph -->
-
-		<!-- wp:buttons -->
-		<div class="wp-block-buttons">
-			<!-- wp:button {"className":"is-style-outline"} -->
-			<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/travaux-budget-aides-cat/">Voir tous les articles Budget & aides →</a></div>
-			<!-- /wp:button -->
-		</div>
-		<!-- /wp:buttons -->
-
-	</section>
-	<!-- /wp:group -->
-
-	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-section--cat-loop","layout":{"type":"constrained"}} -->
-	<section class="wp-block-group alignwide pcs-section pcs-section--cat-loop">
-
-		<!-- wp:heading {"level":2,"className":"pcs-section__title"} -->
-		<h2 class="wp-block-heading pcs-section__title">Tous les articles Travaux</h2>
-		<!-- /wp:heading -->
-
-		<!-- wp:query {"queryId":10,"query":{"perPage":9,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false},"namespace":"pcs/cat-loop"} -->
+		<!-- wp:query {"queryId":10,"query":{"perPage":12,"pages":0,"offset":3,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false},"namespace":"pcs/cat-loop"} -->
 		<div class="wp-block-query">
-			<!-- wp:post-template {"className":"pcs-card-grid","lock":{"move":true,"remove":true},"layout":{"type":"grid","columnCount":3,"minimumColumnWidth":null}} -->
-				<!-- wp:group {"tagName":"article","className":"pcs-card"} -->
+			<!-- wp:post-template {"lock":{"move":true,"remove":true}} -->
+				<!-- wp:group {"tagName":"article","className":"pcs-card","layout":{"type":"default"}} -->
 				<article class="wp-block-group pcs-card">
 					<!-- wp:post-featured-image {"isLink":true,"aspectRatio":"4/3","className":"pcs-card__media"} /-->
 					<!-- wp:post-terms {"term":"category","className":"pcs-card__eyebrow"} /-->
 					<!-- wp:post-title {"isLink":true,"level":3,"className":"pcs-card__title"} /-->
-					<!-- wp:post-excerpt /-->
 					<!-- wp:post-date {"format":"j F Y","className":"pcs-card__meta"} /-->
 				</article>
 				<!-- /wp:group -->
@@ -138,11 +146,6 @@
 				<!-- wp:query-pagination-numbers /-->
 				<!-- wp:query-pagination-next /-->
 			<!-- /wp:query-pagination -->
-			<!-- wp:query-no-results -->
-				<!-- wp:paragraph -->
-				<p>Aucun article publié dans cette catégorie pour le moment. <a href="/le-carnet/">Voir tous les articles du carnet →</a></p>
-				<!-- /wp:paragraph -->
-			<!-- /wp:query-no-results -->
 		</div>
 		<!-- /wp:query -->
 
@@ -254,6 +257,31 @@
 	</section>
 	<!-- /wp:group -->
 
+	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-section--maillage","layout":{"type":"constrained"}} -->
+	<section class="wp-block-group alignwide pcs-section pcs-section--maillage">
+
+		<!-- wp:paragraph {"className":"pcs-eyebrow","textColor":"accent"} -->
+		<p class="pcs-eyebrow has-accent-color has-text-color">Aller plus loin</p>
+		<!-- /wp:paragraph -->
+
+		<!-- wp:heading {"level":2,"className":"pcs-section__title"} -->
+		<h2 class="wp-block-heading pcs-section__title">Voir aussi</h2>
+		<!-- /wp:heading -->
+
+		<!-- wp:list {"className":"pcs-link-list"} -->
+		<ul class="wp-block-list pcs-link-list">
+			<li><a href="/compatibilimetre/">Vérifier si votre projet est compatible avec budget, logement et réglementation 2026</a></li>
+			<li><a href="/decoration/">Quand la rénovation devient déco : finitions, peinture, sols, mobilier sur mesure</a></li>
+			<li><a href="/immobilier/">Acheter à rénover : ce que le DPE et l'état du bâti annoncent comme budget</a></li>
+			<li><a href="/annuaire/">Trouver un artisan RGE pour la rénovation énergétique</a></li>
+			<li><a href="/architecture/">Quand l'ampleur des travaux justifie un architecte : seuil 150 m², permis, mission complète</a></li>
+			<li><a href="/jardin/">Terrasse, allée, abri de jardin : quand le jardin demande des travaux</a></li>
+		</ul>
+		<!-- /wp:list -->
+
+	</section>
+	<!-- /wp:group -->
+
 	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-partners","layout":{"type":"constrained"}} -->
 	<section class="wp-block-group alignwide pcs-section pcs-partners">
 
@@ -330,30 +358,7 @@
 	</section>
 	<!-- /wp:group -->
 
-	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-section--maillage","layout":{"type":"constrained"}} -->
-	<section class="wp-block-group alignwide pcs-section pcs-section--maillage">
-
-		<!-- wp:paragraph {"className":"pcs-eyebrow","textColor":"accent"} -->
-		<p class="pcs-eyebrow has-accent-color has-text-color">Aller plus loin</p>
-		<!-- /wp:paragraph -->
-
-		<!-- wp:heading {"level":2,"className":"pcs-section__title"} -->
-		<h2 class="wp-block-heading pcs-section__title">Voir aussi</h2>
-		<!-- /wp:heading -->
-
-		<!-- wp:list {"className":"pcs-link-list"} -->
-		<ul class="wp-block-list pcs-link-list">
-			<li><a href="/compatibilimetre/">Vérifier si votre projet est compatible avec budget, logement et réglementation 2026</a></li>
-			<li><a href="/decoration/">Quand la rénovation devient déco : finitions, peinture, sols, mobilier sur mesure</a></li>
-			<li><a href="/immobilier/">Acheter à rénover : ce que le DPE et l'état du bâti annoncent comme budget</a></li>
-			<li><a href="/annuaire/">Trouver un artisan RGE pour la rénovation énergétique</a></li>
-			<li><a href="/architecture/">Quand l'ampleur des travaux justifie un architecte : seuil 150 m², permis, mission complète</a></li>
-			<li><a href="/jardin/">Terrasse, allée, abri de jardin : quand le jardin demande des travaux</a></li>
-		</ul>
-		<!-- /wp:list -->
-
-	</section>
-	<!-- /wp:group -->
+	<!-- wp:pattern {"slug":"pluscestsimple/disclosure-partners"} /-->
 
 </div>
 <!-- /wp:group -->

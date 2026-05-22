@@ -3,7 +3,7 @@
  * Title: Page catégorie — Décoration
  * Slug: pluscestsimple/category-decoration
  * Categories: pcs-page
- * Description: Page pilier Décoration : intro, 3 sous-sections (Pièces, Styles, Petit budget), Query Loop catégorie, FAQ, partenaires, maillage.
+ * Description: Page pilier Décoration : intro, bannière, à la une (3), 3 sous-sections (Par pièce, Styles, Petits budgets), bannière mid, tous les articles (12 offset 3), FAQ, partenaires, maillage, disclosure en bas.
  * Inserter: yes
  * Keywords: décoration, intérieur, pilier, catégorie
  */
@@ -19,15 +19,46 @@
 	<p class="pcs-archive__intro">La décoration intérieure est l'un des sujets les plus traités du web français, et l'un des plus mal traités. Tendances 2026 recopiées d'un site à l'autre, listes de "20 idées" interchangeables, sélections shopping déguisées en conseils, canapés à 800 € présentés comme du "petit budget". On a fait le choix inverse. Sur Plus c'est simple, on part de ce qui se passe vraiment chez vous : une pièce orientée nord qui reste sombre douze mois sur douze, un bailleur qui refuse la moindre perceuse, un budget de 300 € pour relooker un salon, une copropriété qui interdit les stores extérieurs. Vous trouverez ici des guides par pièce, des budgets chiffrés sur des marques françaises accessibles, et une lecture critique des styles qui dominent en 2026 — y compris ceux qui vont mal vieillir. Ce qu'on publie a été testé, vérifié et confronté à la réalité de votre logement. Le reste, vous le trouverez ailleurs.</p>
 	<!-- /wp:paragraph -->
 
-	<!-- wp:pattern {"slug":"pluscestsimple/disclosure-partners"} /-->
-
 	<!-- wp:pattern {"slug":"pluscestsimple/banner-slot-category-intro"} /-->
+
+	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-section--cat-top","layout":{"type":"constrained"}} -->
+	<section class="wp-block-group alignwide pcs-section pcs-section--cat-top">
+
+		<!-- wp:heading {"level":2,"className":"pcs-section__title"} -->
+		<h2 class="wp-block-heading pcs-section__title">À la une</h2>
+		<!-- /wp:heading -->
+
+		<!-- wp:query {"queryId":11,"query":{"perPage":3,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false},"namespace":"pcs/cat-loop"} -->
+		<div class="wp-block-query">
+			<!-- wp:post-template {"lock":{"move":true,"remove":true}} -->
+				<!-- wp:group {"tagName":"article","className":"pcs-card","layout":{"type":"default"}} -->
+				<article class="wp-block-group pcs-card">
+					<!-- wp:post-featured-image {"isLink":true,"aspectRatio":"4/3","className":"pcs-card__media"} /-->
+					<!-- wp:post-terms {"term":"category","className":"pcs-card__eyebrow"} /-->
+					<!-- wp:post-title {"isLink":true,"level":3,"className":"pcs-card__title"} /-->
+					<!-- wp:post-date {"format":"j F Y","className":"pcs-card__meta"} /-->
+				</article>
+				<!-- /wp:group -->
+			<!-- /wp:post-template -->
+		</div>
+		<!-- /wp:query -->
+
+		<!-- wp:buttons -->
+		<div class="wp-block-buttons">
+			<!-- wp:button {"className":"is-style-outline"} -->
+			<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="#all-articles">Voir tous les articles →</a></div>
+			<!-- /wp:button -->
+		</div>
+		<!-- /wp:buttons -->
+
+	</section>
+	<!-- /wp:group -->
 
 	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-section--subcat","layout":{"type":"constrained"}} -->
 	<section class="wp-block-group alignwide pcs-section pcs-section--subcat">
 
 		<!-- wp:heading {"level":2,"className":"pcs-section__title"} -->
-		<h2 class="wp-block-heading pcs-section__title">Pièces</h2>
+		<h2 class="wp-block-heading pcs-section__title">Par pièce</h2>
 		<!-- /wp:heading -->
 
 		<!-- wp:paragraph {"className":"pcs-section__lead"} -->
@@ -37,13 +68,15 @@
 		<!-- wp:buttons -->
 		<div class="wp-block-buttons">
 			<!-- wp:button {"className":"is-style-outline"} -->
-			<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/decoration-pieces-cat/">Voir tous les articles Pièces →</a></div>
+			<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/decoration-par-piece-cat/">Voir tous les articles Par pièce →</a></div>
 			<!-- /wp:button -->
 		</div>
 		<!-- /wp:buttons -->
 
 	</section>
 	<!-- /wp:group -->
+
+	<!-- wp:pattern {"slug":"pluscestsimple/banner-slot-category-mid"} /-->
 
 	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-section--subcat","layout":{"type":"constrained"}} -->
 	<section class="wp-block-group alignwide pcs-section pcs-section--subcat">
@@ -67,13 +100,11 @@
 	</section>
 	<!-- /wp:group -->
 
-	<!-- wp:pattern {"slug":"pluscestsimple/banner-slot-category-mid"} /-->
-
 	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-section--subcat","layout":{"type":"constrained"}} -->
 	<section class="wp-block-group alignwide pcs-section pcs-section--subcat">
 
 		<!-- wp:heading {"level":2,"className":"pcs-section__title"} -->
-		<h2 class="wp-block-heading pcs-section__title">Petit budget</h2>
+		<h2 class="wp-block-heading pcs-section__title">Petits budgets</h2>
 		<!-- /wp:heading -->
 
 		<!-- wp:paragraph {"className":"pcs-section__lead"} -->
@@ -83,7 +114,7 @@
 		<!-- wp:buttons -->
 		<div class="wp-block-buttons">
 			<!-- wp:button {"className":"is-style-outline"} -->
-			<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/decoration-petit-budget-cat/">Voir tous les articles Petit budget →</a></div>
+			<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/decoration-petits-budgets-cat/">Voir tous les articles Petits budgets →</a></div>
 			<!-- /wp:button -->
 		</div>
 		<!-- /wp:buttons -->
@@ -91,22 +122,21 @@
 	</section>
 	<!-- /wp:group -->
 
-	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-section--cat-loop","layout":{"type":"constrained"}} -->
-	<section class="wp-block-group alignwide pcs-section pcs-section--cat-loop">
+	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-section--cat-loop","layout":{"type":"constrained"},"anchor":"all-articles"} -->
+	<section id="all-articles" class="wp-block-group alignwide pcs-section pcs-section--cat-loop">
 
 		<!-- wp:heading {"level":2,"className":"pcs-section__title"} -->
-		<h2 class="wp-block-heading pcs-section__title">Tous les articles Décoration</h2>
+		<h2 class="wp-block-heading pcs-section__title">Tous les articles</h2>
 		<!-- /wp:heading -->
 
-		<!-- wp:query {"queryId":10,"query":{"perPage":9,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false},"namespace":"pcs/cat-loop"} -->
+		<!-- wp:query {"queryId":10,"query":{"perPage":12,"pages":0,"offset":3,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false},"namespace":"pcs/cat-loop"} -->
 		<div class="wp-block-query">
-			<!-- wp:post-template {"className":"pcs-card-grid","lock":{"move":true,"remove":true},"layout":{"type":"grid","columnCount":3,"minimumColumnWidth":null}} -->
-				<!-- wp:group {"tagName":"article","className":"pcs-card"} -->
+			<!-- wp:post-template {"lock":{"move":true,"remove":true}} -->
+				<!-- wp:group {"tagName":"article","className":"pcs-card","layout":{"type":"default"}} -->
 				<article class="wp-block-group pcs-card">
 					<!-- wp:post-featured-image {"isLink":true,"aspectRatio":"4/3","className":"pcs-card__media"} /-->
 					<!-- wp:post-terms {"term":"category","className":"pcs-card__eyebrow"} /-->
 					<!-- wp:post-title {"isLink":true,"level":3,"className":"pcs-card__title"} /-->
-					<!-- wp:post-excerpt /-->
 					<!-- wp:post-date {"format":"j F Y","className":"pcs-card__meta"} /-->
 				</article>
 				<!-- /wp:group -->
@@ -116,11 +146,6 @@
 				<!-- wp:query-pagination-numbers /-->
 				<!-- wp:query-pagination-next /-->
 			<!-- /wp:query-pagination -->
-			<!-- wp:query-no-results -->
-				<!-- wp:paragraph -->
-				<p>Aucun article publié dans cette catégorie pour le moment. <a href="/le-carnet/">Voir tous les articles du carnet →</a></p>
-				<!-- /wp:paragraph -->
-			<!-- /wp:query-no-results -->
 		</div>
 		<!-- /wp:query -->
 
@@ -232,6 +257,31 @@
 	</section>
 	<!-- /wp:group -->
 
+	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-section--maillage","layout":{"type":"constrained"}} -->
+	<section class="wp-block-group alignwide pcs-section pcs-section--maillage">
+
+		<!-- wp:paragraph {"className":"pcs-eyebrow","textColor":"accent"} -->
+		<p class="pcs-eyebrow has-accent-color has-text-color">Aller plus loin</p>
+		<!-- /wp:paragraph -->
+
+		<!-- wp:heading {"level":2,"className":"pcs-section__title"} -->
+		<h2 class="wp-block-heading pcs-section__title">Voir aussi</h2>
+		<!-- /wp:heading -->
+
+		<!-- wp:list {"className":"pcs-link-list"} -->
+		<ul class="wp-block-list pcs-link-list">
+			<li><a href="/travaux/">Quand la déco devient travaux — peinture pro, électricité, plomberie</a></li>
+			<li><a href="/jardin/">Prolonger la déco intérieure jusqu'à la terrasse et au balcon</a></li>
+			<li><a href="/architecture/">Avant de redécorer, faut-il revoir les volumes ?</a></li>
+			<li><a href="/immobilier/">Ce que la déco actuelle d'un bien révèle avant d'acheter</a></li>
+			<li><a href="/lifestyle/">Vivre dans son intérieur — quotidien, rangement, routines</a></li>
+			<li><a href="/compatibilimetre/">Évaluer si votre projet déco est compatible avec votre logement, budget et contraintes</a></li>
+		</ul>
+		<!-- /wp:list -->
+
+	</section>
+	<!-- /wp:group -->
+
 	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-partners","layout":{"type":"constrained"}} -->
 	<section class="wp-block-group alignwide pcs-section pcs-partners">
 
@@ -308,30 +358,7 @@
 	</section>
 	<!-- /wp:group -->
 
-	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-section--maillage","layout":{"type":"constrained"}} -->
-	<section class="wp-block-group alignwide pcs-section pcs-section--maillage">
-
-		<!-- wp:paragraph {"className":"pcs-eyebrow","textColor":"accent"} -->
-		<p class="pcs-eyebrow has-accent-color has-text-color">Aller plus loin</p>
-		<!-- /wp:paragraph -->
-
-		<!-- wp:heading {"level":2,"className":"pcs-section__title"} -->
-		<h2 class="wp-block-heading pcs-section__title">Voir aussi</h2>
-		<!-- /wp:heading -->
-
-		<!-- wp:list {"className":"pcs-link-list"} -->
-		<ul class="wp-block-list pcs-link-list">
-			<li><a href="/travaux/">Quand la déco devient travaux — peinture pro, électricité, plomberie</a></li>
-			<li><a href="/jardin/">Prolonger la déco intérieure jusqu'à la terrasse et au balcon</a></li>
-			<li><a href="/architecture/">Avant de redécorer, faut-il revoir les volumes ?</a></li>
-			<li><a href="/immobilier/">Ce que la déco actuelle d'un bien révèle avant d'acheter</a></li>
-			<li><a href="/lifestyle/">Vivre dans son intérieur — quotidien, rangement, routines</a></li>
-			<li><a href="/compatibilimetre/">Évaluer si votre projet déco est compatible avec votre logement, budget et contraintes</a></li>
-		</ul>
-		<!-- /wp:list -->
-
-	</section>
-	<!-- /wp:group -->
+	<!-- wp:pattern {"slug":"pluscestsimple/disclosure-partners"} /-->
 
 </div>
 <!-- /wp:group -->

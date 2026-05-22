@@ -3,7 +3,7 @@
  * Title: Page catégorie — Immobilier
  * Slug: pluscestsimple/category-immobilier
  * Categories: pcs-page
- * Description: Page pilier Immobilier : intro, 3 sous-sections (Acheter, Louer & investir, Vendre), Query Loop catégorie, FAQ, partenaires, maillage.
+ * Description: Page pilier Immobilier : intro, bannière, à la une (3), 3 sous-sections (Acheter, Louer & investir, Vendre), bannière mid, tous les articles (12 offset 3), FAQ, partenaires, maillage, disclosure en bas.
  * Inserter: yes
  * Keywords: immobilier, achat, vente, location, DPE, pilier, catégorie
  */
@@ -19,9 +19,40 @@
 	<p class="pcs-archive__intro">L'immobilier français de 2026 n'a plus rien à voir avec celui de 2020. Les taux moyens autour de 3 à 3,5 %, l'apport requis qui monte à 15-20 %, le DPE devenu variable centrale d'achat et de vente, le calendrier d'interdiction de location qui avance — G interdits depuis le 1er janvier 2025, F au 1er janvier 2028, E au 1er janvier 2034 —, une réforme du mode de calcul du DPE entrée en vigueur le 1er janvier 2026 qui fait sortir environ 850 000 logements chauffés à l'électricité du statut de passoire sans un coup de marteau. Côté frais, la hausse des DMTO votée par 82 départements depuis avril 2025 augmente la facture d'achat dans l'ancien (taux porté à 5 % jusqu'au 31 mars 2028). Sur Plus c'est simple, on traite l'immobilier comme une décision de vie, pas un placement. Acheter sa résidence principale, vendre un bien hérité, louer son ancien appartement, comprendre ce qu'on récupère vraiment quand le bailleur garde la caution. Pas de défiscalisation au forceps, pas de placement à la chaîne, pas de "comment doubler son patrimoine". Vous trouverez ici des guides chronologiques par parcours, des coûts réels chiffrés en euros 2026, et la lecture du droit qui s'applique vraiment à vous.</p>
 	<!-- /wp:paragraph -->
 
-	<!-- wp:pattern {"slug":"pluscestsimple/disclosure-partners"} /-->
-
 	<!-- wp:pattern {"slug":"pluscestsimple/banner-slot-category-intro"} /-->
+
+	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-section--cat-top","layout":{"type":"constrained"}} -->
+	<section class="wp-block-group alignwide pcs-section pcs-section--cat-top">
+
+		<!-- wp:heading {"level":2,"className":"pcs-section__title"} -->
+		<h2 class="wp-block-heading pcs-section__title">À la une</h2>
+		<!-- /wp:heading -->
+
+		<!-- wp:query {"queryId":11,"query":{"perPage":3,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false},"namespace":"pcs/cat-loop"} -->
+		<div class="wp-block-query">
+			<!-- wp:post-template {"lock":{"move":true,"remove":true}} -->
+				<!-- wp:group {"tagName":"article","className":"pcs-card","layout":{"type":"default"}} -->
+				<article class="wp-block-group pcs-card">
+					<!-- wp:post-featured-image {"isLink":true,"aspectRatio":"4/3","className":"pcs-card__media"} /-->
+					<!-- wp:post-terms {"term":"category","className":"pcs-card__eyebrow"} /-->
+					<!-- wp:post-title {"isLink":true,"level":3,"className":"pcs-card__title"} /-->
+					<!-- wp:post-date {"format":"j F Y","className":"pcs-card__meta"} /-->
+				</article>
+				<!-- /wp:group -->
+			<!-- /wp:post-template -->
+		</div>
+		<!-- /wp:query -->
+
+		<!-- wp:buttons -->
+		<div class="wp-block-buttons">
+			<!-- wp:button {"className":"is-style-outline"} -->
+			<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="#all-articles">Voir tous les articles →</a></div>
+			<!-- /wp:button -->
+		</div>
+		<!-- /wp:buttons -->
+
+	</section>
+	<!-- /wp:group -->
 
 	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-section--subcat","layout":{"type":"constrained"}} -->
 	<section class="wp-block-group alignwide pcs-section pcs-section--subcat">
@@ -45,6 +76,8 @@
 	</section>
 	<!-- /wp:group -->
 
+	<!-- wp:pattern {"slug":"pluscestsimple/banner-slot-category-mid"} /-->
+
 	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-section--subcat","layout":{"type":"constrained"}} -->
 	<section class="wp-block-group alignwide pcs-section pcs-section--subcat">
 
@@ -66,8 +99,6 @@
 
 	</section>
 	<!-- /wp:group -->
-
-	<!-- wp:pattern {"slug":"pluscestsimple/banner-slot-category-mid"} /-->
 
 	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-section--subcat","layout":{"type":"constrained"}} -->
 	<section class="wp-block-group alignwide pcs-section pcs-section--subcat">
@@ -91,22 +122,21 @@
 	</section>
 	<!-- /wp:group -->
 
-	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-section--cat-loop","layout":{"type":"constrained"}} -->
-	<section class="wp-block-group alignwide pcs-section pcs-section--cat-loop">
+	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-section--cat-loop","layout":{"type":"constrained"},"anchor":"all-articles"} -->
+	<section id="all-articles" class="wp-block-group alignwide pcs-section pcs-section--cat-loop">
 
 		<!-- wp:heading {"level":2,"className":"pcs-section__title"} -->
-		<h2 class="wp-block-heading pcs-section__title">Tous les articles Immobilier</h2>
+		<h2 class="wp-block-heading pcs-section__title">Tous les articles</h2>
 		<!-- /wp:heading -->
 
-		<!-- wp:query {"queryId":10,"query":{"perPage":9,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false},"namespace":"pcs/cat-loop"} -->
+		<!-- wp:query {"queryId":10,"query":{"perPage":12,"pages":0,"offset":3,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false},"namespace":"pcs/cat-loop"} -->
 		<div class="wp-block-query">
-			<!-- wp:post-template {"className":"pcs-card-grid","lock":{"move":true,"remove":true},"layout":{"type":"grid","columnCount":3,"minimumColumnWidth":null}} -->
-				<!-- wp:group {"tagName":"article","className":"pcs-card"} -->
+			<!-- wp:post-template {"lock":{"move":true,"remove":true}} -->
+				<!-- wp:group {"tagName":"article","className":"pcs-card","layout":{"type":"default"}} -->
 				<article class="wp-block-group pcs-card">
 					<!-- wp:post-featured-image {"isLink":true,"aspectRatio":"4/3","className":"pcs-card__media"} /-->
 					<!-- wp:post-terms {"term":"category","className":"pcs-card__eyebrow"} /-->
 					<!-- wp:post-title {"isLink":true,"level":3,"className":"pcs-card__title"} /-->
-					<!-- wp:post-excerpt /-->
 					<!-- wp:post-date {"format":"j F Y","className":"pcs-card__meta"} /-->
 				</article>
 				<!-- /wp:group -->
@@ -116,11 +146,6 @@
 				<!-- wp:query-pagination-numbers /-->
 				<!-- wp:query-pagination-next /-->
 			<!-- /wp:query-pagination -->
-			<!-- wp:query-no-results -->
-				<!-- wp:paragraph -->
-				<p>Aucun article publié dans cette catégorie pour le moment. <a href="/le-carnet/">Voir tous les articles du carnet →</a></p>
-				<!-- /wp:paragraph -->
-			<!-- /wp:query-no-results -->
 		</div>
 		<!-- /wp:query -->
 
@@ -232,6 +257,31 @@
 	</section>
 	<!-- /wp:group -->
 
+	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-section--maillage","layout":{"type":"constrained"}} -->
+	<section class="wp-block-group alignwide pcs-section pcs-section--maillage">
+
+		<!-- wp:paragraph {"className":"pcs-eyebrow","textColor":"accent"} -->
+		<p class="pcs-eyebrow has-accent-color has-text-color">Aller plus loin</p>
+		<!-- /wp:paragraph -->
+
+		<!-- wp:heading {"level":2,"className":"pcs-section__title"} -->
+		<h2 class="wp-block-heading pcs-section__title">Voir aussi</h2>
+		<!-- /wp:heading -->
+
+		<!-- wp:list {"className":"pcs-link-list"} -->
+		<ul class="wp-block-list pcs-link-list">
+			<li><a href="/travaux/">Quand l'achat devient chantier : rénovation lourde, DPE, gros œuvre, isolation</a></li>
+			<li><a href="/decoration/">Une fois acheté ou loué : décorer sans casser votre logement</a></li>
+			<li><a href="/compatibilimetre/">Évaluer si un bien est compatible avec votre budget, vos besoins et vos contraintes</a></li>
+			<li><a href="/architecture/">Acheter une maison ancienne : ce que la façade et la structure révèlent</a></li>
+			<li><a href="/jardin/">Extérieur d'une maison nouvellement acquise : potager, terrasse, haie</a></li>
+			<li><a href="/lifestyle/">Vivre dans son logement : voisinage, copropriété, charges, vie de quartier</a></li>
+		</ul>
+		<!-- /wp:list -->
+
+	</section>
+	<!-- /wp:group -->
+
 	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-partners","layout":{"type":"constrained"}} -->
 	<section class="wp-block-group alignwide pcs-section pcs-partners">
 
@@ -308,30 +358,7 @@
 	</section>
 	<!-- /wp:group -->
 
-	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-section--maillage","layout":{"type":"constrained"}} -->
-	<section class="wp-block-group alignwide pcs-section pcs-section--maillage">
-
-		<!-- wp:paragraph {"className":"pcs-eyebrow","textColor":"accent"} -->
-		<p class="pcs-eyebrow has-accent-color has-text-color">Aller plus loin</p>
-		<!-- /wp:paragraph -->
-
-		<!-- wp:heading {"level":2,"className":"pcs-section__title"} -->
-		<h2 class="wp-block-heading pcs-section__title">Voir aussi</h2>
-		<!-- /wp:heading -->
-
-		<!-- wp:list {"className":"pcs-link-list"} -->
-		<ul class="wp-block-list pcs-link-list">
-			<li><a href="/travaux/">Quand l'achat devient chantier : rénovation lourde, DPE, gros œuvre, isolation</a></li>
-			<li><a href="/decoration/">Une fois acheté ou loué : décorer sans casser votre logement</a></li>
-			<li><a href="/compatibilimetre/">Évaluer si un bien est compatible avec votre budget, vos besoins et vos contraintes</a></li>
-			<li><a href="/architecture/">Acheter une maison ancienne : ce que la façade et la structure révèlent</a></li>
-			<li><a href="/jardin/">Extérieur d'une maison nouvellement acquise : potager, terrasse, haie</a></li>
-			<li><a href="/lifestyle/">Vivre dans son logement : voisinage, copropriété, charges, vie de quartier</a></li>
-		</ul>
-		<!-- /wp:list -->
-
-	</section>
-	<!-- /wp:group -->
+	<!-- wp:pattern {"slug":"pluscestsimple/disclosure-partners"} /-->
 
 </div>
 <!-- /wp:group -->

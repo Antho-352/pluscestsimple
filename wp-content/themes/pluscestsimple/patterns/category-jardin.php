@@ -3,7 +3,7 @@
  * Title: Page catégorie — Jardin
  * Slug: pluscestsimple/category-jardin
  * Categories: pcs-page
- * Description: Page pilier Jardin : intro, 4 sous-sections (Potager, Aménagement & paysage, Entretien, Balcon & terrasse), Query Loop catégorie, FAQ, partenaires, maillage.
+ * Description: Page pilier Jardin : intro, bannière, à la une (3), 2 sous-sections (Aménagement extérieur, Entretien), bannière mid, tous les articles (12 offset 3), FAQ, partenaires, maillage, disclosure en bas.
  * Inserter: yes
  * Keywords: jardin, potager, balcon, pilier, catégorie
  */
@@ -19,25 +19,34 @@
 	<p class="pcs-archive__intro">Jardiner en France en 2026, ce n'est plus jardiner comme en 2000. Les canicules s'enchaînent, les arrêtés sécheresse coupent l'arrosage trois à quatre mois par an dans la moitié sud, et la quasi-totalité des conseils trouvés en ligne ignore tout ça. Sur Plus c'est simple, on a fait le choix de partir du jardin d'aujourd'hui, pas du potager de Mémé. Concret : votre exposition, votre sol, votre zone climatique (méditerranéenne, océanique, continentale ou montagne), votre budget réel et le cadre légal qui s'applique chez vous. Pas de "10 légumes magiques". Pas de carré potager affiché à 80 € quand il en coûte 220 € monté et rempli. Pas de calendrier national qui ignore que Lille gèle encore mi-avril quand Marseille sème en février. Vous trouverez ici un hub potager (jardin et balcon), un volet aménagement chiffré, un calendrier d'entretien par région, et la section que peu de sites traitent : jardiner en locataire, en copropriété, sous restriction d'eau. Avec les prix, les volumes, les surfaces et les textes.</p>
 	<!-- /wp:paragraph -->
 
-	<!-- wp:pattern {"slug":"pluscestsimple/disclosure-partners"} /-->
-
 	<!-- wp:pattern {"slug":"pluscestsimple/banner-slot-category-intro"} /-->
 
-	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-section--subcat","layout":{"type":"constrained"}} -->
-	<section class="wp-block-group alignwide pcs-section pcs-section--subcat">
+	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-section--cat-top","layout":{"type":"constrained"}} -->
+	<section class="wp-block-group alignwide pcs-section pcs-section--cat-top">
 
 		<!-- wp:heading {"level":2,"className":"pcs-section__title"} -->
-		<h2 class="wp-block-heading pcs-section__title">Potager</h2>
+		<h2 class="wp-block-heading pcs-section__title">À la une</h2>
 		<!-- /wp:heading -->
 
-		<!-- wp:paragraph {"className":"pcs-section__lead"} -->
-		<p class="pcs-section__lead">Démarrer un potager en France 2026, c'est d'abord comprendre sa zone climatique avant la première graine. Tomates, courgettes, poivrons : pas avant les Saints de Glace (11-13 mai) en zone tempérée, plus tard en altitude. Surfaces et budgets de démarrage : 4 m² balcon (80-150 €), 20 m² carré (250-500 €), 100 m² pleine terre (600-1 200 €). Pour les graines fiables, <a href="https://www.graines-baumaux.fr" class="pcs-link-partner" rel="sponsored nofollow noopener">Baumaux</a> (grainetier vosgien fondé 1943) et <a href="https://www.promessedefleurs.com" class="pcs-link-partner" rel="sponsored nofollow noopener">Promesse de Fleurs</a> tiennent la référence.</p>
-		<!-- /wp:paragraph -->
+		<!-- wp:query {"queryId":11,"query":{"perPage":3,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false},"namespace":"pcs/cat-loop"} -->
+		<div class="wp-block-query">
+			<!-- wp:post-template {"lock":{"move":true,"remove":true}} -->
+				<!-- wp:group {"tagName":"article","className":"pcs-card","layout":{"type":"default"}} -->
+				<article class="wp-block-group pcs-card">
+					<!-- wp:post-featured-image {"isLink":true,"aspectRatio":"4/3","className":"pcs-card__media"} /-->
+					<!-- wp:post-terms {"term":"category","className":"pcs-card__eyebrow"} /-->
+					<!-- wp:post-title {"isLink":true,"level":3,"className":"pcs-card__title"} /-->
+					<!-- wp:post-date {"format":"j F Y","className":"pcs-card__meta"} /-->
+				</article>
+				<!-- /wp:group -->
+			<!-- /wp:post-template -->
+		</div>
+		<!-- /wp:query -->
 
 		<!-- wp:buttons -->
 		<div class="wp-block-buttons">
 			<!-- wp:button {"className":"is-style-outline"} -->
-			<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/jardin-potager-cat/">Voir tous les articles Potager →</a></div>
+			<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="#all-articles">Voir tous les articles →</a></div>
 			<!-- /wp:button -->
 		</div>
 		<!-- /wp:buttons -->
@@ -49,17 +58,17 @@
 	<section class="wp-block-group alignwide pcs-section pcs-section--subcat">
 
 		<!-- wp:heading {"level":2,"className":"pcs-section__title"} -->
-		<h2 class="wp-block-heading pcs-section__title">Aménagement & paysage</h2>
+		<h2 class="wp-block-heading pcs-section__title">Aménagement extérieur</h2>
 		<!-- /wp:heading -->
 
 		<!-- wp:paragraph {"className":"pcs-section__lead"} -->
-		<p class="pcs-section__lead">Terrasse, allée, clôture, plantations structurelles : ce qui compose un jardin durable et chiffré. Honoraires paysagistes 25-65 € HT/h (+15-25 % en Île-de-France), terrasse bois posée 40-90 €/m² (européen) jusqu'à 150 €/m² (exotique), dallage pierre 30-105 €/m². Conception + travaux clé en main : 5 000-15 000 € pour un jardin moyen. Pour les fournitures (carrés potagers, terreau, outillage), <a href="https://www.truffaut.com" class="pcs-link-partner" rel="sponsored nofollow noopener">Truffaut</a> et <a href="https://www.jardiland.com" class="pcs-link-partner" rel="sponsored nofollow noopener">Jardiland</a> couvrent l'essentiel.</p>
+		<p class="pcs-section__lead">Terrasse, allée, clôture, plantations structurelles, balcon et toit-terrasse : ce qui compose un extérieur durable et chiffré. Honoraires paysagistes 25-65 € HT/h (+15-25 % en Île-de-France), terrasse bois posée 40-90 €/m² (européen) jusqu'à 150 €/m² (exotique), dallage pierre 30-105 €/m². Charge admissible balcon : 350 kg/m² (Eurocode/DTU 43.1) — un pot de 40 L rempli pèse 55-70 kg. Pour les fournitures (carrés potagers, terreau, mobilier extérieur), <a href="https://www.truffaut.com" class="pcs-link-partner" rel="sponsored nofollow noopener">Truffaut</a> et <a href="https://www.jardiland.com" class="pcs-link-partner" rel="sponsored nofollow noopener">Jardiland</a> couvrent l'essentiel.</p>
 		<!-- /wp:paragraph -->
 
 		<!-- wp:buttons -->
 		<div class="wp-block-buttons">
 			<!-- wp:button {"className":"is-style-outline"} -->
-			<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/jardin-amenagement-paysage-cat/">Voir tous les articles Aménagement & paysage →</a></div>
+			<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/jardin-amenagement-exterieur-cat/">Voir tous les articles Aménagement extérieur →</a></div>
 			<!-- /wp:button -->
 		</div>
 		<!-- /wp:buttons -->
@@ -73,17 +82,17 @@
 	<section class="wp-block-group alignwide pcs-section pcs-section--subcat">
 
 		<!-- wp:heading {"level":2,"className":"pcs-section__title"} -->
-		<h2 class="wp-block-heading pcs-section__title">Entretien (saisons)</h2>
+		<h2 class="wp-block-heading pcs-section__title">Entretien</h2>
 		<!-- /wp:heading -->
 
 		<!-- wp:paragraph {"className":"pcs-section__lead"} -->
-		<p class="pcs-section__lead">Calendrier par zone climatique (méditerranéenne, océanique, continentale, montagne) : Saints de Glace (11-13 mai), périodes de taille (16 mars-15 août interdit pour les agriculteurs PAC, l'<a href="https://www.ofb.gouv.fr/">OFB</a> recommande la même fenêtre pour les particuliers afin de protéger la nidification), arrêtés sécheresse (sanction 1 500 € — contravention de 5ᵉ classe). Récupérateur 300 L : 60-90 € en grande surface ; 500-1 000 L en cuve aérienne 200-500 €. Vendu chez <a href="https://www.gammvert.fr" class="pcs-link-partner" rel="sponsored nofollow noopener">Gamm Vert</a> et <a href="https://www.botanic.com" class="pcs-link-partner" rel="sponsored nofollow noopener">Botanic</a>.</p>
+		<p class="pcs-section__lead">Calendrier potager et entretien par zone climatique (méditerranéenne, océanique, continentale, montagne) : Saints de Glace (11-13 mai), périodes de taille (16 mars-15 août interdit pour les agriculteurs PAC, l'<a href="https://www.ofb.gouv.fr/">OFB</a> recommande la même fenêtre pour les particuliers), arrêtés sécheresse (sanction 1 500 € — contravention de 5ᵉ classe). Récupérateur 300 L : 60-90 € en grande surface ; cuve aérienne 500-1 000 L à 200-500 €. Pour les semences fiables, <a href="https://www.graines-baumaux.fr" class="pcs-link-partner" rel="sponsored nofollow noopener">Baumaux</a> (Vosges, fondé 1943). Récupérateurs d'eau et matériel éco-conçu chez <a href="https://www.greenweez.com" class="pcs-link-partner" rel="sponsored nofollow noopener">Greenweez</a>.</p>
 		<!-- /wp:paragraph -->
 
 		<!-- wp:buttons -->
 		<div class="wp-block-buttons">
 			<!-- wp:button {"className":"is-style-outline"} -->
-			<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/jardin-entretien-cat/">Voir tous les articles Entretien (saisons) →</a></div>
+			<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/jardin-entretien-cat/">Voir tous les articles Entretien →</a></div>
 			<!-- /wp:button -->
 		</div>
 		<!-- /wp:buttons -->
@@ -91,44 +100,21 @@
 	</section>
 	<!-- /wp:group -->
 
-	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-section--subcat","layout":{"type":"constrained"}} -->
-	<section class="wp-block-group alignwide pcs-section pcs-section--subcat">
+	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-section--cat-loop","layout":{"type":"constrained"},"anchor":"all-articles"} -->
+	<section id="all-articles" class="wp-block-group alignwide pcs-section pcs-section--cat-loop">
 
 		<!-- wp:heading {"level":2,"className":"pcs-section__title"} -->
-		<h2 class="wp-block-heading pcs-section__title">Balcon & terrasse</h2>
+		<h2 class="wp-block-heading pcs-section__title">Tous les articles</h2>
 		<!-- /wp:heading -->
 
-		<!-- wp:paragraph {"className":"pcs-section__lead"} -->
-		<p class="pcs-section__lead">Charge admissible balcon : 350 kg/m² (norme Eurocode/DTU 43.1) — un pot de 40 L rempli pèse 55-70 kg. Volume de pot minimum : tomate, poivron, aubergine 40 L (profondeur 40 cm, non négociable) ; courgette compacte 40-50 L. Règlement de copropriété : pots posés au sol libres, jardinières fixées en rambarde interdites, écoulement sur balcon inférieur interdit. Pour le matériel petite surface bio et éco-conçu, <a href="https://www.greenweez.com" class="pcs-link-partner" rel="sponsored nofollow noopener">Greenweez</a>.</p>
-		<!-- /wp:paragraph -->
-
-		<!-- wp:buttons -->
-		<div class="wp-block-buttons">
-			<!-- wp:button {"className":"is-style-outline"} -->
-			<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/jardin-balcon-terrasse-cat/">Voir tous les articles Balcon & terrasse →</a></div>
-			<!-- /wp:button -->
-		</div>
-		<!-- /wp:buttons -->
-
-	</section>
-	<!-- /wp:group -->
-
-	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-section--cat-loop","layout":{"type":"constrained"}} -->
-	<section class="wp-block-group alignwide pcs-section pcs-section--cat-loop">
-
-		<!-- wp:heading {"level":2,"className":"pcs-section__title"} -->
-		<h2 class="wp-block-heading pcs-section__title">Tous les articles Jardin</h2>
-		<!-- /wp:heading -->
-
-		<!-- wp:query {"queryId":10,"query":{"perPage":9,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false},"namespace":"pcs/cat-loop"} -->
+		<!-- wp:query {"queryId":10,"query":{"perPage":12,"pages":0,"offset":3,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false},"namespace":"pcs/cat-loop"} -->
 		<div class="wp-block-query">
-			<!-- wp:post-template {"className":"pcs-card-grid","lock":{"move":true,"remove":true},"layout":{"type":"grid","columnCount":3,"minimumColumnWidth":null}} -->
-				<!-- wp:group {"tagName":"article","className":"pcs-card"} -->
+			<!-- wp:post-template {"lock":{"move":true,"remove":true}} -->
+				<!-- wp:group {"tagName":"article","className":"pcs-card","layout":{"type":"default"}} -->
 				<article class="wp-block-group pcs-card">
 					<!-- wp:post-featured-image {"isLink":true,"aspectRatio":"4/3","className":"pcs-card__media"} /-->
 					<!-- wp:post-terms {"term":"category","className":"pcs-card__eyebrow"} /-->
 					<!-- wp:post-title {"isLink":true,"level":3,"className":"pcs-card__title"} /-->
-					<!-- wp:post-excerpt /-->
 					<!-- wp:post-date {"format":"j F Y","className":"pcs-card__meta"} /-->
 				</article>
 				<!-- /wp:group -->
@@ -138,11 +124,6 @@
 				<!-- wp:query-pagination-numbers /-->
 				<!-- wp:query-pagination-next /-->
 			<!-- /wp:query-pagination -->
-			<!-- wp:query-no-results -->
-				<!-- wp:paragraph -->
-				<p>Aucun article publié dans cette catégorie pour le moment. <a href="/le-carnet/">Voir tous les articles du carnet →</a></p>
-				<!-- /wp:paragraph -->
-			<!-- /wp:query-no-results -->
 		</div>
 		<!-- /wp:query -->
 
@@ -270,6 +251,31 @@
 	</section>
 	<!-- /wp:group -->
 
+	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-section--maillage","layout":{"type":"constrained"}} -->
+	<section class="wp-block-group alignwide pcs-section pcs-section--maillage">
+
+		<!-- wp:paragraph {"className":"pcs-eyebrow","textColor":"accent"} -->
+		<p class="pcs-eyebrow has-accent-color has-text-color">Aller plus loin</p>
+		<!-- /wp:paragraph -->
+
+		<!-- wp:heading {"level":2,"className":"pcs-section__title"} -->
+		<h2 class="wp-block-heading pcs-section__title">Voir aussi</h2>
+		<!-- /wp:heading -->
+
+		<!-- wp:list {"className":"pcs-link-list"} -->
+		<ul class="wp-block-list pcs-link-list">
+			<li><a href="/travaux/">Terrasse, allée, abri de jardin : quand le jardin demande des travaux</a></li>
+			<li><a href="/architecture/">Extension véranda ou jardin d'hiver : ce que l'orientation change</a></li>
+			<li><a href="/decoration/">Décoration extérieure et mobilier de jardin : choisir sans s'épuiser</a></li>
+			<li><a href="/immobilier/">Acheter une maison : ce que l'état du jardin révèle du bien</a></li>
+			<li><a href="/lifestyle/">Rythme saisonnier au jardin : entretien sans y passer ses week-ends</a></li>
+			<li><a href="/compatibilimetre/">Tester la compatibilité de votre projet jardin avec logement, climat et budget</a></li>
+		</ul>
+		<!-- /wp:list -->
+
+	</section>
+	<!-- /wp:group -->
+
 	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-partners","layout":{"type":"constrained"}} -->
 	<section class="wp-block-group alignwide pcs-section pcs-partners">
 
@@ -346,30 +352,7 @@
 	</section>
 	<!-- /wp:group -->
 
-	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-section--maillage","layout":{"type":"constrained"}} -->
-	<section class="wp-block-group alignwide pcs-section pcs-section--maillage">
-
-		<!-- wp:paragraph {"className":"pcs-eyebrow","textColor":"accent"} -->
-		<p class="pcs-eyebrow has-accent-color has-text-color">Aller plus loin</p>
-		<!-- /wp:paragraph -->
-
-		<!-- wp:heading {"level":2,"className":"pcs-section__title"} -->
-		<h2 class="wp-block-heading pcs-section__title">Voir aussi</h2>
-		<!-- /wp:heading -->
-
-		<!-- wp:list {"className":"pcs-link-list"} -->
-		<ul class="wp-block-list pcs-link-list">
-			<li><a href="/travaux/">Terrasse, allée, abri de jardin : quand le jardin demande des travaux</a></li>
-			<li><a href="/architecture/">Extension véranda ou jardin d'hiver : ce que l'orientation change</a></li>
-			<li><a href="/decoration/">Décoration extérieure et mobilier de jardin : choisir sans s'épuiser</a></li>
-			<li><a href="/immobilier/">Acheter une maison : ce que l'état du jardin révèle du bien</a></li>
-			<li><a href="/lifestyle/">Rythme saisonnier au jardin : entretien sans y passer ses week-ends</a></li>
-			<li><a href="/compatibilimetre/">Tester la compatibilité de votre projet jardin avec logement, climat et budget</a></li>
-		</ul>
-		<!-- /wp:list -->
-
-	</section>
-	<!-- /wp:group -->
+	<!-- wp:pattern {"slug":"pluscestsimple/disclosure-partners"} /-->
 
 </div>
 <!-- /wp:group -->

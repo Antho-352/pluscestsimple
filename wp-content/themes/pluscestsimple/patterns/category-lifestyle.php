@@ -3,9 +3,9 @@
  * Title: Page catégorie — Lifestyle
  * Slug: pluscestsimple/category-lifestyle
  * Categories: pcs-page
- * Description: Page pilier Lifestyle : intro, 3 sous-sections (Rangement & organisation, Recevoir, Bien-être chez soi), Query Loop catégorie, FAQ, partenaires, maillage.
+ * Description: Page pilier Lifestyle : intro, bannière, à la une (3), 2 sous-sections (Bien-être & accessoires, Rangement & nettoyage), bannière mid, tous les articles (12 offset 3), FAQ, partenaires, maillage, disclosure en bas.
  * Inserter: yes
- * Keywords: lifestyle, organisation, bien-être, recevoir, pilier, catégorie
+ * Keywords: lifestyle, organisation, bien-être, rangement, pilier, catégorie
  */
 ?>
 <!-- wp:group {"className":"pcs-category-page","metadata":{"name":"Page catégorie — Lifestyle"},"layout":{"type":"constrained"}} -->
@@ -19,25 +19,34 @@
 	<p class="pcs-archive__intro">L'organisation maison, sur la plupart des sites français, c'est un mélange flou de cocooning Instagram, de routines matinales inapplicables avec deux enfants et de tendances "ralentir" recopiées d'un magazine à l'autre. Le résultat : des photos parfaites qui produisent plus de stress que de bien-être réel. Sur Plus c'est simple, on prend le sujet par le bas. Ce qui se passe vraiment chez vous, dans 60 à 80 mètres carrés, avec un budget normal et une famille qui vit dedans. On compare les méthodes de rangement comme on compare des outils : KonMari, FlyLady, 5S, Zen To Done. Laquelle tient six mois, laquelle craque au tri des livres, laquelle marche en couple avec enfants. On regarde le bien-être à la maison par ses leviers mesurables : qualité de l'air (5 à 7 fois plus pollué qu'à l'extérieur selon l'OQAI), lumière naturelle, isolation phonique en location. Et on traite le "recevoir" avec une logistique calibrée, pas des photos d'apéro qui ne tiendraient jamais dans votre cuisine. Pas de spiritualité vague, pas de séance hygge à 200 €. Du concret, des chiffres, le droit de ne pas avoir un intérieur parfait.</p>
 	<!-- /wp:paragraph -->
 
-	<!-- wp:pattern {"slug":"pluscestsimple/disclosure-partners"} /-->
-
 	<!-- wp:pattern {"slug":"pluscestsimple/banner-slot-category-intro"} /-->
 
-	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-section--subcat","layout":{"type":"constrained"}} -->
-	<section class="wp-block-group alignwide pcs-section pcs-section--subcat">
+	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-section--cat-top","layout":{"type":"constrained"}} -->
+	<section class="wp-block-group alignwide pcs-section pcs-section--cat-top">
 
 		<!-- wp:heading {"level":2,"className":"pcs-section__title"} -->
-		<h2 class="wp-block-heading pcs-section__title">Rangement & organisation</h2>
+		<h2 class="wp-block-heading pcs-section__title">À la une</h2>
 		<!-- /wp:heading -->
 
-		<!-- wp:paragraph {"className":"pcs-section__lead"} -->
-		<p class="pcs-section__lead">KonMari, FlyLady, 5S, Zen To Done : quatre méthodes comparées, aucune universelle. Cas d'échec documentés (tri des livres, tri des papiers). Combinaison efficace : KonMari pour le tri initial massif, FlyLady pour l'entretien long terme. Tarif home organiser : 40-80 €/h province, 80-120 €/h Paris/IDF. Pour le rangement modulable accessible, <a href="https://www.ikea.com/fr/fr/cat/algot-systeme-11468/" class="pcs-link-partner" rel="sponsored nofollow noopener">IKEA Algot</a> à partir de 30 €/m linéaire. Pour le massif bois rangement durable, <a href="https://www.tikamoon.com/" class="pcs-link-partner" rel="sponsored nofollow noopener">Tikamoon</a>.</p>
-		<!-- /wp:paragraph -->
+		<!-- wp:query {"queryId":11,"query":{"perPage":3,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false},"namespace":"pcs/cat-loop"} -->
+		<div class="wp-block-query">
+			<!-- wp:post-template {"lock":{"move":true,"remove":true}} -->
+				<!-- wp:group {"tagName":"article","className":"pcs-card","layout":{"type":"default"}} -->
+				<article class="wp-block-group pcs-card">
+					<!-- wp:post-featured-image {"isLink":true,"aspectRatio":"4/3","className":"pcs-card__media"} /-->
+					<!-- wp:post-terms {"term":"category","className":"pcs-card__eyebrow"} /-->
+					<!-- wp:post-title {"isLink":true,"level":3,"className":"pcs-card__title"} /-->
+					<!-- wp:post-date {"format":"j F Y","className":"pcs-card__meta"} /-->
+				</article>
+				<!-- /wp:group -->
+			<!-- /wp:post-template -->
+		</div>
+		<!-- /wp:query -->
 
 		<!-- wp:buttons -->
 		<div class="wp-block-buttons">
 			<!-- wp:button {"className":"is-style-outline"} -->
-			<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/lifestyle-rangement-cat/">Voir tous les articles Rangement & organisation →</a></div>
+			<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="#all-articles">Voir tous les articles →</a></div>
 			<!-- /wp:button -->
 		</div>
 		<!-- /wp:buttons -->
@@ -49,17 +58,17 @@
 	<section class="wp-block-group alignwide pcs-section pcs-section--subcat">
 
 		<!-- wp:heading {"level":2,"className":"pcs-section__title"} -->
-		<h2 class="wp-block-heading pcs-section__title">Recevoir</h2>
+		<h2 class="wp-block-heading pcs-section__title">Bien-être & accessoires</h2>
 		<!-- /wp:heading -->
 
 		<!-- wp:paragraph {"className":"pcs-section__lead"} -->
-		<p class="pcs-section__lead">T3 moyen 66 m² (INSEE), T2 environ 47 m² — la quasi-totalité des contenus "recevoir" est calibrée pour 110 m² et un îlot de cuisine. Apéro dînatoire 8 personnes en 30 m² : préparation J-2/J-1/jour J, configurations table basse + tabourets pliants 15 € la pièce (IKEA Frosta). Quantités étalon par adulte : 150-200 g de pain, 1/3 à 1/2 bouteille de vin, 80-100 g de fromage, 80 g de charcuterie. Pas de Pinterest-anxiety, pas de hygge à 200 € — les invités viennent pour vous.</p>
+		<p class="pcs-section__lead">Bien-être réel = bien-être mesuré. Qualité de l'air (<a href="https://www.oqai.fr/">OQAI</a> : intérieur 5-7× plus pollué que dehors, aérer 10 min matin et soir), température ADEME (19 °C pièces de vie, 16-17 °C chambres), éclairage circadien chaud 2 700 K à partir de 19 h. Pour mesurer concrètement : <a href="https://www.netatmo.com/fr-fr/aircare/homecoach" class="pcs-link-partner" rel="sponsored nofollow noopener">Netatmo Home Coach</a> (CO₂, humidité, température, ~100 €). Hub automatisations : <a href="https://www.aqara.com/en/product/hub-m2/" class="pcs-link-partner" rel="sponsored nofollow noopener">Aqara Hub M2</a>. Éclairage circadien : <a href="https://www.philips-hue.com/fr-fr" class="pcs-link-partner" rel="sponsored nofollow noopener">Philips Hue White Ambiance</a>.</p>
 		<!-- /wp:paragraph -->
 
 		<!-- wp:buttons -->
 		<div class="wp-block-buttons">
 			<!-- wp:button {"className":"is-style-outline"} -->
-			<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/lifestyle-recevoir-cat/">Voir tous les articles Recevoir →</a></div>
+			<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/lifestyle-bien-etre-accessoires-cat/">Voir tous les articles Bien-être & accessoires →</a></div>
 			<!-- /wp:button -->
 		</div>
 		<!-- /wp:buttons -->
@@ -73,17 +82,17 @@
 	<section class="wp-block-group alignwide pcs-section pcs-section--subcat">
 
 		<!-- wp:heading {"level":2,"className":"pcs-section__title"} -->
-		<h2 class="wp-block-heading pcs-section__title">Bien-être chez soi</h2>
+		<h2 class="wp-block-heading pcs-section__title">Rangement & nettoyage</h2>
 		<!-- /wp:heading -->
 
 		<!-- wp:paragraph {"className":"pcs-section__lead"} -->
-		<p class="pcs-section__lead">Bien-être réel = bien-être mesuré. Qualité de l'air (<a href="https://www.oqai.fr/">OQAI</a> : intérieur 5-7× plus pollué que dehors, aérer 10 min matin et soir), température ADEME (19 °C pièces de vie, 16-17 °C chambres), éclairage circadien chaud 2 700 K à partir de 19 h. Pour mesurer concrètement : <a href="https://www.netatmo.com/fr-fr/aircare/homecoach" class="pcs-link-partner" rel="sponsored nofollow noopener">Netatmo Home Coach</a> (CO₂, humidité, température, ~100 €). Hub automatisations : <a href="https://www.aqara.com/en/product/hub-m2/" class="pcs-link-partner" rel="sponsored nofollow noopener">Aqara Hub M2</a>. Éclairage circadien : <a href="https://www.philips-hue.com/fr-fr" class="pcs-link-partner" rel="sponsored nofollow noopener">Philips Hue White Ambiance</a>.</p>
+		<p class="pcs-section__lead">KonMari, FlyLady, 5S, Zen To Done : quatre méthodes comparées, aucune universelle. Cas d'échec documentés (tri des livres, papiers). Combinaison efficace : KonMari pour le tri initial massif, FlyLady pour l'entretien long terme et le ménage par zones tournantes 15 min/jour. Tarif home organiser : 40-80 €/h province, 80-120 €/h Paris/IDF. Pour le rangement modulable accessible, <a href="https://www.ikea.com/fr/fr/cat/algot-systeme-11468/" class="pcs-link-partner" rel="sponsored nofollow noopener">IKEA Algot</a> à partir de 30 €/m linéaire. Pour le massif bois rangement durable, <a href="https://www.tikamoon.com/" class="pcs-link-partner" rel="sponsored nofollow noopener">Tikamoon</a>.</p>
 		<!-- /wp:paragraph -->
 
 		<!-- wp:buttons -->
 		<div class="wp-block-buttons">
 			<!-- wp:button {"className":"is-style-outline"} -->
-			<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/lifestyle-bien-etre-chez-soi-cat/">Voir tous les articles Bien-être chez soi →</a></div>
+			<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/lifestyle-rangement-nettoyage-cat/">Voir tous les articles Rangement & nettoyage →</a></div>
 			<!-- /wp:button -->
 		</div>
 		<!-- /wp:buttons -->
@@ -91,22 +100,21 @@
 	</section>
 	<!-- /wp:group -->
 
-	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-section--cat-loop","layout":{"type":"constrained"}} -->
-	<section class="wp-block-group alignwide pcs-section pcs-section--cat-loop">
+	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-section--cat-loop","layout":{"type":"constrained"},"anchor":"all-articles"} -->
+	<section id="all-articles" class="wp-block-group alignwide pcs-section pcs-section--cat-loop">
 
 		<!-- wp:heading {"level":2,"className":"pcs-section__title"} -->
-		<h2 class="wp-block-heading pcs-section__title">Tous les articles Lifestyle</h2>
+		<h2 class="wp-block-heading pcs-section__title">Tous les articles</h2>
 		<!-- /wp:heading -->
 
-		<!-- wp:query {"queryId":10,"query":{"perPage":9,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false},"namespace":"pcs/cat-loop"} -->
+		<!-- wp:query {"queryId":10,"query":{"perPage":12,"pages":0,"offset":3,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false},"namespace":"pcs/cat-loop"} -->
 		<div class="wp-block-query">
-			<!-- wp:post-template {"className":"pcs-card-grid","lock":{"move":true,"remove":true},"layout":{"type":"grid","columnCount":3,"minimumColumnWidth":null}} -->
-				<!-- wp:group {"tagName":"article","className":"pcs-card"} -->
+			<!-- wp:post-template {"lock":{"move":true,"remove":true}} -->
+				<!-- wp:group {"tagName":"article","className":"pcs-card","layout":{"type":"default"}} -->
 				<article class="wp-block-group pcs-card">
 					<!-- wp:post-featured-image {"isLink":true,"aspectRatio":"4/3","className":"pcs-card__media"} /-->
 					<!-- wp:post-terms {"term":"category","className":"pcs-card__eyebrow"} /-->
 					<!-- wp:post-title {"isLink":true,"level":3,"className":"pcs-card__title"} /-->
-					<!-- wp:post-excerpt /-->
 					<!-- wp:post-date {"format":"j F Y","className":"pcs-card__meta"} /-->
 				</article>
 				<!-- /wp:group -->
@@ -116,11 +124,6 @@
 				<!-- wp:query-pagination-numbers /-->
 				<!-- wp:query-pagination-next /-->
 			<!-- /wp:query-pagination -->
-			<!-- wp:query-no-results -->
-				<!-- wp:paragraph -->
-				<p>Aucun article publié dans cette catégorie pour le moment. <a href="/le-carnet/">Voir tous les articles du carnet →</a></p>
-				<!-- /wp:paragraph -->
-			<!-- /wp:query-no-results -->
 		</div>
 		<!-- /wp:query -->
 
@@ -232,6 +235,31 @@
 	</section>
 	<!-- /wp:group -->
 
+	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-section--maillage","layout":{"type":"constrained"}} -->
+	<section class="wp-block-group alignwide pcs-section pcs-section--maillage">
+
+		<!-- wp:paragraph {"className":"pcs-eyebrow","textColor":"accent"} -->
+		<p class="pcs-eyebrow has-accent-color has-text-color">Aller plus loin</p>
+		<!-- /wp:paragraph -->
+
+		<!-- wp:heading {"level":2,"className":"pcs-section__title"} -->
+		<h2 class="wp-block-heading pcs-section__title">Voir aussi</h2>
+		<!-- /wp:heading -->
+
+		<!-- wp:list {"className":"pcs-link-list"} -->
+		<ul class="wp-block-list pcs-link-list">
+			<li><a href="/decoration/">Ranger visible plutôt que cacher — étagères ouvertes, boîtes assumées, hacks IKEA esthétiques</a></li>
+			<li><a href="/travaux/">Bien-être passe aussi par les travaux — isolation phonique, VMC double flux, ouverture de cloison</a></li>
+			<li><a href="/immobilier/">Choisir un logement compatible avec son mode de vie — exposition, surface utile, voisinage</a></li>
+			<li><a href="/compatibilimetre/">Votre logement actuel est-il compatible avec votre vie de famille ou faut-il déménager ?</a></li>
+			<li><a href="/jardin/">Prolonger l'organisation dehors — balcon de 4 m² utile, terrasse vécue, jardin tenu</a></li>
+			<li><a href="/architecture/">Repenser les volumes plutôt que rajouter du rangement — cloison, mezzanine, cellier en bureau</a></li>
+		</ul>
+		<!-- /wp:list -->
+
+	</section>
+	<!-- /wp:group -->
+
 	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-partners","layout":{"type":"constrained"}} -->
 	<section class="wp-block-group alignwide pcs-section pcs-partners">
 
@@ -308,30 +336,7 @@
 	</section>
 	<!-- /wp:group -->
 
-	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-section--maillage","layout":{"type":"constrained"}} -->
-	<section class="wp-block-group alignwide pcs-section pcs-section--maillage">
-
-		<!-- wp:paragraph {"className":"pcs-eyebrow","textColor":"accent"} -->
-		<p class="pcs-eyebrow has-accent-color has-text-color">Aller plus loin</p>
-		<!-- /wp:paragraph -->
-
-		<!-- wp:heading {"level":2,"className":"pcs-section__title"} -->
-		<h2 class="wp-block-heading pcs-section__title">Voir aussi</h2>
-		<!-- /wp:heading -->
-
-		<!-- wp:list {"className":"pcs-link-list"} -->
-		<ul class="wp-block-list pcs-link-list">
-			<li><a href="/decoration/">Ranger visible plutôt que cacher — étagères ouvertes, boîtes assumées, hacks IKEA esthétiques</a></li>
-			<li><a href="/travaux/">Bien-être passe aussi par les travaux — isolation phonique, VMC double flux, ouverture de cloison</a></li>
-			<li><a href="/immobilier/">Choisir un logement compatible avec son mode de vie — exposition, surface utile, voisinage</a></li>
-			<li><a href="/compatibilimetre/">Votre logement actuel est-il compatible avec votre vie de famille ou faut-il déménager ?</a></li>
-			<li><a href="/jardin/">Prolonger l'organisation dehors — balcon de 4 m² utile, terrasse vécue, jardin tenu</a></li>
-			<li><a href="/architecture/">Repenser les volumes plutôt que rajouter du rangement — cloison, mezzanine, cellier en bureau</a></li>
-		</ul>
-		<!-- /wp:list -->
-
-	</section>
-	<!-- /wp:group -->
+	<!-- wp:pattern {"slug":"pluscestsimple/disclosure-partners"} /-->
 
 </div>
 <!-- /wp:group -->
