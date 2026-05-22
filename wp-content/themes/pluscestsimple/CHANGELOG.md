@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.4.1] — 2026-05-22
+
+### Fixes retours user
+- **Double chevron menu** : limitation stricte du `::after` au PREMIER niveau de menu uniquement (sélecteurs `> .pcs-nav__list >` et `> ul >`). Sous-menus déforcés (`content: none !important`). Plus de chevron fantôme sous les items parents
+- **Cards articles trop espacées** : `.pcs-card` gap réduit de 0.75rem à 0.4rem. Espacement image/eyebrow/titre/date resserré (marges explicites)
+- **5 cartes piliers sur 2 lignes** : forçage 5 colonnes dès 900px (au lieu de 1024px), gap réduit, `!important` sur grid-template-columns pour overrider toute règle WP. Aussi padding section ajusté
+- **Sections fond — padding-top trop faible** : règles ciblées avec `padding-top: clamp(3rem, 6vw, 4.5rem) !important` sur `.pcs-section--manifesto`, `.pcs-partners`, `.pcs-section--maillage`, `.pcs-section--directory`. Ajout reset margin-top sur premier enfant pour éviter cumul
+
+### Note importante pour le "À la une" trop d'articles
+Le pattern category-X v2.4.0 a bien `perPage:3` pour la section "À la une" et `perPage:12 offset:3` pour "Tous les articles". Si tu vois trop d'articles dans la première section, c'est probablement que **la page n'a pas été Reset depuis v2.4.0** — elle utilise encore l'ancien pattern (1 seul Query Loop de 9 articles sans séparation).
+→ **Outils → PCS Init content → Reset des pages seedées** doit être déclenché après chaque upload pour récupérer la nouvelle structure.
+
 ## [2.4.0] — 2026-05-22
 
 ### Nouvelle structure des pages catégories

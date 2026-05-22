@@ -344,7 +344,9 @@ a:hover { color: var(--wp--preset--color--accent-secondary); text-decoration: no
 .pcs-nav--primary button.wp-block-navigation-submenu__toggle {
 	display: none !important;
 }
-.pcs-nav--primary .menu-item-has-children > a::after {
+/* Chevron uniquement sur le PREMIER niveau de menu (pas dans les sous-menus). */
+.pcs-nav--primary > .pcs-nav__list > .menu-item-has-children > a::after,
+.pcs-nav--primary > ul > .menu-item-has-children > a::after {
 	content: "▾";
 	display: inline-block;
 	margin-left: 0.3em;
@@ -353,10 +355,18 @@ a:hover { color: var(--wp--preset--color--accent-secondary); text-decoration: no
 	transform: translateY(-1px);
 	transition: transform var(--pcs-dur-fast) var(--pcs-ease), color var(--pcs-dur-fast) var(--pcs-ease);
 }
-.pcs-nav--primary .menu-item-has-children:hover > a::after,
-.pcs-nav--primary .menu-item-has-children:focus-within > a::after {
+.pcs-nav--primary > .pcs-nav__list > .menu-item-has-children:hover > a::after,
+.pcs-nav--primary > ul > .menu-item-has-children:hover > a::after,
+.pcs-nav--primary > .pcs-nav__list > .menu-item-has-children:focus-within > a::after,
+.pcs-nav--primary > ul > .menu-item-has-children:focus-within > a::after {
 	color: var(--wp--preset--color--accent);
 	transform: translateY(1px);
+}
+/* Sécurité : aucune autre ::after sur les liens du nav (élimine les chevrons fantômes). */
+.pcs-nav--primary .sub-menu .menu-item-has-children > a::after,
+.pcs-nav--primary .sub-menu a::after {
+	content: none !important;
+	display: none !important;
 }
 
 @media (min-width: 901px) {
@@ -536,8 +546,17 @@ a:hover { color: var(--wp--preset--color--accent-secondary); text-decoration: no
 .pcs-card {
 	display: flex;
 	flex-direction: column;
-	gap: 0.75rem;
+	gap: 0.4rem;
 	transition: transform var(--pcs-dur-fast) var(--pcs-ease);
+}
+.pcs-card__media + .pcs-card__eyebrow {
+	margin-top: 0.6rem;
+}
+.pcs-card__title {
+	margin-top: 0.1rem !important;
+}
+.pcs-card__meta {
+	margin-top: 0.25rem !important;
 }
 .pcs-card:hover { transform: translateY(-2px); }
 .pcs-card__media {
@@ -958,20 +977,24 @@ a.pcs-link-partner:hover {
 /* Directory teaser (background accent) */
 .pcs-section--directory .pcs-eyebrow { color: var(--wp--preset--color--accent-secondary) !important; }
 
-/* Pillar cards (carte d'entrée catégorie) */
+/* Pillar cards (carte d'entrée catégorie) — forcer 5 colonnes dès 900px */
 .pcs-pillars-grid {
-	display: grid;
-	grid-template-columns: repeat(5, minmax(0, 1fr));
-	gap: clamp(0.75rem, 1.5vw, 1.25rem);
+	display: grid !important;
+	grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+	gap: clamp(0.625rem, 1.2vw, 1rem);
 }
-@media (max-width: 1024px) {
-	.pcs-pillars-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 900px) {
+	.pcs-pillars-grid { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
 }
-@media (max-width: 640px) {
-	.pcs-pillars-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (max-width: 600px) {
+	.pcs-pillars-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
 }
-@media (max-width: 420px) {
-	.pcs-pillars-grid { grid-template-columns: 1fr; }
+@media (max-width: 380px) {
+	.pcs-pillars-grid { grid-template-columns: 1fr !important; }
+}
+/* La section pillars doit avoir assez de largeur pour 5 colonnes : passer en align full */
+.pcs-section--pillars {
+	padding-inline: clamp(1rem, 4vw, 2rem);
 }
 .pcs-pillar-card {
 	padding: clamp(1rem, 2vw, 1.5rem);
@@ -1187,10 +1210,16 @@ a.pcs-link-partner:hover {
 }
 .pcs-section--maillage {
 	background: var(--wp--preset--color--surface);
-	padding: clamp(2.5rem, 5vw, 4rem) clamp(2rem, 5vw, 3.5rem);
+	padding-top: clamp(3rem, 6vw, 4.5rem) !important;
+	padding-bottom: clamp(3rem, 6vw, 4.5rem) !important;
+	padding-inline: clamp(2rem, 5vw, 3.5rem);
 	border-radius: var(--wp--custom--radius--md);
 	margin-top: clamp(2rem, 4vw, 3rem);
 	margin-inline: 0;
+}
+.pcs-section--maillage > .pcs-eyebrow:first-child,
+.pcs-section--maillage > .wp-block-paragraph:first-child {
+	margin-top: 0;
 }
 .pcs-section--maillage .pcs-link-list {
 	display: grid;
@@ -1269,9 +1298,19 @@ a.pcs-link-partner:hover {
 }
 
 /* Padding interne uniforme pour toutes les sections qui ont un background différent
-   (manifeste, directory teaser, etc.) — évite l'effet "collé en haut". */
-.pcs-section.has-background {
-	padding-block: clamp(2.5rem, 5vw, 4rem) !important;
+   (manifeste, directory teaser, partners, maillage). Force padding-top et bottom
+   généreux pour éviter l'effet "collé au bord". */
+.pcs-section.has-background,
+.pcs-section--manifesto,
+.pcs-partners,
+.pcs-section--maillage,
+.pcs-section--directory {
+	padding-top: clamp(3rem, 6vw, 4.5rem) !important;
+	padding-bottom: clamp(3rem, 6vw, 4.5rem) !important;
+}
+/* Section partners : padding-top encore plus généreux */
+.pcs-partners > .pcs-eyebrow:first-child {
+	margin-top: 0;
 }
 
 /* Hero front */
