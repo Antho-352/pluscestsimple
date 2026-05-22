@@ -34,6 +34,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		<?php pcs_footer_menu(); ?>
 
+		<?php pcs_social_menu(); ?>
+
 	</div>
 
 	<div class="pcs-container pcs-footer__bottom">

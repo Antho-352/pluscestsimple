@@ -346,10 +346,21 @@ a:hover { color: var(--wp--preset--color--accent-secondary); text-decoration: no
 .pcs-nav--primary button.wp-block-navigation-submenu__toggle {
 	display: none !important;
 }
-/* Chevron uniquement sur le PREMIER niveau de menu (pas dans les sous-menus). */
+/* Chevron uniquement sur le PREMIER niveau de menu (pas dans les sous-menus).
+   Toutes les propriétés positionnelles de l'underline animé (::after partagé)
+   sont explicitement réinitialisées ici pour éviter le double rendu. */
 .pcs-nav--primary > .pcs-nav__list > .menu-item-has-children > a::after,
 .pcs-nav--primary > ul > .menu-item-has-children > a::after {
 	content: "▾";
+	/* Annule le positionnement absolu hérité de la règle underline animé */
+	position: static;
+	left: auto;
+	right: auto;
+	bottom: auto;
+	height: auto;
+	width: auto;
+	background: none;
+	/* Rendu inline du chevron */
 	display: inline-block;
 	margin-left: 0.3em;
 	font-size: 0.7em;
@@ -494,6 +505,32 @@ a:hover { color: var(--wp--preset--color--accent-secondary); text-decoration: no
 }
 .pcs-nav--footer a:hover { color: var(--wp--preset--color--accent); text-decoration: underline; }
 .pcs-nav--footer a::after { display: none; }
+
+/* Réseaux sociaux footer */
+.pcs-social-nav { margin-top: 1.25rem; }
+.pcs-social-nav__list {
+	display: flex;
+	gap: 0.75rem;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.pcs-social-nav__link {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 2.25rem;
+	height: 2.25rem;
+	border-radius: 50%;
+	background: var(--wp--preset--color--surface);
+	color: var(--wp--preset--color--muted);
+	transition: background var(--pcs-dur-fast) var(--pcs-ease), color var(--pcs-dur-fast) var(--pcs-ease);
+}
+.pcs-social-nav__link:hover {
+	background: var(--wp--preset--color--accent);
+	color: var(--wp--preset--color--background);
+}
+.pcs-social-nav__link svg { display: block; }
 
 .pcs-footer__bottom {
 	display: flex;
@@ -1372,6 +1409,9 @@ a.pcs-link-partner:hover {
 /* Newsletter — inversé sombre */
 .pcs-section--newsletter {
 	text-align: left;
+	/* Padding-block explicite pour ne pas être annulé par la règle
+	   .pcs-section + .pcs-section { padding-block-start: 0 } */
+	padding-block: clamp(4rem, 8vw, 7rem) !important;
 }
 .pcs-section--newsletter .pcs-eyebrow { color: var(--wp--preset--color--accent-secondary) !important; }
 .pcs-newsletter-form {
@@ -1379,6 +1419,14 @@ a.pcs-link-partner:hover {
 	flex-wrap: wrap;
 	gap: 0.5rem;
 	margin-top: 1rem;
+}
+/* Annule les overrides de .pcs-content form (flex-direction: column; max-width: 560px)
+   qui s'appliquaient en cascade via front-page.php (.pcs-content wrapper). */
+.pcs-content .pcs-newsletter-form,
+.pcs-page__content .pcs-newsletter-form {
+	flex-direction: row;
+	max-width: none;
+	margin-block: 0;
 }
 .pcs-newsletter-form input[type="email"] {
 	flex: 1 1 240px;
@@ -1389,6 +1437,14 @@ a.pcs-link-partner:hover {
 	border-radius: 0;
 	font-family: inherit;
 	font-size: var(--wp--preset--font-size--base);
+}
+/* Annule les overrides du bloc générique .pcs-content form input[type="email"]
+   (display: block; width: 100%; margin-block) qui écrasaient le layout flex row. */
+.pcs-content .pcs-newsletter-form input[type="email"],
+.pcs-page__content .pcs-newsletter-form input[type="email"] {
+	display: inline-block;
+	width: auto;
+	margin-block: 0;
 }
 .pcs-newsletter-form input[type="email"]:focus {
 	outline: 2px solid var(--wp--preset--color--accent-secondary);

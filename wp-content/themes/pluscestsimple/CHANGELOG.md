@@ -1,5 +1,14 @@
 # Changelog
 
+## [2.4.5] — 2026-05-22
+
+### Fixes & features
+
+- **Double chevron menu (cause racine définitive)** : la règle `::after` chevron (`▾`) ne redéfinissait pas `position`, `left`, `right`, `bottom`, `height`, `background` hérités de la règle underline animé → le `▾` était rendu deux fois (inline + position:absolute). Fix : ajout des resets explicites `position: static; left: auto; right: auto; bottom: auto; height: auto; background: none;` dans la règle chevron.
+- **Formulaire newsletter — champ email gigantesque** : la règle `.pcs-content form { flex-direction: column }` (from front-page.php wrapper `.pcs-content`) écrasait le layout row du `.pcs-newsletter-form`. Fix : surcharge explicite `.pcs-content .pcs-newsletter-form { flex-direction: row; max-width: none }` + reset `display/width` sur l'input email.
+- **Section newsletter — pas de padding-top** : la règle `.pcs-section + .pcs-section { padding-block-start: 0 }` annulait le padding. Fix : `padding-block: clamp(4rem, 8vw, 7rem) !important` directement sur `.pcs-section--newsletter`.
+- **Footer — réseaux sociaux Pinterest & Facebook** : nouveau menu location `social` (Apparence → Menus → "Réseaux sociaux (footer)"). Icônes SVG auto-détectées depuis le domaine de l'URL. Instagram aussi supporté. CSS : boutons ronds avec hover accent.
+
 ## [2.4.4] — 2026-05-22
 
 ### Fixes
