@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.4.2] — 2026-05-22
+
+### Fixes 4 retours user
+- **Double chevron menu** : passage de `visibility:hidden` à `display:none` sur `.sub-menu`. Quand caché, le sub-menu n'occupe AUCUN espace DOM → aucun fantôme rendu sous l'item parent. Réapparition au hover via `display:block`. Animation fade retirée (compromis acceptable pour la lisibilité)
+- **Partenaires : double nom (logo + h3)** : masquage du `.pcs-partner-card__logo` (le texte logo dupliquait le nom dans 99% des cas). Le H3 nom suffit. Pour remettre un vrai logo image, utiliser `wp:image` dans le pattern et override cette règle
+- **Sous-sections trop espacées** : règle spécifique `.pcs-section--subcat` avec padding plus serré (1.25-2rem au lieu des 3-4.5rem générique). Reset margin-top du titre interne pour éviter cumul
+- **« À la une » : trop d'articles en live** : RAPPEL — le pattern v2.4.0+ a deux Query Loops séparés (`perPage:3` pour À la une et `perPage:12` pour Tous les articles). Si l'utilisateur édite manuellement le perPage de « À la une » à 1 et que ça ne tient pas en live, c'est que **la page n'a pas été reset depuis v2.4.0** — utiliser Outils → PCS Init content → Reset des pages seedées
+
 ## [2.4.1] — 2026-05-22
 
 ### Fixes retours user

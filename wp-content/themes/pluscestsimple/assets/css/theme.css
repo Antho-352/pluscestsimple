@@ -370,6 +370,8 @@ a:hover { color: var(--wp--preset--color--accent-secondary); text-decoration: no
 }
 
 @media (min-width: 901px) {
+	/* Sub-menu vraiment caché par défaut (display:none au lieu de visibility:hidden)
+	   → n'occupe AUCUN espace, élimine tout fantôme rendu sous l'item parent. */
 	.pcs-nav--primary .sub-menu {
 		list-style: none;
 		margin: 0;
@@ -377,23 +379,18 @@ a:hover { color: var(--wp--preset--color--accent-secondary); text-decoration: no
 		position: absolute;
 		top: calc(100% + 0.5rem);
 		left: 50%;
-		transform: translateX(-50%) translateY(-4px);
+		transform: translateX(-50%);
 		min-width: 200px;
 		background: var(--wp--preset--color--background);
 		border: 1px solid var(--wp--preset--color--border);
 		border-radius: var(--wp--custom--radius--sm);
 		box-shadow: 0 12px 32px color-mix(in srgb, var(--wp--preset--color--foreground) 12%, transparent);
-		opacity: 0;
-		visibility: hidden;
-		transition: opacity var(--pcs-dur-fast) var(--pcs-ease), transform var(--pcs-dur-fast) var(--pcs-ease), visibility 0s linear var(--pcs-dur-fast);
+		display: none;
 		z-index: 1100;
 	}
 	.pcs-nav--primary .menu-item-has-children:hover > .sub-menu,
 	.pcs-nav--primary .menu-item-has-children:focus-within > .sub-menu {
-		opacity: 1;
-		visibility: visible;
-		transform: translateX(-50%) translateY(0);
-		transition-delay: 0s;
+		display: block;
 	}
 	.pcs-nav--primary .sub-menu .menu-item {
 		display: block;
@@ -836,16 +833,11 @@ a.pcs-link-partner:hover {
 	padding: 0.15rem 0.5rem;
 	border-radius: var(--wp--custom--radius--pill);
 }
+/* Logo texte des cards partners masqué : doublon avec le nom dans la plupart
+   des cas. Le H3 nom suffit. Si tu veux remettre un logo (vrai logo image),
+   utilise plutôt wp:image dans le pattern et override cette règle. */
 .pcs-partner-card__logo {
-	height: 48px;
-	display: flex;
-	align-items: center;
-	justify-content: flex-start;
-	font-family: var(--wp--preset--font-family--display);
-	font-weight: 500;
-	font-size: 1.25rem;
-	color: var(--wp--preset--color--accent);
-	letter-spacing: -0.01em;
+	display: none;
 }
 .pcs-partner-card__name {
 	font-family: var(--wp--preset--font-family--display);
@@ -1297,10 +1289,11 @@ a.pcs-link-partner:hover {
 	max-width: 60ch;
 }
 
-/* Padding interne uniforme pour toutes les sections qui ont un background différent
+/* Padding interne uniforme pour les sections qui ont un background différent
    (manifeste, directory teaser, partners, maillage). Force padding-top et bottom
-   généreux pour éviter l'effet "collé au bord". */
-.pcs-section.has-background,
+   généreux pour éviter l'effet "collé au bord". Exclut explicitement les
+   sub-sections de catégorie (qui n'ont pas de fond et n'ont pas besoin d'autant
+   d'espace). */
 .pcs-section--manifesto,
 .pcs-partners,
 .pcs-section--maillage,
@@ -1308,8 +1301,17 @@ a.pcs-link-partner:hover {
 	padding-top: clamp(3rem, 6vw, 4.5rem) !important;
 	padding-bottom: clamp(3rem, 6vw, 4.5rem) !important;
 }
-/* Section partners : padding-top encore plus généreux */
 .pcs-partners > .pcs-eyebrow:first-child {
+	margin-top: 0;
+}
+
+/* Sub-sections de catégorie : padding plus serré (pas de fond, pas besoin de respirer
+   autant que les blocs surface). */
+.pcs-section--subcat {
+	padding-block: clamp(1.25rem, 2.5vw, 2rem) !important;
+	margin-block: 0;
+}
+.pcs-section--subcat .pcs-section__title {
 	margin-top: 0;
 }
 
