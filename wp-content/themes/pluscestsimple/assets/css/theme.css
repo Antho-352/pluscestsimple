@@ -344,6 +344,12 @@ a:hover { color: var(--wp--preset--color--accent-secondary); text-decoration: no
 .pcs-nav--primary button.wp-block-navigation-submenu__toggle {
 	display: none !important;
 }
+/* Supprime le ::before triangle (règle générique .pcs-nav) sur la nav primaire
+   → le seul chevron affiché est le ▾ via ::after ci-dessous. */
+.pcs-nav--primary .menu-item-has-children > a::before {
+	display: none !important;
+	content: none !important;
+}
 /* Chevron uniquement sur le PREMIER niveau de menu (pas dans les sous-menus). */
 .pcs-nav--primary > .pcs-nav__list > .menu-item-has-children > a::after,
 .pcs-nav--primary > ul > .menu-item-has-children > a::after {
@@ -1313,6 +1319,11 @@ a.pcs-link-partner:hover {
 }
 .pcs-section--subcat .pcs-section__title {
 	margin-top: 0;
+}
+/* Section "À la une" des pages catégorie : réduit l'espace au-dessus de moitié.
+   L'intro text + la bannière slot créent déjà assez d'espace visuel. */
+.pcs-section--cat-top {
+	padding-block-start: clamp(1.5rem, 3vw, 2.5rem) !important;
 }
 
 /* Hero front */

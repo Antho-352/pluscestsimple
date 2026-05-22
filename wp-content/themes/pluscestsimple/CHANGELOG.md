@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.4.3] — 2026-05-22
+
+### Fixes
+
+- **Double chevron menu (définitif)** : la cause racine était un conflit entre deux règles CSS — le `::before` triangle CSS (règle générique `.pcs-nav .menu-item-has-children > a::before`) ET le `::after` caractère `▾` (règle spécifique `.pcs-nav--primary`). Correction : ajout de `.pcs-nav--primary .menu-item-has-children > a::before { display: none !important; content: none !important; }` pour supprimer le triangle dupliqué. Un seul chevron désormais.
+- **Espacement intro → "À la une" réduit de moitié** : ajout de `.pcs-section--cat-top { padding-block-start: clamp(1.5rem, 3vw, 2.5rem) !important; }` (était `clamp(3rem, 6vw, 5rem)` hérité de `.pcs-section`).
+
 ## [2.4.2] — 2026-05-22
 
 ### Fixes 4 retours user
