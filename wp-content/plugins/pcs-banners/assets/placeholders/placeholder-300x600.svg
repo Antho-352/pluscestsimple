@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="600" viewBox="0 0 300 600">
+  <rect width="300" height="600" fill="#F2EDE4"/>
+  <rect x="1" y="1" width="298" height="598" fill="none" stroke="#C8BFB4" stroke-width="1"/>
+  <text x="150" y="35" font-family="Georgia, serif" font-size="10" fill="#A89E94" text-anchor="middle" letter-spacing="2">PUBLICITÉ</text>
+  <text x="150" y="55" font-family="Georgia, serif" font-size="10" fill="#A89E94" text-anchor="middle">Placez votre publicité ici</text>
+  <text x="150" y="290" font-family="Georgia, serif" font-size="22" font-style="italic" fill="#3C3530" text-anchor="middle">Plus</text>
+  <text x="150" y="318" font-family="Georgia, serif" font-size="22" font-style="italic" fill="#3C3530" text-anchor="middle">c'est simple.</text>
+  <text x="150" y="570" font-family="Georgia, serif" font-size="10" fill="#A89E94" text-anchor="middle" letter-spacing="1">pluscestsimple.com</text>
+</svg>

@@ -56,10 +56,6 @@ while ( have_posts() ) :
 						<span class="pcs-article__sep" aria-hidden="true">·</span>
 						<span><?php printf( esc_html__( 'mis à jour le %s', 'pluscestsimple' ), esc_html( get_the_modified_date() ) ); ?></span>
 					<?php endif; ?>
-					<?php if ( function_exists( 'pcs_reading_time' ) ) : ?>
-						<span class="pcs-article__sep" aria-hidden="true">·</span>
-						<span><?php echo esc_html( pcs_reading_time() ); ?></span>
-					<?php endif; ?>
 				</div>
 			</header>
 

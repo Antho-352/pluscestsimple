@@ -176,7 +176,7 @@ wp_reset_postdata();
 		<a href="<?php the_permalink(); ?>">
 			<?php if ( has_post_thumbnail() ) : ?>
 				<div class="pcs-home__une-img-wrap">
-					<?php the_post_thumbnail( 'large', [ 'class' => 'pcs-home__une-img', 'alt' => esc_attr( get_the_title() ) ] ); ?>
+					<?php the_post_thumbnail( 'full', [ 'class' => 'pcs-home__une-img', 'alt' => esc_attr( get_the_title() ) ] ); ?>
 				</div>
 			<?php endif; ?>
 			<?php $pcs_ularge_cats = get_the_category(); if ( $pcs_ularge_cats ) : ?>
@@ -314,7 +314,7 @@ wp_reset_postdata();
 				<a href="<?php the_permalink(); ?>">
 					<?php if ( has_post_thumbnail() ) : ?>
 						<div class="pcs-home__cat-hero-img-wrap">
-							<?php the_post_thumbnail( 'large', [ 'class' => 'pcs-home__cat-hero-img', 'alt' => esc_attr( get_the_title() ) ] ); ?>
+							<?php the_post_thumbnail( 'full', [ 'class' => 'pcs-home__cat-hero-img', 'alt' => esc_attr( get_the_title() ) ] ); ?>
 						</div>
 					<?php endif; ?>
 					<?php $pcs_ch_cats = get_the_category(); if ( $pcs_ch_cats ) : ?>

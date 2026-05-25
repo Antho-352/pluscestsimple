@@ -55,10 +55,22 @@ add_action( 'init', 'pcs_banner_register_taxonomy', 9 );
  */
 function pcs_banner_seed_default_slots(): void {
 	$defaults = [
+		// Slots historiques (v1+)
 		'homepage-mid'   => [ 'Accueil — milieu de page', 'Accueil, entre deux sections' ],
 		'category-intro' => [ 'Catégorie — après intro', 'Page catégorie, après l\'intro' ],
 		'category-mid'   => [ 'Catégorie — milieu', 'Page catégorie, au milieu' ],
 		'in-article'     => [ 'Article — in-text', 'Article, in-text' ],
+		// Nouveaux slots homepage v2.5.x (thème pluscestsimple front-page.php)
+		'homepage-top'     => [ 'Accueil — bannière top', 'Tout en haut, au-dessus du héro' ],
+		'homepage-sidebar' => [ 'Accueil — sidebar grille 2×2', 'À droite de la grille 2×2 sous le héro (format vertical)' ],
+		// Sidebars des sections catégorie de la homepage
+		'cat-sidebar-decoration'   => [ 'Accueil — sidebar Décoration', 'Sidebar section Décoration sur la homepage' ],
+		'cat-sidebar-travaux'      => [ 'Accueil — sidebar Travaux', 'Sidebar section Travaux sur la homepage' ],
+		'cat-sidebar-jardin'       => [ 'Accueil — sidebar Jardin', 'Sidebar section Jardin sur la homepage' ],
+		'cat-sidebar-architecture' => [ 'Accueil — sidebar Architecture', 'Sidebar section Architecture sur la homepage' ],
+		'cat-sidebar-lifestyle'    => [ 'Accueil — sidebar Lifestyle', 'Sidebar section Lifestyle sur la homepage' ],
+		// Sidebar pub présent sur toutes les pages article single
+		'article-sidebar'          => [ 'Article — sidebar', 'Sidebar verticale présente sur toutes les pages article' ],
 	];
 
 	foreach ( $defaults as $slug => [ $name, $description ] ) {

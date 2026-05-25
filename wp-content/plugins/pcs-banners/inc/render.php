@@ -204,15 +204,33 @@ function pcs_banner_rel_for_type( string $type ): string {
 }
 
 /**
- * Rend le HTML d'une bannière pour un slot donné, ou chaîne vide si aucune.
+ * Rend le HTML d'une bannière pour un slot donné.
  * Fonction publique principale utilisée par le bloc et le shortcode.
  *
- * @param string $slot Slug du slot.
+ * Le rendu dépend du mode d'affichage configuré sur le slot (term meta `_pcs_banner_display_mode`) :
+ *   - `auto` (défaut)   → pub si disponible, sinon placeholder SVG
+ *   - `banner-only`     → pub si disponible, sinon chaîne vide
+ *   - `hidden`          → toujours chaîne vide (collapse layout par le thème)
+ *
+ * @param string $slot             Slug du slot.
+ * @param bool   $with_placeholder Conservé pour rétro-compat. Si true et le mode est `banner-only`, force le placeholder.
+ *                                  Sans effet en mode `auto` ou `hidden`.
  * @return string HTML prêt à echo.
  */
-function pcs_banner_render( string $slot ): string {
+function pcs_banner_render( string $slot, bool $with_placeholder = false ): string {
+	$mode = pcs_banner_slot_mode( $slot );
+
+	// Mode `hidden` : ne rien afficher, quelle que soit la situation.
+	if ( 'hidden' === $mode ) {
+		return '';
+	}
+
 	$payload = pcs_banner_pick( $slot );
 	if ( null === $payload ) {
+		// Aucune pub : placeholder selon le mode (et le param legacy `$with_placeholder`).
+		if ( 'auto' === $mode || ( 'banner-only' === $mode && $with_placeholder ) ) {
+			return pcs_banner_render_placeholder( $slot );
+		}
 		return '';
 	}
 
@@ -260,5 +278,65 @@ function pcs_banner_render( string $slot ): string {
 		esc_attr( $type ),
 		$label_html,
 		$link_html
+	);
+}
+
+/**
+ * Retourne le format IAB attendu pour un slot donné (largeur × hauteur).
+ *
+ * @param string $slot Slug du slot.
+ * @return string Format au format "WIDTHxHEIGHT" (ex: "300x600").
+ */
+function pcs_banner_slot_format( string $slot ): string {
+	$map = [
+		// Sidebars verticales (Half Page)
+		'homepage-sidebar'         => '300x600',
+		'article-sidebar'          => '300x600',
+		'cat-sidebar-decoration'   => '300x600',
+		'cat-sidebar-travaux'      => '300x600',
+		'cat-sidebar-jardin'       => '300x600',
+		'cat-sidebar-architecture' => '300x600',
+		'cat-sidebar-lifestyle'    => '300x600',
+		// Billboards full-width (970×250)
+		'homepage-top'  => '970x250',
+		'homepage-mid'  => '970x250',
+		'category-mid'  => '970x250',
+		// Leaderboard (728×90)
+		'category-intro' => '728x90',
+		// Medium Rectangle (300×250)
+		'in-article'    => '300x250',
+	];
+	return $map[ $slot ] ?? '300x600';
+}
+
+/**
+ * Rend un placeholder visuel pour un slot vide (SVG inline-référencé par <img>).
+ *
+ * Le SVG affiché correspond au format IAB du slot (cf. `pcs_banner_slot_format`).
+ * Les 4 SVG sont stockés dans `assets/placeholders/placeholder-{format}.svg`.
+ *
+ * @param string $slot Slug du slot (pour debug / classe CSS).
+ * @return string HTML du placeholder.
+ */
+function pcs_banner_render_placeholder( string $slot ): string {
+	$format         = pcs_banner_slot_format( $slot );
+	[ $w, $h ]      = array_map( 'intval', explode( 'x', $format ) );
+	$svg_url        = PCS_BANNER_URL . 'assets/placeholders/placeholder-' . $format . '.svg';
+	$classes        = [
+		'pcs-banner',
+		'pcs-banner--placeholder',
+		'pcs-banner--placeholder-' . $format,
+		'pcs-banner--slot-' . sanitize_html_class( $slot ),
+	];
+
+	return sprintf(
+		'<aside class="%1$s" aria-hidden="true" data-banner-slot="%2$s">' .
+			'<img class="pcs-banner__placeholder-img" src="%3$s" width="%4$d" height="%5$d" alt="" loading="lazy" decoding="async" />' .
+		'</aside>',
+		esc_attr( implode( ' ', $classes ) ),
+		esc_attr( $slot ),
+		esc_url( $svg_url ),
+		$w,
+		$h
 	);
 }

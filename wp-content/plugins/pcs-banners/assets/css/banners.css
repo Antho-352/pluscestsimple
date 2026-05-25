@@ -71,3 +71,30 @@
 .pcs-banner--slot-in-article {
 	margin: 1rem auto;
 }
+
+/* ====================================================================
+   Placeholder (slot vide) — affiché en mode `auto` quand aucune bannière.
+   Image SVG inline référencée par <img>. Le ratio est défini par width/height
+   de l'attribut HTML, le SVG est responsive via max-width: 100%.
+   ==================================================================== */
+
+.pcs-banner--placeholder {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0;
+}
+.pcs-banner__placeholder-img {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+
+/* Variantes par format : centrage horizontal des billboards qui ne prennent
+   pas toute la largeur disponible (970×250 sur un container 1180px). */
+.pcs-banner--placeholder-970x250,
+.pcs-banner--placeholder-728x90,
+.pcs-banner--placeholder-300x250 {
+	margin-inline: auto;
+}
+

@@ -1,5 +1,19 @@
 # Changelog
 
+## [2.7.1] — 2026-05-25
+
+### Homepage
+
+- **Bannière top** : format 1240×125 (au lieu de 970×250) — aligne la largeur sur celle du héro. CSS `.pcs-home__banner-top` réécrit (max-width 1240px, centrage, padding cohérent).
+- **Images héro & cat-hero** : passage de `large` (1024px max) à `full` (taille originale) → fin du pixel-art quand l'image est étirée sur tout le container.
+- **Cap max-width 900px** sur `.pcs-home__cat-layout.no-sidebar` et `.pcs-home__selection-layout.no-sidebar` → quand la sidebar est désactivée, le contenu se recentre proprement (plus d'images étirées).
+- **Titres sections** "À la une" / "Tendance" et noms catégorie : font-size +20% (`clamp(1.5, 3vw, 2.25rem)` → `clamp(1.75, 3.5vw, 2.625rem)`) et `font-weight: 300 → 700`.
+
+### Pages article
+
+- **Container élargi à 1320px** (au lieu de 1180px) avec padding latéral réduit (`clamp(0.75rem, 2.5vw, 1.5rem)`) → article ~970px avec sidebar, ~1100px sans (≈ 3/4 du viewport sur 1440px).
+- **Retrait du temps de lecture brut** (`pcs_reading_time()`) qui affichait juste "6" à côté de la date — confusion utilisateur. La fonction reste disponible via le shortcode `[pcs_reading_time]` qui formate proprement "6 min de lecture".
+
 ## [2.7.0] — 2026-05-25
 
 ### Layout adaptatif selon le mode d'affichage des slots publicitaires
