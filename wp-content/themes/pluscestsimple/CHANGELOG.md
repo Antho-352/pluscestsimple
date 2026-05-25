@@ -1,5 +1,31 @@
 # Changelog
 
+## [2.7.2] — 2026-05-25
+
+### Largeur du contenu — refonte globale
+
+Le vrai bottleneck était dans `theme.json` : `contentSize: 720px` plafonnait TOUS les blocs Gutenberg + tous les `.pcs-content` à 720px, indépendamment du max-width du container parent. C'est pour ça que les articles paraissaient à 50% du viewport même avec un container à 1320px.
+
+**Changements `theme.json` :**
+- `contentSize: 720px → 1100px` (la prose des articles/pages passe à 1100px max)
+- `wideSize: 1180px → 1400px` (les blocs `alignwide` passent à 1400px max)
+
+**Changements layouts :**
+- `.pcs-article-layout` (avec sidebar) max-width: 1320 → 1500px → article colonne ~1144px
+- `.pcs-article-layout.no-sidebar` max-width: 1100 → 1400px → ~78% sur 1920 / 97% sur 1440
+- `.pcs-home__selection-layout.no-sidebar` (grille 2×2 sans pub) max-width: 900 → **760px** (réduction demandée)
+- `.pcs-home__selection-grid` gap: 1.25rem → **2rem** (plus d'espace entre cards 2×2)
+- `.pcs-home__cat-layout.no-sidebar` même traitement (760px + gap 2rem)
+
+### Impact
+
+- **Articles** : prose 1100px (76% sur 1440 viewport, 57% sur 1920 — limite éditoriale pour la lisibilité, voir note ci-dessous)
+- **Pages catégorie / piliers** (page.php) : même chose, contenu prose à 1100px
+- **Homepage 2×2 sans pub** : nettement plus petit et plus aéré, images mieux dimensionnées
+
+### Note sur la lisibilité prose
+1100px de largeur prose ≈ 110 caractères/ligne à 18px de font-size, ce qui dépasse l'optimal éditorial (50-75 chars). C'est un choix assumé suite à la demande utilisateur "75-80% de largeur de page". Si tu trouves les lignes trop longues à la lecture, il suffit de remettre `theme.json` `contentSize` à 800-900px.
+
 ## [2.7.1] — 2026-05-25
 
 ### Homepage
