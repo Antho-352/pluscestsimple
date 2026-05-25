@@ -101,14 +101,18 @@ if ( function_exists( 'pcs_banner_render' ) ) {
 <?php /* ═══════════════════════════════════════════════════════════════════════
  * 3. GRILLE 2×2 + SIDEBAR PUB
  * ═══════════════════════════════════════════════════════════════════════════ */ ?>
-<?php if ( $pcs_sel_q->have_posts() ) : ?>
+<?php if ( $pcs_sel_q->have_posts() ) :
+	$pcs_sel_show_sidebar = function_exists( 'pcs_banner_slot_will_render' )
+		? pcs_banner_slot_will_render( 'homepage-sidebar' )
+		: true;
+?>
 <section class="pcs-home__selection">
 
 	<header class="pcs-home__section-header">
 		<h2 class="pcs-home__section-title"><?php esc_html_e( 'À la une', 'pluscestsimple' ); ?></h2>
 	</header>
 
-	<div class="pcs-home__selection-layout">
+	<div class="pcs-home__selection-layout <?php echo $pcs_sel_show_sidebar ? 'has-sidebar' : 'no-sidebar'; ?>">
 
 		<div class="pcs-home__selection-grid">
 			<?php while ( $pcs_sel_q->have_posts() ) : $pcs_sel_q->the_post(); ?>
@@ -130,11 +134,13 @@ if ( function_exists( 'pcs_banner_render' ) ) {
 			<?php endwhile; wp_reset_postdata(); ?>
 		</div>
 
+		<?php if ( $pcs_sel_show_sidebar ) : ?>
 		<aside class="pcs-home__selection-sidebar">
 			<?php if ( function_exists( 'pcs_banner_render' ) ) : ?>
-				<?php echo pcs_banner_render( 'homepage-sidebar', true ); ?>
+				<?php echo pcs_banner_render( 'homepage-sidebar' ); ?>
 			<?php endif; ?>
 		</aside>
+		<?php endif; ?>
 
 	</div>
 
@@ -282,6 +288,10 @@ wp_reset_postdata();
 		'no_found_rows'  => true,
 	] );
 
+	$pcs_cat_slot         = 'cat-sidebar-' . $pcs_cat_slug;
+	$pcs_cat_show_sidebar = function_exists( 'pcs_banner_slot_will_render' )
+		? pcs_banner_slot_will_render( $pcs_cat_slot )
+		: true;
 ?>
 <section class="pcs-home__cat-section" data-cat="<?php echo esc_attr( $pcs_cat_slug ); ?>">
 
@@ -294,7 +304,7 @@ wp_reset_postdata();
 		<?php endif; ?>
 	</header>
 
-	<div class="pcs-home__cat-layout">
+	<div class="pcs-home__cat-layout <?php echo $pcs_cat_show_sidebar ? 'has-sidebar' : 'no-sidebar'; ?>">
 
 		<div class="pcs-home__cat-main-col">
 
@@ -338,11 +348,13 @@ wp_reset_postdata();
 
 		</div><!-- /.pcs-home__cat-main-col -->
 
+		<?php if ( $pcs_cat_show_sidebar ) : ?>
 		<aside class="pcs-home__cat-sidebar">
 			<?php if ( function_exists( 'pcs_banner_render' ) ) : ?>
-				<?php echo pcs_banner_render( 'cat-sidebar-' . $pcs_cat_slug ); ?>
+				<?php echo pcs_banner_render( $pcs_cat_slot ); ?>
 			<?php endif; ?>
 		</aside>
+		<?php endif; ?>
 
 	</div><!-- /.pcs-home__cat-layout -->
 

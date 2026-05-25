@@ -1539,13 +1539,23 @@ a.pcs-link-partner:hover {
    Article body (single)
    ==================================================================== */
 
-/* Layout article : 2 colonnes (article main + sidebar pub sticky) */
+/* Layout article : 2 colonnes (article main + sidebar pub sticky)
+   Modificateurs :
+   - .has-sidebar → grid 2 colonnes (1fr + 300px)
+   - .no-sidebar  → bloc simple recentré (mode 'hidden' du slot article-sidebar) */
 .pcs-article-layout {
-	display: grid;
-	grid-template-columns: minmax(0, 1fr) 300px;
+	padding-block: var(--wp--preset--spacing--70);
 	gap: clamp(2rem, 4vw, 3.5rem);
 	align-items: start;
-	padding-block: var(--wp--preset--spacing--70);
+}
+.pcs-article-layout.has-sidebar {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) 300px;
+}
+.pcs-article-layout.no-sidebar {
+	display: block;
+	max-width: 900px;
+	margin-inline: auto;
 }
 .pcs-article {
 	max-width: none;
@@ -1558,7 +1568,7 @@ a.pcs-link-partner:hover {
 	top: 6rem;
 }
 @media (max-width: 900px) {
-	.pcs-article-layout {
+	.pcs-article-layout.has-sidebar {
 		grid-template-columns: 1fr;
 	}
 	.pcs-article__sidebar { position: static; }
@@ -2025,12 +2035,20 @@ a.pcs-link-partner:hover {
 	margin: 0;
 }
 
-/* ── 3. Grille 2×2 "À la une" + sidebar ── */
+/* ── 3. Grille 2×2 "À la une" + sidebar ──
+   Modificateurs :
+   - .has-sidebar → grid 2 colonnes (1fr + 300px)
+   - .no-sidebar  → 1 seule colonne, grille 2x2 prend toute la largeur */
 .pcs-home__selection-layout {
-	display: grid;
-	grid-template-columns: 1fr 280px;
 	gap: 2rem;
 	align-items: start;
+}
+.pcs-home__selection-layout.has-sidebar {
+	display: grid;
+	grid-template-columns: 1fr 300px;
+}
+.pcs-home__selection-layout.no-sidebar {
+	display: block;
 }
 .pcs-home__selection-grid {
 	display: grid;
@@ -2215,10 +2233,15 @@ a.pcs-link-partner:hover {
 }
 .pcs-home__cat-more:hover { text-decoration: underline; }
 .pcs-home__cat-layout {
-	display: grid;
-	grid-template-columns: 2fr 1fr;
 	gap: 2rem;
 	align-items: start;
+}
+.pcs-home__cat-layout.has-sidebar {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) 300px;
+}
+.pcs-home__cat-layout.no-sidebar {
+	display: block;
 }
 .pcs-home__cat-main-col { display: flex; flex-direction: column; gap: 1.25rem; }
 
@@ -2283,7 +2306,7 @@ a.pcs-link-partner:hover {
 
 /* ── Responsive ── */
 @media (max-width: 900px) {
-	.pcs-home__selection-layout {
+	.pcs-home__selection-layout.has-sidebar {
 		grid-template-columns: 1fr;
 	}
 	.pcs-home__selection-sidebar { position: static; }
@@ -2293,7 +2316,7 @@ a.pcs-link-partner:hover {
 	.pcs-home__plus-lus-grid {
 		grid-template-columns: 1fr 1fr;
 	}
-	.pcs-home__cat-layout {
+	.pcs-home__cat-layout.has-sidebar {
 		grid-template-columns: 1fr;
 	}
 	.pcs-home__cat-sidebar { position: static; }

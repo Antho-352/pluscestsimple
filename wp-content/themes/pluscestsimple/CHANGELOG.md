@@ -1,5 +1,28 @@
 # Changelog
 
+## [2.7.0] — 2026-05-25
+
+### Layout adaptatif selon le mode d'affichage des slots publicitaires
+
+Le thème détecte maintenant pour chaque sidebar pub si elle va rendre du contenu (`pcs_banner_slot_will_render`) et collapse le layout en conséquence quand le slot est désactivé.
+
+**Templates modifiés :**
+- `front-page.php` — sidebar "À la une" (`homepage-sidebar`) et sidebars des 5 sections catégorie (`cat-sidebar-*`) conditionnelles
+- `single.php` — sidebar article (`article-sidebar`) conditionnelle
+
+**CSS modificateurs (3 layouts grid) :**
+- `.pcs-article-layout.has-sidebar` → grid 1fr+300px ; `.no-sidebar` → bloc simple `max-width: 900px` recentré
+- `.pcs-home__selection-layout.has-sidebar` → grid 1fr+300px ; `.no-sidebar` → bloc simple (grille 2×2 prend toute la largeur)
+- `.pcs-home__cat-layout.has-sidebar` → grid 1fr+300px ; `.no-sidebar` → bloc simple (article principal + 2×2 prennent toute la largeur)
+
+**Comportement :**
+- Mode `auto` (slot par défaut) → sidebar affiche placeholder ou pub réelle → layout en 2 colonnes
+- Mode `banner-only` sans pub → sidebar disparaît → contenu se recentre (pas d'espace vide)
+- Mode `hidden` → sidebar jamais rendue → contenu se recentre
+
+### ⚠️ Action requise
+Mettre à jour le plugin pcs-banners vers **v1.3.0** (sinon les fonctions `pcs_banner_slot_will_render` n'existent pas — fallback safe à `true` mais aucun collapse).
+
 ## [2.6.0] — 2026-05-22
 
 ### Homepage — ajustements + renommage tags

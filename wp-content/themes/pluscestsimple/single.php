@@ -15,8 +15,11 @@ get_header();
 
 while ( have_posts() ) :
 	the_post();
+	$pcs_article_show_sidebar = function_exists( 'pcs_banner_slot_will_render' )
+		? pcs_banner_slot_will_render( 'article-sidebar' )
+		: true;
 	?>
-	<div class="pcs-container pcs-article-layout">
+	<div class="pcs-container pcs-article-layout <?php echo $pcs_article_show_sidebar ? 'has-sidebar' : 'no-sidebar'; ?>">
 
 		<article id="post-<?php the_ID(); ?>" <?php post_class( 'pcs-article' ); ?>>
 
@@ -92,11 +95,13 @@ while ( have_posts() ) :
 
 		</article>
 
+		<?php if ( $pcs_article_show_sidebar ) : ?>
 		<aside class="pcs-article__sidebar">
 			<?php if ( function_exists( 'pcs_banner_render' ) ) : ?>
-				<?php echo pcs_banner_render( 'article-sidebar', true ); ?>
+				<?php echo pcs_banner_render( 'article-sidebar' ); ?>
 			<?php endif; ?>
 		</aside>
+		<?php endif; ?>
 
 	</div><!-- /.pcs-article-layout -->
 
