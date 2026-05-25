@@ -1,5 +1,19 @@
 # Changelog
 
+## [2.7.4] — 2026-05-25
+
+### Pages catégories — section "À la une" : fix hauteur des images
+
+**Cause racine identifiée :** la section `.pcs-section--cat-top` (Query Loop "À la une", 3 articles) n'avait **aucun layout grid** sur son `wp-block-post-template`. Comportement WordPress par défaut → empilement vertical en une seule colonne → chaque article prend toute la largeur du container (1400px) → image 16/9 = ~787px de haut par article = images énormes.
+
+La règle CSS existante `.pcs-section--cat-loop .wp-block-post-template { display: grid }` ne s'appliquait qu'à la section "Tous les articles" en bas, pas à "À la une" en haut.
+
+### Fix double :
+1. **CSS** : sélecteur étendu à `.pcs-section--cat-top` → la grille 3 colonnes s'applique aussi sur "À la une" → images automatiquement à 1/3 de la largeur (~390px sur container 1400px) au lieu de 100%
+2. **Patterns** : ajout de `"layout":{"type":"grid","columnCount":3}` sur le `wp:post-template` des 7 patterns catégorie → pour les futurs imports/resets, l'éditeur Gutenberg verra directement la grille
+
+**Aucun Reset nécessaire** sur les pages existantes : le fix CSS s'applique immédiatement après upload du thème.
+
 ## [2.7.3] — 2026-05-25
 
 ### Images cards — hauteur réduite + qualité fixée

@@ -1222,11 +1222,15 @@ a.pcs-link-partner:hover {
 	border-radius: var(--wp--custom--radius--sm);
 }
 
-/* Category page (template category-rich) */
-.pcs-section--cat-loop {
+/* Category pages — Query Loops "À la une" (3 articles, en haut) ET
+   "Tous les articles" (12 articles, en bas). Force la grille 3 colonnes pour
+   éviter l'empilement vertical par défaut du wp-block-post-template. */
+.pcs-section--cat-loop,
+.pcs-section--cat-top {
 	margin-block: clamp(2rem, 4vw, 3rem);
 }
-.pcs-section--cat-loop .wp-block-post-template {
+.pcs-section--cat-loop .wp-block-post-template,
+.pcs-section--cat-top .wp-block-post-template {
 	display: grid !important;
 	grid-template-columns: repeat(3, minmax(0, 1fr));
 	gap: clamp(1.5rem, 3vw, 2.5rem);
@@ -1235,12 +1239,14 @@ a.pcs-link-partner:hover {
 	margin: 0;
 }
 @media (max-width: 900px) {
-	.pcs-section--cat-loop .wp-block-post-template {
+	.pcs-section--cat-loop .wp-block-post-template,
+	.pcs-section--cat-top .wp-block-post-template {
 		grid-template-columns: repeat(2, minmax(0, 1fr));
 	}
 }
 @media (max-width: 560px) {
-	.pcs-section--cat-loop .wp-block-post-template {
+	.pcs-section--cat-loop .wp-block-post-template,
+	.pcs-section--cat-top .wp-block-post-template {
 		grid-template-columns: 1fr;
 	}
 }
