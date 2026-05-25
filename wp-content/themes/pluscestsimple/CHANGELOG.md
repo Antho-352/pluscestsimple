@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.5.1] — 2026-05-22
+
+### Hotfix critique
+
+- **Erreur fatale PHP sur front-page.php** : chaîne `'J'accepte…Plus c'est simple.'` contenait deux apostrophes non échappées dans une chaîne entre apostrophes → parse error fatal → "Erreur critique sur ce site". Fix : passage en chaîne double `"J'accepte…"`.
+
 ## [2.5.0] — 2026-05-22
 
 ### Nouvelle page d'accueil (front-page.php)

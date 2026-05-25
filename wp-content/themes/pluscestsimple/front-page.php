@@ -209,7 +209,7 @@ wp_reset_postdata();
 			<button type="submit"><?php esc_html_e( 'Recevoir le guide', 'pluscestsimple' ); ?></button>
 			<label class="pcs-newsletter-form__consent">
 				<input type="checkbox" name="consent" value="1" required>
-				<span><?php esc_html_e( 'J'accepte de recevoir le guide PDF et la lettre mensuelle de Plus c'est simple.', 'pluscestsimple' ); ?></span>
+				<span><?php esc_html_e( "J'accepte de recevoir le guide PDF et la lettre mensuelle de Plus c'est simple.", 'pluscestsimple' ); ?></span>
 			</label>
 		</form>
 	</div>
