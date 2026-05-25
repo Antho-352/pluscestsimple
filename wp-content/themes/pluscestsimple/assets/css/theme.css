@@ -1946,10 +1946,13 @@ a.pcs-link-partner:hover {
 	padding: 0.5rem 0;
 }
 
-/* ── 2. Héro pleine largeur ── */
+/* ── 2. Héro (réduit ~30%, largeur contenue, titre centré) ── */
 .pcs-home__hero {
 	position: relative;
 	overflow: hidden;
+	max-width: 1100px;
+	margin-inline: auto;
+	padding-inline: var(--pcs-container-padding, 1.25rem);
 }
 .pcs-home__hero-link {
 	display: block;
@@ -1959,14 +1962,16 @@ a.pcs-link-partner:hover {
 .pcs-home__hero-img {
 	display: block;
 	width: 100%;
-	aspect-ratio: 16 / 7;
+	aspect-ratio: 16 / 5;
 	object-fit: cover;
+	border-radius: var(--wp--custom--radius--sm);
 	transition: transform var(--pcs-dur) var(--pcs-ease);
 }
 .pcs-home__hero:hover .pcs-home__hero-img { transform: scale(1.02); }
 .pcs-home__hero-caption {
 	padding-block: 1.5rem 2rem;
 	border-bottom: 1px solid var(--wp--preset--color--border);
+	text-align: center;
 }
 .pcs-home__hero-eyebrow {
 	display: block;
@@ -1978,7 +1983,7 @@ a.pcs-link-partner:hover {
 	font-weight: 300;
 	line-height: 1.1;
 	letter-spacing: -0.02em;
-	margin: 0;
+	margin: 0 auto;
 	color: var(--wp--preset--color--foreground);
 	max-width: 720px;
 }
@@ -2067,9 +2072,39 @@ a.pcs-link-partner:hover {
 }
 .pcs-home__une-small .pcs-home__une-img { aspect-ratio: 3 / 2; }
 
-/* ── 5. Newsletter ── */
+/* ── 5. Newsletter (fond vert accent — override le foreground noir générique) ── */
 .pcs-home__newsletter {
-	/* Hérite de .pcs-section--newsletter */
+	background: var(--wp--preset--color--accent) !important;
+	color: var(--wp--preset--color--background);
+}
+.pcs-home__newsletter .pcs-eyebrow {
+	color: var(--wp--preset--color--accent-secondary) !important;
+}
+.pcs-home__newsletter .pcs-section__title,
+.pcs-home__newsletter .pcs-section__lead {
+	color: var(--wp--preset--color--background);
+}
+.pcs-home__newsletter .pcs-newsletter-form input[type="email"] {
+	background: var(--wp--preset--color--background);
+	color: var(--wp--preset--color--foreground);
+	border-color: var(--wp--preset--color--background);
+}
+.pcs-home__newsletter .pcs-newsletter-form button[type="submit"] {
+	background: var(--wp--preset--color--accent-secondary);
+	border-color: var(--wp--preset--color--accent-secondary);
+	color: var(--wp--preset--color--foreground);
+}
+.pcs-home__newsletter .pcs-newsletter-form button[type="submit"]:hover {
+	background: var(--wp--preset--color--background);
+	color: var(--wp--preset--color--foreground);
+	border-color: var(--wp--preset--color--background);
+}
+.pcs-home__newsletter .pcs-newsletter-form__consent {
+	color: color-mix(in srgb, var(--wp--preset--color--background) 80%, transparent);
+}
+.pcs-home__newsletter .pcs-newsletter-form__consent a {
+	color: var(--wp--preset--color--background);
+	text-decoration: underline;
 }
 
 /* ── 6. Les + lus ── */

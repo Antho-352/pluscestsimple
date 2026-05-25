@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.5.2] — 2026-05-22
+
+### Homepage — ajustements design
+
+- **Héro réduit ~30%** : `aspect-ratio: 16/7 → 16/5`, `max-width: 1100px` (n'occupe plus toute la largeur), border-radius `sm`.
+- **Titre héro centré** : `text-align: center` sur `.pcs-home__hero-caption`, `margin: 0 auto` sur le titre.
+- **Newsletter fond vert** : `background: var(--wp--preset--color--accent)` (#1f3a2e). Texte clair, input clair, bouton accent-secondary (laiton). Override des couleurs pour fond vert (eyebrow, lead, consent).
+- **Wording newsletter** : "GUIDE GRATUIT" → "NEWSLETTER", nouveau titre tendances/astuces 2×/semaine, nouveau lead, "Recevoir le guide" → "Recevoir la newsletter", consent simplifié.
+
+### ⚠️ Action requise sur le plugin pcs-banners
+Le plugin doit être mis à jour vers v1.1.0 pour enregistrer les 7 nouveaux slots (homepage-top, homepage-sidebar, cat-sidebar-{decoration,travaux,jardin,architecture,lifestyle}). Sans ça, les sidebars/bannières des sections homepage ne peuvent pas être créées depuis l'admin.
+
 ## [2.5.1] — 2026-05-22
 
 ### Hotfix critique

@@ -199,17 +199,17 @@ wp_reset_postdata();
  * ═══════════════════════════════════════════════════════════════════════════ */ ?>
 <section class="pcs-section pcs-section--newsletter pcs-home__newsletter">
 	<div class="pcs-container">
-		<p class="pcs-eyebrow">Guide gratuit</p>
-		<h2 class="pcs-section__title">Les 12 erreurs qui ruinent une rénovation</h2>
-		<p class="pcs-section__lead">Un PDF de 30 pages, gratuit, par email. Ce que les pros ne disent pas, ce que les artisans rentables font, et ce qui fait exploser un budget.</p>
+		<p class="pcs-eyebrow"><?php esc_html_e( 'Newsletter', 'pluscestsimple' ); ?></p>
+		<h2 class="pcs-section__title"><?php esc_html_e( "Les dernières tendances, astuces travaux et déco dans votre boîte email deux fois par semaine", 'pluscestsimple' ); ?></h2>
+		<p class="pcs-section__lead"><?php esc_html_e( "Notre newsletter vous informe des nouveautés et tendances pour la décoration de votre espace de vie. Quelques conseils et astuces pour embellir vos pièces à vivre, dépenser moins et éviter les erreurs les plus courantes.", 'pluscestsimple' ); ?></p>
 		<form class="pcs-newsletter-form" data-pcs-form="newsletter" data-form-type="newsletter" method="post" action="">
 			<label for="pcs-home-nl-email" class="screen-reader-text"><?php esc_html_e( 'Adresse email', 'pluscestsimple' ); ?></label>
 			<input type="email" id="pcs-home-nl-email" name="email" required autocomplete="email" placeholder="<?php esc_attr_e( 'vous@exemple.com', 'pluscestsimple' ); ?>">
 			<input type="text" name="hp" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
-			<button type="submit"><?php esc_html_e( 'Recevoir le guide', 'pluscestsimple' ); ?></button>
+			<button type="submit"><?php esc_html_e( 'Recevoir la newsletter', 'pluscestsimple' ); ?></button>
 			<label class="pcs-newsletter-form__consent">
 				<input type="checkbox" name="consent" value="1" required>
-				<span><?php esc_html_e( "J'accepte de recevoir le guide PDF et la lettre mensuelle de Plus c'est simple.", 'pluscestsimple' ); ?></span>
+				<span><?php esc_html_e( "J'accepte de recevoir la newsletter de Plus c'est simple. Désabonnement en 1 clic.", 'pluscestsimple' ); ?></span>
 			</label>
 		</form>
 	</div>
