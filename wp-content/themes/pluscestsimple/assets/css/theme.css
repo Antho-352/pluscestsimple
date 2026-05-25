@@ -1935,6 +1935,309 @@ a.pcs-link-partner:hover {
 }
 
 /* ====================================================================
+   Homepage (front-page.php) — Layout dynamique PHP
+   ==================================================================== */
+
+/* ── 1. Bannière top ── */
+.pcs-home__banner-top {
+	width: 100%;
+	text-align: center;
+	background: var(--wp--preset--color--surface);
+	padding: 0.5rem 0;
+}
+
+/* ── 2. Héro pleine largeur ── */
+.pcs-home__hero {
+	position: relative;
+	overflow: hidden;
+}
+.pcs-home__hero-link {
+	display: block;
+	text-decoration: none;
+	color: inherit;
+}
+.pcs-home__hero-img {
+	display: block;
+	width: 100%;
+	aspect-ratio: 16 / 7;
+	object-fit: cover;
+	transition: transform var(--pcs-dur) var(--pcs-ease);
+}
+.pcs-home__hero:hover .pcs-home__hero-img { transform: scale(1.02); }
+.pcs-home__hero-caption {
+	padding-block: 1.5rem 2rem;
+	border-bottom: 1px solid var(--wp--preset--color--border);
+}
+.pcs-home__hero-eyebrow {
+	display: block;
+	margin-bottom: 0.5rem;
+}
+.pcs-home__hero-title {
+	font-family: var(--wp--preset--font-family--display);
+	font-size: clamp(1.75rem, 4vw, 3rem);
+	font-weight: 300;
+	line-height: 1.1;
+	letter-spacing: -0.02em;
+	margin: 0;
+	color: var(--wp--preset--color--foreground);
+	max-width: 720px;
+}
+
+/* ── Corps principal ── */
+.pcs-home__body { padding-block: clamp(2.5rem, 5vw, 4rem); }
+.pcs-home__body > * + * { margin-top: clamp(3rem, 6vw, 5rem); }
+
+/* ── 3. Grille 2×2 + sidebar ── */
+.pcs-home__selection {
+	display: grid;
+	grid-template-columns: 1fr 280px;
+	gap: 2rem;
+	align-items: start;
+}
+.pcs-home__selection-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 1.25rem;
+}
+.pcs-home__sel-card a {
+	display: block;
+	text-decoration: none;
+	color: inherit;
+}
+.pcs-home__sel-img-wrap { overflow: hidden; border-radius: var(--wp--custom--radius--sm); }
+.pcs-home__sel-img {
+	display: block;
+	width: 100%;
+	aspect-ratio: 4 / 3;
+	object-fit: cover;
+	transition: transform var(--pcs-dur) var(--pcs-ease);
+}
+.pcs-home__sel-card:hover .pcs-home__sel-img { transform: scale(1.04); }
+.pcs-home__sel-body { padding-top: 0.6rem; }
+.pcs-home__sel-cat { margin-bottom: 0.25rem; }
+.pcs-home__sel-title {
+	font-family: var(--wp--preset--font-family--display);
+	font-size: var(--wp--preset--font-size--lg);
+	font-weight: 300;
+	line-height: 1.2;
+	letter-spacing: -0.015em;
+	margin: 0;
+}
+.pcs-home__selection-sidebar {
+	position: sticky;
+	top: 6rem;
+}
+
+/* ── 4. Deux featured ── */
+.pcs-home__une {
+	display: grid;
+	grid-template-columns: 2fr 1fr;
+	gap: 2rem;
+	align-items: start;
+}
+.pcs-home__une-large a,
+.pcs-home__une-small a {
+	display: block;
+	text-decoration: none;
+	color: inherit;
+}
+.pcs-home__une-img-wrap { overflow: hidden; border-radius: var(--wp--custom--radius--sm); }
+.pcs-home__une-img {
+	display: block;
+	width: 100%;
+	aspect-ratio: 16 / 9;
+	object-fit: cover;
+	transition: transform var(--pcs-dur) var(--pcs-ease);
+}
+.pcs-home__une-large:hover .pcs-home__une-img,
+.pcs-home__une-small:hover .pcs-home__une-img { transform: scale(1.03); }
+.pcs-home__une-cat { display: block; margin-top: 0.75rem; margin-bottom: 0.25rem; }
+.pcs-home__une-title {
+	font-family: var(--wp--preset--font-family--display);
+	font-size: clamp(1.1rem, 2.5vw, 1.75rem);
+	font-weight: 300;
+	line-height: 1.2;
+	letter-spacing: -0.015em;
+	margin: 0 0 0.5rem;
+}
+.pcs-home__une-excerpt {
+	color: var(--wp--preset--color--muted);
+	font-size: var(--wp--preset--font-size--sm);
+	margin: 0;
+}
+.pcs-home__une-small .pcs-home__une-img { aspect-ratio: 3 / 2; }
+
+/* ── 5. Newsletter ── */
+.pcs-home__newsletter {
+	/* Hérite de .pcs-section--newsletter */
+}
+
+/* ── 6. Les + lus ── */
+.pcs-home__plus-lus {
+	border: 1px solid var(--wp--preset--color--border);
+	border-radius: var(--wp--custom--radius--md, var(--wp--custom--radius--sm));
+	padding: clamp(1.5rem, 3vw, 2.5rem);
+}
+.pcs-home__plus-lus-title {
+	font-family: var(--wp--preset--font-family--display);
+	font-size: clamp(1.5rem, 3vw, 2rem);
+	font-weight: 300;
+	margin: 0 0 1.5rem;
+	border-bottom: 2px solid var(--wp--preset--color--border);
+	padding-bottom: 0.75rem;
+}
+.pcs-home__plus-lus-plus {
+	color: var(--wp--preset--color--accent);
+}
+.pcs-home__plus-lus-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 0.75rem 2rem;
+}
+.pcs-home__plus-lus-item {
+	display: flex;
+	gap: 0.75rem;
+	align-items: baseline;
+	padding-block: 0.5rem;
+	border-bottom: 1px solid var(--wp--preset--color--border);
+}
+.pcs-home__plus-lus-num {
+	font-family: var(--wp--preset--font-family--display);
+	font-size: clamp(1.5rem, 3vw, 2rem);
+	font-weight: 300;
+	color: var(--wp--preset--color--accent);
+	line-height: 1;
+	flex-shrink: 0;
+	width: 2rem;
+}
+.pcs-home__plus-lus-link {
+	font-size: var(--wp--preset--font-size--sm);
+	font-weight: 600;
+	text-decoration: none;
+	color: var(--wp--preset--color--foreground);
+	line-height: 1.3;
+}
+.pcs-home__plus-lus-link:hover { color: var(--wp--preset--color--accent); }
+
+/* ── 7. Sections catégories ── */
+.pcs-home__cat-section {
+	border-top: 2px solid var(--wp--preset--color--foreground);
+	padding-top: 2rem;
+}
+.pcs-home__cat-header {
+	display: flex;
+	align-items: baseline;
+	gap: 1.5rem;
+	margin-bottom: 1.5rem;
+}
+.pcs-home__cat-name {
+	font-family: var(--wp--preset--font-family--display);
+	font-size: clamp(1.5rem, 3vw, 2.25rem);
+	font-weight: 300;
+	letter-spacing: -0.02em;
+	margin: 0;
+}
+.pcs-home__cat-more {
+	font-size: var(--wp--preset--font-size--sm);
+	font-weight: 600;
+	text-decoration: none;
+	color: var(--wp--preset--color--accent);
+	white-space: nowrap;
+	margin-left: auto;
+}
+.pcs-home__cat-more:hover { text-decoration: underline; }
+.pcs-home__cat-layout {
+	display: grid;
+	grid-template-columns: 2fr 1fr;
+	gap: 2rem;
+	align-items: start;
+}
+.pcs-home__cat-main-col { display: flex; flex-direction: column; gap: 1.25rem; }
+
+/* Article héro catégorie */
+.pcs-home__cat-hero a {
+	display: block;
+	text-decoration: none;
+	color: inherit;
+}
+.pcs-home__cat-hero-img-wrap { overflow: hidden; border-radius: var(--wp--custom--radius--sm); }
+.pcs-home__cat-hero-img {
+	display: block;
+	width: 100%;
+	aspect-ratio: 16 / 7;
+	object-fit: cover;
+	transition: transform var(--pcs-dur) var(--pcs-ease);
+}
+.pcs-home__cat-hero:hover .pcs-home__cat-hero-img { transform: scale(1.02); }
+.pcs-home__cat-hero-cat { display: block; margin-top: 0.75rem; margin-bottom: 0.25rem; }
+.pcs-home__cat-hero-title {
+	font-family: var(--wp--preset--font-family--display);
+	font-size: clamp(1.1rem, 2.5vw, 1.75rem);
+	font-weight: 300;
+	line-height: 1.2;
+	letter-spacing: -0.015em;
+	margin: 0;
+}
+
+/* Grille 2×2 catégorie */
+.pcs-home__cat-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 1rem;
+}
+.pcs-home__cat-card a {
+	display: block;
+	text-decoration: none;
+	color: inherit;
+}
+.pcs-home__cat-card-img-wrap { overflow: hidden; border-radius: var(--wp--custom--radius--sm); }
+.pcs-home__cat-card-img {
+	display: block;
+	width: 100%;
+	aspect-ratio: 4 / 3;
+	object-fit: cover;
+	transition: transform var(--pcs-dur) var(--pcs-ease);
+}
+.pcs-home__cat-card:hover .pcs-home__cat-card-img { transform: scale(1.04); }
+.pcs-home__cat-card-cat { display: block; margin-top: 0.5rem; margin-bottom: 0.2rem; }
+.pcs-home__cat-card-title {
+	font-size: var(--wp--preset--font-size--md);
+	font-weight: 600;
+	line-height: 1.25;
+	margin: 0;
+}
+
+/* Sidebar pub catégorie */
+.pcs-home__cat-sidebar {
+	position: sticky;
+	top: 6rem;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+	.pcs-home__selection {
+		grid-template-columns: 1fr;
+	}
+	.pcs-home__selection-sidebar { position: static; }
+	.pcs-home__une {
+		grid-template-columns: 1fr;
+	}
+	.pcs-home__plus-lus-grid {
+		grid-template-columns: 1fr 1fr;
+	}
+	.pcs-home__cat-layout {
+		grid-template-columns: 1fr;
+	}
+	.pcs-home__cat-sidebar { position: static; }
+}
+@media (max-width: 600px) {
+	.pcs-home__selection-grid { grid-template-columns: 1fr; }
+	.pcs-home__cat-grid { grid-template-columns: 1fr; }
+	.pcs-home__plus-lus-grid { grid-template-columns: 1fr; }
+	.pcs-home__hero-img { aspect-ratio: 4 / 3; }
+}
+
+/* ====================================================================
    Print
    ==================================================================== */
 

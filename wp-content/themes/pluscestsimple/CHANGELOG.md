@@ -1,5 +1,28 @@
 # Changelog
 
+## [2.5.0] — 2026-05-22
+
+### Nouvelle page d'accueil (front-page.php)
+
+Refonte complète du template PHP. Plus de Gutenberg/`the_content()` sur la homepage — layout 100% PHP dynamique.
+
+**Structure :**
+1. Bannière pub top (slot `homepage-top`, conditionnelle si vide)
+2. Héro pleine largeur — dernier article tagué `pcs-hero`
+3. Grille 2×2 + sidebar pub (slot `homepage-sidebar`) — 4 articles tagués `pcs-selection`
+4. Deux featured (2/3 + 1/3) — tagués `pcs-une` (1er = grand, 2e = petit)
+5. Section newsletter (HTML direct, plus de Gutenberg pattern)
+6. Les + lus (9 max) — tagués `pcs-plus-lu`
+7. 5 sections catégorie (Décoration, Travaux, Jardin, Architecture, Lifestyle) — automatiques (derniers articles) avec sidebar pub `cat-sidebar-{slug}`
+
+**Tags WP à utiliser dans l'éditeur d'article :**
+- `pcs-hero` → article héro (1 max)
+- `pcs-selection` → 4 articles grille 2×2
+- `pcs-une` → 2 featured (publiés du plus récent au plus ancien)
+- `pcs-plus-lu` → jusqu'à 9 articles "Les + lus"
+
+**CSS :** +300 lignes `.pcs-home__*` — full responsive (900px → 1 colonne, 600px → grilles 1 colonne)
+
 ## [2.4.5] — 2026-05-22
 
 ### Fixes & features
