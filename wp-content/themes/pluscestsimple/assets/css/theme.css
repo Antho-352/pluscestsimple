@@ -1222,15 +1222,15 @@ a.pcs-link-partner:hover {
 	border-radius: var(--wp--custom--radius--sm);
 }
 
-/* Category pages — Query Loops "À la une" (3 articles, en haut) ET
-   "Tous les articles" (12 articles, en bas). Force la grille 3 colonnes pour
-   éviter l'empilement vertical par défaut du wp-block-post-template. */
+/* Category pages — Query Loops avec layout asymétrique pour "À la une"
+   et grille 3 colonnes pour "Tous les articles". */
 .pcs-section--cat-loop,
 .pcs-section--cat-top {
 	margin-block: clamp(2rem, 4vw, 3rem);
 }
-.pcs-section--cat-loop .wp-block-post-template,
-.pcs-section--cat-top .wp-block-post-template {
+
+/* ── Section "Tous les articles" (bas de page catégorie) — grille 3 colonnes ── */
+.pcs-section--cat-loop .wp-block-post-template {
 	display: grid !important;
 	grid-template-columns: repeat(3, minmax(0, 1fr));
 	gap: clamp(1.5rem, 3vw, 2.5rem);
@@ -1239,15 +1239,76 @@ a.pcs-link-partner:hover {
 	margin: 0;
 }
 @media (max-width: 900px) {
-	.pcs-section--cat-loop .wp-block-post-template,
-	.pcs-section--cat-top .wp-block-post-template {
+	.pcs-section--cat-loop .wp-block-post-template {
 		grid-template-columns: repeat(2, minmax(0, 1fr));
 	}
 }
 @media (max-width: 560px) {
-	.pcs-section--cat-loop .wp-block-post-template,
+	.pcs-section--cat-loop .wp-block-post-template {
+		grid-template-columns: 1fr;
+	}
+}
+
+/* ── Section "À la une" (haut de page catégorie) — layout asymétrique
+   ─────────────────────────────────────────────────────────────────────
+   Cas 3 articles : 1 grand (gauche, 2fr × span 2 rows) + 2 petits (droite, 1fr stack)
+   Cas 2 articles : 2 côte à côte 1fr + 1fr
+   Cas 1 article  : centré, max 700px, image 16/9 courte
+   ───────────────────────────────────────────────────────────────────── */
+.pcs-section--cat-top .wp-block-post-template {
+	display: grid !important;
+	grid-template-columns: 2fr 1fr;
+	gap: 1.5rem;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+/* Article 1 : grand format, occupe 2 rangées de la colonne 1 (2fr) */
+.pcs-section--cat-top .wp-block-post-template > li:first-child {
+	grid-row: span 2;
+}
+.pcs-section--cat-top .wp-block-post-template > li:first-child .pcs-card__media {
+	aspect-ratio: 4 / 3 !important; /* plus haute → ~équivalent visuel de 2 thumbnails empilées à droite */
+}
+.pcs-section--cat-top .wp-block-post-template > li:first-child .pcs-card__title {
+	font-size: var(--wp--preset--font-size--xl);
+}
+
+/* Cas spécial — 1 seul article : centré, large mais image courte */
+.pcs-section--cat-top .wp-block-post-template:has(> li:only-child) {
+	display: block !important;
+	max-width: 700px;
+	margin-inline: auto;
+}
+.pcs-section--cat-top .wp-block-post-template:has(> li:only-child) > li:first-child {
+	grid-row: auto;
+}
+.pcs-section--cat-top .wp-block-post-template:has(> li:only-child) > li:first-child .pcs-card__media {
+	aspect-ratio: 16 / 9 !important; /* ratio standard, image courte */
+}
+
+/* Cas spécial — 2 articles : côte à côte 1fr+1fr, sans grid-row span sur le premier */
+.pcs-section--cat-top .wp-block-post-template:has(> li:nth-child(2):last-child) {
+	grid-template-columns: 1fr 1fr;
+}
+.pcs-section--cat-top .wp-block-post-template:has(> li:nth-child(2):last-child) > li:first-child {
+	grid-row: auto;
+}
+.pcs-section--cat-top .wp-block-post-template:has(> li:nth-child(2):last-child) > li:first-child .pcs-card__media {
+	aspect-ratio: 16 / 9 !important;
+}
+
+/* Responsive — sur mobile/tablette, on revient à une colonne unique */
+@media (max-width: 900px) {
 	.pcs-section--cat-top .wp-block-post-template {
 		grid-template-columns: 1fr;
+	}
+	.pcs-section--cat-top .wp-block-post-template > li:first-child {
+		grid-row: auto;
+	}
+	.pcs-section--cat-top .wp-block-post-template > li:first-child .pcs-card__media {
+		aspect-ratio: 16 / 9 !important;
 	}
 }
 .pcs-section--maillage {

@@ -1,5 +1,36 @@
 # Changelog
 
+## [2.8.0] — 2026-05-25
+
+### Pages catégorie — "À la une" : layout asymétrique 1 grand + 2 petits
+
+Refonte du layout de la section `.pcs-section--cat-top` (Query Loop "À la une" en haut des pages catégorie). CSS pur, aucun changement de pattern requis.
+
+**Cas standard — 3 articles (le plus fréquent) :**
+```
+┌─────────────────────┬──────────────┐
+│                     │ Article 2    │
+│   Article 1         │   (16/9)     │
+│   (image 4/3        ├──────────────┤
+│    + titre XL)      │ Article 3    │
+│                     │   (16/9)     │
+└─────────────────────┴──────────────┘
+       2fr                 1fr
+```
+- Grid `2fr 1fr`, gap 1.5rem
+- Article 1 : `grid-row: span 2`, image en aspect-ratio `4/3` (au lieu de `16/9`) → image naturellement plus haute pour matcher visuellement les 2 cards empilées à droite
+- Articles 2 et 3 : tailles thumbnail standards (16/9)
+- Titre de l'article 1 passe en font-size `xl` pour matcher l'importance visuelle
+
+**Cas 2 articles :** détecté via `:has(> li:nth-child(2):last-child)` → bascule auto en 2 colonnes égales 1fr+1fr (aspect-ratio 16/9 standard pour les deux)
+
+**Cas 1 article (edge case) :** détecté via `:has(> li:only-child)` → bloc centré max-width 700px, image en 16/9 (court, "pas plus de hauteur" comme demandé), card prend plus de largeur que dans une grille 3-cols.
+
+**Responsive < 900px :** colonne unique stack pour tous les cas.
+
+### Note technique
+Le sélecteur `:has()` est requis (support : Chrome 105+, Safari 15.4+, Firefox 121+ — disponible chez >95% des visiteurs en 2026). Sur les navigateurs plus anciens, fallback gracieux vers le layout 3-articles standard.
+
 ## [2.7.4] — 2026-05-25
 
 ### Pages catégories — section "À la une" : fix hauteur des images
