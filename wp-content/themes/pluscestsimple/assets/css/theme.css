@@ -1539,10 +1539,29 @@ a.pcs-link-partner:hover {
    Article body (single)
    ==================================================================== */
 
-.pcs-article {
-	max-width: var(--wp--style--global--content-size, 720px);
-	margin-inline: auto;
+/* Layout article : 2 colonnes (article main + sidebar pub sticky) */
+.pcs-article-layout {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) 300px;
+	gap: clamp(2rem, 4vw, 3.5rem);
+	align-items: start;
 	padding-block: var(--wp--preset--spacing--70);
+}
+.pcs-article {
+	max-width: none;
+	margin: 0;
+	padding: 0;
+	min-width: 0; /* évite l'overflow des images dans le grid track */
+}
+.pcs-article__sidebar {
+	position: sticky;
+	top: 6rem;
+}
+@media (max-width: 900px) {
+	.pcs-article-layout {
+		grid-template-columns: 1fr;
+	}
+	.pcs-article__sidebar { position: static; }
 }
 .pcs-article__header { margin-bottom: var(--wp--preset--spacing--70); }
 .pcs-article__eyebrow {
@@ -1946,11 +1965,11 @@ a.pcs-link-partner:hover {
 	padding: 0.5rem 0;
 }
 
-/* ── 2. Héro (réduit ~30%, largeur contenue, titre centré) ── */
+/* ── 2. Héro (largeur contenue, titre centré, police réduite) ── */
 .pcs-home__hero {
 	position: relative;
 	overflow: hidden;
-	max-width: 1100px;
+	max-width: 1240px;
 	margin-inline: auto;
 	padding-inline: var(--pcs-container-padding, 1.25rem);
 }
@@ -1962,14 +1981,14 @@ a.pcs-link-partner:hover {
 .pcs-home__hero-img {
 	display: block;
 	width: 100%;
-	aspect-ratio: 16 / 5;
+	aspect-ratio: 16 / 6;
 	object-fit: cover;
 	border-radius: var(--wp--custom--radius--sm);
 	transition: transform var(--pcs-dur) var(--pcs-ease);
 }
 .pcs-home__hero:hover .pcs-home__hero-img { transform: scale(1.02); }
 .pcs-home__hero-caption {
-	padding-block: 1.5rem 2rem;
+	padding-block: 1.25rem 1.75rem;
 	border-bottom: 1px solid var(--wp--preset--color--border);
 	text-align: center;
 }
@@ -1979,10 +1998,10 @@ a.pcs-link-partner:hover {
 }
 .pcs-home__hero-title {
 	font-family: var(--wp--preset--font-family--display);
-	font-size: clamp(1.75rem, 4vw, 3rem);
+	font-size: clamp(1.4rem, 3vw, 2.25rem);
 	font-weight: 300;
-	line-height: 1.1;
-	letter-spacing: -0.02em;
+	line-height: 1.15;
+	letter-spacing: -0.015em;
 	margin: 0 auto;
 	color: var(--wp--preset--color--foreground);
 	max-width: 720px;
@@ -1992,8 +2011,22 @@ a.pcs-link-partner:hover {
 .pcs-home__body { padding-block: clamp(2.5rem, 5vw, 4rem); }
 .pcs-home__body > * + * { margin-top: clamp(3rem, 6vw, 5rem); }
 
-/* ── 3. Grille 2×2 + sidebar ── */
-.pcs-home__selection {
+/* ── Titres de section homepage ("À la une", "Tendance") ── */
+.pcs-home__section-header {
+	margin-bottom: 1.5rem;
+	padding-bottom: 0.75rem;
+	border-bottom: 2px solid var(--wp--preset--color--foreground);
+}
+.pcs-home__section-title {
+	font-family: var(--wp--preset--font-family--display);
+	font-size: clamp(1.5rem, 3vw, 2.25rem);
+	font-weight: 300;
+	letter-spacing: -0.02em;
+	margin: 0;
+}
+
+/* ── 3. Grille 2×2 "À la une" + sidebar ── */
+.pcs-home__selection-layout {
 	display: grid;
 	grid-template-columns: 1fr 280px;
 	gap: 2rem;
@@ -2033,8 +2066,8 @@ a.pcs-link-partner:hover {
 	top: 6rem;
 }
 
-/* ── 4. Deux featured ── */
-.pcs-home__une {
+/* ── 4. Deux featured "Tendance" ── */
+.pcs-home__une-grid {
 	display: grid;
 	grid-template-columns: 2fr 1fr;
 	gap: 2rem;
@@ -2250,11 +2283,11 @@ a.pcs-link-partner:hover {
 
 /* ── Responsive ── */
 @media (max-width: 900px) {
-	.pcs-home__selection {
+	.pcs-home__selection-layout {
 		grid-template-columns: 1fr;
 	}
 	.pcs-home__selection-sidebar { position: static; }
-	.pcs-home__une {
+	.pcs-home__une-grid {
 		grid-template-columns: 1fr;
 	}
 	.pcs-home__plus-lus-grid {

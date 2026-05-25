@@ -12,10 +12,10 @@
  *   7. Sections par catégorie × 5 — automatiques (derniers articles par catégorie)
  *
  * Tags WP à utiliser dans l'éditeur d'article :
- *   - pcs-hero      → article héro (1 max, le plus récent tagué)
- *   - pcs-selection → 4 articles pour la grille 2×2
- *   - pcs-une       → 2 articles featured sous la grille (1er = grand, 2e = petit)
- *   - pcs-plus-lu   → jusqu'à 9 articles pour "Les + lus"
+ *   - pcs-hero     → article héro (1 max, le plus récent tagué)
+ *   - pcs-une      → 4 articles pour la grille 2×2 "À la une"
+ *   - pcs-tendance → 2 articles featured "Tendance" (1er = grand 2/3, 2e = petit 1/3)
+ *   - pcs-plus-lu  → jusqu'à 9 articles pour "Les + lus"
  *
  * @package pluscestsimple
  */
@@ -35,13 +35,13 @@ $pcs_hero_q = new WP_Query( [
 ] );
 
 $pcs_sel_q = new WP_Query( [
-	'tag'            => 'pcs-selection',
+	'tag'            => 'pcs-une',
 	'posts_per_page' => 4,
 	'no_found_rows'  => true,
 ] );
 
 $pcs_une_q = new WP_Query( [
-	'tag'            => 'pcs-une',
+	'tag'            => 'pcs-tendance',
 	'posts_per_page' => 2,
 	'no_found_rows'  => true,
 ] );
@@ -104,31 +104,39 @@ if ( function_exists( 'pcs_banner_render' ) ) {
 <?php if ( $pcs_sel_q->have_posts() ) : ?>
 <section class="pcs-home__selection">
 
-	<div class="pcs-home__selection-grid">
-		<?php while ( $pcs_sel_q->have_posts() ) : $pcs_sel_q->the_post(); ?>
-		<article class="pcs-home__sel-card">
-			<a href="<?php the_permalink(); ?>">
-				<?php if ( has_post_thumbnail() ) : ?>
-					<div class="pcs-home__sel-img-wrap">
-						<?php the_post_thumbnail( 'medium_large', [ 'class' => 'pcs-home__sel-img', 'alt' => esc_attr( get_the_title() ) ] ); ?>
-					</div>
-				<?php endif; ?>
-				<div class="pcs-home__sel-body">
-					<?php $pcs_sel_cats = get_the_category(); if ( $pcs_sel_cats ) : ?>
-					<span class="pcs-eyebrow pcs-home__sel-cat"><?php echo esc_html( $pcs_sel_cats[0]->name ); ?></span>
-					<?php endif; ?>
-					<h3 class="pcs-home__sel-title"><?php the_title(); ?></h3>
-				</div>
-			</a>
-		</article>
-		<?php endwhile; wp_reset_postdata(); ?>
-	</div>
+	<header class="pcs-home__section-header">
+		<h2 class="pcs-home__section-title"><?php esc_html_e( 'À la une', 'pluscestsimple' ); ?></h2>
+	</header>
 
-	<aside class="pcs-home__selection-sidebar">
-		<?php if ( function_exists( 'pcs_banner_render' ) ) : ?>
-			<?php echo pcs_banner_render( 'homepage-sidebar' ); ?>
-		<?php endif; ?>
-	</aside>
+	<div class="pcs-home__selection-layout">
+
+		<div class="pcs-home__selection-grid">
+			<?php while ( $pcs_sel_q->have_posts() ) : $pcs_sel_q->the_post(); ?>
+			<article class="pcs-home__sel-card">
+				<a href="<?php the_permalink(); ?>">
+					<?php if ( has_post_thumbnail() ) : ?>
+						<div class="pcs-home__sel-img-wrap">
+							<?php the_post_thumbnail( 'medium_large', [ 'class' => 'pcs-home__sel-img', 'alt' => esc_attr( get_the_title() ) ] ); ?>
+						</div>
+					<?php endif; ?>
+					<div class="pcs-home__sel-body">
+						<?php $pcs_sel_cats = get_the_category(); if ( $pcs_sel_cats ) : ?>
+						<span class="pcs-eyebrow pcs-home__sel-cat"><?php echo esc_html( $pcs_sel_cats[0]->name ); ?></span>
+						<?php endif; ?>
+						<h3 class="pcs-home__sel-title"><?php the_title(); ?></h3>
+					</div>
+				</a>
+			</article>
+			<?php endwhile; wp_reset_postdata(); ?>
+		</div>
+
+		<aside class="pcs-home__selection-sidebar">
+			<?php if ( function_exists( 'pcs_banner_render' ) ) : ?>
+				<?php echo pcs_banner_render( 'homepage-sidebar', true ); ?>
+			<?php endif; ?>
+		</aside>
+
+	</div>
 
 </section>
 <?php endif; ?>
@@ -148,6 +156,11 @@ wp_reset_postdata();
 <?php if ( ! empty( $pcs_une_posts ) ) : ?>
 <section class="pcs-home__une">
 
+	<header class="pcs-home__section-header">
+		<h2 class="pcs-home__section-title"><?php esc_html_e( 'Tendance', 'pluscestsimple' ); ?></h2>
+	</header>
+
+	<div class="pcs-home__une-grid">
 	<?php if ( isset( $pcs_une_posts[0] ) ) :
 		$pcs_une_large = $pcs_une_posts[0];
 		$GLOBALS['post'] = $pcs_une_large; // phpcs:ignore WordPress.WP.GlobalVariablesOverride
@@ -188,6 +201,7 @@ wp_reset_postdata();
 		</a>
 	</article>
 	<?php endif; wp_reset_postdata(); ?>
+	</div><!-- /.pcs-home__une-grid -->
 
 </section>
 <?php endif; ?>

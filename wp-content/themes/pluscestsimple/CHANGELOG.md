@@ -1,5 +1,28 @@
 # Changelog
 
+## [2.6.0] — 2026-05-22
+
+### Homepage — ajustements + renommage tags
+
+- **Héro plus haut + image moins coupée** : `aspect-ratio: 16/5 → 16/6`, `max-width: 1100px → 1240px`.
+- **Titre héro plus petit** : `clamp(1.75rem, 4vw, 3rem) → clamp(1.4rem, 3vw, 2.25rem)` (~25% plus petit).
+- **Titres de section** : ajout de "À la une" avant la grille 2×2 et "Tendance" avant les 2 featured. Classe `.pcs-home__section-header` + `.pcs-home__section-title` (display font, bordure foreground).
+- **⚠️ Renommage tags WP** (breaking — re-taguer les articles existants) :
+  - `pcs-selection` (4 articles grille 2×2) → **`pcs-une`**
+  - `pcs-une` (2 featured) → **`pcs-tendance`**
+  - `pcs-hero` et `pcs-plus-lu` inchangés
+
+### Pages article — layout 2 colonnes
+
+- **Article élargi** : retrait du `max-width: 720px` historique. Désormais layout grid `1fr 300px` (article main + sidebar), avec `max-width: 1180px` global du container. L'article prend ~830px (vs 720px avant) et la sidebar 300px.
+- **Sidebar pub sticky** : `position: sticky; top: 6rem` — affiche le slot `article-sidebar` (créé par le plugin pcs-banners v1.2.0).
+- **Responsive < 900px** : sidebar passe sous l'article.
+
+### ⚠️ Action requise sur le plugin pcs-banners
+Mise à jour vers v1.2.0 obligatoire pour :
+- Nouveau slot `article-sidebar` (pages article)
+- Placeholder visuel quand un slot est vide (fond beige clair "PUBLICITÉ — Placez votre publicité ici")
+
 ## [2.5.2] — 2026-05-22
 
 ### Homepage — ajustements design
