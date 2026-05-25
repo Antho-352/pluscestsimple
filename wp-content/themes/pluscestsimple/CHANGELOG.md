@@ -1,5 +1,46 @@
 # Changelog
 
+## [2.9.0] — 2026-05-25
+
+### SEO — consolidation des catégories vers pages piliers
+
+Le site avait un sérieux problème de duplicate content : les archives WP de catégories piliers (ex: `/decoration-cat/`, `/decoration-cat/decoration-par-piece-cat/`) étaient publiques et indexées par Google, créant des doublons avec les pages piliers CMS (`/decoration/`).
+
+**Nouveau fichier `inc/category-redirects.php` :**
+
+1. **301 redirect** des archives catégorie piliers (parents ET enfants) vers la page pilier correspondante :
+   - `/decoration-cat/` → `/decoration/`
+   - `/decoration-cat/decoration-par-piece-cat/` → `/decoration/`
+   - `/travaux-cat/travaux-renovation-cat/` → `/travaux/`
+   - etc.
+
+2. **301 redirect** des URLs "flat" 404 (qui ne devraient pas exister mais ont pu être indexées) → page pilier :
+   - `/decoration-par-piece-cat/` (404) → `/decoration/`
+   - `/travaux-par-piece-cat/` (404) → `/travaux/`
+
+3. **Filet `noindex, follow`** sur les archives catégorie pilier qui échapperaient au redirect (sécurité défense en profondeur).
+
+4. **Exclusion du sitemap XML WP** (`wp-sitemap.xml`) : les catégories piliers sont retirées du sitemap → Google ne les découvre plus du tout.
+
+Helpers publics :
+- `pcs_pilier_slugs()` → liste des slugs piliers (source unique : `pcs_content_structure()`)
+- `pcs_find_pilier_root( $cat_slug )` → trouve le pilier racine pour un slug catégorie
+
+### Plan du site (page front-end)
+
+- **Création automatique** de la page `plan-du-site` au chargement du thème (ajoutée à `pcs_content_utility_pages()`) avec le template `tpl-sitemap.php` assigné automatiquement.
+- **Mise à jour du template sur pages existantes** : si la page `plan-du-site` existait déjà mais sans template assigné (ex: créée manuellement par l'admin), le seeder force désormais `_wp_page_template = page-templates/tpl-sitemap.php`. Le `post_content` reste intact.
+
+Le template `tpl-sitemap.php` (déjà présent) liste automatiquement :
+- Toutes les pages publiées (via `wp_list_pages()`)
+- Toutes les catégories non vides (via `get_categories()`)
+- Les 60 articles les plus récents (via `get_posts()`)
+
+Le contenu se met à jour à chaque visite (live queries WP, pas de cache).
+
+### Sitemap XML pour Google
+Le sitemap XML est généré automatiquement par WP core (depuis 5.5) à `/wp-sitemap.xml`. Il liste pages, articles, et catégories (sauf les catégories piliers maintenant exclues). Pas d'action requise — déclaré dans `robots.txt` automatiquement.
+
 ## [2.8.1] — 2026-05-25
 
 ### Homepage

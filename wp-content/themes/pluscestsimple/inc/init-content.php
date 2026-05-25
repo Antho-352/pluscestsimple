@@ -116,6 +116,14 @@ function pcs_content_utility_pages(): array {
 			'template' => 'page-templates/tpl-wide.php',
 			'content'  => '__PATTERN__:pluscestsimple/charte-partenaires',
 		],
+		// Plan du site : page auto-générée par le template tpl-sitemap.php (qui liste
+		// pages publiées, catégories non vides, articles récents). Contenu post_content
+		// laissé vide → le template prend la main et génère tout dynamiquement.
+		'plan-du-site' => [
+			'title'    => 'Plan du site',
+			'template' => 'page-templates/tpl-sitemap.php',
+			'content'  => '',
+		],
 	];
 }
 
@@ -231,6 +239,17 @@ function pcs_init_content(): void {
 	foreach ( pcs_content_utility_pages() as $page_slug => $page_data ) {
 		$existing = get_page_by_path( $page_slug );
 		if ( $existing ) {
+			// Page déjà créée. Mais on s'assure que le template assigné est bien
+			// celui défini dans pcs_content_utility_pages() — utile pour les pages
+			// créées AVANT que le mapping template soit ajouté (ex: plan-du-site
+			// créé en v2.4 sans template, ajouté en v2.8.2). On ne touche jamais
+			// au post_content (édition user respectée).
+			if ( ! empty( $page_data['template'] ) ) {
+				$current_tpl = get_post_meta( $existing->ID, '_wp_page_template', true );
+				if ( $current_tpl !== $page_data['template'] ) {
+					update_post_meta( $existing->ID, '_wp_page_template', $page_data['template'] );
+				}
+			}
 			continue;
 		}
 		// Résolution des contenus spéciaux (sentinels) avec patterns inlinés.
