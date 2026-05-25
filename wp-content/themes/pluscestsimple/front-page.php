@@ -244,9 +244,7 @@ wp_reset_postdata();
 <section class="pcs-home__plus-lus">
 
 	<h2 class="pcs-home__plus-lus-title">
-		<?php esc_html_e( 'Les ', 'pluscestsimple' ); ?>
-		<span class="pcs-home__plus-lus-plus">+</span>
-		<?php esc_html_e( 'lus', 'pluscestsimple' ); ?>
+		<?php esc_html_e( 'Les plus lus', 'pluscestsimple' ); ?>
 	</h2>
 
 	<div class="pcs-home__plus-lus-grid">

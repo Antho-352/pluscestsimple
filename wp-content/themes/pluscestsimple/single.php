@@ -101,6 +101,25 @@ while ( have_posts() ) :
 
 	</div><!-- /.pcs-article-layout -->
 
+	<?php /* Newsletter en bas de chaque article (avant commentaires / suggestions) */ ?>
+	<section class="pcs-section pcs-section--newsletter pcs-article__newsletter">
+		<div class="pcs-container">
+			<p class="pcs-eyebrow"><?php esc_html_e( 'Newsletter', 'pluscestsimple' ); ?></p>
+			<h2 class="pcs-section__title"><?php esc_html_e( "Vous avez aimé cet article ?", 'pluscestsimple' ); ?></h2>
+			<p class="pcs-section__lead"><?php esc_html_e( "Recevez nos meilleurs conseils déco, travaux et jardin deux fois par semaine, directement par email. Pas de baratin, pas de revente.", 'pluscestsimple' ); ?></p>
+			<form class="pcs-newsletter-form" data-pcs-form="newsletter" data-form-type="newsletter" method="post" action="">
+				<label for="pcs-article-nl-email-<?php the_ID(); ?>" class="screen-reader-text"><?php esc_html_e( 'Adresse email', 'pluscestsimple' ); ?></label>
+				<input type="email" id="pcs-article-nl-email-<?php the_ID(); ?>" name="email" required autocomplete="email" placeholder="<?php esc_attr_e( 'vous@exemple.com', 'pluscestsimple' ); ?>">
+				<input type="text" name="hp" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
+				<button type="submit"><?php esc_html_e( 'Recevoir la newsletter', 'pluscestsimple' ); ?></button>
+				<label class="pcs-newsletter-form__consent">
+					<input type="checkbox" name="consent" value="1" required>
+					<span><?php esc_html_e( "J'accepte de recevoir la newsletter de Plus c'est simple. Désabonnement en 1 clic.", 'pluscestsimple' ); ?></span>
+				</label>
+			</form>
+		</div>
+	</section>
+
 	<?php
 	if ( comments_open() || get_comments_number() ) {
 		echo '<div class="pcs-container pcs-comments">';

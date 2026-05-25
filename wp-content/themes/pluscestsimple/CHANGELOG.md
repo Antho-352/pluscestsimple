@@ -1,5 +1,31 @@
 # Changelog
 
+## [2.8.1] — 2026-05-25
+
+### Homepage
+
+- **Hero title** : `max-width: 720px → 1100px` → titres longs sur 2 lignes au lieu de 3.
+- **"Les + lus" → "Les plus lus"** : changement de wording (le rendu `+` stylisé en accent était jugé peu lisible).
+
+### Hover effect — images du site
+
+Effet sobre/moderne appliqué à toutes les images cliquables (hero, sel, une, cat-hero, cat-cards, .pcs-card) au survol :
+- `transform: scale(1.05)` (zoom léger, +66% vs ancien 1.03)
+- `filter: brightness(0.92) saturate(1.08)` (légère assombrissement + saturation accrue pour effet "magazine")
+- Transition fluide sur `transform` et `filter`
+
+### Articles single
+
+- **Newsletter en bas de chaque article** : nouveau bloc fond vert (réutilisation des styles `.pcs-home__newsletter`), placé après l'article et avant les commentaires. Titre "Vous avez aimé cet article ?" + lead newsletter. Formulaire complet avec consent RGPD.
+- CSS refactor : les sélecteurs newsletter (fond vert, input/bouton clairs) sont désormais partagés entre `.pcs-home__newsletter` et `.pcs-article__newsletter`.
+
+### Plugin pcs-directory — fix layout filtres
+
+Le CSS générique du thème `.pcs-content form { flex-direction: column; max-width: 560px }` écrasait le `display: grid` du formulaire de filtres du plugin annuaire → filtres empilés verticalement au lieu d'être alignés en ligne. Ajout d'un override spécifique `.pcs-content .pcs-directory-filters` pour restaurer le grid 4 colonnes natif.
+
+### Note carte annuaire
+Le placeholder de la carte (`<div class="pcs-directory-map">`) est rendu par le plugin mais Leaflet n'est pas chargé par défaut. Pour activer la carte interactive, voir `pcs-directory/README.md` § "Carte interactive". À traiter dans une itération séparée.
+
 ## [2.8.0] — 2026-05-25
 
 ### Pages catégorie — "À la une" : layout asymétrique 1 grand + 2 petits
