@@ -120,7 +120,7 @@ if ( function_exists( 'pcs_banner_render' ) ) {
 				<a href="<?php the_permalink(); ?>">
 					<?php if ( has_post_thumbnail() ) : ?>
 						<div class="pcs-home__sel-img-wrap">
-							<?php the_post_thumbnail( 'medium_large', [ 'class' => 'pcs-home__sel-img', 'alt' => esc_attr( get_the_title() ) ] ); ?>
+							<?php the_post_thumbnail( 'pcs-card', [ 'class' => 'pcs-home__sel-img', 'alt' => esc_attr( get_the_title() ) ] ); ?>
 						</div>
 					<?php endif; ?>
 					<div class="pcs-home__sel-body">
@@ -333,7 +333,7 @@ wp_reset_postdata();
 					<a href="<?php the_permalink(); ?>">
 						<?php if ( has_post_thumbnail() ) : ?>
 							<div class="pcs-home__cat-card-img-wrap">
-								<?php the_post_thumbnail( 'medium', [ 'class' => 'pcs-home__cat-card-img', 'alt' => esc_attr( get_the_title() ) ] ); ?>
+								<?php the_post_thumbnail( 'pcs-card', [ 'class' => 'pcs-home__cat-card-img', 'alt' => esc_attr( get_the_title() ) ] ); ?>
 							</div>
 						<?php endif; ?>
 						<?php $pcs_cc_cats = get_the_category(); if ( $pcs_cc_cats ) : ?>

@@ -1,5 +1,24 @@
 # Changelog
 
+## [2.7.3] — 2026-05-25
+
+### Images cards — hauteur réduite + qualité fixée
+
+**Pages catégorie (piliers) — section "À la une" :**
+- Aspect ratio cards : `4/3 → 16/9` → cards 33% plus courtes en hauteur (moins de scroll requis pour passer à la section suivante)
+- Image size source : `post-thumbnail` (1200×630 croppé en 4/3) → `pcs-card-wide` (800×450 natif 16/9, **aucun crop nécessaire**) → image nette
+- 7 patterns mis à jour : decoration, travaux, jardin, architecture, immobilier, lifestyle, rich
+
+**Homepage — sections catégorie (grille 2×2) :**
+- Image size : `medium` (300px) → `pcs-card` (800×600 natif 4/3)
+- Cause du flou : les cards 2×2 font ~400px de large à l'écran, l'image source 300px était **upscalée 33%** → flou. Avec `pcs-card` 800px, l'image est downscalée → nette.
+
+**Homepage — section "À la une" (grille 2×2 avec/sans sidebar) :**
+- Image size : `medium_large` (768px) → `pcs-card` (800×600, ratio 4/3 natif aligné sur le display)
+
+### Note
+Les autres usages de `.pcs-card` (`home.php` Le carnet, `category.php` archive native, `archive.php`) conservent le 4/3 — seuls les patterns piliers passent en 16/9.
+
 ## [2.7.2] — 2026-05-25
 
 ### Largeur du contenu — refonte globale

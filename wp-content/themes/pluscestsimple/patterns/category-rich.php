@@ -43,7 +43,7 @@
 			<!-- wp:post-template {"className":"pcs-card-grid","lock":{"move":true,"remove":true}} -->
 				<!-- wp:group {"tagName":"article","className":"pcs-card"} -->
 				<article class="wp-block-group pcs-card">
-					<!-- wp:post-featured-image {"isLink":true,"aspectRatio":"4/3","className":"pcs-card__media"} /-->
+					<!-- wp:post-featured-image {"isLink":true,"aspectRatio":"16/9","sizeSlug":"pcs-card-wide","className":"pcs-card__media"} /-->
 					<!-- wp:post-terms {"term":"category","className":"pcs-card__eyebrow"} /-->
 					<!-- wp:post-title {"isLink":true,"level":3,"className":"pcs-card__title"} /-->
 					<!-- wp:post-excerpt /-->
