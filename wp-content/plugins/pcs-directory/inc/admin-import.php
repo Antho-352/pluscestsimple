@@ -2,9 +2,10 @@
 /**
  * Page admin : Annuaire > Importer depuis Sirene.
  *
- * Formulaire d'import + logs des 20 dernières exécutions.
- * L'import est SYNCHRONE pour la v1 (un seul utilisateur, batches limités).
- * v2 prévue : passage en async via wp_schedule_single_event + admin-ajax progress.
+ * Deux modes :
+ *   - Import ciblé (synchrone) : un département / un plafond, pour tester la qualité.
+ *   - Import national complet (asynchrone) : parcourt les 101 départements en
+ *     tâche de fond, résumable, sans limite de 500 (cf. inc/import-national.php).
  *
  * @package PCS_Directory
  */
@@ -58,6 +59,36 @@ function pcs_directory_admin_import_render(): void {
 		}
 	}
 
+	// ─── Handlers import national ───────────────────────────────────────────
+	$nat_notice = '';
+	if (
+		isset( $_POST['pcs_national_nonce'] )
+		&& wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['pcs_national_nonce'] ) ), 'pcs_national' )
+	) {
+		$nat_action = isset( $_POST['nat_action'] ) ? sanitize_key( wp_unslash( $_POST['nat_action'] ) ) : '';
+		switch ( $nat_action ) {
+			case 'start':
+				$nat_naf    = isset( $_POST['nat_naf'] ) ? sanitize_text_field( wp_unslash( $_POST['nat_naf'] ) ) : PCS_DIR_DEFAULT_NAF;
+				$nat_enrich = ! empty( $_POST['nat_enrich_osm'] );
+				pcs_directory_national_start( $nat_naf, $nat_enrich );
+				$nat_notice = __( 'Import national démarré. Il tourne en tâche de fond — tu peux fermer cette page, il continue.', 'pluscestsimple' );
+				break;
+			case 'pause':
+				pcs_directory_national_stop( false );
+				$nat_notice = __( 'Import mis en pause. Tu peux le reprendre quand tu veux.', 'pluscestsimple' );
+				break;
+			case 'resume':
+				pcs_directory_national_resume();
+				$nat_notice = __( 'Import repris.', 'pluscestsimple' );
+				break;
+			case 'reset':
+				pcs_directory_national_stop( true );
+				$nat_notice = __( 'État réinitialisé.', 'pluscestsimple' );
+				break;
+		}
+	}
+	$nat_state = pcs_directory_national_get_state();
+
 	$log = get_option( PCS_DIR_LOG_OPTION, [] );
 	if ( ! is_array( $log ) ) {
 		$log = [];
@@ -70,6 +101,107 @@ function pcs_directory_admin_import_render(): void {
 		<p class="description">
 			<?php esc_html_e( 'Importe les établissements actifs depuis l\'API Recherche Entreprises (data.gouv.fr). Tous les imports passent en statut "brouillon" et nécessitent une validation manuelle avant publication.', 'pluscestsimple' ); ?>
 		</p>
+
+		<?php if ( $nat_notice ) : ?>
+			<div class="notice notice-info"><p><?php echo esc_html( $nat_notice ); ?></p></div>
+		<?php endif; ?>
+
+		<?php
+		$nat_running = ( 'running' === $nat_state['status'] );
+		$nat_paused  = ( 'paused' === $nat_state['status'] );
+		$nat_done    = ( 'done' === $nat_state['status'] );
+		$nat_active  = $nat_running || $nat_paused;
+		?>
+		<div id="pcs-national" style="background:#fff;border:1px solid #c3c4c7;border-left:4px solid #1f3a2e;padding:20px;margin:20px 0;max-width:900px">
+			<h2 style="margin-top:0"><?php esc_html_e( '🇫🇷 Import national complet', 'pluscestsimple' ); ?></h2>
+			<p class="description" style="max-width:760px">
+				<?php esc_html_e( 'Parcourt automatiquement les 101 départements (le seul moyen de dépasser le plafond de 10 000 résultats de l\'API). Tourne en tâche de fond, résumable. Compte plusieurs heures pour la France entière — tu peux fermer la page, ça continue.', 'pluscestsimple' ); ?>
+			</p>
+
+			<!-- Barre de progression (remplie en JS) -->
+			<div id="pcs-nat-progress" style="<?php echo $nat_active || $nat_done ? '' : 'display:none'; ?>margin:16px 0">
+				<div style="background:#e2e4e7;border-radius:4px;overflow:hidden;height:22px">
+					<div id="pcs-nat-bar" style="background:#1f3a2e;height:100%;width:<?php echo (int) ( $nat_state['total_depts'] ? round( $nat_state['done_depts'] / $nat_state['total_depts'] * 100 ) : 0 ); ?>%;transition:width .4s"></div>
+				</div>
+				<p id="pcs-nat-stats" style="margin:8px 0 0;font-size:13px;color:#3c434a">
+					<?php esc_html_e( 'Chargement du statut…', 'pluscestsimple' ); ?>
+				</p>
+			</div>
+
+			<form method="post" style="margin-top:12px">
+				<?php wp_nonce_field( 'pcs_national', 'pcs_national_nonce' ); ?>
+
+				<?php if ( ! $nat_active ) : ?>
+					<table class="form-table" role="presentation" style="margin-top:0">
+						<tr>
+							<th scope="row" style="width:160px"><label for="nat_naf"><?php esc_html_e( 'Code(s) NAF', 'pluscestsimple' ); ?></label></th>
+							<td><input type="text" id="nat_naf" name="nat_naf" value="<?php echo esc_attr( PCS_DIR_DEFAULT_NAF ); ?>" class="regular-text" /></td>
+						</tr>
+						<tr>
+							<th scope="row"><?php esc_html_e( 'Enrichissement', 'pluscestsimple' ); ?></th>
+							<td><label><input type="checkbox" name="nat_enrich_osm" value="1" /> <?php esc_html_e( 'OSM (déconseillé en national — très lent, à faire en passe séparée).', 'pluscestsimple' ); ?></label></td>
+						</tr>
+					</table>
+					<button type="submit" name="nat_action" value="start" class="button button-primary"
+						onclick="return confirm('<?php echo esc_js( __( 'Démarrer l\'import national complet ? Plusieurs heures en tâche de fond.', 'pluscestsimple' ) ); ?>');">
+						<?php esc_html_e( 'Démarrer l\'import national', 'pluscestsimple' ); ?>
+					</button>
+				<?php else : ?>
+					<?php if ( $nat_running ) : ?>
+						<button type="submit" name="nat_action" value="pause" class="button"><?php esc_html_e( '⏸ Mettre en pause', 'pluscestsimple' ); ?></button>
+					<?php else : ?>
+						<button type="submit" name="nat_action" value="resume" class="button button-primary"><?php esc_html_e( '▶ Reprendre', 'pluscestsimple' ); ?></button>
+					<?php endif; ?>
+					<button type="submit" name="nat_action" value="reset" class="button button-link-delete"
+						onclick="return confirm('<?php echo esc_js( __( 'Réinitialiser l\'état de l\'import ? (n\'efface pas les magasins déjà importés)', 'pluscestsimple' ) ); ?>');">
+						<?php esc_html_e( 'Réinitialiser', 'pluscestsimple' ); ?>
+					</button>
+				<?php endif; ?>
+			</form>
+		</div>
+
+		<script>
+		(function(){
+			var bar = document.getElementById('pcs-nat-bar');
+			var stats = document.getElementById('pcs-nat-stats');
+			var wrap = document.getElementById('pcs-nat-progress');
+			if (!stats) return;
+			var ajaxurl = '<?php echo esc_js( admin_url( 'admin-ajax.php' ) ); ?>';
+			var nonce = '<?php echo esc_js( wp_create_nonce( 'pcs_national_status' ) ); ?>';
+			function fmt(n){ return new Intl.NumberFormat('fr-FR').format(n); }
+			function poll(){
+				var body = new URLSearchParams();
+				body.set('action','pcs_national_status');
+				body.set('nonce',nonce);
+				fetch(ajaxurl,{method:'POST',credentials:'same-origin',body:body})
+					.then(function(r){return r.json();})
+					.then(function(j){
+						if(!j||!j.success){return;}
+						var d=j.data;
+						if(d.status==='idle'){ wrap.style.display='none'; return; }
+						wrap.style.display='';
+						if(bar){ bar.style.width=(d.pct||0)+'%'; }
+						var label;
+						if(d.status==='done'){
+							label='✅ Terminé — '+fmt(d.imported)+' magasins importés, '+fmt(d.skipped)+' ignorés (doublons), '+fmt(d.errors)+' erreurs · '+d.elapsed_min+' min.';
+							bar.style.background='#46b450';
+						} else if(d.status==='paused'){
+							label='⏸ En pause — '+fmt(d.imported)+' importés · département '+d.done_depts+'/'+d.total_depts+'.';
+						} else {
+							label='⏳ En cours — dép. '+(d.current_dept||'…')+' (page '+d.current_page+') · '
+								+d.done_depts+'/'+d.total_depts+' départements · '
+								+fmt(d.imported)+' importés, '+fmt(d.skipped)+' ignorés · '+d.elapsed_min+' min.';
+						}
+						if(d.last_error){ label+=' ⚠ '+d.last_error; }
+						stats.textContent=label;
+						if(d.status==='running'){ setTimeout(poll, 4000); }
+						else if(d.status==='paused'){ setTimeout(poll, 8000); }
+					})
+					.catch(function(){ setTimeout(poll, 8000); });
+			}
+			<?php if ( $nat_active || $nat_done ) : ?>poll();<?php endif; ?>
+		})();
+		</script>
 
 		<?php if ( $error ) : ?>
 			<div class="notice notice-error"><p><?php echo esc_html( $error ); ?></p></div>
@@ -102,7 +234,10 @@ function pcs_directory_admin_import_render(): void {
 			</div>
 		<?php endif; ?>
 
-		<h2><?php esc_html_e( 'Paramètres d\'import', 'pluscestsimple' ); ?></h2>
+		<h2><?php esc_html_e( 'Import ciblé (test qualité)', 'pluscestsimple' ); ?></h2>
+		<p class="description" style="max-width:760px">
+			<?php esc_html_e( 'Pour tester un département ou un NAF précis avant de lancer le national. Plafonné à 500 par lancement. Pour la France entière, utilise l\'import national ci-dessus.', 'pluscestsimple' ); ?>
+		</p>
 
 		<form method="post">
 			<?php wp_nonce_field( 'pcs_directory_import', 'pcs_directory_import_nonce' ); ?>

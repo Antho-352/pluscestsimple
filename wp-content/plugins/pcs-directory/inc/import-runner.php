@@ -44,7 +44,8 @@ function pcs_directory_run_import( array $args ): array {
 	// Augmente le timeout PHP pour le batch (peut prendre quelques minutes).
 	@set_time_limit( 600 );
 
-	$per_page = 50;
+	// L'API Recherche Entreprises plafonne per_page à 25 (au-delà → HTTP 400).
+	$per_page = 25;
 	$page     = 1;
 	$fetched  = 0;
 

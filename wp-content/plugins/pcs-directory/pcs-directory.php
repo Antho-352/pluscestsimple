@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Annuaire — pluscestsimple
  * Description: Annuaire national des magasins déco/maison pour pluscestsimple.com. CPT pcs_etablissement + taxonomies type/région/ville + import Sirene/BAN/OSM + validation humaine + cron daily refresh + schema LocalBusiness. Démarrage NAF 47.59A/47.59B/47.53Z (déco), extensible plus tard.
- * Version:     1.0.0
+ * Version:     1.1.0
  * Author:      Anthony Russo
  * Requires PHP: 8.0
  * Requires at least: 7.0
@@ -24,7 +24,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 
 // ─── Constantes ──────────────────────────────────────────────────────────────
 
-const PCS_DIR_VERSION         = '1.0.0';
+const PCS_DIR_VERSION         = '1.1.0';
 const PCS_DIR_CPT             = 'pcs_etablissement';
 const PCS_DIR_TAX_TYPE        = 'pcs_etab_type';
 const PCS_DIR_TAX_REGION      = 'pcs_etab_region';
@@ -66,6 +66,7 @@ require_once PCS_DIR_DIR . '/inc/import-sirene.php';
 require_once PCS_DIR_DIR . '/inc/import-ban.php';
 require_once PCS_DIR_DIR . '/inc/import-osm.php';
 require_once PCS_DIR_DIR . '/inc/import-runner.php';
+require_once PCS_DIR_DIR . '/inc/import-national.php';
 
 if ( is_admin() ) {
 	require_once PCS_DIR_DIR . '/inc/admin-import.php';
@@ -156,6 +157,9 @@ register_activation_hook( __FILE__, 'pcs_directory_activate' );
  */
 function pcs_directory_deactivate(): void {
 	wp_clear_scheduled_hook( PCS_DIR_CRON_HOOK );
+	if ( defined( 'PCS_DIR_NAT_TICK_HOOK' ) ) {
+		wp_clear_scheduled_hook( PCS_DIR_NAT_TICK_HOOK );
+	}
 	flush_rewrite_rules();
 }
 register_deactivation_hook( __FILE__, 'pcs_directory_deactivate' );

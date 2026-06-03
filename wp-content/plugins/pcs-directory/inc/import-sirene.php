@@ -26,7 +26,8 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 function pcs_directory_import_sirene( array $args ): array {
 	$naf         = isset( $args['naf'] ) ? sanitize_text_field( (string) $args['naf'] ) : PCS_DIR_DEFAULT_NAF;
 	$departement = isset( $args['departement'] ) ? sanitize_text_field( (string) $args['departement'] ) : 'all';
-	$limite      = isset( $args['limite'] ) ? max( 1, min( 250, (int) $args['limite'] ) ) : 50;
+	// L'API Recherche Entreprises plafonne per_page à 25 (au-delà → HTTP 400).
+	$limite      = isset( $args['limite'] ) ? max( 1, min( 25, (int) $args['limite'] ) ) : 25;
 	$page        = isset( $args['page'] ) ? max( 1, (int) $args['page'] ) : 1;
 
 	// L'API accepte un seul activite_principale par requête mais supporte plusieurs
@@ -65,10 +66,17 @@ function pcs_directory_import_sirene( array $args ): array {
 	}
 	$code = (int) wp_remote_retrieve_response_code( $response );
 	if ( $code < 200 || $code >= 300 ) {
+		// Remonter le message d'erreur renvoyé par l'API (champ "erreur"),
+		// sinon on reste aveugle sur la cause réelle d'un HTTP 4xx/5xx.
+		$detail = '';
+		$err_body = json_decode( (string) wp_remote_retrieve_body( $response ), true );
+		if ( is_array( $err_body ) && ! empty( $err_body['erreur'] ) ) {
+			$detail = ' — ' . sanitize_text_field( (string) $err_body['erreur'] );
+		}
 		return [
 			'etablissements' => [],
 			'total'          => 0,
-			'error'          => 'sirene: HTTP ' . $code,
+			'error'          => 'sirene: HTTP ' . $code . $detail,
 		];
 	}
 	$body = wp_remote_retrieve_body( $response );

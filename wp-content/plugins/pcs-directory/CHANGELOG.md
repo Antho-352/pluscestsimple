@@ -1,5 +1,19 @@
 # Changelog — Annuaire pluscestsimple
 
+## 1.1.0 — 2026-06-03
+
+### Fix — import cassé (HTTP 400)
+- L'API Recherche Entreprises plafonne `per_page` à 25. Le code envoyait 50 → `HTTP 400`. Corrigé dans `import-sirene.php` (cap 25) et `import-runner.php` (`$per_page = 25`).
+- Le message d'erreur API (champ `erreur`) est désormais remonté dans le détail au lieu d'un « HTTP 400 » aveugle.
+
+### Feat — Import national complet (asynchrone, résumable)
+- Nouveau module `inc/import-national.php`. Contourne le double plafond de l'API (`per_page ≤ 25` ET `page × per_page ≤ 10 000`) en partitionnant la requête par département (101 partitions, chacune < 10 000 résultats).
+- Machine à états persistée (`pcs_directory_national_state`) : reprise automatique après timeout/crash.
+- Ticks bornés (~20 s) auto-propulsés via cron single-event + loopback admin-ajax non bloquant → tourne en tâche de fond sans dépendre du trafic.
+- UI admin : bouton « Démarrer l'import national », barre de progression live (poll AJAX), pause/reprise/réinitialisation.
+- Dédup globale par SIRET, tout en `draft` (validation humaine inchangée).
+- L'ancien import synchrone devient « Import ciblé (test qualité) ».
+
 ## 1.0.0 — 2026-05-21
 
 Version initiale.
