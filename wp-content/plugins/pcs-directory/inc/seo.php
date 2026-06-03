@@ -1,63 +1,42 @@
 <?php
 /**
- * SEO & schema.org pour les fiches établissement.
+ * SEO — meta descriptions + schema.org LocalBusiness.
  *
- * - Émet un bloc JSON-LD LocalBusiness dans le <head> des single.
- * - Customise le <title> et la meta description (fallback si aucun plugin SEO actif).
- *
- * Le plugin pluscestsimple/Yoast équivalents ne sont PAS supposés présents
- * (cf. CLAUDE.md, "no Yoast/RankMath"). On gère le minimum requis nous-mêmes.
+ * Pas de Yoast/RankMath. On gère le minimum requis en natif.
  *
  * @package PCS_Directory
  */
 
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
-/**
- * Émet le JSON-LD LocalBusiness dans le <head> des fiches publish.
- *
- * @return void
- */
-function pcs_directory_emit_schema_jsonld(): void {
-	if ( ! is_singular( PCS_DIR_CPT ) ) {
-		return;
-	}
+// ─── JSON-LD LocalBusiness (single boutique) ───────────────────────────────────
+
+add_action( 'wp_head', function (): void {
+	if ( ! is_singular( PCS_DIR_CPT ) ) { return; }
+
 	$pid = (int) get_queried_object_id();
-	if ( ! $pid || 'publish' !== get_post_status( $pid ) ) {
-		return;
+	if ( ! $pid || 'publish' !== get_post_status( $pid ) ) { return; }
+
+	$nom      = get_the_title( $pid );
+	$adresse  = (string) get_post_meta( $pid, '_pcs_adresse', true );
+	$cp       = (string) get_post_meta( $pid, '_pcs_code_postal', true );
+	$ville    = '';
+	// Extraire ville depuis taxonomie pcs_ville.
+	$ville_terms = get_the_terms( $pid, 'pcs_ville' );
+	if ( is_array( $ville_terms ) && $ville_terms ) {
+		$ville = $ville_terms[0]->name;
 	}
-
-	$schema = pcs_directory_build_local_business_schema( $pid );
-	if ( empty( $schema ) ) {
-		return;
-	}
-
-	echo "\n" . '<script type="application/ld+json">' . wp_json_encode( $schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE ) . "</script>\n";
-}
-add_action( 'wp_head', 'pcs_directory_emit_schema_jsonld', 20 );
-
-/**
- * Construit l'objet schema.org/LocalBusiness pour un établissement.
- *
- * @param int $post_id ID de l'établissement.
- * @return array<string, mixed>
- */
-function pcs_directory_build_local_business_schema( int $post_id ): array {
-	$nom         = get_the_title( $post_id );
-	$adresse     = (string) get_post_meta( $post_id, '_pcs_etab_adresse', true );
-	$cp          = (string) get_post_meta( $post_id, '_pcs_etab_code_postal', true );
-	$ville       = (string) get_post_meta( $post_id, '_pcs_etab_ville', true );
-	$lat         = (float)  get_post_meta( $post_id, '_pcs_etab_lat', true );
-	$lng         = (float)  get_post_meta( $post_id, '_pcs_etab_lng', true );
-	$tel         = (string) get_post_meta( $post_id, '_pcs_etab_telephone', true );
-	$site        = (string) get_post_meta( $post_id, '_pcs_etab_site_web', true );
-	$horaires    = (string) get_post_meta( $post_id, '_pcs_etab_horaires_text', true );
+	$lat     = (float) get_post_meta( $pid, '_pcs_lat', true );
+	$lng     = (float) get_post_meta( $pid, '_pcs_lng', true );
+	$tel     = (string) get_post_meta( $pid, '_pcs_phone', true );
+	$site    = (string) get_post_meta( $pid, '_pcs_website', true );
+	$horaires = (string) get_post_meta( $pid, '_pcs_hours', true );
 
 	$schema = [
 		'@context' => 'https://schema.org',
 		'@type'    => 'LocalBusiness',
 		'name'     => $nom,
-		'url'      => get_permalink( $post_id ),
+		'url'      => get_permalink( $pid ),
 		'address'  => [
 			'@type'           => 'PostalAddress',
 			'streetAddress'   => $adresse,
@@ -67,99 +46,102 @@ function pcs_directory_build_local_business_schema( int $post_id ): array {
 		],
 	];
 
-	if ( 0.0 !== $lat && 0.0 !== $lng ) {
+	if ( $lat && $lng ) {
 		$schema['geo'] = [
 			'@type'     => 'GeoCoordinates',
 			'latitude'  => $lat,
 			'longitude' => $lng,
 		];
 	}
-	if ( '' !== $tel ) {
-		$schema['telephone'] = $tel;
-	}
-	if ( '' !== $site ) {
-		$schema['sameAs'] = [ $site ];
-	}
-	if ( '' !== $horaires ) {
-		// Format libre — schema.org accepte une string description. Pour un format
-		// structuré "Mo-Fr 10:00-19:00", il faudrait parser le texte. v2.
-		$schema['openingHours'] = $horaires;
-	}
-	if ( has_post_thumbnail( $post_id ) ) {
-		$img = wp_get_attachment_image_url( get_post_thumbnail_id( $post_id ), 'large' );
-		if ( $img ) {
-			$schema['image'] = $img;
-		}
+	if ( $tel ) { $schema['telephone'] = $tel; }
+	if ( $site ) { $schema['sameAs'] = [ $site ]; }
+	if ( $horaires ) { $schema['openingHours'] = $horaires; }
+
+	if ( has_post_thumbnail( $pid ) ) {
+		$img = wp_get_attachment_image_url( get_post_thumbnail_id( $pid ), 'large' );
+		if ( $img ) { $schema['image'] = $img; }
 	}
 
-	return $schema;
-}
+	echo "\n" . '<script type="application/ld+json">'
+		. wp_json_encode( $schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE )
+		. "</script>\n";
+}, 20 );
 
-/**
- * Customise le <title> des fiches établissement.
- *
- * Format : "<nom> — <type> à <ville> | Annuaire pluscestsimple"
- *
- * @param array<string, string> $title Tableau title-parts WordPress.
- * @return array<string, string>
- */
-function pcs_directory_filter_title_parts( array $title ): array {
-	if ( ! is_singular( PCS_DIR_CPT ) ) {
-		return $title;
-	}
-	$pid    = (int) get_queried_object_id();
-	$nom    = get_the_title( $pid );
-	$ville  = (string) get_post_meta( $pid, '_pcs_etab_ville', true );
-	$type   = '';
-	$terms  = get_the_terms( $pid, PCS_DIR_TAX_TYPE );
-	if ( is_array( $terms ) && ! empty( $terms ) ) {
-		$type = (string) $terms[0]->name;
+// ─── Meta description ─────────────────────────────────────────────────────────
+
+add_action( 'wp_head', function (): void {
+	$desc = '';
+
+	// Fiche boutique.
+	if ( is_singular( PCS_DIR_CPT ) ) {
+		$pid   = (int) get_queried_object_id();
+		$nom   = get_the_title( $pid );
+		$types = get_the_terms( $pid, 'pcs_type' );
+		$cats  = get_the_terms( $pid, 'pcs_cat' );
+		$villes = get_the_terms( $pid, 'pcs_ville' );
+		$type  = ( is_array( $types ) && $types ) ? $types[0]->name : '';
+		$cat   = ( is_array( $cats ) && $cats ) ? $cats[0]->name : '';
+		$ville = ( is_array( $villes ) && $villes ) ? $villes[0]->name : '';
+		$parts = array_filter( [ $type, $cat ] );
+		$desc  = $nom
+			. ( $parts ? ' — ' . implode( ', ', $parts ) : '' )
+			. ( $ville ? " à {$ville}" : '' )
+			. '. Adresse, horaires, téléphone et site web.';
+
+	// Département.
+	} elseif ( is_tax( 'pcs_dept' ) ) {
+		$term  = get_queried_object();
+		$count = $term->count ?? 0;
+		$name  = $term->name ?? '';
+		$desc  = "Découvrez {$count} magasins de décoration et ameublement dans le département {$name}. Meubles, déco, luminaires, cuisines...";
+
+	// Région.
+	} elseif ( is_tax( 'pcs_region' ) ) {
+		$term  = get_queried_object();
+		$count = $term->count ?? 0;
+		$name  = $term->name ?? '';
+		$desc  = "Trouvez les meilleurs magasins de déco et maison en {$name}. {$count} boutiques référencées sur pluscestsimple.com.";
+
+	// Ville.
+	} elseif ( is_tax( 'pcs_ville' ) ) {
+		$term  = get_queried_object();
+		$count = $term->count ?? 0;
+		$name  = $term->name ?? '';
+		$desc  = "Magasins de décoration et ameublement à {$name} — {$count} boutiques référencées. Adresses, horaires, sites web.";
+
+	// Catégorie.
+	} elseif ( is_tax( 'pcs_cat' ) ) {
+		$term  = get_queried_object();
+		$count = $term->count ?? 0;
+		$name  = $term->name ?? '';
+		$desc  = "{$count} magasins {$name} en France. Comparez les enseignes, trouvez le magasin le plus proche de chez vous.";
+
+	// Archive page mère.
+	} elseif ( is_post_type_archive( PCS_DIR_CPT ) ) {
+		$desc = 'Annuaire complet des magasins de décoration et ameublement en France. Meubles, déco, luminaires, cuisines — trouvez une boutique près de chez vous.';
 	}
 
-	$parts = [ $nom ];
-	if ( '' !== $type ) {
-		$parts[] = $type;
-	}
-	if ( '' !== $ville ) {
-		/* translators: %s: nom de la ville. */
-		$parts[] = sprintf( __( 'à %s', 'pluscestsimple' ), $ville );
-	}
+	$desc = wp_strip_all_tags( $desc );
+	$desc = mb_substr( $desc, 0, 160 );
 
-	$title['title']   = implode( ' — ', $parts );
-	$title['site']    = __( 'Annuaire pluscestsimple', 'pluscestsimple' );
-	$title['tagline'] = '';
+	if ( '' !== trim( $desc ) ) {
+		echo "\n" . '<meta name="description" content="' . esc_attr( $desc ) . '" />' . "\n";
+	}
+}, 5 );
+
+// ─── Titre document ──────────────────────────────────────────────────────────
+
+add_filter( 'document_title_parts', function ( array $title ): array {
+	if ( is_singular( PCS_DIR_CPT ) ) {
+		$pid    = (int) get_queried_object_id();
+		$nom    = get_the_title( $pid );
+		$villes = get_the_terms( $pid, 'pcs_ville' );
+		$ville  = ( is_array( $villes ) && $villes ) ? $villes[0]->name : '';
+		$title['title']   = $nom . ( $ville ? " — {$ville}" : '' );
+		$title['tagline'] = '';
+	} elseif ( is_post_type_archive( PCS_DIR_CPT ) ) {
+		$title['title']   = 'Annuaire magasins déco et maison en France';
+		$title['tagline'] = '';
+	}
 	return $title;
-}
-add_filter( 'document_title_parts', 'pcs_directory_filter_title_parts' );
-
-/**
- * Émet une meta description : excerpt + ville + type.
- *
- * @return void
- */
-function pcs_directory_emit_meta_description(): void {
-	if ( ! is_singular( PCS_DIR_CPT ) ) {
-		return;
-	}
-	$pid     = (int) get_queried_object_id();
-	$excerpt = get_the_excerpt( $pid );
-	$ville   = (string) get_post_meta( $pid, '_pcs_etab_ville', true );
-
-	$type  = '';
-	$terms = get_the_terms( $pid, PCS_DIR_TAX_TYPE );
-	if ( is_array( $terms ) && ! empty( $terms ) ) {
-		$type = (string) $terms[0]->name;
-	}
-
-	$parts = array_filter( [ $excerpt, $type, $ville ] );
-	$desc  = implode( ' · ', $parts );
-	$desc  = wp_strip_all_tags( $desc );
-	$desc  = mb_substr( $desc, 0, 160 );
-
-	if ( '' === trim( $desc ) ) {
-		return;
-	}
-
-	echo "\n" . '<meta name="description" content="' . esc_attr( $desc ) . '" />' . "\n";
-}
-add_action( 'wp_head', 'pcs_directory_emit_meta_description', 5 );
+} );

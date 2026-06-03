@@ -1,469 +1,428 @@
-/* ───────────────────────────────────────────────────────────────────────────
- * Annuaire — pluscestsimple
- *
- * Styles : grille filtres, cartes, fiche établissement, carte placeholder.
- * Convention CSS : .pcs-directory-* (cohérent avec le reste du projet).
- * Pas de framework. Vanilla. Mobile-first.
- * ─────────────────────────────────────────────────────────────────────────── */
+/* ─────────────────────────────────────────────────────────────────────────────
+ * Annuaire pcs-directory v2
+ * Mobile-first · Vanilla CSS · No framework
+ * Classes : .pcs-* (préfixe v2)
+ * ───────────────────────────────────────────────────────────────────────────── */
 
-/* ─── Container & layout général ────────────────────────────────────────── */
-
-.pcs-directory {
-	max-width: 1200px;
-	margin: 0 auto;
-	padding: 1.5rem 1rem 3rem;
-	color: #1a1a1a;
+/* ─── Variables ────────────────────────────────────────────────────────────── */
+:root {
+  --pcs-accent:      #1a6b3a;
+  --pcs-accent-lt:   #e8f5ee;
+  --pcs-bg:          #ffffff;
+  --pcs-bg-muted:    #f7f8f6;
+  --pcs-border:      #e2e6e1;
+  --pcs-text:        #1a1a1a;
+  --pcs-text-muted:  #666;
+  --pcs-radius:      8px;
+  --pcs-shadow:      0 2px 12px rgba(0,0,0,.07);
+  --pcs-shadow-hover:0 6px 20px rgba(0,0,0,.12);
 }
 
-.pcs-directory__container {
-	width: 100%;
+/* ─── Layout global annuaire ─────────────────────────────────────────────── */
+.pcs-archive,
+.pcs-taxonomy,
+.pcs-single {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 4rem;
+  color: var(--pcs-text);
 }
 
-.pcs-directory__header {
-	margin-bottom: 1.5rem;
+/* ─── Header section ─────────────────────────────────────────────────────── */
+.pcs-archive-header,
+.pcs-tax-header {
+  margin-bottom: 1.5rem;
 }
 
-.pcs-directory__title {
-	font-size: clamp(1.75rem, 3.5vw, 2.5rem);
-	line-height: 1.15;
-	margin: 0 0 0.5rem;
+.pcs-archive-header h1,
+.pcs-tax-header h1 {
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  line-height: 1.15;
+  margin: 0 0 .5rem;
 }
 
-.pcs-directory__count {
-	color: #666;
-	font-size: 0.95rem;
-	margin: 0;
+.pcs-archive-header p,
+.pcs-tax-header p {
+  color: var(--pcs-text-muted);
+  margin: 0;
+  font-size: 1rem;
 }
 
-.pcs-directory__intro {
-	color: #444;
-	margin: 0.75rem 0;
+/* ─── Filtres ────────────────────────────────────────────────────────────── */
+.pcs-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem;
+  align-items: flex-end;
+  background: var(--pcs-bg-muted);
+  border: 1px solid var(--pcs-border);
+  border-radius: var(--pcs-radius);
+  padding: 1rem;
+  margin-bottom: 1.25rem;
 }
 
-.pcs-directory__empty {
-	background: #f7f7f7;
-	border: 1px solid #e4e4e4;
-	padding: 1.5rem;
-	text-align: center;
-	border-radius: 6px;
-	color: #555;
+.pcs-filters select {
+  flex: 1 1 160px;
+  padding: .5rem .65rem;
+  border: 1px solid var(--pcs-border);
+  border-radius: 6px;
+  background: var(--pcs-bg);
+  font-size: .9rem;
+  color: var(--pcs-text);
+  cursor: pointer;
 }
 
-/* ─── Filtres ───────────────────────────────────────────────────────────── */
-
-.pcs-directory-filters {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	gap: 0.75rem;
-	background: #f9f9f9;
-	border: 1px solid #e4e4e4;
-	padding: 1rem;
-	border-radius: 8px;
-	margin-bottom: 1.5rem;
+.pcs-filters select:focus {
+  outline: 2px solid var(--pcs-accent);
+  outline-offset: 1px;
 }
 
-.pcs-directory-filters__toggle {
-	display: none;
-	grid-column: 1 / -1;
-	background: #1a1a1a;
-	color: #fff;
-	border: 0;
-	padding: 0.6rem 1rem;
-	border-radius: 6px;
-	cursor: pointer;
-	font-weight: 600;
+.pcs-filter-btn {
+  flex: 0 0 auto;
+  background: var(--pcs-accent);
+  color: #fff;
+  border: 0;
+  padding: .55rem 1.25rem;
+  border-radius: 6px;
+  font-size: .9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity .15s;
 }
 
-.pcs-directory-filters__group {
-	display: flex;
-	flex-direction: column;
-	gap: 0.25rem;
+.pcs-filter-btn:hover { opacity: .88; }
+
+.pcs-filter-btn.is-loading {
+  opacity: .6;
+  cursor: wait;
 }
 
-.pcs-directory-filters__group label {
-	font-size: 0.85rem;
-	color: #555;
-	font-weight: 600;
+/* ─── Carte Leaflet ──────────────────────────────────────────────────────── */
+.pcs-map {
+  width: 100%;
+  height: 420px;
+  border-radius: var(--pcs-radius);
+  border: 1px solid var(--pcs-border);
+  margin-bottom: 1.5rem;
+  background: var(--pcs-bg-muted);
+  position: relative;
+  overflow: hidden;
 }
 
-.pcs-directory-filters__group select {
-	padding: 0.5rem 0.6rem;
-	border: 1px solid #ccc;
-	border-radius: 4px;
-	background: #fff;
-	font-size: 0.95rem;
+.pcs-map--single {
+  height: 280px;
+  margin: 1.25rem 0;
 }
 
-.pcs-directory-filters__submit {
-	grid-column: 1 / -1;
-	background: #0073aa;
-	color: #fff;
-	border: 0;
-	padding: 0.65rem 1.25rem;
-	border-radius: 6px;
-	cursor: pointer;
-	font-weight: 600;
-	font-size: 0.95rem;
+.pcs-map-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--pcs-text-muted);
+  font-style: italic;
+  font-size: .95rem;
 }
 
-.pcs-directory-filters__submit:hover {
-	background: #005d8a;
+/* ─── Grille boutiques ───────────────────────────────────────────────────── */
+.pcs-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  min-height: 60px;
+  transition: opacity .2s;
 }
 
-@media (min-width: 720px) {
-	.pcs-directory-filters {
-		grid-template-columns: repeat(4, 1fr) auto;
-		align-items: end;
-	}
-	.pcs-directory-filters__submit {
-		grid-column: auto;
-	}
-}
-
-@media (max-width: 540px) {
-	.pcs-directory-filters {
-		grid-template-columns: 1fr;
-	}
-	.pcs-directory-filters__toggle {
-		display: block;
-	}
-	.pcs-directory-filters[data-open="false"] .pcs-directory-filters__group,
-	.pcs-directory-filters[data-open="false"] .pcs-directory-filters__submit {
-		display: none;
-	}
-}
-
-/* ─── Grille des cartes ────────────────────────────────────────────────── */
-
-.pcs-directory__grid {
-	display: grid;
-	grid-template-columns: 1fr;
-	gap: 1rem;
-	margin: 1.5rem 0;
-}
+.pcs-grid.is-loading { opacity: .4; pointer-events: none; }
 
 @media (min-width: 540px) {
-	.pcs-directory__grid {
-		grid-template-columns: repeat(2, 1fr);
-		gap: 1.25rem;
-	}
+  .pcs-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
-@media (min-width: 900px) {
-	.pcs-directory__grid {
-		grid-template-columns: repeat(3, 1fr);
-	}
+@media (min-width: 860px) {
+  .pcs-grid { grid-template-columns: repeat(3, 1fr); }
 }
 
 @media (min-width: 1100px) {
-	.pcs-directory__grid {
-		grid-template-columns: repeat(4, 1fr);
-	}
+  .pcs-grid { grid-template-columns: repeat(4, 1fr); }
 }
 
-/* Mobile compact : <540px → cartes en mode liste (image à gauche). */
-@media (max-width: 539px) {
-	.pcs-directory-card__link {
-		display: grid;
-		grid-template-columns: 100px 1fr;
-		gap: 0.75rem;
-		align-items: center;
-	}
-	.pcs-directory-card__media {
-		aspect-ratio: 1 / 1;
-		width: 100px;
-		height: 100px;
-	}
-	.pcs-directory-card__body {
-		padding: 0.5rem 0.75rem 0.5rem 0;
-	}
-	.pcs-directory-card__title {
-		font-size: 1rem;
-	}
+/* ─── Card boutique ──────────────────────────────────────────────────────── */
+.pcs-card {
+  background: var(--pcs-bg);
+  border: 1px solid var(--pcs-border);
+  border-radius: var(--pcs-radius);
+  overflow: hidden;
+  transition: box-shadow .15s, transform .15s;
+  display: flex;
+  flex-direction: column;
 }
 
-/* ─── Carte établissement (card) ───────────────────────────────────────── */
-
-.pcs-directory-card {
-	background: #fff;
-	border: 1px solid #e4e4e4;
-	border-radius: 8px;
-	overflow: hidden;
-	transition: box-shadow 0.15s ease, transform 0.15s ease;
+.pcs-card:hover {
+  box-shadow: var(--pcs-shadow-hover);
+  transform: translateY(-2px);
 }
 
-.pcs-directory-card:hover {
-	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-	transform: translateY(-2px);
+.pcs-card.is-enseigne {
+  border-color: #c8d9b8;
+  box-shadow: 0 0 0 2px rgba(26,107,58,.08);
 }
 
-.pcs-directory-card.is-featured {
-	border-color: #ffc107;
-	box-shadow: 0 0 0 2px rgba(255, 193, 7, 0.15);
+.pcs-card__link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  flex: 1;
 }
 
-.pcs-directory-card__link {
-	display: block;
-	color: inherit;
-	text-decoration: none;
+.pcs-card__thumbnail {
+  aspect-ratio: 4/3;
+  background: var(--pcs-bg-muted);
+  overflow: hidden;
 }
 
-.pcs-directory-card__media {
-	aspect-ratio: 4 / 3;
-	background: #f0f0f0;
-	overflow: hidden;
+.pcs-card__thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
-.pcs-directory-card__media img,
-.pcs-directory-card__img {
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	display: block;
+.pcs-card__thumbnail-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #eef2ee 25%, #e5ebe5 50%, #eef2ee 75%);
+  background-size: 20px 20px;
 }
 
-.pcs-directory-card__media--placeholder {
-	background: linear-gradient(135deg, #f0f0f0 25%, #e8e8e8 25%, #e8e8e8 50%, #f0f0f0 50%, #f0f0f0 75%, #e8e8e8 75%);
-	background-size: 12px 12px;
+.pcs-card__body {
+  padding: .85rem 1rem 1rem;
 }
 
-.pcs-directory-card__body {
-	padding: 0.85rem 1rem 1rem;
+.pcs-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .3rem;
+  margin-bottom: .45rem;
 }
 
-.pcs-directory-card__badge {
-	display: inline-block;
-	font-size: 0.7rem;
-	font-weight: 700;
-	text-transform: uppercase;
-	letter-spacing: 0.04em;
-	padding: 2px 8px;
-	border-radius: 999px;
-	margin-right: 4px;
-	margin-bottom: 6px;
+.pcs-badge {
+  display: inline-block;
+  font-size: .7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  padding: 2px 8px;
+  border-radius: 99px;
+  line-height: 1.6;
 }
 
-.pcs-directory-card__badge--type {
-	background: #eef4f9;
-	color: #0073aa;
+.pcs-badge--cat {
+  background: var(--pcs-accent-lt);
+  color: var(--pcs-accent);
 }
 
-.pcs-directory-card__badge--featured {
-	background: #fff8e1;
-	color: #b87b00;
+.pcs-badge--type {
+  background: #eef4fb;
+  color: #1a5a8a;
 }
 
-.pcs-directory-card__title {
-	font-size: 1.05rem;
-	line-height: 1.25;
-	margin: 0.25rem 0 0.35rem;
-	color: #1a1a1a;
+.pcs-badge--enseigne {
+  background: #fff8e1;
+  color: #8a6000;
 }
 
-.pcs-directory-card__meta {
-	color: #666;
-	font-size: 0.875rem;
-	margin: 0;
+.pcs-badge--web {
+  background: #e8f5ee;
+  color: #1a6b3a;
 }
 
-/* ─── Fiche établissement (single) ─────────────────────────────────────── */
-
-.pcs-directory--single .pcs-directory__article {
-	max-width: 840px;
-	margin: 0 auto;
+.pcs-badge--phone {
+  background: #e8f0fb;
+  color: #1a3b8a;
 }
 
-.pcs-directory__hero {
-	margin: 0 0 1.5rem;
-	border-radius: 8px;
-	overflow: hidden;
+.pcs-card__title {
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.25;
+  margin: 0 0 .3rem;
+  color: var(--pcs-text);
 }
 
-.pcs-directory__hero img {
-	width: 100%;
-	height: auto;
-	display: block;
+.pcs-card__meta {
+  font-size: .82rem;
+  color: var(--pcs-text-muted);
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.pcs-directory__badges {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 0.4rem;
-	margin-bottom: 0.5rem;
+/* ─── Fiche boutique (single) ────────────────────────────────────────────── */
+.pcs-single__inner {
+  max-width: 820px;
+  margin: 0 auto;
 }
 
-.pcs-directory__badge {
-	font-size: 0.75rem;
-	font-weight: 700;
-	text-transform: uppercase;
-	letter-spacing: 0.04em;
-	padding: 4px 10px;
-	border-radius: 999px;
-	text-decoration: none;
+.pcs-single__hero {
+  border-radius: var(--pcs-radius);
+  overflow: hidden;
+  margin-bottom: 1.5rem;
 }
 
-.pcs-directory__badge--type {
-	background: #eef4f9;
-	color: #0073aa;
+.pcs-single__hero img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
-.pcs-directory__badge--featured {
-	background: #fff8e1;
-	color: #b87b00;
+.pcs-single__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .35rem;
+  margin-bottom: .6rem;
 }
 
-.pcs-directory__h1 {
-	font-size: clamp(1.75rem, 3vw, 2.5rem);
-	margin: 0.4rem 0 0.75rem;
-	line-height: 1.15;
+.pcs-single__h1 {
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  line-height: 1.15;
+  margin: 0 0 1.25rem;
 }
 
-.pcs-directory__lede {
-	font-size: 1.1rem;
-	color: #444;
-	margin: 0 0 1.5rem;
-	line-height: 1.5;
+.pcs-single__contact {
+  background: var(--pcs-bg-muted);
+  border: 1px solid var(--pcs-border);
+  border-radius: var(--pcs-radius);
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
 }
 
-.pcs-directory__content {
-	font-size: 1rem;
-	line-height: 1.65;
-	color: #2a2a2a;
-	margin: 0 0 2rem;
+.pcs-contact-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-.pcs-directory__section {
-	margin: 2rem 0;
-	padding-top: 1.5rem;
-	border-top: 1px solid #ececec;
+.pcs-contact-list li {
+  display: flex;
+  gap: .75rem;
+  padding: .45rem 0;
+  border-bottom: 1px dashed var(--pcs-border);
+  font-size: .95rem;
+  align-items: baseline;
 }
 
-.pcs-directory__section h2 {
-	font-size: 1.25rem;
-	margin: 0 0 0.75rem;
+.pcs-contact-list li:last-child { border-bottom: 0; }
+
+.pcs-contact-list strong {
+  min-width: 100px;
+  color: var(--pcs-text-muted);
+  font-weight: 600;
+  flex-shrink: 0;
 }
 
-.pcs-directory__address {
-	font-size: 1.05rem;
-	color: #333;
-	margin: 0 0 1rem;
+.pcs-contact-list a {
+  color: var(--pcs-accent);
+  word-break: break-all;
 }
 
-.pcs-directory__contact-list {
-	list-style: none;
-	margin: 0;
-	padding: 0;
+.pcs-single__nearby {
+  margin-top: 2.5rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--pcs-border);
 }
 
-.pcs-directory__contact-list li {
-	padding: 0.4rem 0;
-	border-bottom: 1px dashed #ececec;
+.pcs-single__nearby h2 {
+  font-size: 1.2rem;
+  margin: 0 0 1rem;
 }
 
-.pcs-directory__contact-list li:last-child {
-	border-bottom: 0;
+.pcs-nearby-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: .85rem;
 }
 
-.pcs-directory__contact-list strong {
-	display: inline-block;
-	min-width: 110px;
-	color: #555;
+@media (min-width: 640px) {
+  .pcs-nearby-grid { grid-template-columns: repeat(4, 1fr); }
 }
 
-.pcs-directory__sources {
-	margin-top: 2.5rem;
-	padding: 1rem 1.25rem;
-	background: #f7f7f7;
-	border-radius: 6px;
-	font-size: 0.9rem;
-	color: #555;
+.pcs-single__sources {
+  margin-top: 2rem;
+  padding: .85rem 1rem;
+  background: var(--pcs-bg-muted);
+  border-radius: 6px;
+  font-size: .82rem;
+  color: var(--pcs-text-muted);
 }
 
-.pcs-directory__sources p {
-	margin: 0 0 0.5rem;
+/* ─── Pagination ─────────────────────────────────────────────────────────── */
+.pcs-pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
 }
 
-.pcs-directory__sources small {
-	display: block;
-	color: #777;
-	font-size: 0.8rem;
+.pcs-pagination .nav-links {
+  display: flex;
+  gap: .35rem;
+  flex-wrap: wrap;
 }
 
-.pcs-directory__siret {
-	font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
-	font-size: 0.85rem;
+.pcs-pagination .page-numbers {
+  display: inline-block;
+  padding: .45rem .85rem;
+  border: 1px solid var(--pcs-border);
+  border-radius: 5px;
+  color: var(--pcs-text);
+  text-decoration: none;
+  font-size: .9rem;
 }
 
-/* ─── Carte (placeholder Leaflet) ──────────────────────────────────────── */
-
-.pcs-directory-map {
-	width: 100%;
-	height: 320px;
-	background: #eef2f5;
-	border: 1px dashed #c5cdd3;
-	border-radius: 8px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	color: #5a6c78;
-	margin: 1rem 0;
+.pcs-pagination .page-numbers.current {
+  background: var(--pcs-accent);
+  color: #fff;
+  border-color: var(--pcs-accent);
 }
 
-.pcs-directory-map__placeholder {
-	margin: 0;
-	font-size: 0.95rem;
-	font-style: italic;
+.pcs-pagination .page-numbers:hover:not(.current) {
+  background: var(--pcs-bg-muted);
 }
 
-/* Quand JS active la carte plus tard, ces classes prennent le relais. */
-.pcs-directory-map.is-active {
-	background: #fff;
-	border-style: solid;
+/* ─── Texte SEO bas de page ──────────────────────────────────────────────── */
+.pcs-seo-text {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--pcs-border);
+  color: var(--pcs-text-muted);
+  font-size: .92rem;
+  line-height: 1.7;
+  max-width: 800px;
 }
 
-.pcs-directory-map.is-active .pcs-directory-map__placeholder {
-	display: none;
+.pcs-seo-text h2 {
+  font-size: 1.15rem;
+  color: var(--pcs-text);
+  margin: 0 0 .75rem;
 }
 
-/* ─── Pagination ───────────────────────────────────────────────────────── */
-
-.pcs-directory__pagination {
-	margin-top: 2rem;
-	display: flex;
-	justify-content: center;
+/* ─── État vide ──────────────────────────────────────────────────────────── */
+.pcs-empty {
+  text-align: center;
+  padding: 2.5rem 1rem;
+  color: var(--pcs-text-muted);
+  background: var(--pcs-bg-muted);
+  border-radius: var(--pcs-radius);
+  border: 1px solid var(--pcs-border);
 }
 
-.pcs-directory__pagination .nav-links {
-	display: flex;
-	gap: 0.4rem;
-	flex-wrap: wrap;
-}
-
-.pcs-directory__pagination .page-numbers {
-	display: inline-block;
-	padding: 0.45rem 0.85rem;
-	border: 1px solid #d8d8d8;
-	border-radius: 4px;
-	color: #333;
-	text-decoration: none;
-	font-size: 0.95rem;
-}
-
-.pcs-directory__pagination .page-numbers.current {
-	background: #0073aa;
-	color: #fff;
-	border-color: #0073aa;
-}
-
-.pcs-directory__pagination .page-numbers:hover:not(.current) {
-	background: #f4f4f4;
-}
-
-/* ─── Admin tweaks (page validate) ─────────────────────────────────────── */
-
+/* ─── Admin ──────────────────────────────────────────────────────────────── */
 .pcs-directory-admin .form-table input[type="text"],
-.pcs-directory-admin .form-table input[type="number"],
 .pcs-directory-admin .form-table input[type="url"],
+.pcs-directory-admin .form-table input[type="number"],
 .pcs-directory-admin .form-table textarea {
-	max-width: 520px;
+  max-width: 560px;
 }
