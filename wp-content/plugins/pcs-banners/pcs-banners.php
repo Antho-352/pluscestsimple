@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Bannières — pluscestsimple
  * Description: Gestion des bannières publicitaires (display / sponsorisé / affilié) pour pluscestsimple.com. CPT pcs_banner + taxonomy pcs_banner_slot + bloc Gutenberg + shortcode. Cache transient 5 min, rel auto, étiquettes auto.
- * Version:     1.3.0
+ * Version:     1.3.1
  * Author:      Anthony Russo
  * Requires PHP: 8.0
  * Requires at least: 7.0
@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 
 // ─── Constantes ──────────────────────────────────────────────────────────────
 
-const PCS_BANNER_VERSION       = '1.3.0';
+const PCS_BANNER_VERSION       = '1.3.1';
 const PCS_BANNER_CPT           = 'pcs_banner';
 const PCS_BANNER_SLOT_TAX      = 'pcs_banner_slot';
 const PCS_BANNER_CACHE_PREFIX  = 'pcs_banner_';

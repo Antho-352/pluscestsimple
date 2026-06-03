@@ -297,8 +297,9 @@ function pcs_banner_slot_format( string $slot ): string {
 		'cat-sidebar-jardin'       => '300x600',
 		'cat-sidebar-architecture' => '300x600',
 		'cat-sidebar-lifestyle'    => '300x600',
+		// Bannière top homepage : format custom 1240×125 (aligné sur la largeur du héro)
+		'homepage-top'  => '1240x125',
 		// Billboards full-width (970×250)
-		'homepage-top'  => '970x250',
 		'homepage-mid'  => '970x250',
 		'category-mid'  => '970x250',
 		// Leaderboard (728×90)

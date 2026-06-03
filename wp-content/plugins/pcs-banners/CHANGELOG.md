@@ -1,5 +1,11 @@
 # Changelog — pcs-banners
 
+## 1.3.1 — 2026-05-25
+
+### Nouveau format placeholder pour le slot `homepage-top`
+
+Nouveau SVG `placeholder-1240x125.svg` (format custom, aligné sur la largeur max du héro homepage). Le mapping de `homepage-top` passe de `970x250` → `1240x125`.
+
 ## 1.3.0 — 2026-05-25
 
 ### Mode d'affichage par slot (3 états)
