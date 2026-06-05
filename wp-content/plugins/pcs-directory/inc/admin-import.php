@@ -91,7 +91,8 @@ function pcs_directory_admin_import_render(): void {
 					<?php if ( $dry_run ) : ?><strong>[DRY RUN — rien n'a été modifié]</strong> <?php endif; ?>
 					Créés : <strong><?php echo (int) $result['created']; ?></strong> &nbsp;|&nbsp;
 					Mis à jour : <strong><?php echo (int) $result['updated']; ?></strong> &nbsp;|&nbsp;
-					Ignorés (non-publics) : <strong><?php echo (int) $result['skipped']; ?></strong>
+					Ignorés (non-publics) : <strong><?php echo (int) $result['skipped']; ?></strong> &nbsp;|&nbsp;
+					Retirés (hors-sujet/fermés) : <strong><?php echo (int) ( $result['removed'] ?? 0 ); ?></strong>
 					<?php if ( $result['errors'] ) : ?>
 						&nbsp;|&nbsp; Erreurs : <strong><?php echo count( $result['errors'] ); ?></strong>
 					<?php endif; ?>

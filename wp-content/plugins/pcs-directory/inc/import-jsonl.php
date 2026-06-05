@@ -24,7 +24,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
  * @return array{created:int, updated:int, skipped:int, errors:string[]}
  */
 function pcs_directory_import_jsonl( string $filepath, bool $dry_run = false ): array {
-	$result = [ 'created' => 0, 'updated' => 0, 'skipped' => 0, 'errors' => [] ];
+	$result = [ 'created' => 0, 'updated' => 0, 'skipped' => 0, 'removed' => 0, 'errors' => [] ];
 
 	if ( ! file_exists( $filepath ) || ! is_readable( $filepath ) ) {
 		$result['errors'][] = "Fichier introuvable ou illisible : {$filepath}";
@@ -50,16 +50,27 @@ function pcs_directory_import_jsonl( string $filepath, bool $dry_run = false ): 
 			continue;
 		}
 
-		// Exclure les boutiques marquées non-publiques (designers/pros).
-		if ( isset( $data['public'] ) && false === $data['public'] ) {
-			$result['skipped']++;
-			continue;
-		}
-
 		// SIRET obligatoire.
 		$siret = sanitize_text_field( (string) ( $data['siret'] ?? '' ) );
 		if ( '' === $siret ) {
 			$result['errors'][] = "Ligne {$line_num} : SIRET manquant.";
+			continue;
+		}
+
+		// Boutiques non-publiques (designers/pros, hors-sujet, fermées).
+		// Si déjà en ligne → on la retire (corbeille) pour nettoyer l'annuaire.
+		if ( isset( $data['public'] ) && false === $data['public'] ) {
+			if ( ! $dry_run ) {
+				$existing = pcs_directory_find_post_by_siret( $siret );
+				if ( $existing ) {
+					wp_trash_post( $existing );
+					$result['removed']++;
+				} else {
+					$result['skipped']++;
+				}
+			} else {
+				$result['skipped']++;
+			}
 			continue;
 		}
 
