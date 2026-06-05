@@ -282,81 +282,9 @@
 	</section>
 	<!-- /wp:group -->
 
-	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-partners","layout":{"type":"constrained"}} -->
-	<section class="wp-block-group alignwide pcs-section pcs-partners">
-
-		<!-- wp:paragraph {"className":"pcs-eyebrow","textColor":"accent"} -->
-		<p class="pcs-eyebrow has-accent-color has-text-color">Notre sélection</p>
-		<!-- /wp:paragraph -->
-
-		<!-- wp:heading {"level":2,"className":"pcs-section__title"} -->
-		<h2 class="wp-block-heading pcs-section__title">Nos partenaires décoration</h2>
-		<!-- /wp:heading -->
-
-		<!-- wp:paragraph {"className":"pcs-section__lead"} -->
-		<p class="pcs-section__lead">Sélectionnés pour la qualité, la transparence et le service client. On choisit nos partenaires déco comme on choisirait pour notre propre salon — du vintage authentifié au bois massif garanti cinq ans, en passant par les peintures qui tiennent dix ans.</p>
-		<!-- /wp:paragraph -->
-
-		<!-- wp:html -->
-		<div class="pcs-partners__grid">
-
-			<article class="pcs-partner-card">
-				<span class="pcs-partner-card__badge">Partenaire</span>
-				<div class="pcs-partner-card__logo">Selency</div>
-				<h3 class="pcs-partner-card__name">Selency</h3>
-				<p class="pcs-partner-card__pitch">Brocante en ligne premium, sourcée par chineurs pros français, avec authentification des pièces signées de créateurs. Pour acheter du vintage sans le risque "dropshipping" qu'on trouve sur les marketplaces génériques.</p>
-				<p class="pcs-partner-card__cta"><a href="https://www.selency.fr" class="pcs-link-partner" rel="sponsored nofollow noopener">Voir Selency</a></p>
-			</article>
-
-			<article class="pcs-partner-card">
-				<span class="pcs-partner-card__badge">Partenaire</span>
-				<div class="pcs-partner-card__logo">La Redoute Int.</div>
-				<h3 class="pcs-partner-card__name">La Redoute Intérieurs</h3>
-				<p class="pcs-partner-card__pitch">Mobilier moyenne gamme et linge de maison fabriqués ou édités par La Redoute. SAV existant, retours simples, rapport qualité-prix honnête sur le mobilier de structure.</p>
-				<p class="pcs-partner-card__cta"><a href="https://www.laredoute.fr/pplp/500230.aspx" class="pcs-link-partner" rel="sponsored nofollow noopener">Voir La Redoute Intérieurs</a></p>
-			</article>
-
-			<article class="pcs-partner-card">
-				<span class="pcs-partner-card__badge">Partenaire</span>
-				<div class="pcs-partner-card__logo">Tikamoon</div>
-				<h3 class="pcs-partner-card__name">Tikamoon</h3>
-				<p class="pcs-partner-card__pitch">Mobilier en bois massif (teck, manguier, chêne) à prix accessible pour le segment, garantie constructeur cinq ans. Idéal quand on veut un meuble qui passe les dix ans sans plier.</p>
-				<p class="pcs-partner-card__cta"><a href="https://www.tikamoon.com" class="pcs-link-partner" rel="sponsored nofollow noopener">Voir Tikamoon</a></p>
-			</article>
-
-			<article class="pcs-partner-card">
-				<span class="pcs-partner-card__badge">Partenaire</span>
-				<div class="pcs-partner-card__logo">Ressource</div>
-				<h3 class="pcs-partner-card__name">Ressource Peintures</h3>
-				<p class="pcs-partner-card__pitch">Peintures haut de gamme françaises, pigments stables, tenue dans le temps. Plus cher à l'achat (40 à 60 € le litre selon finition et format) mais rentabilisé sur la durée de vie sans jaunissement.</p>
-				<p class="pcs-partner-card__cta"><a href="https://www.ressource-peintures.com" class="pcs-link-partner" rel="sponsored nofollow noopener">Voir Ressource Peintures</a></p>
-			</article>
-
-			<article class="pcs-partner-card">
-				<span class="pcs-partner-card__badge">Partenaire</span>
-				<div class="pcs-partner-card__logo">Castorama</div>
-				<h3 class="pcs-partner-card__name">Castorama</h3>
-				<p class="pcs-partner-card__pitch">Grande surface bricolage pour la peinture courante, l'outillage, les fournitures techniques. Pas pour le mobilier de structure, oui pour tout ce qui supporte la maison.</p>
-				<p class="pcs-partner-card__cta"><a href="https://www.castorama.fr" class="pcs-link-partner" rel="sponsored nofollow noopener">Voir Castorama</a></p>
-			</article>
-
-			<article class="pcs-partner-card">
-				<span class="pcs-partner-card__badge">Partenaire</span>
-				<div class="pcs-partner-card__logo">Label Emmaüs</div>
-				<h3 class="pcs-partner-card__name">Label Emmaüs</h3>
-				<p class="pcs-partner-card__pitch">E-commerce solidaire du réseau Emmaüs (coopérative SCIC créée en 2016). Mobilier et déco réemployés, prix maîtrisés, traçabilité française. Souvent du mobilier mieux fait que son équivalent neuf à prix égal.</p>
-				<p class="pcs-partner-card__cta"><a href="https://www.label-emmaus.co" class="pcs-link-partner" rel="sponsored nofollow noopener">Voir Label Emmaüs</a></p>
-			</article>
-
-		</div>
-		<p class="pcs-partners__charter">
-			<a href="/charte-partenaires/">Pourquoi ces partenaires ?</a>
-			<a href="/travailler-avec-nous/">Devenir partenaire</a>
-		</p>
-		<!-- /wp:html -->
-
-	</section>
-	<!-- /wp:group -->
+	<!-- wp:shortcode -->
+	[pcs_partners]
+	<!-- /wp:shortcode -->
 
 	<!-- wp:pattern {"slug":"pluscestsimple/disclosure-partners"} /-->
 

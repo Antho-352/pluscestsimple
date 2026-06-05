@@ -282,81 +282,9 @@
 	</section>
 	<!-- /wp:group -->
 
-	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-partners","layout":{"type":"constrained"}} -->
-	<section class="wp-block-group alignwide pcs-section pcs-partners">
-
-		<!-- wp:paragraph {"className":"pcs-eyebrow","textColor":"accent"} -->
-		<p class="pcs-eyebrow has-accent-color has-text-color">Notre sélection</p>
-		<!-- /wp:paragraph -->
-
-		<!-- wp:heading {"level":2,"className":"pcs-section__title"} -->
-		<h2 class="wp-block-heading pcs-section__title">Nos partenaires travaux</h2>
-		<!-- /wp:heading -->
-
-		<!-- wp:paragraph {"className":"pcs-section__lead"} -->
-		<p class="pcs-section__lead">Sélectionnés pour la qualité, la transparence et le SAV. On choisit nos partenaires comme on choisirait pour notre propre chantier — grande surface, spécialistes énergie, négoce pro et plateformes de mise en relation.</p>
-		<!-- /wp:paragraph -->
-
-		<!-- wp:html -->
-		<div class="pcs-partners__grid">
-
-			<article class="pcs-partner-card">
-				<span class="pcs-partner-card__badge">Partenaire</span>
-				<div class="pcs-partner-card__logo">Leroy Merlin</div>
-				<h3 class="pcs-partner-card__name">Leroy Merlin</h3>
-				<p class="pcs-partner-card__pitch">Grande surface bricolage, large catalogue, retrait magasin, gammes pro accessibles aux particuliers. Repère national pour comparer matériaux et outillage avant chantier.</p>
-				<p class="pcs-partner-card__cta"><a href="https://www.leroymerlin.fr" class="pcs-link-partner" rel="sponsored nofollow noopener">Voir Leroy Merlin</a></p>
-			</article>
-
-			<article class="pcs-partner-card">
-				<span class="pcs-partner-card__badge">Partenaire</span>
-				<div class="pcs-partner-card__logo">Effy</div>
-				<h3 class="pcs-partner-card__name">Effy</h3>
-				<p class="pcs-partner-card__pitch">Spécialiste rénovation énergétique : audit, dossiers MaPrimeRénov, réseau d'artisans RGE certifiés. Utile pour les pompes à chaleur et les rénovations d'ampleur avec Mon Accompagnateur Rénov'.</p>
-				<p class="pcs-partner-card__cta"><a href="https://www.effy.fr" class="pcs-link-partner" rel="sponsored nofollow noopener">Voir Effy</a></p>
-			</article>
-
-			<article class="pcs-partner-card">
-				<span class="pcs-partner-card__badge">Partenaire</span>
-				<div class="pcs-partner-card__logo">Hellio</div>
-				<h3 class="pcs-partner-card__name">Hellio</h3>
-				<p class="pcs-partner-card__pitch">Délégataire CEE pour pompe à chaleur et isolation, accompagnement administratif complet. Mandataire Anah depuis 2020, réseau d'artisans RGE qualifiés.</p>
-				<p class="pcs-partner-card__cta"><a href="https://www.hellio.com" class="pcs-link-partner" rel="sponsored nofollow noopener">Voir Hellio</a></p>
-			</article>
-
-			<article class="pcs-partner-card">
-				<span class="pcs-partner-card__badge">Partenaire</span>
-				<div class="pcs-partner-card__logo">Ootravaux</div>
-				<h3 class="pcs-partner-card__name">Ootravaux</h3>
-				<p class="pcs-partner-card__pitch">Mise en relation avec artisans qualifiés, devis comparés gratuits, suivi qualité du chantier. Utile pour comparer 3 devis sur un même geste (combles, fenêtres, sols).</p>
-				<p class="pcs-partner-card__cta"><a href="https://www.ootravaux.fr" class="pcs-link-partner" rel="sponsored nofollow noopener">Voir Ootravaux</a></p>
-			</article>
-
-			<article class="pcs-partner-card">
-				<span class="pcs-partner-card__badge">Partenaire</span>
-				<div class="pcs-partner-card__logo">Point.P</div>
-				<h3 class="pcs-partner-card__name">Point.P</h3>
-				<p class="pcs-partner-card__pitch">Négoce pro matériaux, prix négociés, plus de 800 agences en France. À comparer systématiquement avec une grande surface pour décrocher 15 à 25 % d'écart sur le carrelage, le placo ou l'isolant.</p>
-				<p class="pcs-partner-card__cta"><a href="https://www.pointp.fr" class="pcs-link-partner" rel="sponsored nofollow noopener">Voir Point.P</a></p>
-			</article>
-
-			<article class="pcs-partner-card">
-				<span class="pcs-partner-card__badge">Partenaire</span>
-				<div class="pcs-partner-card__logo">Castorama</div>
-				<h3 class="pcs-partner-card__name">Castorama</h3>
-				<p class="pcs-partner-card__pitch">Bricolage grand public, click & collect, gamme outillage et matériaux complète. Repère national pour les fournitures techniques et la peinture courante.</p>
-				<p class="pcs-partner-card__cta"><a href="https://www.castorama.fr" class="pcs-link-partner" rel="sponsored nofollow noopener">Voir Castorama</a></p>
-			</article>
-
-		</div>
-		<p class="pcs-partners__charter">
-			<a href="/charte-partenaires/">Pourquoi ces partenaires ?</a>
-			<a href="/travailler-avec-nous/">Devenir partenaire</a>
-		</p>
-		<!-- /wp:html -->
-
-	</section>
-	<!-- /wp:group -->
+	<!-- wp:shortcode -->
+	[pcs_partners]
+	<!-- /wp:shortcode -->
 
 	<!-- wp:pattern {"slug":"pluscestsimple/disclosure-partners"} /-->
 

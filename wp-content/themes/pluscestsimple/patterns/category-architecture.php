@@ -260,81 +260,9 @@
 	</section>
 	<!-- /wp:group -->
 
-	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-partners","layout":{"type":"constrained"}} -->
-	<section class="wp-block-group alignwide pcs-section pcs-partners">
-
-		<!-- wp:paragraph {"className":"pcs-eyebrow","textColor":"accent"} -->
-		<p class="pcs-eyebrow has-accent-color has-text-color">Notre sélection</p>
-		<!-- /wp:paragraph -->
-
-		<!-- wp:heading {"level":2,"className":"pcs-section__title"} -->
-		<h2 class="wp-block-heading pcs-section__title">Nos partenaires architecture</h2>
-		<!-- /wp:heading -->
-
-		<!-- wp:paragraph {"className":"pcs-section__lead"} -->
-		<p class="pcs-section__lead">Trois ressources publiques gratuites trop peu utilisées (CAUE, ADIL, France Rénov') et trois partenaires sélectionnés pour le bâti ancien et la rénovation énergétique réglementaire. On commence toujours par les ressources publiques avant d'engager le moindre euro.</p>
-		<!-- /wp:paragraph -->
-
-		<!-- wp:html -->
-		<div class="pcs-partners__grid">
-
-			<article class="pcs-partner-card">
-				<span class="pcs-partner-card__badge">Ressource publique</span>
-				<div class="pcs-partner-card__logo">CAUE</div>
-				<h3 class="pcs-partner-card__name">CAUE — Architecte conseil gratuit</h3>
-				<p class="pcs-partner-card__pitch">Conseil neutre pour faisabilité de projet, ABF, lecture du PLU, choix de matériaux sur bâti ancien. Aucune obligation d'achat, aucune mise en relation commerciale. Présent dans chaque département.</p>
-				<p class="pcs-partner-card__cta"><a href="https://www.fncaue.com/">Trouver le CAUE de votre département →</a></p>
-			</article>
-
-			<article class="pcs-partner-card">
-				<span class="pcs-partner-card__badge">Ressource publique</span>
-				<div class="pcs-partner-card__logo">ADIL</div>
-				<h3 class="pcs-partner-card__name">ADIL — Conseil juridique gratuit</h3>
-				<p class="pcs-partner-card__pitch">Vos questions sur permis de construire, recours, mitoyenneté, contrat d'architecte, marché de travaux, garanties (décennale, biennale). Présent dans presque tous les départements.</p>
-				<p class="pcs-partner-card__cta"><a href="https://www.anil.org/lanil-et-les-adil/votre-adil/">Annuaire ADIL national →</a></p>
-			</article>
-
-			<article class="pcs-partner-card">
-				<span class="pcs-partner-card__badge">Ressource publique</span>
-				<div class="pcs-partner-card__logo">France Rénov'</div>
-				<h3 class="pcs-partner-card__name">France Rénov' — Service public rénovation</h3>
-				<p class="pcs-partner-card__pitch">Service public d'accompagnement à la rénovation énergétique. Conseillers neutres pour identifier les aides (MaPrimeRénov', CEE, éco-PTZ, aides locales), comparer des devis, vérifier les artisans RGE.</p>
-				<p class="pcs-partner-card__cta"><a href="https://france-renov.gouv.fr/">france-renov.gouv.fr →</a></p>
-			</article>
-
-			<article class="pcs-partner-card">
-				<span class="pcs-partner-card__badge">Partenaire</span>
-				<div class="pcs-partner-card__logo">Hellio</div>
-				<h3 class="pcs-partner-card__name">Hellio</h3>
-				<p class="pcs-partner-card__pitch">Mandataire d'aides + travaux d'isolation et de chauffage. Pour propriétaires de pavillons énergivores : audit, devis, gestion administrative des aides CEE et MaPrimeRénov'. Mandataire Anah depuis 2020, réseau d'artisans RGE qualifiés.</p>
-				<p class="pcs-partner-card__cta"><a href="https://www.hellio.com/" class="pcs-link-partner" rel="sponsored nofollow noopener">Demander un audit →</a></p>
-			</article>
-
-			<article class="pcs-partner-card">
-				<span class="pcs-partner-card__badge">Partenaire</span>
-				<div class="pcs-partner-card__logo">Saint-Astier</div>
-				<h3 class="pcs-partner-card__name">Saint-Astier</h3>
-				<p class="pcs-partner-card__pitch">Chaux naturelle de référence pour bâti ancien. Producteur indépendant français (carrière du Périgord) de chaux hydrauliques naturelles NHL 2, 3,5 et 5 pour enduits, mortiers, joints sur pierre, pisé, brique ancienne.</p>
-				<p class="pcs-partner-card__cta"><a href="https://www.saint-astier.com/" class="pcs-link-partner" rel="sponsored nofollow noopener">Voir les produits →</a></p>
-			</article>
-
-			<article class="pcs-partner-card">
-				<span class="pcs-partner-card__badge">Partenaire</span>
-				<div class="pcs-partner-card__logo">Effy</div>
-				<h3 class="pcs-partner-card__name">Effy</h3>
-				<p class="pcs-partner-card__pitch">Audit énergétique réglementaire pour rénovation d'ampleur, accompagnement MaPrimeRénov' Parcours Accompagné (Mon Accompagnateur Rénov' obligatoire depuis janvier 2024), mise en relation artisans RGE.</p>
-				<p class="pcs-partner-card__cta"><a href="https://www.effy.fr/" class="pcs-link-partner" rel="sponsored nofollow noopener">Lancer un audit →</a></p>
-			</article>
-
-		</div>
-		<p class="pcs-partners__charter">
-			<a href="/charte-partenaires/">Pourquoi ces partenaires ?</a>
-			<a href="/travailler-avec-nous/">Devenir partenaire</a>
-		</p>
-		<!-- /wp:html -->
-
-	</section>
-	<!-- /wp:group -->
+	<!-- wp:shortcode -->
+	[pcs_partners]
+	<!-- /wp:shortcode -->
 
 	<!-- wp:pattern {"slug":"pluscestsimple/disclosure-partners"} /-->
 

@@ -276,81 +276,9 @@
 	</section>
 	<!-- /wp:group -->
 
-	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-partners","layout":{"type":"constrained"}} -->
-	<section class="wp-block-group alignwide pcs-section pcs-partners">
-
-		<!-- wp:paragraph {"className":"pcs-eyebrow","textColor":"accent"} -->
-		<p class="pcs-eyebrow has-accent-color has-text-color">Notre sélection</p>
-		<!-- /wp:paragraph -->
-
-		<!-- wp:heading {"level":2,"className":"pcs-section__title"} -->
-		<h2 class="wp-block-heading pcs-section__title">Nos partenaires jardin</h2>
-		<!-- /wp:heading -->
-
-		<!-- wp:paragraph {"className":"pcs-section__lead"} -->
-		<p class="pcs-section__lead">Sélectionnés pour la qualité des plants, la fiabilité des semences et le service. On choisit nos partenaires jardin comme on choisirait pour notre propre potager — du grainetier historique vosgien à la pépinière familiale du Nord, en passant par les grandes surfaces de bricolage pour l'outillage.</p>
-		<!-- /wp:paragraph -->
-
-		<!-- wp:html -->
-		<div class="pcs-partners__grid">
-
-			<article class="pcs-partner-card">
-				<span class="pcs-partner-card__badge">Partenaire</span>
-				<div class="pcs-partner-card__logo">Truffaut</div>
-				<h3 class="pcs-partner-card__name">Truffaut</h3>
-				<p class="pcs-partner-card__pitch">Jardinerie référence multi-régions, gamme potager et plantes adaptées climat. Repère national pour le test de sol en kit, les amendements et les plants de saison.</p>
-				<p class="pcs-partner-card__cta"><a href="https://www.truffaut.com" class="pcs-link-partner" rel="sponsored nofollow noopener">Voir Truffaut</a></p>
-			</article>
-
-			<article class="pcs-partner-card">
-				<span class="pcs-partner-card__badge">Partenaire</span>
-				<div class="pcs-partner-card__logo">Jardiland</div>
-				<h3 class="pcs-partner-card__name">Jardiland</h3>
-				<p class="pcs-partner-card__pitch">Réseau large, conseils débutant, gamme aromatiques et carrés potager. Bon point d'entrée pour démarrer un balcon ou un premier potager 4-20 m².</p>
-				<p class="pcs-partner-card__cta"><a href="https://www.jardiland.com" class="pcs-link-partner" rel="sponsored nofollow noopener">Voir Jardiland</a></p>
-			</article>
-
-			<article class="pcs-partner-card">
-				<span class="pcs-partner-card__badge">Partenaire</span>
-				<div class="pcs-partner-card__logo">Promesse de Fleurs</div>
-				<h3 class="pcs-partner-card__name">Promesse de Fleurs</h3>
-				<p class="pcs-partner-card__pitch">Pépinière familiale (Houplines, Nord, fondée 1950), vivaces, arbustes, plantes méditerranéennes adaptées climat 2026, expédition partout en France.</p>
-				<p class="pcs-partner-card__cta"><a href="https://www.promessedefleurs.com" class="pcs-link-partner" rel="sponsored nofollow noopener">Voir Promesse de Fleurs</a></p>
-			</article>
-
-			<article class="pcs-partner-card">
-				<span class="pcs-partner-card__badge">Partenaire</span>
-				<div class="pcs-partner-card__logo">Graines Baumaux</div>
-				<h3 class="pcs-partner-card__name">Graines Baumaux</h3>
-				<p class="pcs-partner-card__pitch">Grainetier vosgien (Mazirot, fondé 1943), gamme potagère la plus étoffée d'Europe, mainteneur officiel de plus de 390 variétés anciennes. Référence pour les semences fiables.</p>
-				<p class="pcs-partner-card__cta"><a href="https://www.graines-baumaux.fr" class="pcs-link-partner" rel="sponsored nofollow noopener">Voir Baumaux</a></p>
-			</article>
-
-			<article class="pcs-partner-card">
-				<span class="pcs-partner-card__badge">Partenaire</span>
-				<div class="pcs-partner-card__logo">Leroy Merlin</div>
-				<h3 class="pcs-partner-card__name">Leroy Merlin extérieur</h3>
-				<p class="pcs-partner-card__pitch">Carrés potager, terreau, récupérateurs d'eau, outillage motorisé. Repère national pour l'aménagement extérieur et les fournitures techniques.</p>
-				<p class="pcs-partner-card__cta"><a href="https://www.leroymerlin.fr/c/jardin-1300101144" class="pcs-link-partner" rel="sponsored nofollow noopener">Voir Leroy Merlin</a></p>
-			</article>
-
-			<article class="pcs-partner-card">
-				<span class="pcs-partner-card__badge">Partenaire</span>
-				<div class="pcs-partner-card__logo">Greenweez</div>
-				<h3 class="pcs-partner-card__name">Greenweez</h3>
-				<p class="pcs-partner-card__pitch">Bio et éco-conçu : terreaux sans tourbe, récupérateurs d'eau, paillage. Pour jardiner cohérent avec les enjeux climat 2026 (eau, biodiversité, sols vivants).</p>
-				<p class="pcs-partner-card__cta"><a href="https://www.greenweez.com" class="pcs-link-partner" rel="sponsored nofollow noopener">Voir Greenweez</a></p>
-			</article>
-
-		</div>
-		<p class="pcs-partners__charter">
-			<a href="/charte-partenaires/">Pourquoi ces partenaires ?</a>
-			<a href="/travailler-avec-nous/">Devenir partenaire</a>
-		</p>
-		<!-- /wp:html -->
-
-	</section>
-	<!-- /wp:group -->
+	<!-- wp:shortcode -->
+	[pcs_partners]
+	<!-- /wp:shortcode -->
 
 	<!-- wp:pattern {"slug":"pluscestsimple/disclosure-partners"} /-->
 

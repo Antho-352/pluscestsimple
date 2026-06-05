@@ -260,81 +260,9 @@
 	</section>
 	<!-- /wp:group -->
 
-	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-partners","layout":{"type":"constrained"}} -->
-	<section class="wp-block-group alignwide pcs-section pcs-partners">
-
-		<!-- wp:paragraph {"className":"pcs-eyebrow","textColor":"accent"} -->
-		<p class="pcs-eyebrow has-accent-color has-text-color">Notre sélection</p>
-		<!-- /wp:paragraph -->
-
-		<!-- wp:heading {"level":2,"className":"pcs-section__title"} -->
-		<h2 class="wp-block-heading pcs-section__title">Nos partenaires lifestyle</h2>
-		<!-- /wp:heading -->
-
-		<!-- wp:paragraph {"className":"pcs-section__lead"} -->
-		<p class="pcs-section__lead">Sélectionnés pour la durabilité, la mesure et la cohérence avec les angles signature de PCS : rangement modulable évolutif, bois massif durable, mesure réelle de l'air et de la lumière. Pas de gadget, pas de hygge à 200 € — du concret qui sert au quotidien.</p>
-		<!-- /wp:paragraph -->
-
-		<!-- wp:html -->
-		<div class="pcs-partners__grid">
-
-			<article class="pcs-partner-card">
-				<span class="pcs-partner-card__badge">Partenaire</span>
-				<div class="pcs-partner-card__logo">IKEA Algot</div>
-				<h3 class="pcs-partner-card__name">IKEA Algot</h3>
-				<p class="pcs-partner-card__pitch">Système de rangement mural modulable (rails + tablettes + paniers) à partir de 30 € le mètre linéaire. Évolutif chambre/dressing/cellier/buanderie, démontable lors d'un déménagement, accessoires compatibles dans le temps. Alternative au placard fait sur mesure pour 1/10ᵉ du prix.</p>
-				<p class="pcs-partner-card__cta"><a href="https://www.ikea.com/fr/fr/cat/algot-systeme-11468/" class="pcs-link-partner" rel="sponsored nofollow noopener">Voir IKEA Algot</a></p>
-			</article>
-
-			<article class="pcs-partner-card">
-				<span class="pcs-partner-card__badge">Partenaire</span>
-				<div class="pcs-partner-card__logo">La Redoute Int.</div>
-				<h3 class="pcs-partner-card__name">La Redoute Intérieurs</h3>
-				<p class="pcs-partner-card__pitch">Meubles de rangement type étagères modulables, commodes, bibliothèques. Gamme intermédiaire entre IKEA et le sur-mesure, finitions correctes (placage chêne, métal noir) à 200-500 € par pièce. Livraison France, retour 30 jours.</p>
-				<p class="pcs-partner-card__cta"><a href="https://www.laredoute.fr/" class="pcs-link-partner" rel="sponsored nofollow noopener">Voir La Redoute Intérieurs</a></p>
-			</article>
-
-			<article class="pcs-partner-card">
-				<span class="pcs-partner-card__badge">Partenaire</span>
-				<div class="pcs-partner-card__logo">Tikamoon</div>
-				<h3 class="pcs-partner-card__name">Tikamoon</h3>
-				<p class="pcs-partner-card__pitch">Meubles en bois massif (manguier, teck, chêne) pour rangement durable : commodes, bibliothèques, vestiaires d'entrée. Budget 400 à 1 200 € selon pièce. Investissement long terme face aux meubles en panneau qui durent 5-7 ans.</p>
-				<p class="pcs-partner-card__cta"><a href="https://www.tikamoon.com/" class="pcs-link-partner" rel="sponsored nofollow noopener">Voir Tikamoon</a></p>
-			</article>
-
-			<article class="pcs-partner-card">
-				<span class="pcs-partner-card__badge">Partenaire</span>
-				<div class="pcs-partner-card__logo">Netatmo</div>
-				<h3 class="pcs-partner-card__name">Netatmo Home Coach</h3>
-				<p class="pcs-partner-card__pitch">Capteur CO₂, humidité, température, bruit. Application iOS/Android, alertes quand le CO₂ dépasse 1 600 ppm. Environ 100 €. Utile pour appliquer concrètement les recommandations OQAI : aérer quand le CO₂ dépasse 1 000 ppm, identifier les pièces mal ventilées.</p>
-				<p class="pcs-partner-card__cta"><a href="https://www.netatmo.com/fr-fr/aircare/homecoach" class="pcs-link-partner" rel="sponsored nofollow noopener">Voir Netatmo Home Coach</a></p>
-			</article>
-
-			<article class="pcs-partner-card">
-				<span class="pcs-partner-card__badge">Partenaire</span>
-				<div class="pcs-partner-card__logo">Aqara</div>
-				<h3 class="pcs-partner-card__name">Aqara Hub M2</h3>
-				<p class="pcs-partner-card__pitch">Hub maison Zigbee 3.0 compatible Matter (bridge), centralise capteurs Aqara (température, humidité, ouverture) et automatisations (allumer ventilation si humidité > 65 %, baisser lumière à 21 h). Budget 60 à 100 € le hub, 15-40 € par capteur.</p>
-				<p class="pcs-partner-card__cta"><a href="https://www.aqara.com/en/product/hub-m2/" class="pcs-link-partner" rel="sponsored nofollow noopener">Voir Aqara Hub M2</a></p>
-			</article>
-
-			<article class="pcs-partner-card">
-				<span class="pcs-partner-card__badge">Partenaire</span>
-				<div class="pcs-partner-card__logo">Philips Hue</div>
-				<h3 class="pcs-partner-card__name">Philips Hue White Ambiance</h3>
-				<p class="pcs-partner-card__pitch">Ampoules connectées température de couleur variable (2 200 K à 6 500 K), automatisation jour/nuit selon le rythme circadien. Pack démarrage 3 ampoules + pont autour de 130 €. Utile en chambre, bureau, salon.</p>
-				<p class="pcs-partner-card__cta"><a href="https://www.philips-hue.com/fr-fr" class="pcs-link-partner" rel="sponsored nofollow noopener">Voir Philips Hue</a></p>
-			</article>
-
-		</div>
-		<p class="pcs-partners__charter">
-			<a href="/charte-partenaires/">Pourquoi ces partenaires ?</a>
-			<a href="/travailler-avec-nous/">Devenir partenaire</a>
-		</p>
-		<!-- /wp:html -->
-
-	</section>
-	<!-- /wp:group -->
+	<!-- wp:shortcode -->
+	[pcs_partners]
+	<!-- /wp:shortcode -->
 
 	<!-- wp:pattern {"slug":"pluscestsimple/disclosure-partners"} /-->
 

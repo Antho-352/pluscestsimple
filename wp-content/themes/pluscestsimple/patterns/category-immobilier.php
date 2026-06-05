@@ -282,81 +282,9 @@
 	</section>
 	<!-- /wp:group -->
 
-	<!-- wp:group {"tagName":"section","align":"wide","className":"pcs-section pcs-partners","layout":{"type":"constrained"}} -->
-	<section class="wp-block-group alignwide pcs-section pcs-partners">
-
-		<!-- wp:paragraph {"className":"pcs-eyebrow","textColor":"accent"} -->
-		<p class="pcs-eyebrow has-accent-color has-text-color">Notre sélection</p>
-		<!-- /wp:paragraph -->
-
-		<!-- wp:heading {"level":2,"className":"pcs-section__title"} -->
-		<h2 class="wp-block-heading pcs-section__title">Nos partenaires immobilier</h2>
-		<!-- /wp:heading -->
-
-		<!-- wp:paragraph {"className":"pcs-section__lead"} -->
-		<p class="pcs-section__lead">Sélectionnés pour la qualité du service, l'indépendance et la transparence. Portails d'annonces, courtiers gratuits, spécialiste rénovation énergétique : on choisit nos partenaires immobilier comme on choisirait pour notre propre achat — sans pousser à la décision.</p>
-		<!-- /wp:paragraph -->
-
-		<!-- wp:html -->
-		<div class="pcs-partners__grid">
-
-			<article class="pcs-partner-card">
-				<span class="pcs-partner-card__badge">Partenaire</span>
-				<div class="pcs-partner-card__logo">SeLoger</div>
-				<h3 class="pcs-partner-card__name">SeLoger</h3>
-				<p class="pcs-partner-card__pitch">Portail d'annonces achat, vente, location, baromètre par ville, recherche avancée. Repère national pour comparer les prix de marché par quartier.</p>
-				<p class="pcs-partner-card__cta"><a href="https://www.seloger.com" class="pcs-link-partner" rel="sponsored nofollow noopener">Voir SeLoger</a></p>
-			</article>
-
-			<article class="pcs-partner-card">
-				<span class="pcs-partner-card__badge">Partenaire</span>
-				<div class="pcs-partner-card__logo">PAP</div>
-				<h3 class="pcs-partner-card__name">PAP (Particulier à Particulier)</h3>
-				<p class="pcs-partner-card__pitch">Annonces de particulier à particulier, modèles de baux téléchargeables, ton anti-agence assumé. Utile pour louer ou vendre sans agence et économiser les frais.</p>
-				<p class="pcs-partner-card__cta"><a href="https://www.pap.fr" class="pcs-link-partner" rel="sponsored nofollow noopener">Voir PAP</a></p>
-			</article>
-
-			<article class="pcs-partner-card">
-				<span class="pcs-partner-card__badge">Partenaire</span>
-				<div class="pcs-partner-card__logo">Pretto</div>
-				<h3 class="pcs-partner-card__name">Pretto</h3>
-				<p class="pcs-partner-card__pitch">Courtier en ligne gratuit, simulation de capacité d'emprunt instantanée, négociation banque. Utile pour valider votre HCSF 35 % avant de chercher un bien.</p>
-				<p class="pcs-partner-card__cta"><a href="https://www.pretto.fr" class="pcs-link-partner" rel="sponsored nofollow noopener">Voir Pretto</a></p>
-			</article>
-
-			<article class="pcs-partner-card">
-				<span class="pcs-partner-card__badge">Partenaire</span>
-				<div class="pcs-partner-card__logo">Empruntis</div>
-				<h3 class="pcs-partner-card__name">Empruntis</h3>
-				<p class="pcs-partner-card__pitch">Comparateur de crédit immobilier et assurance emprunteur, courtage gratuit. Bon complément à Pretto pour cross-checker la meilleure offre bancaire.</p>
-				<p class="pcs-partner-card__cta"><a href="https://www.empruntis.com" class="pcs-link-partner" rel="sponsored nofollow noopener">Voir Empruntis</a></p>
-			</article>
-
-			<article class="pcs-partner-card">
-				<span class="pcs-partner-card__badge">Partenaire</span>
-				<div class="pcs-partner-card__logo">Effy</div>
-				<h3 class="pcs-partner-card__name">Effy</h3>
-				<p class="pcs-partner-card__pitch">Réseau d'artisans RGE certifiés, devis travaux rénovation énergétique, audit énergétique réglementaire à la vente. Utile pour sortir d'un DPE F ou G avant de mettre en vente.</p>
-				<p class="pcs-partner-card__cta"><a href="https://www.effy.fr" class="pcs-link-partner" rel="sponsored nofollow noopener">Voir Effy</a></p>
-			</article>
-
-			<article class="pcs-partner-card">
-				<span class="pcs-partner-card__badge">Partenaire</span>
-				<div class="pcs-partner-card__logo">Bien'ici</div>
-				<h3 class="pcs-partner-card__name">Bien'ici</h3>
-				<p class="pcs-partner-card__pitch">Cartographie immobilière 3D, annonces géolocalisées, vue satellite et plan de masse. Pratique pour visualiser un quartier avant déplacement physique.</p>
-				<p class="pcs-partner-card__cta"><a href="https://www.bienici.com" class="pcs-link-partner" rel="sponsored nofollow noopener">Voir Bien'ici</a></p>
-			</article>
-
-		</div>
-		<p class="pcs-partners__charter">
-			<a href="/charte-partenaires/">Pourquoi ces partenaires ?</a>
-			<a href="/travailler-avec-nous/">Devenir partenaire</a>
-		</p>
-		<!-- /wp:html -->
-
-	</section>
-	<!-- /wp:group -->
+	<!-- wp:shortcode -->
+	[pcs_partners]
+	<!-- /wp:shortcode -->
 
 	<!-- wp:pattern {"slug":"pluscestsimple/disclosure-partners"} /-->
 

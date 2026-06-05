@@ -168,6 +168,41 @@ add_shortcode( 'pcs_partners', function ( $atts ) {
 	return pcs_render_partners( max( 1, (int) $atts['limit'] ) );
 } );
 
+// ─── Migration : remplace les cartes partenaires figées par le shortcode ────────
+//
+// Les pages piliers ont été seedées en inline-ant le pattern category-<pilier>,
+// qui contenait 6 cartes <article class="pcs-partner-card"> en HTML statique.
+// On remplace ce bloc figé par <!-- wp:shortcode -->[pcs_partners]<!-- /wp:shortcode -->
+// pour que la section devienne pilotée par le CPT Partenaires. Idempotent.
+
+add_action( 'init', function () {
+	if ( get_option( 'pcs_partners_migrated' ) === PCS_VERSION ) { return; }
+
+	$pages = get_posts( [
+		'post_type'      => [ 'page' ],
+		'post_status'    => [ 'publish', 'draft', 'pending', 'private' ],
+		'posts_per_page' => -1,
+		'fields'         => 'ids',
+		's'              => 'pcs-partner-card', // pré-filtre large
+	] );
+
+	$shortcode_block = "<!-- wp:shortcode -->\n[pcs_partners]\n<!-- /wp:shortcode -->";
+	// Bloc group .pcs-partners (open) → premier <!-- /wp:group --> qui le ferme.
+	// Pas de wp:group imbriqué dans la section partenaires → match non-greedy fiable.
+	$pattern = '/<!-- wp:group \{[^\n]*pcs-partners[^\n]*\} -->.*?<!-- \/wp:group -->/s';
+
+	foreach ( $pages as $pid ) {
+		$content = (string) get_post_field( 'post_content', $pid );
+		if ( strpos( $content, 'pcs-partner-card' ) === false ) { continue; }
+		$new = preg_replace( $pattern, $shortcode_block, $content, 1 );
+		if ( $new !== null && $new !== $content ) {
+			wp_update_post( [ 'ID' => $pid, 'post_content' => $new ] );
+		}
+	}
+
+	update_option( 'pcs_partners_migrated', PCS_VERSION );
+}, 99 );
+
 // ─── Seed d'exemples (une seule fois) ──────────────────────────────────────────
 
 add_action( 'init', function () {
