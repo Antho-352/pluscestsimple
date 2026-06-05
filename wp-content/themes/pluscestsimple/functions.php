@@ -33,6 +33,7 @@ $pcs_modules = [
 	'structured-data', // Meta boxes FAQ + HowTo (consommé par schema.php)
 	'affiliate',       // Auto rel="sponsored nofollow" + disclosure
 	'form',            // CPT arw_submission + REST endpoint /pcs/v1/submit
+	'partners',        // CPT Partenaires + rendu dynamique section "Nos partenaires" [pcs_partners]
 	'cookie-consent',  // Bandeau natif Consent Mode v2
 	'legal-defaults',  // Page admin mentions légales + placeholders
 	'identity',        // Page admin Identité & Social + bindings filtres
