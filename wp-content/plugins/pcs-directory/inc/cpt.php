@@ -264,3 +264,23 @@ function pcs_directory_get_map_markers_json( array $tax_query = [], int $limit =
 	}
 	return (string) wp_json_encode( $markers );
 }
+
+// ─── Pagination différenciée par type de page ─────────────────────────────────
+
+/**
+ * Règle le nombre de résultats par page selon le contexte :
+ *   - Page mère & région : pages d'INDEX (régions/départements) → la requête
+ *     principale n'est pas listée, on la réduit à 1 (pas de pagination inutile).
+ *   - Département / ville / catégorie / type / mode : vraie liste paginée → 60/page.
+ */
+add_action( 'pre_get_posts', function ( WP_Query $q ): void {
+	if ( is_admin() || ! $q->is_main_query() ) { return; }
+
+	if ( $q->is_post_type_archive( PCS_DIR_CPT ) || $q->is_tax( 'pcs_region' ) ) {
+		$q->set( 'posts_per_page', 1 );
+	} elseif ( $q->is_tax( [ 'pcs_dept', 'pcs_ville', 'pcs_cat', 'pcs_type', 'pcs_mode' ] ) ) {
+		$q->set( 'posts_per_page', 60 );
+		$q->set( 'orderby', 'title' );
+		$q->set( 'order', 'ASC' );
+	}
+} );

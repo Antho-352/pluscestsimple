@@ -163,7 +163,7 @@ if ( $ville ) {
 			<h2>Autres boutiques<?php echo $ville ? ' à ' . esc_html( $ville->name ) : ''; ?></h2>
 			<ul class="pcs-list">
 				<?php while ( $nearby_query->have_posts() ) : $nearby_query->the_post(); ?>
-					<?php get_template_part( 'templates/partials/row-boutique', null, [ 'post_id' => get_the_ID() ] ); ?>
+					<?php pcs_directory_render_row( get_the_ID() ); ?>
 				<?php endwhile; wp_reset_postdata(); ?>
 			</ul>
 		</div>

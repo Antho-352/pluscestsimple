@@ -99,6 +99,66 @@ function pcs_directory_departments_in_region( string $region_name ): array {
 	return $out;
 }
 
+/**
+ * Terme région associé à un département (robuste : nom puis slug).
+ */
+function pcs_directory_region_term_for_dept( WP_Term $dept ): ?WP_Term {
+	$region = pcs_directory_region_from_dept( pcs_directory_dept_code( $dept ) );
+	if ( ! $region ) { return null; }
+	$t = get_term_by( 'name', $region, 'pcs_region' );
+	if ( ! $t ) { $t = get_term_by( 'slug', sanitize_title( $region ), 'pcs_region' ); }
+	return $t instanceof WP_Term ? $t : null;
+}
+
+// ─── Rendu d'une ligne boutique (remplace get_template_part) ───────────────────
+
+/**
+ * Affiche une ligne de boutique (liste « lien bleu »).
+ * On n'utilise PAS get_template_part : il ne cherche que dans le thème, jamais
+ * dans un plugin. Cette fonction garantit le rendu quel que soit le thème actif.
+ */
+function pcs_directory_render_row( int $post_id ): void {
+	if ( ! $post_id ) { return; }
+
+	$title       = get_the_title( $post_id );
+	$url         = get_permalink( $post_id );
+	$adresse     = (string) get_post_meta( $post_id, '_pcs_adresse', true );
+	$cp          = (string) get_post_meta( $post_id, '_pcs_code_postal', true );
+	$website     = (string) get_post_meta( $post_id, '_pcs_website', true );
+	$phone       = (string) get_post_meta( $post_id, '_pcs_phone', true );
+	$is_enseigne = get_post_meta( $post_id, '_pcs_is_enseigne', true );
+
+	$cats  = get_the_terms( $post_id, 'pcs_cat' );
+	$cat   = ( is_array( $cats ) && $cats ) ? $cats[0]->name : '';
+	$vils  = get_the_terms( $post_id, 'pcs_ville' );
+	$ville = ( is_array( $vils ) && $vils ) ? $vils[0]->name : '';
+
+	$meta_parts = array_filter( [ $adresse, trim( $cp . ' ' . $ville ) ] );
+
+	echo '<li class="pcs-list__item">';
+	echo '<a class="pcs-list__link" href="' . esc_url( $url ) . '">' . esc_html( $title ) . '</a>';
+	if ( $meta_parts ) {
+		echo '<span class="pcs-list__meta">' . esc_html( implode( ' · ', $meta_parts ) ) . '</span>';
+	}
+	echo '<span class="pcs-list__flags">';
+	if ( $is_enseigne ) { echo '<span class="pcs-flag pcs-flag--enseigne">enseigne</span>'; }
+	if ( $cat )         { echo '<span class="pcs-flag pcs-flag--cat">' . esc_html( $cat ) . '</span>'; }
+	if ( $website )     { echo '<span class="pcs-flag pcs-flag--web">site web</span>'; }
+	if ( $phone )       { echo '<span class="pcs-flag pcs-flag--phone">tél.</span>'; }
+	echo '</span>';
+	echo '</li>';
+}
+
+/**
+ * Affiche le conteneur carte avec ses marqueurs.
+ */
+function pcs_directory_render_map( string $markers_json, string $extra_class = '' ): void {
+	$cls = trim( 'pcs-map ' . $extra_class );
+	echo '<div id="pcs-map" class="' . esc_attr( $cls ) . '" data-markers="' . esc_attr( $markers_json ) . '">';
+	echo '<p class="pcs-map-placeholder">Chargement de la carte…</p>';
+	echo '</div>';
+}
+
 // ─── Textes SEO : éditable + fallback auto ─────────────────────────────────────
 
 /**
@@ -258,11 +318,10 @@ function pcs_directory_breadcrumb(): void {
 		$trail[] = [ 'label' => get_the_title( $pid ), 'url' => '' ];
 
 	} elseif ( is_tax( 'pcs_dept' ) ) {
-		$term = get_queried_object();
-		$reg  = pcs_directory_region_from_dept( pcs_directory_dept_code( $term ) );
-		if ( $reg ) {
-			$rterm = get_term_by( 'name', $reg, 'pcs_region' );
-			if ( $rterm ) { $trail[] = [ 'label' => $rterm->name, 'url' => get_term_link( $rterm ) ]; }
+		$term  = get_queried_object();
+		$rterm = pcs_directory_region_term_for_dept( $term );
+		if ( $rterm ) {
+			$trail[] = [ 'label' => $rterm->name, 'url' => get_term_link( $rterm ) ];
 		}
 		$trail[] = [ 'label' => $term->name, 'url' => '' ];
 

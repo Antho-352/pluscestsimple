@@ -64,16 +64,26 @@ $outro = get_option( 'pcs_archive_outro', '' );
 			<button type="submit" class="pcs-filter-btn">Filtrer</button>
 		</form>
 
+		<?php
+		// Teaser : quelques enseignes (pas de pagination sur la page mère).
+		$teaser = new WP_Query( [
+			'post_type'      => PCS_DIR_CPT,
+			'post_status'    => 'publish',
+			'posts_per_page' => 15,
+			'orderby'        => 'meta_value_num',
+			'meta_key'       => '_pcs_is_enseigne',
+			'order'          => 'DESC',
+			'no_found_rows'  => true,
+		] );
+		?>
 		<div id="pcs-grid" class="pcs-grid">
 			<ul class="pcs-list">
-				<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-					<?php get_template_part( 'templates/partials/row-boutique', null, [ 'post_id' => get_the_ID() ] ); ?>
-				<?php endwhile; endif; ?>
+				<?php if ( $teaser->have_posts() ) : while ( $teaser->have_posts() ) : $teaser->the_post(); ?>
+					<?php pcs_directory_render_row( get_the_ID() ); ?>
+				<?php endwhile; wp_reset_postdata(); endif; ?>
 			</ul>
 		</div>
-		<div id="pcs-pagination" class="pcs-pagination">
-			<?php the_posts_pagination( [ 'mid_size' => 2 ] ); ?>
-		</div>
+		<div id="pcs-pagination" class="pcs-pagination"></div>
 	</section>
 
 	<!-- ─── Texte SEO ────────────────────────────────────────────────────── -->

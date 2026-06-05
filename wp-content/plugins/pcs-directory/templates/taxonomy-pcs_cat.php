@@ -40,7 +40,7 @@ $markers_json = pcs_directory_get_map_markers_json( [ [
 		<div id="pcs-grid" class="pcs-grid">
 			<ul class="pcs-list">
 				<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-					<?php get_template_part( 'templates/partials/row-boutique', null, [ 'post_id' => get_the_ID() ] ); ?>
+					<?php pcs_directory_render_row( get_the_ID() ); ?>
 				<?php endwhile;
 				else : ?>
 					<p class="pcs-empty">Aucune boutique dans cette catégorie.</p>

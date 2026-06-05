@@ -34,6 +34,11 @@ $teaser = new WP_Query( [
 		<?php echo pcs_directory_term_intro( $term ); ?>
 	</div>
 
+	<!-- Carte de la région -->
+	<?php pcs_directory_render_map( pcs_directory_get_map_markers_json( [ [
+		'taxonomy' => 'pcs_region', 'field' => 'term_id', 'terms' => $term->term_id,
+	] ] ) ); ?>
+
 	<!-- Liste des départements -->
 	<section class="pcs-index">
 		<h2 class="pcs-index__title">Choisir un département</h2>
@@ -55,7 +60,7 @@ $teaser = new WP_Query( [
 			<h2 class="pcs-index__title">Quelques boutiques de la région</h2>
 			<ul class="pcs-list">
 				<?php while ( $teaser->have_posts() ) : $teaser->the_post(); ?>
-					<?php get_template_part( 'templates/partials/row-boutique', null, [ 'post_id' => get_the_ID() ] ); ?>
+					<?php pcs_directory_render_row( get_the_ID() ); ?>
 				<?php endwhile; wp_reset_postdata(); ?>
 			</ul>
 		</section>

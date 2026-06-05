@@ -89,7 +89,7 @@ $markers_json = pcs_directory_get_map_markers_json( [ [
 		<div id="pcs-grid" class="pcs-grid">
 			<ul class="pcs-list">
 				<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-					<?php get_template_part( 'templates/partials/row-boutique', null, [ 'post_id' => get_the_ID() ] ); ?>
+					<?php pcs_directory_render_row( get_the_ID() ); ?>
 				<?php endwhile;
 				else : ?>
 					<p class="pcs-empty">Aucune boutique trouvée.</p>
@@ -104,12 +104,9 @@ $markers_json = pcs_directory_get_map_markers_json( [ [
 	<!-- Texte SEO -->
 	<div class="pcs-seo-text">
 		<?php echo pcs_directory_term_outro( $term ); ?>
-		<?php
-		$code   = pcs_directory_dept_code( $term );
-		$region = pcs_directory_region_from_dept( $code );
-		$rterm  = $region ? get_term_by( 'name', $region, 'pcs_region' ) : null;
-		if ( $rterm ) : ?>
-			<p><a href="<?php echo esc_url( get_term_link( $rterm ) ); ?>">← Tous les départements de <?php echo esc_html( $region ); ?></a></p>
+		<?php $rterm = pcs_directory_region_term_for_dept( $term ); ?>
+		<?php if ( $rterm ) : ?>
+			<p><a href="<?php echo esc_url( get_term_link( $rterm ) ); ?>">← Tous les départements de <?php echo esc_html( $rterm->name ); ?></a></p>
 		<?php endif; ?>
 	</div>
 
