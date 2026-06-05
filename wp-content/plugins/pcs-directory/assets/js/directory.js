@@ -184,8 +184,11 @@
     if (b.website)     flags += '<span class="pcs-flag pcs-flag--web">site web</span>';
     if (b.phone)       flags += '<span class="pcs-flag pcs-flag--phone">tél.</span>';
 
+    var rating = b.rating ? '<span class="pcs-rating">★ ' + esc(b.rating) + (b.reviews ? ' <small>(' + esc(b.reviews) + ')</small>' : '') + '</span>' : '';
+
     return '<li class="pcs-list__item">'
       + '<a class="pcs-list__link" href="' + esc(b.url) + '">' + esc(b.title) + '</a>'
+      + rating
       + (meta.length ? '<span class="pcs-list__meta">' + meta.join(' · ') + '</span>' : '')
       + '<span class="pcs-list__flags">' + flags + '</span>'
       + '</li>';

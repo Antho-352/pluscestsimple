@@ -113,6 +113,8 @@ function pcs_directory_ajax_filter(): void {
 			'type'        => ( is_array( $types ) && $types ) ? $types[0]->name : '',
 			'mode'        => ( is_array( $modes ) && $modes ) ? $modes[0]->name : '',
 			'is_enseigne' => (bool) get_post_meta( $pid, '_pcs_is_enseigne', true ),
+			'rating'      => get_post_meta( $pid, '_pcs_rating', true ),
+			'reviews'     => get_post_meta( $pid, '_pcs_reviews', true ),
 		];
 	}
 

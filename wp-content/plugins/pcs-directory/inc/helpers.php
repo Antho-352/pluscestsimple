@@ -127,6 +127,8 @@ function pcs_directory_render_row( int $post_id ): void {
 	$website     = (string) get_post_meta( $post_id, '_pcs_website', true );
 	$phone       = (string) get_post_meta( $post_id, '_pcs_phone', true );
 	$is_enseigne = get_post_meta( $post_id, '_pcs_is_enseigne', true );
+	$rating      = (string) get_post_meta( $post_id, '_pcs_rating', true );
+	$reviews     = (string) get_post_meta( $post_id, '_pcs_reviews', true );
 
 	$cats  = get_the_terms( $post_id, 'pcs_cat' );
 	$cat   = ( is_array( $cats ) && $cats ) ? $cats[0]->name : '';
@@ -137,6 +139,9 @@ function pcs_directory_render_row( int $post_id ): void {
 
 	echo '<li class="pcs-list__item">';
 	echo '<a class="pcs-list__link" href="' . esc_url( $url ) . '">' . esc_html( $title ) . '</a>';
+	if ( $rating ) {
+		echo '<span class="pcs-rating">★ ' . esc_html( $rating ) . ( $reviews ? ' <small>(' . esc_html( $reviews ) . ')</small>' : '' ) . '</span>';
+	}
 	if ( $meta_parts ) {
 		echo '<span class="pcs-list__meta">' . esc_html( implode( ' · ', $meta_parts ) ) . '</span>';
 	}

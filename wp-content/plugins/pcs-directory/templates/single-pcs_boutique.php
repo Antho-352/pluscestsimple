@@ -94,6 +94,14 @@ if ( $ville ) {
 		<?php endif; ?>
 	</h1>
 
+	<?php
+	$rating  = get_post_meta( $pid, '_pcs_rating', true );
+	$reviews = get_post_meta( $pid, '_pcs_reviews', true );
+	?>
+	<?php if ( $rating ) : ?>
+		<p class="pcs-single__rating">★ <strong><?php echo esc_html( $rating ); ?></strong><?php echo $reviews ? ' <span>· ' . esc_html( $reviews ) . ' avis Google</span>' : ''; ?></p>
+	<?php endif; ?>
+
 	<!-- Contact -->
 	<div class="pcs-single__contact">
 		<ul class="pcs-contact-list">
