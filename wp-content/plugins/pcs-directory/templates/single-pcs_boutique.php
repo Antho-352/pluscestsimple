@@ -145,6 +145,22 @@ if ( $ville ) {
 					</a>
 				</li>
 			<?php endif; ?>
+
+			<?php
+			$place_id = get_post_meta( $pid, '_pcs_place_id', true );
+			$gmaps_url = '';
+			if ( $place_id ) {
+				$gmaps_url = 'https://www.google.com/maps/search/?api=1&query=' . rawurlencode( $title ) . '&query_place_id=' . rawurlencode( $place_id );
+			} elseif ( $lat && $lng ) {
+				$gmaps_url = 'https://www.google.com/maps/search/?api=1&query=' . $lat . ',' . $lng;
+			}
+			?>
+			<?php if ( $gmaps_url ) : ?>
+				<li>
+					<strong>Google Maps</strong>
+					<a href="<?php echo esc_url( $gmaps_url ); ?>" target="_blank" rel="nofollow noopener noreferrer">Voir la fiche Google ↗</a>
+				</li>
+			<?php endif; ?>
 		</ul>
 	</div>
 

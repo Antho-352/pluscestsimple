@@ -261,11 +261,18 @@ add_action( 'wp_footer', function () {
 (function(){
   document.addEventListener('submit', function(e){
     var f = e.target;
-    if (!f.matches('form[data-pcs-form]')) return;
+    // Intercepte les forms marqués data-pcs-form OU contenant un champ form_type
+    // (certains patterns historiques n'ont que l'un ou l'autre).
+    if (!f.matches || !(f.matches('form[data-pcs-form]') || (f.querySelector && f.querySelector('[name="form_type"]')))) return;
     e.preventDefault();
     var btn = f.querySelector('[type=submit]');
     if (btn) { btn.disabled = true; btn.dataset._t = btn.textContent; btn.textContent = 'Envoi…'; }
     var fd = new FormData(f);
+    // form_type peut être porté par un attribut data-form-type (newsletter) plutôt qu'un champ.
+    if (!fd.get('form_type')) {
+      var ft = f.getAttribute('data-form-type') || (f.dataset ? f.dataset.formType : '');
+      if (ft) { fd.append('form_type', ft); }
+    }
     fd.append('nonce', '<?php echo esc_js( $nonce ); ?>');
     fd.append('ts',    '<?php echo esc_js( (string) $ts ); ?>');
     fd.append('tsig',  '<?php echo esc_js( $tsig ); ?>');
@@ -281,7 +288,8 @@ add_action( 'wp_footer', function () {
       body: JSON.stringify(payload)
     }).then(function(r){ return r.json(); }).then(function(j){
       if (j && j.ok) {
-        window.location.href = j.redirect || '/merci/';
+        // Succès inline (pas de redirection : évite tout 404 sur une page /merci-*/ absente).
+        f.innerHTML = '<p class="pcs-form-success" role="status" style="padding:1rem 0;font-weight:600">✓ Merci ! Votre demande a bien été envoyée.</p>';
       } else {
         if (btn) { btn.disabled = false; btn.textContent = btn.dataset._t || 'Envoyer'; }
         var err = f.querySelector('[data-pcs-form-error]');
