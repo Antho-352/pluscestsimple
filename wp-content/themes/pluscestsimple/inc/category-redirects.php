@@ -65,8 +65,45 @@ function pcs_find_pilier_root( string $cat_slug ): ?string {
 }
 
 /**
- * Redirige les archives catégorie WP (parents + enfants) vers les pages piliers
- * correspondantes en 301.
+ * Page cible d'une catégorie : sous-page éditoriale si elle existe
+ * (sous-catégorie → /<pilier>/<sous>/), sinon page pilier racine.
+ *
+ * @param string $cat_slug Slug catégorie (avec ou sans suffixe -cat).
+ * @return WP_Post|null
+ */
+function pcs_category_target_page( string $cat_slug ): ?WP_Post {
+	$base = str_ends_with( $cat_slug, '-cat' ) ? substr( $cat_slug, 0, -4 ) : $cat_slug;
+
+	if ( ! function_exists( 'pcs_content_structure' ) ) {
+		$p = get_page_by_path( $base );
+		return $p instanceof WP_Post ? $p : null;
+	}
+
+	foreach ( pcs_content_structure() as $root => $data ) {
+		// Catégorie racine → page pilier.
+		if ( $base === $root ) {
+			$p = get_page_by_path( $root );
+			return $p instanceof WP_Post ? $p : null;
+		}
+		// Sous-catégorie <pilier>-<sous> → sous-page si elle existe, sinon pilier.
+		if ( str_starts_with( $base, $root . '-' ) ) {
+			$sub = substr( $base, strlen( $root ) + 1 );
+			if ( isset( $data['sub_cats'][ $sub ] ) ) {
+				$sub_page = get_page_by_path( $root . '/' . $sub );
+				if ( $sub_page instanceof WP_Post ) {
+					return $sub_page;
+				}
+				$p = get_page_by_path( $root ); // fallback racine
+				return $p instanceof WP_Post ? $p : null;
+			}
+		}
+	}
+	return null;
+}
+
+/**
+ * Redirige les archives catégorie WP (parents + enfants) vers leur page
+ * (sous-page éditoriale ou pilier racine) en 301.
  */
 add_action( 'template_redirect', function () {
 	if ( is_admin() || wp_doing_ajax() ) {
@@ -79,11 +116,10 @@ add_action( 'template_redirect', function () {
 	if ( ! $cat instanceof WP_Term ) {
 		return;
 	}
-	$pilier_slug = pcs_find_pilier_root( $cat->slug );
-	if ( ! $pilier_slug ) {
+	if ( ! pcs_find_pilier_root( $cat->slug ) ) {
 		return; // pas une catégorie pilier → on laisse passer
 	}
-	$page = get_page_by_path( $pilier_slug );
+	$page = pcs_category_target_page( $cat->slug );
 	if ( ! $page instanceof WP_Post ) {
 		return;
 	}
@@ -118,11 +154,10 @@ add_action( 'template_redirect', function () {
 	if ( ! str_ends_with( $segment, '-cat' ) ) {
 		return;
 	}
-	$pilier_slug = pcs_find_pilier_root( $segment );
-	if ( ! $pilier_slug ) {
+	if ( ! pcs_find_pilier_root( $segment ) ) {
 		return;
 	}
-	$page = get_page_by_path( $pilier_slug );
+	$page = pcs_category_target_page( $segment );
 	if ( ! $page instanceof WP_Post ) {
 		return;
 	}

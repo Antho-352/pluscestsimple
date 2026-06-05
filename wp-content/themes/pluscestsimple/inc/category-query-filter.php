@@ -39,31 +39,43 @@ add_filter(
 			return $query;
 		}
 
-		// Vérifie que le slug de la page courante correspond à un pilier connu.
 		if ( ! function_exists( 'pcs_content_structure' ) ) {
 			return $query;
 		}
-		$piliers = array_keys( pcs_content_structure() );
-		if ( ! in_array( $page->post_name, $piliers, true ) ) {
+		$structure = pcs_content_structure();
+
+		// Catégorie cible :
+		//   - page pilier racine (slug = pilier)        → <pilier>-cat (avec enfants)
+		//   - sous-page (parent = pilier, slug = sous)  → <pilier>-<sous>-cat (sans enfants)
+		$cat_slug         = '';
+		$include_children = true;
+		if ( isset( $structure[ $page->post_name ] ) ) {
+			$cat_slug         = $page->post_name . '-cat';
+			$include_children = true;
+		} elseif ( $page->post_parent ) {
+			$parent = get_post( $page->post_parent );
+			if ( $parent instanceof WP_Post
+				&& isset( $structure[ $parent->post_name ]['sub_cats'][ $page->post_name ] ) ) {
+				$cat_slug         = $parent->post_name . '-' . $page->post_name . '-cat';
+				$include_children = false;
+			}
+		}
+		if ( '' === $cat_slug ) {
 			return $query;
 		}
 
-		// Catégorie cible = <slug pilier>-cat (stratégie D1)
-		$cat_slug = $page->post_name . '-cat';
-		$term     = get_term_by( 'slug', $cat_slug, 'category' );
+		$term = get_term_by( 'slug', $cat_slug, 'category' );
 		if ( ! $term instanceof WP_Term ) {
 			return $query;
 		}
 
-		// Injecte le tax_query category. On utilise tax_query (plutôt que
-		// category__in) pour être compatible avec WP_Query strict + ne pas
-		// écraser les autres paramètres (perPage, order, etc.).
+		// Injecte le tax_query category (compatible WP_Query strict, ne casse pas perPage/order).
 		$query['tax_query'] = [
 			[
 				'taxonomy'         => 'category',
 				'field'            => 'term_id',
 				'terms'            => [ (int) $term->term_id ],
-				'include_children' => true,
+				'include_children' => $include_children,
 			],
 		];
 

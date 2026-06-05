@@ -148,6 +148,35 @@ function pcs_get_pattern_content( string $slug ): string {
 }
 
 /**
+ * Contenu d'une sous-page pilier : H1 + intro éditable + boucle d'articles
+ * (bloc Query namespace pcs/cat-loop, filtré côté serveur vers la sous-catégorie).
+ *
+ * @param string $label Libellé de la sous-catégorie (ex. "Styles").
+ * @return string Markup blocs Gutenberg.
+ */
+function pcs_subpage_content( string $label ): string {
+	$h1    = esc_html( $label );
+	$intro = esc_html( sprintf( 'Nos articles « %s » : sélection éditoriale. (Personnalise cette intro depuis l\'éditeur.)', $label ) );
+
+	$query  = '<!-- wp:query {"query":{"perPage":12,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","inherit":false},"namespace":"pcs/cat-loop","className":"pcs-section pcs-section--cat-loop"} -->';
+	$query .= '<div class="wp-block-query pcs-section pcs-section--cat-loop">';
+	$query .= '<!-- wp:post-template {"className":"pcs-card-grid"} -->';
+	$query .= '<!-- wp:post-featured-image {"isLink":true,"aspectRatio":"16/9","className":"pcs-card__media"} /-->';
+	$query .= '<!-- wp:post-terms {"term":"category","className":"pcs-card__eyebrow"} /-->';
+	$query .= '<!-- wp:post-title {"isLink":true,"level":3,"className":"pcs-card__title"} /-->';
+	$query .= '<!-- wp:post-excerpt /-->';
+	$query .= '<!-- wp:post-date {"format":"j F Y","className":"pcs-card__meta"} /-->';
+	$query .= '<!-- /wp:post-template -->';
+	$query .= '<!-- wp:query-pagination --><!-- wp:query-pagination-previous /--><!-- wp:query-pagination-numbers /--><!-- wp:query-pagination-next /--><!-- /wp:query-pagination -->';
+	$query .= '<!-- wp:query-no-results --><!-- wp:paragraph --><p>Aucun article pour le moment.</p><!-- /wp:paragraph --><!-- /wp:query-no-results -->';
+	$query .= '</div><!-- /wp:query -->';
+
+	return "<!-- wp:heading {\"level\":1} -->\n<h1 class=\"wp-block-heading\">{$h1}</h1>\n<!-- /wp:heading -->\n\n"
+		. "<!-- wp:paragraph -->\n<p>{$intro}</p>\n<!-- /wp:paragraph -->\n\n"
+		. $query;
+}
+
+/**
  * Lance la création (idempotente) des catégories + pages.
  */
 function pcs_init_content(): void {
@@ -231,6 +260,30 @@ function pcs_init_content(): void {
 			if ( $page_id && ! is_wp_error( $page_id ) ) {
 				update_post_meta( $page_id, '_wp_page_template', 'page-templates/tpl-wide.php' );
 				update_post_meta( $page_id, '_pcs_seeded', '1' );
+			}
+		}
+
+		// 3b. Sous-pages éditoriales (enfants du pilier) : /<pilier>/<sous-cat>/
+		//     Intro éditable + liste des articles de la sous-catégorie.
+		$pillar_page = get_page_by_path( $slug_root );
+		if ( $pillar_page instanceof WP_Post ) {
+			foreach ( $data['sub_cats'] as $sub_slug => $sub_label ) {
+				if ( get_page_by_path( $slug_root . '/' . $sub_slug ) instanceof WP_Post ) {
+					continue; // déjà créée
+				}
+				$sub_id = wp_insert_post( [
+					'post_title'   => $sub_label,
+					'post_name'    => $sub_slug,
+					'post_parent'  => $pillar_page->ID,
+					'post_status'  => 'publish',
+					'post_type'    => 'page',
+					'post_excerpt' => $sub_label,
+					'post_content' => pcs_subpage_content( $sub_label ),
+				] );
+				if ( $sub_id && ! is_wp_error( $sub_id ) ) {
+					update_post_meta( $sub_id, '_wp_page_template', 'page-templates/tpl-wide.php' );
+					update_post_meta( $sub_id, '_pcs_seeded', '1' );
+				}
 			}
 		}
 	}
