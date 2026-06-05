@@ -71,6 +71,16 @@ function pcs_directory_admin_import_render(): void {
 		}
 	}
 
+	// ── Purge totale (repartir de zéro) ────────────────────────────────────────
+	$purged = null;
+	if (
+		isset( $_POST['pcs_purge_nonce'] )
+		&& wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['pcs_purge_nonce'] ) ), 'pcs_purge' )
+		&& ! empty( $_POST['pcs_purge_confirm'] )
+	) {
+		$purged = pcs_directory_purge_all();
+	}
+
 	?>
 	<div class="wrap pcs-directory-admin">
 		<h1>Annuaire — Importer JSONL</h1>
@@ -83,6 +93,10 @@ function pcs_directory_admin_import_render(): void {
 
 		<?php if ( $error ) : ?>
 			<div class="notice notice-error"><p><?php echo esc_html( $error ); ?></p></div>
+		<?php endif; ?>
+
+		<?php if ( $purged !== null ) : ?>
+			<div class="notice notice-success"><p><strong><?php echo (int) $purged; ?></strong> boutiques supprimées. L'annuaire est vide, prêt pour un import propre.</p></div>
 		<?php endif; ?>
 
 		<?php if ( $result !== null ) : ?>
@@ -177,6 +191,43 @@ function pcs_directory_admin_import_render(): void {
 				<td><?php echo esc_html( get_option( 'pcs_directory_last_import', '—' ) ); ?></td>
 			</tr>
 		</table>
+
+		<hr />
+
+		<h2 style="color:#b32d2e">Zone dangereuse — repartir de zéro</h2>
+		<p class="description" style="max-width:700px">
+			Supprime <strong>toutes</strong> les boutiques de l'annuaire (irréversible).
+			À utiliser avant un import 100% Google pour ne pas mélanger avec l'ancienne base SIRENE.
+		</p>
+		<form method="post" onsubmit="return confirm('Supprimer DÉFINITIVEMENT toutes les boutiques de l\'annuaire ?');">
+			<?php wp_nonce_field( 'pcs_purge', 'pcs_purge_nonce' ); ?>
+			<label><input type="checkbox" name="pcs_purge_confirm" value="1" /> Je confirme vouloir tout supprimer</label><br><br>
+			<button type="submit" class="button button-link-delete">Supprimer toutes les boutiques</button>
+		</form>
 	</div>
 	<?php
+}
+
+/**
+ * Supprime tous les posts pcs_boutique (force delete).
+ *
+ * @return int Nombre de boutiques supprimées.
+ */
+function pcs_directory_purge_all(): int {
+	set_time_limit( 600 );
+	$total = 0;
+	do {
+		$ids = get_posts( [
+			'post_type'      => PCS_DIR_CPT,
+			'post_status'    => 'any',
+			'posts_per_page' => 200,
+			'fields'         => 'ids',
+			'no_found_rows'  => true,
+		] );
+		foreach ( $ids as $id ) {
+			wp_delete_post( $id, true );
+			$total++;
+		}
+	} while ( ! empty( $ids ) );
+	return $total;
 }
