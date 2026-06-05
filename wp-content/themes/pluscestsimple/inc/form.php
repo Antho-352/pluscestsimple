@@ -240,7 +240,9 @@ function pcs_handle_submission( WP_REST_Request $req ) {
 
 	wp_mail( $to, $subject, $body, $headers );
 
-	do_action( 'pcs_form_submitted', $post_id, $req );
+	// On passe les PARAMÈTRES (array) et non l'objet WP_REST_Request : les hooks
+	// (ex. lead-resources) type-hintent `array $req` → passer l'objet = TypeError 500 (PHP 8).
+	do_action( 'pcs_form_submitted', $post_id, $req->get_params() );
 
 	$redirect = apply_filters( 'pcs_form_redirect', "/merci-{$form_type}/", $form_type );
 
