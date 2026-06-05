@@ -64,6 +64,9 @@ add_action( 'init', 'pcs_directory_register_cpt', 9 );
 
 function pcs_directory_get_meta_schema(): array {
 	return [
+		'_pcs_place_id'    => [ 'type' => 'string',  'label' => 'Google Place ID' ],
+		'_pcs_rating'      => [ 'type' => 'string',  'label' => 'Note Google' ],
+		'_pcs_reviews'     => [ 'type' => 'string',  'label' => 'Avis Google' ],
 		'_pcs_siret'       => [ 'type' => 'string',  'label' => 'SIRET' ],
 		'_pcs_siren'       => [ 'type' => 'string',  'label' => 'SIREN' ],
 		'_pcs_adresse'     => [ 'type' => 'string',  'label' => 'Adresse' ],

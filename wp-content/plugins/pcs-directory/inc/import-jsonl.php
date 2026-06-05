@@ -50,18 +50,19 @@ function pcs_directory_import_jsonl( string $filepath, bool $dry_run = false ): 
 			continue;
 		}
 
-		// SIRET obligatoire.
-		$siret = sanitize_text_field( (string) ( $data['siret'] ?? '' ) );
-		if ( '' === $siret ) {
-			$result['errors'][] = "Ligne {$line_num} : SIRET manquant.";
+		// Identifiant unique : place_id (Google) en priorité, sinon SIRET.
+		$siret    = sanitize_text_field( (string) ( $data['siret'] ?? '' ) );
+		$place_id = sanitize_text_field( (string) ( $data['place_id'] ?? '' ) );
+		if ( '' === $siret && '' === $place_id ) {
+			$result['errors'][] = "Ligne {$line_num} : identifiant manquant (place_id/siret).";
 			continue;
 		}
 
-		// Boutiques non-publiques (designers/pros, hors-sujet, fermées).
+		// Boutiques non-publiques (hors-sujet, fermées).
 		// Si déjà en ligne → on la retire (corbeille) pour nettoyer l'annuaire.
 		if ( isset( $data['public'] ) && false === $data['public'] ) {
 			if ( ! $dry_run ) {
-				$existing = pcs_directory_find_post_by_siret( $siret );
+				$existing = pcs_directory_find_post_by_key( $place_id, $siret );
 				if ( $existing ) {
 					wp_trash_post( $existing );
 					$result['removed']++;
@@ -95,8 +96,8 @@ function pcs_directory_import_jsonl( string $filepath, bool $dry_run = false ): 
 		$dept     = sanitize_text_field( (string) ( $data['departement'] ?? '' ) );
 		$region   = sanitize_text_field( (string) ( $data['region'] ?? pcs_directory_region_from_dept( $dept ) ) );
 
-		// Cherche un post existant par SIRET.
-		$existing_id = pcs_directory_find_post_by_siret( $siret );
+		// Cherche un post existant par place_id (Google) ou SIRET.
+		$existing_id = pcs_directory_find_post_by_key( $place_id, $siret );
 
 		$post_data = [
 			'post_type'   => PCS_DIR_CPT,
@@ -125,6 +126,9 @@ function pcs_directory_import_jsonl( string $filepath, bool $dry_run = false ): 
 		// ── Meta ──────────────────────────────────────────────────────────────
 		$sources_json = wp_json_encode( $data['sources'] ?? [] );
 		$meta_map = [
+			'_pcs_place_id'    => $place_id,
+			'_pcs_rating'      => sanitize_text_field( (string) ( $data['gmaps_rating'] ?? '' ) ),
+			'_pcs_reviews'     => sanitize_text_field( (string) ( $data['gmaps_reviews'] ?? '' ) ),
 			'_pcs_siret'       => $siret,
 			'_pcs_siren'       => sanitize_text_field( (string) ( $data['siren'] ?? '' ) ),
 			'_pcs_adresse'     => sanitize_text_field( (string) ( $data['adresse'] ?? '' ) ),
@@ -186,6 +190,24 @@ function pcs_directory_import_jsonl( string $filepath, bool $dry_run = false ): 
 
 	fclose( $fh );
 	return $result;
+}
+
+/**
+ * Trouve un post par place_id (Google) en priorité, sinon par SIRET.
+ */
+function pcs_directory_find_post_by_key( string $place_id, string $siret ): ?int {
+	if ( '' !== $place_id ) {
+		$ids = get_posts( [
+			'post_type'      => PCS_DIR_CPT,
+			'post_status'    => 'any',
+			'posts_per_page' => 1,
+			'fields'         => 'ids',
+			'no_found_rows'  => true,
+			'meta_query'     => [ [ 'key' => '_pcs_place_id', 'value' => $place_id ] ],
+		] );
+		if ( ! empty( $ids ) ) { return (int) $ids[0]; }
+	}
+	return '' !== $siret ? pcs_directory_find_post_by_siret( $siret ) : null;
 }
 
 /**
