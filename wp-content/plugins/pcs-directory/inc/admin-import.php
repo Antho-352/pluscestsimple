@@ -65,9 +65,11 @@ function pcs_directory_admin_import_render(): void {
 			$error = 'Aucun fichier fourni.';
 		}
 
+		$publish_now = ! empty( $_POST['publish_now'] );
+
 		if ( '' !== $filepath && '' === $error ) {
 			set_time_limit( 300 );
-			$result = pcs_directory_import_jsonl( $filepath, $dry_run );
+			$result = pcs_directory_import_jsonl( $filepath, $dry_run, $publish_now );
 		}
 	}
 
@@ -81,18 +83,36 @@ function pcs_directory_admin_import_render(): void {
 		$purged = pcs_directory_purge_all();
 	}
 
+	// ── Publication par lots (drip) ─────────────────────────────────────────────
+	$published_batch = null;
+	if (
+		isset( $_POST['pcs_publish_nonce'] )
+		&& wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['pcs_publish_nonce'] ) ), 'pcs_publish' )
+	) {
+		$batch_n = isset( $_POST['batch_size'] ) ? max( 1, min( 1000, (int) $_POST['batch_size'] ) ) : 100;
+		set_time_limit( 300 );
+		$published_batch = pcs_directory_publish_batch( $batch_n );
+	}
+
+	$status_counts = pcs_directory_count_by_status();
+
 	?>
 	<div class="wrap pcs-directory-admin">
 		<h1>Annuaire — Importer JSONL</h1>
 
-		<p class="description" style="max-width:700px">
+		<p class="description" style="max-width:740px">
 			Importe un fichier <code>master.jsonl</code> produit par le pipeline <strong>pcs-annuaire-data</strong>.
-			L'import est idempotent (mise à jour si le SIRET existe déjà).
-			Les boutiques <code>"public": false</code> sont automatiquement ignorées.
+			L'import est idempotent (mise à jour si le place_id/SIRET existe déjà).
+			Par défaut, les nouvelles boutiques arrivent en <strong>brouillon</strong> — tu les publies ensuite
+			par lots de 100 (section « Publication par lots » plus bas) pour ne pas créer toutes les pages d'un coup.
 		</p>
 
 		<?php if ( $error ) : ?>
 			<div class="notice notice-error"><p><?php echo esc_html( $error ); ?></p></div>
+		<?php endif; ?>
+
+		<?php if ( $published_batch !== null ) : ?>
+			<div class="notice notice-success"><p><strong><?php echo (int) $published_batch; ?></strong> boutiques publiées. Leurs pages (boutique + villes/départements concernés) apparaîtront dans le sitemap.</p></div>
 		<?php endif; ?>
 
 		<?php if ( $purged !== null ) : ?>
@@ -175,22 +195,53 @@ function pcs_directory_admin_import_render(): void {
 
 			</table>
 
+			<p class="description" style="margin:.4rem 0 1rem">
+				<label>
+					<input type="checkbox" name="publish_now" value="1" <?php checked( ! empty( $_POST['publish_now'] ) ); ?> />
+					<strong>Publier immédiatement</strong> (sinon : brouillon, à publier par lots de 100 ci-dessous)
+				</label>
+			</p>
 			<?php submit_button( 'Lancer l\'import', 'primary' ); ?>
 		</form>
 
 		<hr />
 
-		<h2>État actuel</h2>
-		<table class="widefat" style="max-width:500px">
+		<h2>📦 Publication par lots (drip)</h2>
+		<p class="description" style="max-width:740px">
+			Pour ne pas créer toutes les pages d'un coup (mauvais signal Google), publie les boutiques
+			progressivement — par exemple <strong>100 tous les 3-4 jours</strong>. Seules les boutiques
+			publiées apparaissent sur le site et dans le sitemap.
+		</p>
+
+		<table class="widefat striped" style="max-width:500px;margin-bottom:1rem">
 			<tr>
-				<th>Boutiques publiées</th>
-				<td><strong><?php echo (int) wp_count_posts( PCS_DIR_CPT )->publish; ?></strong></td>
+				<th>✅ Publiées (en ligne)</th>
+				<td><strong style="font-size:1.2em"><?php echo (int) $status_counts['publish']; ?></strong></td>
 			</tr>
 			<tr>
-				<th>Dernière mise à jour</th>
+				<th>📝 En brouillon (en attente)</th>
+				<td><strong style="font-size:1.2em"><?php echo (int) $status_counts['draft']; ?></strong></td>
+			</tr>
+			<tr>
+				<th>Dernier import</th>
 				<td><?php echo esc_html( get_option( 'pcs_directory_last_import', '—' ) ); ?></td>
 			</tr>
 		</table>
+
+		<?php if ( $status_counts['draft'] > 0 ) : ?>
+			<form method="post">
+				<?php wp_nonce_field( 'pcs_publish', 'pcs_publish_nonce' ); ?>
+				<label>Taille du lot :
+					<input type="number" name="batch_size" value="100" min="1" max="1000" class="small-text" />
+				</label>
+				<?php submit_button( 'Publier le prochain lot', 'primary', 'submit', false, [
+					'onclick' => "return confirm('Publier ce lot de boutiques maintenant ?');",
+				] ); ?>
+				<span class="description">— publie les <?php echo (int) min( 100, $status_counts['draft'] ); ?> plus anciennes en brouillon.</span>
+			</form>
+		<?php else : ?>
+			<p><em>Aucune boutique en brouillon. Importe un fichier (sans « publier immédiatement ») pour en mettre en file.</em></p>
+		<?php endif; ?>
 
 		<hr />
 

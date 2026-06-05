@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
  * @param bool   $dry_run   Si true, ne crée/modifie rien, compte seulement.
  * @return array{created:int, updated:int, skipped:int, errors:string[]}
  */
-function pcs_directory_import_jsonl( string $filepath, bool $dry_run = false ): array {
+function pcs_directory_import_jsonl( string $filepath, bool $dry_run = false, bool $publish = false ): array {
 	$result = [ 'created' => 0, 'updated' => 0, 'skipped' => 0, 'removed' => 0, 'errors' => [] ];
 
 	if ( ! file_exists( $filepath ) || ! is_readable( $filepath ) ) {
@@ -100,13 +100,13 @@ function pcs_directory_import_jsonl( string $filepath, bool $dry_run = false ): 
 		$existing_id = pcs_directory_find_post_by_key( $place_id, $siret );
 
 		$post_data = [
-			'post_type'   => PCS_DIR_CPT,
-			'post_status' => 'publish',
-			'post_title'  => $title,
-			'post_name'   => $slug,
+			'post_type'  => PCS_DIR_CPT,
+			'post_title' => $title,
+			'post_name'  => $slug,
 		];
 
 		if ( $existing_id ) {
+			// Mise à jour : on NE touche PAS au statut (préserve brouillon/publié existant).
 			$post_data['ID'] = $existing_id;
 			$post_id = wp_update_post( $post_data, true );
 			if ( is_wp_error( $post_id ) ) {
@@ -115,6 +115,9 @@ function pcs_directory_import_jsonl( string $filepath, bool $dry_run = false ): 
 			}
 			$result['updated']++;
 		} else {
+			// Création : brouillon par défaut (publication par lots ensuite),
+			// ou publié immédiatement si demandé.
+			$post_data['post_status'] = $publish ? 'publish' : 'draft';
 			$post_id = wp_insert_post( $post_data, true );
 			if ( is_wp_error( $post_id ) ) {
 				$result['errors'][] = "Ligne {$line_num} SIRET {$siret} : " . $post_id->get_error_message();
@@ -190,6 +193,43 @@ function pcs_directory_import_jsonl( string $filepath, bool $dry_run = false ): 
 
 	fclose( $fh );
 	return $result;
+}
+
+/**
+ * Publie un lot de boutiques en brouillon (drip publishing).
+ *
+ * Publie les plus anciens brouillons d'abord. À lancer manuellement tous les
+ * quelques jours pour ne pas créer toutes les pages d'un coup (signal Google).
+ *
+ * @param int $n Nombre de boutiques à publier.
+ * @return int Nombre réellement publié.
+ */
+function pcs_directory_publish_batch( int $n = 100 ): int {
+	$ids = get_posts( [
+		'post_type'      => PCS_DIR_CPT,
+		'post_status'    => 'draft',
+		'posts_per_page' => $n,
+		'orderby'        => 'ID',
+		'order'          => 'ASC',
+		'fields'         => 'ids',
+		'no_found_rows'  => true,
+	] );
+	$done = 0;
+	foreach ( $ids as $id ) {
+		$r = wp_update_post( [ 'ID' => $id, 'post_status' => 'publish' ], true );
+		if ( ! is_wp_error( $r ) ) { $done++; }
+	}
+	return $done;
+}
+
+/**
+ * Compte les boutiques par statut.
+ *
+ * @return array{publish:int, draft:int}
+ */
+function pcs_directory_count_by_status(): array {
+	$c = wp_count_posts( PCS_DIR_CPT );
+	return [ 'publish' => (int) ( $c->publish ?? 0 ), 'draft' => (int) ( $c->draft ?? 0 ) ];
 }
 
 /**
