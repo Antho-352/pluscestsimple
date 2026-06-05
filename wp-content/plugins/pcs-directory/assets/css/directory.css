@@ -419,6 +419,136 @@
   border: 1px solid var(--pcs-border);
 }
 
+/* ─── Breadcrumb ─────────────────────────────────────────────────────────── */
+.pcs-breadcrumb {
+  margin: 0 0 1rem;
+  font-size: .85rem;
+  color: var(--pcs-text-muted);
+}
+.pcs-breadcrumb ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .25rem .5rem;
+}
+.pcs-breadcrumb li {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+.pcs-breadcrumb li:not(:last-child)::after {
+  content: "›";
+  color: #aaa;
+}
+.pcs-breadcrumb a {
+  color: var(--pcs-accent);
+  text-decoration: none;
+}
+.pcs-breadcrumb a:hover { text-decoration: underline; }
+.pcs-breadcrumb [aria-current="page"] { color: var(--pcs-text-muted); }
+
+/* ─── Index (régions / départements / villes) ────────────────────────────── */
+.pcs-index { margin: 1.5rem 0 2rem; }
+.pcs-index__title {
+  font-size: 1.15rem;
+  margin: 0 0 .85rem;
+}
+.pcs-index__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: .15rem .5rem;
+}
+@media (min-width: 560px) {
+  .pcs-index__list { grid-template-columns: repeat(2, 1fr); column-gap: 2rem; }
+}
+@media (min-width: 900px) {
+  .pcs-index__list { grid-template-columns: repeat(3, 1fr); }
+}
+.pcs-index__item {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: .5rem;
+  padding: .4rem 0;
+  border-bottom: 1px solid var(--pcs-border);
+}
+.pcs-index__item a {
+  color: var(--pcs-accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+.pcs-index__item a:hover { text-decoration: underline; }
+.pcs-index__count {
+  flex: 0 0 auto;
+  font-size: .8rem;
+  color: var(--pcs-text-muted);
+  background: var(--pcs-bg-muted);
+  border-radius: 99px;
+  padding: 1px 9px;
+}
+.pcs-index__more {
+  margin: .75rem 0 0;
+  font-size: .85rem;
+  color: var(--pcs-text-muted);
+}
+
+/* ─── Liste boutiques (style Craigslist : liens bleus) ───────────────────── */
+.pcs-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.pcs-list__item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: .35rem .75rem;
+  padding: .6rem 0;
+  border-bottom: 1px solid var(--pcs-border);
+  line-height: 1.4;
+}
+.pcs-list__link {
+  color: var(--pcs-accent);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+}
+.pcs-list__link:hover { text-decoration: underline; }
+.pcs-list__meta {
+  color: var(--pcs-text-muted);
+  font-size: .85rem;
+}
+.pcs-list__flags {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: .3rem;
+  margin-left: auto;
+}
+.pcs-flag {
+  font-size: .68rem;
+  text-transform: uppercase;
+  letter-spacing: .03em;
+  padding: 1px 7px;
+  border-radius: 99px;
+  white-space: nowrap;
+}
+.pcs-flag--enseigne { background: #fff8e1; color: #8a6000; }
+.pcs-flag--cat      { background: var(--pcs-accent-lt); color: var(--pcs-accent); }
+.pcs-flag--web      { background: #e8f0fb; color: #1a3b8a; }
+.pcs-flag--phone    { background: #eef4ee; color: #1a6b3a; }
+
+/* Le conteneur AJAX : on retire l'ancienne grille en cards. */
+.pcs-grid { display: block; }
+
+/* ─── Sections ───────────────────────────────────────────────────────────── */
+.pcs-quicksearch { margin-top: 1.5rem; }
+.pcs-teaser { margin: 1.5rem 0; }
+
 /* ─── Admin ──────────────────────────────────────────────────────────────── */
 .pcs-directory-admin .form-table input[type="text"],
 .pcs-directory-admin .form-table input[type="url"],

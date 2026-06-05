@@ -2,10 +2,11 @@
 /**
  * Plugin Name: Annuaire — pluscestsimple
  * Description: Annuaire des magasins déco/maison. CPT pcs_boutique + 6 taxonomies + import JSONL + carte Leaflet + filtres AJAX.
- * Version:     2.0.0
+ * Version:     2.1.0
  * Author:      Anthony Russo
  * Requires PHP: 8.0
- * Requires at least: 6.0
+ * Requires at least: 7.0
+ * Tested up to: 7.0
  * Text Domain: pcs-directory
  *
  * Conventions v2 :
@@ -19,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 
 // ─── Constantes ───────────────────────────────────────────────────────────────
 
-const PCS_DIR_VERSION = '2.0.0';
+const PCS_DIR_VERSION = '2.1.0';
 const PCS_DIR_CPT     = 'pcs_boutique';
 
 define( 'PCS_DIR_DIR', __DIR__ );
@@ -29,6 +30,7 @@ define( 'PCS_DIR_URL', plugin_dir_url( __FILE__ ) );
 
 require_once PCS_DIR_DIR . '/inc/cpt.php';
 require_once PCS_DIR_DIR . '/inc/taxonomies.php';
+require_once PCS_DIR_DIR . '/inc/helpers.php';
 require_once PCS_DIR_DIR . '/inc/import-jsonl.php';
 require_once PCS_DIR_DIR . '/inc/ajax-filter.php';
 require_once PCS_DIR_DIR . '/inc/seo.php';
@@ -36,6 +38,7 @@ require_once PCS_DIR_DIR . '/inc/seo.php';
 if ( is_admin() ) {
 	require_once PCS_DIR_DIR . '/inc/admin-import.php';
 	require_once PCS_DIR_DIR . '/inc/admin-stats.php';
+	require_once PCS_DIR_DIR . '/inc/term-meta.php';
 }
 
 // ─── Assets frontend ──────────────────────────────────────────────────────────

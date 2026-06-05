@@ -1,6 +1,6 @@
 <?php
 /**
- * Template : taxonomy pcs_region.
+ * Template : taxonomy pcs_region — liste des départements de la région.
  *
  * URL : /annuaire/region/centre-val-de-loire/
  *
@@ -10,49 +10,61 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 
 get_header();
 
-$term   = get_queried_object();
-$region = $term->name ?? '';
-$count  = $term->count ?? 0;
+$term  = get_queried_object();
+$depts = pcs_directory_departments_in_region( $term->name );
 
-$markers_json = pcs_directory_get_map_markers_json( [ [
-	'taxonomy' => 'pcs_region',
-	'field'    => 'term_id',
-	'terms'    => $term->term_id,
-] ] );
+// Teaser : quelques boutiques de la région (enseignes en priorité).
+$teaser = new WP_Query( [
+	'post_type'      => PCS_DIR_CPT,
+	'post_status'    => 'publish',
+	'posts_per_page' => 10,
+	'orderby'        => 'meta_value_num',
+	'meta_key'       => '_pcs_is_enseigne',
+	'order'          => 'DESC',
+	'tax_query'      => [ [ 'taxonomy' => 'pcs_region', 'field' => 'term_id', 'terms' => $term->term_id ] ],
+] );
 ?>
 
 <div class="pcs-taxonomy">
 
+	<?php pcs_directory_breadcrumb(); ?>
+
 	<div class="pcs-tax-header">
-		<h1>Magasins déco et maison en <?php echo esc_html( $region ); ?></h1>
-		<p><?php echo number_format_i18n( $count ); ?> boutique<?php echo $count > 1 ? 's' : ''; ?> référencée<?php echo $count > 1 ? 's' : ''; ?> en <?php echo esc_html( $region ); ?>.</p>
+		<h1>Magasins déco et maison en <?php echo esc_html( $term->name ); ?></h1>
+		<?php echo pcs_directory_term_intro( $term ); ?>
 	</div>
 
-	<!-- Carte -->
-	<div id="pcs-map" class="pcs-map" data-markers="<?php echo esc_attr( $markers_json ); ?>">
-		<p class="pcs-map-placeholder">Chargement de la carte…</p>
-	</div>
+	<!-- Liste des départements -->
+	<section class="pcs-index">
+		<h2 class="pcs-index__title">Choisir un département</h2>
+		<ul class="pcs-index__list">
+			<?php foreach ( $depts as $d ) : ?>
+				<li class="pcs-index__item">
+					<a href="<?php echo esc_url( get_term_link( $d ) ); ?>">
+						<?php echo esc_html( $d->name . ' (' . pcs_directory_dept_code( $d ) . ')' ); ?>
+					</a>
+					<span class="pcs-index__count"><?php echo number_format_i18n( $d->count ); ?></span>
+				</li>
+			<?php endforeach; ?>
+		</ul>
+	</section>
 
-	<!-- Grille -->
-	<div id="pcs-grid" class="pcs-grid">
-		<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-			<?php get_template_part( 'templates/partials/card-boutique', null, [ 'post_id' => get_the_ID() ] ); ?>
-		<?php endwhile;
-		else : ?>
-			<p class="pcs-empty">Aucune boutique trouvée dans cette région.</p>
-		<?php endif; ?>
-	</div>
+	<!-- Teaser boutiques -->
+	<?php if ( $teaser->have_posts() ) : ?>
+		<section class="pcs-teaser">
+			<h2 class="pcs-index__title">Quelques boutiques de la région</h2>
+			<ul class="pcs-list">
+				<?php while ( $teaser->have_posts() ) : $teaser->the_post(); ?>
+					<?php get_template_part( 'templates/partials/row-boutique', null, [ 'post_id' => get_the_ID() ] ); ?>
+				<?php endwhile; wp_reset_postdata(); ?>
+			</ul>
+		</section>
+	<?php endif; ?>
 
-	<div id="pcs-pagination" class="pcs-pagination">
-		<?php the_posts_pagination( [ 'mid_size' => 2 ] ); ?>
-	</div>
-
+	<!-- Texte SEO -->
 	<div class="pcs-seo-text">
-		<h2>Boutiques de décoration en <?php echo esc_html( $region ); ?></h2>
-		<p>
-			Découvrez <?php echo number_format_i18n( $count ); ?> magasins de décoration d'intérieur, meubles et aménagement de la maison en <?php echo esc_html( $region ); ?>.
-		</p>
-		<p><a href="<?php echo esc_url( get_post_type_archive_link( PCS_DIR_CPT ) ); ?>">← Annuaire national</a></p>
+		<?php echo pcs_directory_term_outro( $term ); ?>
+		<p><a href="<?php echo esc_url( get_post_type_archive_link( PCS_DIR_CPT ) ); ?>">← Toutes les régions</a></p>
 	</div>
 
 </div>

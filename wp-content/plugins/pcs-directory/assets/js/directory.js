@@ -142,9 +142,9 @@
         }
         var data = json.data;
 
-        // Mise à jour grille.
+        // Mise à jour liste.
         grid.innerHTML = data.posts.length
-          ? data.posts.map(cardHtml).join('')
+          ? '<ul class="pcs-list">' + data.posts.map(rowHtml).join('') + '</ul>'
           : '<p class="pcs-empty">Aucune boutique ne correspond à ces critères.</p>';
 
         // Mise à jour pagination.
@@ -172,23 +172,23 @@
     }
   }
 
-  function cardHtml(b) {
-    var badges = '';
-    if (b.is_enseigne) badges += '<span class="pcs-badge pcs-badge--enseigne">Enseigne</span>';
-    if (b.categorie)   badges += '<span class="pcs-badge pcs-badge--cat">' + esc(b.categorie) + '</span>';
-    if (b.website)     badges += '<span class="pcs-badge pcs-badge--web">Site web</span>';
-    if (b.phone)       badges += '<span class="pcs-badge pcs-badge--phone">Tél.</span>';
+  function rowHtml(b) {
+    var meta = [];
+    if (b.adresse) meta.push(esc(b.adresse));
+    var cpVille = [b.code_postal, b.ville].filter(Boolean).join(' ').trim();
+    if (cpVille) meta.push(esc(cpVille));
 
-    return '<article class="pcs-card' + (b.is_enseigne ? ' is-enseigne' : '') + '">'
-      + '<a class="pcs-card__link" href="' + esc(b.url) + '">'
-      + '<div class="pcs-card__thumbnail"><div class="pcs-card__thumbnail-placeholder"></div></div>'
-      + '<div class="pcs-card__body">'
-      + (badges ? '<div class="pcs-card__tags">' + badges + '</div>' : '')
-      + '<h3 class="pcs-card__title">' + esc(b.title) + '</h3>'
-      + '<p class="pcs-card__meta">' + esc(b.adresse || '') + '</p>'
-      + '</div>'
-      + '</a>'
-      + '</article>';
+    var flags = '';
+    if (b.is_enseigne) flags += '<span class="pcs-flag pcs-flag--enseigne">enseigne</span>';
+    if (b.categorie)   flags += '<span class="pcs-flag pcs-flag--cat">' + esc(b.categorie) + '</span>';
+    if (b.website)     flags += '<span class="pcs-flag pcs-flag--web">site web</span>';
+    if (b.phone)       flags += '<span class="pcs-flag pcs-flag--phone">tél.</span>';
+
+    return '<li class="pcs-list__item">'
+      + '<a class="pcs-list__link" href="' + esc(b.url) + '">' + esc(b.title) + '</a>'
+      + (meta.length ? '<span class="pcs-list__meta">' + meta.join(' · ') + '</span>' : '')
+      + '<span class="pcs-list__flags">' + flags + '</span>'
+      + '</li>';
   }
 
   function buildPager(current, total) {

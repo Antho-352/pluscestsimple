@@ -42,10 +42,11 @@ function pcs_directory_ajax_filter(): void {
 	$tax_query = [ 'relation' => 'AND' ];
 
 	if ( $dept ) {
+		// $dept = slug complet du terme (ex : loiret-45).
 		$tax_query[] = [
 			'taxonomy' => 'pcs_dept',
 			'field'    => 'slug',
-			'terms'    => 'dept-' . $dept,
+			'terms'    => $dept,
 		];
 	}
 	if ( $cat ) {
@@ -91,10 +92,11 @@ function pcs_directory_ajax_filter(): void {
 	$posts = [];
 
 	foreach ( $query->posts as $post ) {
-		$pid  = $post->ID;
-		$cats = get_the_terms( $pid, 'pcs_cat' );
+		$pid   = $post->ID;
+		$cats  = get_the_terms( $pid, 'pcs_cat' );
 		$types = get_the_terms( $pid, 'pcs_type' );
 		$modes = get_the_terms( $pid, 'pcs_mode' );
+		$vils  = get_the_terms( $pid, 'pcs_ville' );
 
 		$posts[] = [
 			'id'          => $pid,
@@ -102,7 +104,7 @@ function pcs_directory_ajax_filter(): void {
 			'url'         => get_permalink( $pid ),
 			'adresse'     => get_post_meta( $pid, '_pcs_adresse', true ),
 			'code_postal' => get_post_meta( $pid, '_pcs_code_postal', true ),
-			'ville'       => '',  // ville dans adresse
+			'ville'       => ( is_array( $vils ) && $vils ) ? $vils[0]->name : '',
 			'website'     => get_post_meta( $pid, '_pcs_website', true ),
 			'phone'       => get_post_meta( $pid, '_pcs_phone', true ),
 			'lat'         => (float) get_post_meta( $pid, '_pcs_lat', true ),

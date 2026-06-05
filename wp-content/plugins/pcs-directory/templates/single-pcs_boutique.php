@@ -60,6 +60,8 @@ if ( $ville ) {
 <div class="pcs-single">
 <article class="pcs-single__inner">
 
+	<?php pcs_directory_breadcrumb(); ?>
+
 	<!-- Hero -->
 	<?php if ( has_post_thumbnail() ) : ?>
 		<div class="pcs-single__hero">
@@ -158,30 +160,12 @@ if ( $ville ) {
 	<!-- Boutiques voisines -->
 	<?php if ( $nearby_query && $nearby_query->have_posts() ) : ?>
 		<div class="pcs-single__nearby">
-			<h2>Autres boutiques <?php $ville ? printf( 'à %s', esc_html( $ville->name ) ) : ''; ?></h2>
-			<div class="pcs-nearby-grid">
+			<h2>Autres boutiques<?php echo $ville ? ' à ' . esc_html( $ville->name ) : ''; ?></h2>
+			<ul class="pcs-list">
 				<?php while ( $nearby_query->have_posts() ) : $nearby_query->the_post(); ?>
-					<?php
-					// On réutilise le partial card mais en mode compact.
-					$npid = get_the_ID();
-					?>
-					<div class="pcs-card">
-						<a class="pcs-card__link" href="<?php echo esc_url( get_permalink() ); ?>">
-							<div class="pcs-card__thumbnail">
-								<?php if ( has_post_thumbnail() ) : ?>
-									<?php the_post_thumbnail( 'thumbnail', [ 'loading' => 'lazy' ] ); ?>
-								<?php else : ?>
-									<div class="pcs-card__thumbnail-placeholder"></div>
-								<?php endif; ?>
-							</div>
-							<div class="pcs-card__body">
-								<h3 class="pcs-card__title"><?php the_title(); ?></h3>
-								<p class="pcs-card__meta"><?php echo esc_html( get_post_meta( $npid, '_pcs_adresse', true ) ); ?></p>
-							</div>
-						</a>
-					</div>
+					<?php get_template_part( 'templates/partials/row-boutique', null, [ 'post_id' => get_the_ID() ] ); ?>
 				<?php endwhile; wp_reset_postdata(); ?>
-			</div>
+			</ul>
 		</div>
 	<?php endif; ?>
 

@@ -150,11 +150,16 @@ function pcs_directory_import_jsonl( string $filepath, bool $dry_run = false ): 
 		$mode = sanitize_text_field( (string) ( $data['mode'] ?? 'En boutique' ) );
 		pcs_directory_set_term( $post_id, 'pcs_mode', $mode );
 
-		// Département (slug : dept-45).
+		// Département : nom lisible + slug loiret-45 + meta code.
 		if ( $dept ) {
-			$dept_name = $dept;
-			$dept_slug = 'dept-' . $dept;
+			$dept_code = strtolower( $dept );
+			$dept_name = pcs_directory_dept_name( $dept_code );
+			$dept_slug = sanitize_title( $dept_name ) . '-' . $dept_code;
 			pcs_directory_set_term( $post_id, 'pcs_dept', $dept_name, $dept_slug );
+			$dterm = get_term_by( 'slug', $dept_slug, 'pcs_dept' );
+			if ( $dterm ) {
+				update_term_meta( $dterm->term_id, '_pcs_dept_code', $dept_code );
+			}
 		}
 
 		// Région.
