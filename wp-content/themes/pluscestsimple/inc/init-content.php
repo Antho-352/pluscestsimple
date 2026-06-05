@@ -171,7 +171,7 @@ function pcs_subpage_content( string $label ): string {
 	$query .= '<!-- wp:query-no-results --><!-- wp:paragraph --><p>Aucun article pour le moment.</p><!-- /wp:paragraph --><!-- /wp:query-no-results -->';
 	$query .= '</div><!-- /wp:query -->';
 
-	return "<!-- wp:heading {\"level\":1} -->\n<h1 class=\"wp-block-heading\">{$h1}</h1>\n<!-- /wp:heading -->\n\n"
+	return "<!-- wp:heading {\"level\":1,\"className\":\"pcs-archive__title\"} -->\n<h1 class=\"wp-block-heading pcs-archive__title\">{$h1}</h1>\n<!-- /wp:heading -->\n\n"
 		. "<!-- wp:paragraph -->\n<p>{$intro}</p>\n<!-- /wp:paragraph -->\n\n"
 		. $query;
 }
@@ -268,7 +268,22 @@ function pcs_init_content(): void {
 		$pillar_page = get_page_by_path( $slug_root );
 		if ( $pillar_page instanceof WP_Post ) {
 			foreach ( $data['sub_cats'] as $sub_slug => $sub_label ) {
-				if ( get_page_by_path( $slug_root . '/' . $sub_slug ) instanceof WP_Post ) {
+				$sub_existing = get_page_by_path( $slug_root . '/' . $sub_slug );
+				if ( $sub_existing instanceof WP_Post ) {
+					// Migration ciblée du H1 : ajoute la classe pcs-archive__title (titre en grand)
+					// sur les sous-pages créées avant ce correctif. Ne touche qu'au H1, pas à l'intro.
+					$c = (string) $sub_existing->post_content;
+					if ( strpos( $c, 'pcs-archive__title' ) === false
+						&& strpos( $c, '<h1 class="wp-block-heading">' ) !== false ) {
+						$c2 = str_replace(
+							[ '<!-- wp:heading {"level":1} -->', '<h1 class="wp-block-heading">' ],
+							[ '<!-- wp:heading {"level":1,"className":"pcs-archive__title"} -->', '<h1 class="wp-block-heading pcs-archive__title">' ],
+							$c
+						);
+						if ( $c2 !== $c ) {
+							wp_update_post( [ 'ID' => $sub_existing->ID, 'post_content' => $c2 ] );
+						}
+					}
 					continue; // déjà créée
 				}
 				$sub_id = wp_insert_post( [
