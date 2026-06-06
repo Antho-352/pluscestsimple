@@ -22,3 +22,8 @@ dist/
 # Sauvegardes
 *.bak
 *.orig
+
+# Exports GSC (données, hors repo)
+Pages.csv
+Requ*.csv
+*-Performance-on-Search-*/
