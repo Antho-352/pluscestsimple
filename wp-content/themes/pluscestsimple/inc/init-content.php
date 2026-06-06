@@ -208,11 +208,24 @@ function pcs_init_content(): void {
 			$cat_id = $term->term_id;
 		}
 
-		// 2. Sous-catégories (slug "<pilier>-<sub>-cat")
+		// 1b. Normalisation hiérarchie : un pilier est TOUJOURS racine (parent 0).
+		//     Corrige les parents croisés hérités d'anciennes taxonomies
+		//     (ex. immobilier-cat coincé sous architecture-cat) qui faussaient
+		//     les fils d'Ariane et include_children.
+		$cat_term = get_term( $cat_id, 'category' );
+		if ( $cat_term instanceof WP_Term && (int) $cat_term->parent !== 0 ) {
+			wp_update_term( $cat_id, 'category', [ 'parent' => 0 ] );
+		}
+
+		// 2. Sous-catégories (slug "<pilier>-<sub>-cat") — parent = SON pilier.
 		foreach ( $data['sub_cats'] as $sub_slug => $sub_label ) {
 			$full_slug = $slug_root . '-' . $sub_slug . '-cat';
 			$existing  = get_term_by( 'slug', $full_slug, 'category' );
 			if ( $existing ) {
+				// Re-rattache si le parent est faux (idempotent).
+				if ( (int) $existing->parent !== (int) $cat_id ) {
+					wp_update_term( $existing->term_id, 'category', [ 'parent' => $cat_id ] );
+				}
 				continue;
 			}
 			wp_insert_term( $sub_label, 'category', [

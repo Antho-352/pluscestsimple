@@ -29,8 +29,24 @@ add_filter(
 			return $query;
 		}
 
-		$namespace = $block->parsed_block['attrs']['namespace'] ?? '';
-		if ( $namespace !== 'pcs/cat-loop' ) {
+		$attrs     = $block->parsed_block['attrs'] ?? [];
+		$namespace = $attrs['namespace'] ?? '';
+
+		// On filtre les boucles de notre namespace ET les boucles sans namespace
+		// (pages seedées avant l'ajout du namespace → sinon jamais filtrées).
+		// On respecte en revanche un namespace tiers explicite.
+		if ( '' !== $namespace && 'pcs/cat-loop' !== $namespace ) {
+			return $query;
+		}
+
+		// Un bloc en mode « hériter » ne doit pas être forcé.
+		if ( ! empty( $attrs['query']['inherit'] ) ) {
+			return $query;
+		}
+
+		// Si un filtre catégorie est DÉJÀ posé sur le bloc (réglage manuel dans
+		// l'éditeur), on le respecte et on ne le surcharge pas.
+		if ( ! empty( $query['tax_query'] ) || ! empty( $query['category__in'] ) || ! empty( $query['cat'] ) ) {
 			return $query;
 		}
 
