@@ -34,6 +34,7 @@ $pcs_modules = [
 	'affiliate',       // Auto rel="sponsored nofollow" + disclosure
 	'form',            // CPT arw_submission + REST endpoint /pcs/v1/submit
 	'partners',        // CPT Partenaires + rendu dynamique section "Nos partenaires" [pcs_partners]
+	'maillage',        // Cocon : articles liés même silo (P4) + nav piliers↔sous-piliers (P3)
 	'cookie-consent',  // Bandeau natif Consent Mode v2
 	'legal-defaults',  // Page admin mentions légales + placeholders
 	'identity',        // Page admin Identité & Social + bindings filtres

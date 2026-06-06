@@ -101,6 +101,13 @@ while ( have_posts() ) :
 
 	</div><!-- /.pcs-article-layout -->
 
+	<?php
+	/* P4 — Articles liés du même silo (cocon), pleine largeur sous le layout. */
+	if ( function_exists( 'pcs_related_posts' ) ) {
+		echo pcs_related_posts( 4 ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped — markup interne échappé.
+	}
+	?>
+
 	<?php /* Newsletter en bas de chaque article (avant commentaires / suggestions) */ ?>
 	<section class="pcs-section pcs-section--newsletter pcs-article__newsletter">
 		<div class="pcs-container">
