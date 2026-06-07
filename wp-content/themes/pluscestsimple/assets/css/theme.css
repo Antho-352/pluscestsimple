@@ -1684,9 +1684,17 @@ a.pcs-link-partner:hover {
 		margin-bottom: var(--wp--preset--spacing--60);
 	}
 	.pcs-article { min-width: 0; }
-	/* Sécurité anti-débordement de toute créa pub trop large. */
+	/* Pub mobile : on plafonne la HAUTEUR (créa 300x600 = 600px natif, beaucoup trop).
+	   max-height ~170px ≈ ÷3,5 du format ; ratio conservé via width:auto. */
+	.pcs-article__sidebar .pcs-banner__img,
+	.pcs-article__sidebar .pcs-banner__placeholder-img,
 	.pcs-article__sidebar img,
-	.pcs-article__sidebar iframe { max-width: 100%; height: auto; }
+	.pcs-article__sidebar iframe {
+		max-width: 100%;
+		max-height: 170px;
+		width: auto;
+		height: auto;
+	}
 }
 .pcs-article__header { margin-bottom: var(--wp--preset--spacing--70); }
 .pcs-article__eyebrow {
