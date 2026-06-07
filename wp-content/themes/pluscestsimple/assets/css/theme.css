@@ -1671,10 +1671,22 @@ a.pcs-link-partner:hover {
 	top: 6rem;
 }
 @media (max-width: 900px) {
-	.pcs-article-layout.has-sidebar {
-		grid-template-columns: 1fr;
+	/* Spécificité alignée sur la règle desktop (0,3,0) sinon l'override 1fr ne gagne pas
+	   → bug : la grille 2 colonnes persistait sur mobile, article écrasé à gauche. */
+	.pcs-container.pcs-article-layout.has-sidebar {
+		display: flex;
+		flex-direction: column; /* une seule colonne, ordre contrôlable */
 	}
-	.pcs-article__sidebar { position: static; }
+	.pcs-article__sidebar {
+		position: static;
+		order: -1; /* pub AVANT l'article (demandé : pub en haut, puis scroll normal) */
+		max-width: 100%;
+		margin-bottom: var(--wp--preset--spacing--60);
+	}
+	.pcs-article { min-width: 0; }
+	/* Sécurité anti-débordement de toute créa pub trop large. */
+	.pcs-article__sidebar img,
+	.pcs-article__sidebar iframe { max-width: 100%; height: auto; }
 }
 .pcs-article__header { margin-bottom: var(--wp--preset--spacing--70); }
 .pcs-article__eyebrow {

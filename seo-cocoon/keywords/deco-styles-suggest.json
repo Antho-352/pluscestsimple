@@ -1,0 +1,3160 @@
+{
+ "seed_keyword": "décoration scandinave (+ cluster styles)",
+ "geo": "fr",
+ "source": "google_suggest",
+ "count": 788,
+ "keywords": [
+  {
+   "keyword": "accessoires vintage cuisine",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "ambiance nordique salon",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "ambiance scandinave chambre",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "ambiance scandinave salon",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "armoire style industriel pas cher",
+   "intent": "transactional"
+  },
+  {
+   "keyword": "art deco pas cher",
+   "intent": "transactional"
+  },
+  {
+   "keyword": "art deco wabi sabi",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "bague style art deco pas cher",
+   "intent": "transactional"
+  },
+  {
+   "keyword": "buffet design moderne pas cher",
+   "intent": "transactional"
+  },
+  {
+   "keyword": "buffet style industriel pas cher",
+   "intent": "transactional"
+  },
+  {
+   "keyword": "buffet style scandinave pas cher",
+   "intent": "transactional"
+  },
+  {
+   "keyword": "bureau design moderne pas cher",
+   "intent": "transactional"
+  },
+  {
+   "keyword": "bureau style ancien pas cher",
+   "intent": "transactional"
+  },
+  {
+   "keyword": "bureau style scandinave pas cher",
+   "intent": "transactional"
+  },
+  {
+   "keyword": "cadre de lit simple pas cher",
+   "intent": "transactional"
+  },
+  {
+   "keyword": "cadre minimaliste",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "cadre minimaliste chambre",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "cadre minimaliste cuisine",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "cadre minimaliste pas cher",
+   "intent": "transactional"
+  },
+  {
+   "keyword": "cadre minimaliste salon",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "cadre mural minimaliste",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "cadre photo simple pas cher",
+   "intent": "transactional"
+  },
+  {
+   "keyword": "cadre simple mureva",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "cadre simple pas cher",
+   "intent": "transactional"
+  },
+  {
+   "keyword": "canape design moderne pas cher",
+   "intent": "transactional"
+  },
+  {
+   "keyword": "canap� style scandinave pas cher",
+   "intent": "transactional"
+  },
+  {
+   "keyword": "chaises style scandinave pas cher",
+   "intent": "transactional"
+  },
+  {
+   "keyword": "chambre style bord de mer chic",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "chambre style scandinave bois",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "cocktail scandinave decoration murale",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "comment d�finir le style art d�co",
+   "intent": "informational"
+  },
+  {
+   "keyword": "comment faire une d�co boh�me chic",
+   "intent": "informational"
+  },
+  {
+   "keyword": "comment faire une d�co campagne chic",
+   "intent": "informational"
+  },
+  {
+   "keyword": "comment reconna�tre le style art d�co",
+   "intent": "informational"
+  },
+  {
+   "keyword": "commode style scandinave pas cher",
+   "intent": "transactional"
+  },
+  {
+   "keyword": "contemporain design meuble",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "cosy decor ideas",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "cosy decorating ideas",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "cottage decor ideas",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "cottage decor ideas bedroom",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "cottage decor ideas living room",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "cottage decor ideas pictures",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "cottage decor inspiration",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "cottage design ideas",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "cottage design ideas exterior",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "cottage design ideas for resort",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "cottage design ideas interior",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "cottage design ideas plans",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "cuisine style bord de mer",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "cuisine style bord de mer chic",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "cuisine style industriel pas cher",
+   "intent": "transactional"
+  },
+  {
+   "keyword": "cuisine style scandinave bois",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "cuisine style scandinave ikea",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "cuisine style scandinave moderne",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "cuisine style scandinave pinterest",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco anniversaire boh�me pas cher",
+   "intent": "transactional"
+  },
+  {
+   "keyword": "deco art deco salon",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco boheme chambre",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco boheme chambre ado",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco boheme chambre adulte",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco boheme chambre bebe",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco boheme chambre enfant",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco boheme chambre fille",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco boheme cuisine",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco boheme meuble",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco boheme mur",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco boheme murale salon",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco boheme pas cher",
+   "intent": "transactional"
+  },
+  {
+   "keyword": "deco boheme salon de jardin",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco boheme salon terracotta",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco boho chambre",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco boho mural",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco boho salon",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco bord de mer",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco bord de mer chambre",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco bord de mer chambre adulte",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco bord de mer chambre enfant",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco bord de mer cuisine",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco bord de mer salon",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco campagne chic anniversaire",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco campagne chic cuisine",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco campagne chic mariage",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco campagne chic pinterest",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco campagne chic salle a manger",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco campagne chic salon",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco chambre adulte campagne chic",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco chambre boheme pas cher",
+   "intent": "transactional"
+  },
+  {
+   "keyword": "deco chambre bord de plage",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco chambre cosy ado",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco chambre cosy adulte",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco chambre cosy beige",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco chambre cosy bois",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco chambre cottage anglais",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco chambre moderne blanche",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco chambre moderne bois",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco chambre moderne pinterest",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco chambre m�diterran�enne",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco chambre retro chic",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco chambre scandinave beige",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco chambre wabi sabi",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco cocooning chambre ado",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco cocooning chambre adulte",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco cocooning cuisine",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco contemporaine chambre",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco contemporaine jardin",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco contemporaine moderne",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco contemporaine salle a manger",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco contemporaine salon",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco cosy automne",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco cosy bebe",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco cosy chambre",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco cosy chic salon",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco cosy maison",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco cosy pas cher",
+   "intent": "transactional"
+  },
+  {
+   "keyword": "deco cosy stickers",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco cottage chambre",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco cottage cuisine",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco cottage salon",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco cuisine boheme chic",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco cuisine boho",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco cuisine bord de mer chic",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco cuisine contemporaine",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco cuisine cosy",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco cuisine cosy campagne",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco cuisine cottage anglais",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco cuisine industrielle campagne",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco cuisine mediterraneenne",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco cuisine moderne blanche",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco cuisine m�diterran�enne",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco cuisine rustique chic",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco cuisine rustique moderne",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco design chambre",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco design chambre ado",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco design chambre adulte",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco design chambre enfant",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco design pas cher",
+   "intent": "transactional"
+  },
+  {
+   "keyword": "deco industrielle chambre",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco industrielle chambre ado",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco industrielle cuisine",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco industrielle mur",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco industrielle pas chere",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco industrielle salon salle a manger",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco japandi cuisine",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco japandi moderne",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco japandi pinterest",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco japandi salon",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco jardin moderne pas cher",
+   "intent": "transactional"
+  },
+  {
+   "keyword": "deco mariage boheme chic pas cher",
+   "intent": "transactional"
+  },
+  {
+   "keyword": "deco mariage boheme pas cher",
+   "intent": "transactional"
+  },
+  {
+   "keyword": "deco meuble cocooning",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco meuble industriel",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco meuble moderne",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco meuble rustique",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco minimaliste cuisine",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco minimaliste pas cher",
+   "intent": "transactional"
+  },
+  {
+   "keyword": "deco moderne avec meuble ancien",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco moderne avec meuble merisier",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco moderne chambre",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco moderne chambre a coucher",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco moderne chambre ado",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco moderne chambre adulte",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco moderne cuisine",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco moderne maison",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco moderne meuble ancien",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco moderne meuble tv",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco moderne mur salon",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco moderne murale",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco moderne pas cher",
+   "intent": "transactional"
+  },
+  {
+   "keyword": "deco moderne salon",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco moderne salon 2025",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco moderne salon salle a manger",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco moderne wc",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco mur retro",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco mural scandinave",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco murale antique",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco murale boheme atmosphera",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco murale boheme chic",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco murale boheme pas cher",
+   "intent": "transactional"
+  },
+  {
+   "keyword": "deco murale bois bord de mer",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco murale bord de mer",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco murale bord de mer maison du monde",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco murale cocooning",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco murale contemporaine",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco murale contemporaine salon",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco murale cosy",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco murale cottage",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco murale cottage anglais",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco murale cuisine campagne chic",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco murale industrielle amazon",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco murale industrielle bois",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco murale industrielle cuisine",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco murale japandi",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco murale mediterraneenne",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco murale minimaliste",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco murale moderne",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco murale moderne chambre",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco murale moderne cuisine",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco murale moderne pour salon",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco murale moderne salon",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco murale rustique",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco murale simple",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco murale style bord de mer",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco murale vintage",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco murale vintage cuisine",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco murale vintage metal",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco murale wabi sabi",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco noel hygge",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco retro chambre",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco retro murale",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco retro pas cher",
+   "intent": "transactional"
+  },
+  {
+   "keyword": "deco retro salon",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco rustique chambre",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco rustique cuisine",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco rustique maison",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco rustique mariage",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco rustique moderne",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco rustique salon",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco salon boheme nature",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco salon boheme pinterest",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco salon cocooning pas cher",
+   "intent": "transactional"
+  },
+  {
+   "keyword": "deco salon contemporain chaleureux",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco salon contemporain et ancien",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco salon contemporain minimaliste",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco salon cosy beige",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco salon cosy canape gris",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco salon cosy terracotta",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco salon cosy vert",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco salon cottage anglais",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco salon industriel bois",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco salon industriel cocooning",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco salon industriel scandinave",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco salon industriel vintage",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco salon maison bord de mer",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco salon moderne beige",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco salon moderne pinterest",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco salon retro chic",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco salon sejour campagne chic",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco salon simple et chic",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco salon simple moderne",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco salon style bord de mer",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco salon vintage americain",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco salon vintage chic",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco scandinave chambre adulte",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco scandinave chambre bebe",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco scandinave salon salle a manger",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco simple chambre enfant",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco simple chambre parentale",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco simple cuisine",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco simple et pas cher",
+   "intent": "transactional"
+  },
+  {
+   "keyword": "deco table m�diterran�enne",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco vintage chambre ado",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco vintage chambre adulte",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco vintage chambre bebe",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco vintage chambre enfant",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco vintage chambre fille",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco vintage meuble",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco vintage pas cher",
+   "intent": "transactional"
+  },
+  {
+   "keyword": "deco vintage tendance",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "deco wabi sabi salon",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "decor cottage",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "decor cottage style",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "decor cottagecore",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "decoration ancienne cuisine",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "decoration art deco chambre",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "decoration boheme chambre bebe",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "decoration boheme chambre bebe fille",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "decoration boheme chambre enfant",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "decoration boheme chambre fille",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "decoration boheme cuisine",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "decoration boheme meuble",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "decoration boheme mur",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "decoration boho murale",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "decoration boho salon",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "decoration bord de mer chambre a coucher",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "decoration chambre simple a faire",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "decoration chambre vintage moderne",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "decoration contemporaine interieur",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "decoration contemporaine maison",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "decoration contemporaine minimaliste",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "decoration cuisine boheme chic",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "decoration cuisine moderne rouge et blanc",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "decoration design pas cher",
+   "intent": "transactional"
+  },
+  {
+   "keyword": "decoration industrielle",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "decoration industrielle moderne",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "decoration japandi chambre",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "decoration meuble scandinave",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "decoration moderne",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "decoration mural boheme chic",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "decoration murale boheme atmosphera",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "decoration murale boheme exterieur",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "decoration murale boheme maison du monde",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "decoration murale house doctor",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "decoration murale hygge",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "decoration murale industrielle metal",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "decoration murale japandi",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "decoration murale minimaliste",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "decoration murale moderne bois",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "decoration murale moderne noire",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "decoration murale rustique chic",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "decoration murale simple",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "decoration murale vintage",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "decoration murale vintage enfant",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "decoration nordique salon",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "decoration retro cuisine",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "decoration salon boheme chic",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "decoration salon scandinave beige",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "decoration scandinave boheme",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "decoration scandinave noel",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "decoration simple chambre a coucher",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "decoration simple chambre bebe",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "decoration simple chambre fille",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "decoration simple ideas",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "decoration simple ideas for home",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "decoration vintage murale",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "design chambre rustique",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "design cottage",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "design cottage garden",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "design cuisine contemporaine",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "design cuisine industriel",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "design cuisine minimaliste",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "design cuisine moderne tunisienne",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "design cuisine m�diterran�enne",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "design cuisine rustique",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "design cuisine vintage",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "design house salon hudson",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "design house salon reviews",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "design house salon treehouse",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "design house salon victoria",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "design house salon victoria bc",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "design hygge",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "design industriel meuble",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "design industriel salon",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "design industrielle",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "design int�rieur industriel",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "design japandi",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "design maximaliste",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "design moderne cuisine",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "design moderne salon",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "design mural moderne",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "design nordique meuble",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "design scandinave cuisine",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "design scandinave meubles",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "design scandinave pas cher",
+   "intent": "transactional"
+  },
+  {
+   "keyword": "design scandinave salon",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "design vintage ideas",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "design wabi sabi",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "designhouse salon fernwood",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co anniversaire boh�me pas cher",
+   "intent": "transactional"
+  },
+  {
+   "keyword": "d�co boh�me",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co boh�me chambre",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co boh�me chic",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co boh�me chic anniversaire",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co boh�me chic chambre",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co boh�me chic maison",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co boh�me chic mariage",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co boh�me chic pas cher",
+   "intent": "transactional"
+  },
+  {
+   "keyword": "d�co boh�me chic salon",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co boh�me murale",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co boh�me salon",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co bord de mer",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co bord de mer centrakor",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co bord de mer chambre",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co bord de mer chic",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co bord de mer gifi",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co bord de mer ikea",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co bord de mer maison du monde",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co bord de mer moderne",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co bord de mer pas cher",
+   "intent": "transactional"
+  },
+  {
+   "keyword": "d�co bord de mer salon",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co bord de mer � faire soi m�me",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co campagne chic",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co campagne chic chambre",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co campagne chic maison du monde",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co campagne chic pas cher",
+   "intent": "transactional"
+  },
+  {
+   "keyword": "d�co chambre bord de mer chic",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co chambre bord de mer contemporain",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co chambre contemporaine adulte",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co chambre cosy chic",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co chambre cosy romantique",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co chambre moderne chic",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co chambre rustique chic",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co chambre rustique moderne",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co chambre scandinave adulte",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co cocooning chambre",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co cocooning pas cher",
+   "intent": "transactional"
+  },
+  {
+   "keyword": "d�co cocooning salon",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co contemporaine",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co contemporaine chic",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co cosy",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co cosy chic",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co cosy romantique",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co cosy salon",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co cottage",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co cottage anglais",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co cottage anglais moderne",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co cuisine ancienne campagne",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co cuisine industrielle noire",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co cuisine moderne chic",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co cuisine moderne petit espace",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co cuisine vintage industriel",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co hygge",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co hygge ikea",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co hygge maison du monde",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co industrielle",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co industrielle murale",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co industrielle salon",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co industrielle vintage",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co int�rieur industriel",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co japandi",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co japandi chambre",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co japandi salon",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co jardin design pas cher",
+   "intent": "transactional"
+  },
+  {
+   "keyword": "d�co maison m�diterran�enne",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co minimaliste chic",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co moderne",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co moderne avec meuble ancien",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co moderne avec tomette",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co moderne chic",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co moderne cuisine ouverte",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co moderne et ancien",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co moderne salon",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co moderne � poser sur meuble",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co murale boh�me centrakor",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co murale boh�me chambre",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co murale boh�me maison du monde",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co murale campagne chic",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co murale industrielle atelier",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co murale industrielle maison du monde",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co murale industrielle salon",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co murale scandinave vintage",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co murale vintage industriel",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co murale vintage salon",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co m�diterran�enne",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co m�diterran�enne salon",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co rustique",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co rustique campagne",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co rustique chic",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co rustique chic salon",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co salon boh�me chic",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co salon boh�me industriel",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co salon boh�me vintage",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co salon bord de mer chic",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co salon cosy boh�me",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co salon cosy bois",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co salon cosy chic",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co salon cosy pinterest",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co salon industriel chic",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co salon moderne chaleureux",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co salon moderne chic",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co salon moderne noir et blanc gris",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co salon rustique chic",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co salon rustique moderne",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co salon scandinave boh�me",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co salon scandinave cocooning",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co salon vintage industriel",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co salon vintage moderne",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co salon vintage scandinave",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co scandinave pas cher",
+   "intent": "transactional"
+  },
+  {
+   "keyword": "d�co style industriel pas cher",
+   "intent": "transactional"
+  },
+  {
+   "keyword": "d�co table noel simple pas cher",
+   "intent": "transactional"
+  },
+  {
+   "keyword": "d�co table simple pas cher",
+   "intent": "transactional"
+  },
+  {
+   "keyword": "d�co terrasse m�diterran�enne",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co vintage",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co vintage anniversaire",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co vintage ann�e 70",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co vintage chambre",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co vintage chic",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co vintage cuisine",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co vintage garage",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co vintage moderne",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co vintage murale",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co vintage salon",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�co wabi sabi",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�coration art d�co",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�coration art d�co 1930",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�coration art d�co moderne",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�coration art d�co salon",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�coration boheme pas cher",
+   "intent": "transactional"
+  },
+  {
+   "keyword": "d�coration boh�me",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�coration boh�me chambre",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�coration boh�me chic",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�coration boh�me chic anniversaire",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�coration boh�me chic mariage",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�coration boh�me chic salon",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�coration boh�me ext�rieur",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�coration boh�me macram�",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�coration boh�me mariage",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�coration boh�me murale",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�coration boh�me salon",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�coration bord de mer chic salon",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�coration chambre nordique",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�coration cuisine moderne noire",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�coration ethnique chic",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�coration ethnique chic africaine",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�coration exotique chic",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�coration hygge",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�coration hygge chambre",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�coration hygge salon",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�coration inspiration scandinave",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�coration japandi",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�coration maison moderne pas cher",
+   "intent": "transactional"
+  },
+  {
+   "keyword": "d�coration mariage boh�me pas cher",
+   "intent": "transactional"
+  },
+  {
+   "keyword": "d�coration minimaliste",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�coration minimaliste chambre",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�coration minimaliste japonaise",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�coration minimaliste moderne",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�coration minimaliste salon",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�coration murale art d�co",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�coration murale industrielle vintage",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�coration murale nordique",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�coration murale scandinave bois",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�coration murale scandinave salon",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�coration murale vintage cuisine",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�coration m�diterran�enne chambre",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�coration m�diterran�enne ext�rieur",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�coration rustique chambre � coucher",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�coration salon cottage",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�coration salon scandinave moderne",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�coration scandinave",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�coration scandinave chambre",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�coration scandinave cuisine",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�coration scandinave maison",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�coration scandinave murale",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�coration scandinave pas cher",
+   "intent": "transactional"
+  },
+  {
+   "keyword": "d�coration scandinave salon",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�coration simple chambre",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�coration simple salon",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�coration style bord de mer chambre",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�coration vintage chambre",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�coration vintage cuisine",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "d�coration vintage pas cher",
+   "intent": "transactional"
+  },
+  {
+   "keyword": "d�coration vintage salon",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "etagere style industrielle cuisine",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "fauteuil style ancien pas cher",
+   "intent": "transactional"
+  },
+  {
+   "keyword": "fauteuil style industriel pas cher",
+   "intent": "transactional"
+  },
+  {
+   "keyword": "fauteuil style scandinave pas cher",
+   "intent": "transactional"
+  },
+  {
+   "keyword": "frigo design retro pas cher",
+   "intent": "transactional"
+  },
+  {
+   "keyword": "frigo style vintage pas cher",
+   "intent": "transactional"
+  },
+  {
+   "keyword": "house decoration murti",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "house design meuble",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "house design salon",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "hygge decor ideas",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "hygge design ideas",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "idee deco appartement bord de mer",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "idee deco bord de mer",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "idee deco bord de mer chic",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "idee deco campagne chic",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "idee deco chambre bord de mer",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "idee deco chambre campagne chic",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "idee deco chambre cottage",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "idee deco chambre industrielle",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "idee deco chambre rustique",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "idee deco contemporaine",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "idee deco cosy",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "idee deco cosy salon",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "idee deco cuisine boheme",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "idee deco cuisine boheme chic",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "idee deco cuisine bord de mer",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "idee deco cuisine campagne chic",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "idee deco cuisine cottage",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "idee deco cuisine mediterraneenne",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "idee deco cuisine rustique",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "idee deco industrielle",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "idee deco japandi",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "idee deco jardin bord de mer",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "idee deco maison bord de mer",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "idee deco maison campagne chic",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "idee deco mariage campagne chic",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "idee deco moderne",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "idee deco moderne chambre",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "idee deco moderne et ancien",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "idee deco moderne maison",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "idee deco moderne salon",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "idee deco rustique",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "idee deco rustique moderne",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "idee deco salon bord de mer",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "idee deco salon campagne chic",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "idee deco salon japandi",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "idee deco salon rustique",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "idee deco studio bord de mer",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "idee deco terrasse bord de mer",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "idee deco vintage",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "idee deco vintage chambre",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "idee deco vintage industriel",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "idee deco vintage moderne",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "idee deco vintage salon",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "idee decoration murale scandinave",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "idee decoration salon minimaliste",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "idee d�co jardin campagne chic",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "id�e deco cuisine rustique moderne",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "id�e d�co contemporaine salon",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "id�e d�co cuisine industrielle",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "id�e d�co salon moderne pas cher",
+   "intent": "transactional"
+  },
+  {
+   "keyword": "id�e d�coration boh�me",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "id�e d�coration scandinave",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "id�es d�co campagne chic",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "industrial design interior ideas",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "industrial style indoor wall lights",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "industrial style interior",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "industrial style interior cafe",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "industrial style interior doors",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "industrial style interior house",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "industriel deco meuble tv",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "inspiration chambre nordique",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "inspiration chambre scandinave",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "inspiration cuisine scandinave",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "inspiration scandinave salon",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "japandi accessoires salontafel",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "japandi deco murale",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "japandi deco style",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "japandi decor ideas",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "japandi decoration ideas",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "japandi decoration murale",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "japandi decoration style",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "japandi design ideas",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "japandi design inspiration",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "japandi design salontafel",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "japandi design salontafel rond beige",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "livre deco wabi sabi",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "look scandinave cuisine",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "maison style industriel int�rieur",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "marque meuble scandinave pas cher",
+   "intent": "transactional"
+  },
+  {
+   "keyword": "meuble cocktail scandinave cuisine",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "meuble cuisine nordique",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "meuble cuisine scandinave but",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "meuble deco bord de mer",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "meuble deco campagne chic",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "meuble design moderne pas cher",
+   "intent": "transactional"
+  },
+  {
+   "keyword": "meuble inspiration scandinave",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "meuble nordique pas cher",
+   "intent": "transactional"
+  },
+  {
+   "keyword": "meuble scandinave",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "meuble scandinave chambre",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "meuble scandinave chambre a coucher",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "meuble scandinave chambre enfant",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "meuble scandinave cuisine",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "meuble scandinave mural",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "meuble scandinave pas cher",
+   "intent": "transactional"
+  },
+  {
+   "keyword": "meuble scandinave salon",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "meuble style ancien pas cher",
+   "intent": "transactional"
+  },
+  {
+   "keyword": "meuble style art deco pas cher",
+   "intent": "transactional"
+  },
+  {
+   "keyword": "meuble style bord de mer",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "meuble style bord de mer chic",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "meuble style bord de mer pas cher",
+   "intent": "transactional"
+  },
+  {
+   "keyword": "meuble style industriel pas cher",
+   "intent": "transactional"
+  },
+  {
+   "keyword": "meuble style scandinave blanc",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "meuble style scandinave but",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "meuble style scandinave ikea",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "meuble style scandinave maison du monde",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "meuble style scandinave pas cher",
+   "intent": "transactional"
+  },
+  {
+   "keyword": "meuble tv scandinave pas cher",
+   "intent": "transactional"
+  },
+  {
+   "keyword": "meubles art deco pas cher",
+   "intent": "transactional"
+  },
+  {
+   "keyword": "meubles style bord de mer maison du monde",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "meubles style scandinave bois",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "minimal decoration ideas",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "miroir style ancien pas cher",
+   "intent": "transactional"
+  },
+  {
+   "keyword": "miroir style industriel pas cher",
+   "intent": "transactional"
+  },
+  {
+   "keyword": "mobilier scandinave",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "moderne deco cuisine blanche et bois",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "moderne deco murale metal",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "mur style bord de mer",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "mur style scandinave",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "objet deco design pas cher",
+   "intent": "transactional"
+  },
+  {
+   "keyword": "objet deco wabi sabi",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "objet d�co cuisine industrielle",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "objet d�co industrielle pas cher",
+   "intent": "transactional"
+  },
+  {
+   "keyword": "photo deco salon campagne chic",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "plaque m�tal d�co industrielle cuisine",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "quel deco avec meuble rustique",
+   "intent": "informational"
+  },
+  {
+   "keyword": "quel est le style art d�co",
+   "intent": "informational"
+  },
+  {
+   "keyword": "quel est le style scandinave",
+   "intent": "informational"
+  },
+  {
+   "keyword": "quel style apr�s l art d�co",
+   "intent": "informational"
+  },
+  {
+   "keyword": "quelle couleur pour deco industrielle",
+   "intent": "informational"
+  },
+  {
+   "keyword": "quelle couleur pour un style scandinave",
+   "intent": "informational"
+  },
+  {
+   "keyword": "quelle couleur pour une d�co campagne chic",
+   "intent": "informational"
+  },
+  {
+   "keyword": "quelle d�co avec des meubles rustiques",
+   "intent": "informational"
+  },
+  {
+   "keyword": "quelle d�coration pour un mariage boh�me",
+   "intent": "informational"
+  },
+  {
+   "keyword": "rideau style ethnique chic",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "rideaux style ancien pas cher",
+   "intent": "transactional"
+  },
+  {
+   "keyword": "robe style ethnique chic",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "salon style bord de mer chic",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "scandinavian decorating ideas",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "scandinavian style ideas",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "scandinavian style inspiration",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "scandinavian style salon",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "simple decoration ideas for birthday",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "simple decoration ideas for birthday at home",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "simple decoration ideas for engagement",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "simple decoration ideas for ganpati",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "simple decoration ideas for party",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "simple decoration ideas for pooja",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "simple decoration ideas for wedding",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "site deco design pas cher",
+   "intent": "transactional"
+  },
+  {
+   "keyword": "style art deco cuisine",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "style art d�co chambre",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "style art d�co meuble",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "style boheme cuisine",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "style boho cuisine",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "style boho meuble",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "style boh�me chambre",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "style boh�me chambre � coucher",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "style boh�me chic cuisine",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "style boh�me chic meuble",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "style boh�me meuble",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "style boh�me salon",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "style boh�me tendance",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "style bord de mer chambre",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "style bord de mer salon",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "style campagne chic chambre",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "style campagne chic cuisine",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "style campagne chic salon",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "style cuisine ancienne",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "style deco hygge",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "style deco wabi sabi",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "style ethnique chic",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "style ethnique chic deco",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "style ethnique chic femme",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "style exotique chic",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "style industriel int�rieur",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "style industriel meuble",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "style industriel meuble buffet",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "style industriel meuble buffet bas",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "style industriel meuble tv",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "style industrielle",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "style industrielle cuisine",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "style industrielle salon",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "style maximaliste",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "style maximaliste deco",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "style maximaliste def",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "style maximaliste femme",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "style maximaliste maison",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "style maximaliste minimaliste",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "style maximaliste salon",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "style maximaliste vetement",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "style minimaliste chambre",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "style minimaliste cuisine",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "style minimaliste salon",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "style nordique chambre",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "style retro cuisine",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "style retro meuble",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "style retro salon",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "style scandinave",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "style scandinave chambre",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "style scandinave chambre a coucher",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "style scandinave cuisine",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "style scandinave deco",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "style scandinave femme",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "style scandinave maison",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "style scandinave meuble",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "style scandinave minimaliste",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "style scandinave moderne",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "style scandinave salle de bain",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "style scandinave salon",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "style scandinave salon bleu",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "style vintage chambre",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "style vintage cuisine",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "style vintage meuble",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "style vintage salon",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "table basse style scandinave pas cher",
+   "intent": "transactional"
+  },
+  {
+   "keyword": "tableau art deco chambre",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "tableau art deco pas cher",
+   "intent": "transactional"
+  },
+  {
+   "keyword": "tableau art d�co salon",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "tableau boh�me chambre",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "tableau boh�me salon",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "tableau vintage cuisine",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "tableau vintage pas cher",
+   "intent": "transactional"
+  },
+  {
+   "keyword": "tableau vintage salon",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "tapis design moderne pas cher",
+   "intent": "transactional"
+  },
+  {
+   "keyword": "tapis style vintage pas cher",
+   "intent": "transactional"
+  },
+  {
+   "keyword": "tendance deco bord de mer",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "tendance deco japandi",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "tendance deco wabi sabi",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "tendance d�co boh�me chic",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "tendance d�co industrielle",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "tendance d�co maison bord de mer",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "tendance d�co m�diterran�enne",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "tendance ethnique chic",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "tendance maximaliste",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "vintage decor ideas",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "vintage decor ideas for bathroom",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "vintage decor ideas for living room",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "vintage decor ideas for wedding",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "vintage decoration ideas pinterest",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "vintage design ideas for journal",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "vintage design ideas for portfolio",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "vintage design ideas for scrapbook",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "vintage design meubles",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "vintage style inspiration",
+   "intent": "navigational/topic"
+  },
+  {
+   "keyword": "vitrine style industriel pas cher",
+   "intent": "transactional"
+  }
+ ]
+}
