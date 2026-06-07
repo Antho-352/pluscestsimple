@@ -45,6 +45,7 @@ $pcs_modules = [
 	'lead-resources',  // CPT pcs_lead_resource + mécanique token signé pour PDF lead-magnet
 	'category-query-filter', // Filtre auto Query Loop pages pilier → catégorie correspondante
 	'category-redirects', // 301 archives catégorie → pages piliers (SEO consolidation)
+	'style-pages',     // 3e niveau cocon : pages /decoration/styles/{style}/ (déco styles)
 ];
 
 foreach ( $pcs_modules as $pcs_module ) {

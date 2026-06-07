@@ -69,3 +69,36 @@ vintage (allintitle 150k), contemporaine, cosy, wabi sabi, art déco
 
 Implication technique : pages "style" = 3e niveau. Le système gère 2 niveaux
 (pilier + sous-pilier). À étendre pour rendre ces pages éditables + maillées auto.
+
+---
+# MISE À JOUR — Filtre INTENTION (analyse SERP, 2026-06)
+
+Priorité = VOLUME + DIFFICULTÉ + **intention éditoriale** (pas commerciale).
+CPC élevé / SERP e-commerce → l'éditorial ne rank pas → EXCLU.
+
+## Vérifié sur SERP réelle
+| Requête | SERP dominée par | Verdict |
+|---|---|---|
+| déco scandinave | mixte (Ouest-France, JDF, IKEA ideas + e-comm) | éditorial JOUABLE |
+| salon bohème | 100% média/blogs | ÉDITORIAL ✅ |
+| chambre scandinave | 100% média/blogs (20Min, Houzz, Westwing inspi) | ÉDITORIAL ✅ |
+| déco méditerranéenne | 100% média (Elle, Côté Maison, Houzz) | ÉDITORIAL ✅ quick win |
+| déco japandi | média/blogs + qq e-comm | ÉDITORIAL JOUABLE |
+| salon industriel | 100% média/blogs | ÉDITORIAL ✅ |
+| cuisine scandinave | cuisinistes lourds (Mobalpa, Inova) | RISQUÉ ⚠ |
+| cuisine industrielle | 100% cuisinistes (Schmidt, AvivA, Cuisinella) | EXCLU ❌ |
+
+## Règle générale
+- "déco {style}", "{style} salon", "{style} chambre" → ON (éditorial)
+- "{style} cuisine", "meuble {style} pas cher" → OFF (commercial e-comm/cuisinistes)
+
+## Plan FINAL (intention-filtré)
+PAGES STYLE (hub éditorial + articles salon/chambre, PAS cuisine) :
+- Tier 1 : SCANDINAVE (déco 2900 + chambre 1600 + salon 2900) ·
+           BOHÈME (déco 1300 + chambre 2900 + salon 1000) ·
+           INDUSTRIEL (déco 2400 + salon 2400)
+- Quick wins : MÉDITERRANÉEN (allintitle 387) · JAPANDI · CAMPAGNE CHIC
+- Tier 2 : MINIMALISTE (1000) · RUSTIQUE (VolH 536) · BORD DE MER (1000)
+
+ARTICLES par page (éditorial) : salon {style}, chambre {style}.
+EXCLUS : toutes les "cuisine {style}", tout "{style} pas cher".
