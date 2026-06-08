@@ -496,6 +496,30 @@ a:hover { color: var(--wp--preset--color--accent-secondary); text-decoration: no
 	margin: 0.75rem 0 0;
 	max-width: 38ch;
 }
+.pcs-footer__brand { flex: 0 0 220px; }
+
+/* Colonnes de silo (footer à facettes) */
+.pcs-footer__cols {
+	flex: 1 1 560px;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+	gap: clamp(1.25rem, 3vw, 2.5rem);
+}
+.pcs-footer__col-title {
+	font-size: var(--wp--preset--font-size--sm);
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+	margin: 0 0 0.75rem;
+}
+.pcs-footer__col-title a { color: var(--wp--preset--color--foreground); text-decoration: none; }
+.pcs-footer__col-title a:hover { color: var(--wp--preset--color--accent); }
+.pcs-footer__col ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.4rem; }
+.pcs-footer__col a {
+	color: var(--wp--preset--color--muted);
+	text-decoration: none;
+	font-size: var(--wp--preset--font-size--sm);
+}
+.pcs-footer__col a:hover { color: var(--wp--preset--color--accent); text-decoration: underline; }
 
 .pcs-nav--footer .pcs-nav__list { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
 .pcs-nav--footer { font-size: var(--wp--preset--font-size--sm); }
