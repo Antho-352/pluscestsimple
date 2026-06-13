@@ -84,10 +84,10 @@ $pcs_lus_q = new WP_Query( [
 	'no_found_rows'  => true,
 ] );
 
-// Piliers catégories (sans Immobilier pour la homepage — les 5 sections nav)
+// Piliers catégories pour les sections home (4 piliers : déco, travaux, jardin, architecture).
 $pcs_piliers_home = array_filter(
 	pcs_content_structure(),
-	fn( $k ) => in_array( $k, [ 'decoration', 'travaux', 'jardin', 'architecture', 'lifestyle' ], true ),
+	fn( $k ) => in_array( $k, [ 'decoration', 'travaux', 'jardin', 'architecture' ], true ),
 	ARRAY_FILTER_USE_KEY
 );
 

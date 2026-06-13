@@ -48,6 +48,7 @@ $pcs_modules = [
 	'category-redirects', // 301 archives catégorie → pages piliers (SEO consolidation)
 	'style-pages',     // 3e niveau cocon : pages /decoration/styles/{style}/ (déco styles)
 	'hub-pages',       // 3e niveau cocon : hubs de cluster (mur porteur, déco chambre…)
+	'retired-pillars', // Retrait immobilier + lifestyle : 301 + noindex + triage articles
 ];
 
 foreach ( $pcs_modules as $pcs_module ) {

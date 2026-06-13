@@ -28,11 +28,11 @@ function pcs_content_structure(): array {
 		'decoration' => [
 			'label'    => 'Décoration',
 			'sub_cats' => [
-				'par-piece'       => 'Par pièce',
-				'styles'          => 'Styles',
-				'petits-budgets'  => 'Petits budgets',
+				'par-piece'              => 'Par pièce',
+				'styles'                 => 'Styles',
+				'rangement-organisation' => 'Rangement & organisation',
 			],
-			'page_intro' => 'Conseils déco pièce par pièce, styles signatures et idées petit budget. Du concret, du vécu, des choix argumentés.',
+			'page_intro' => 'Conseils déco pièce par pièce, styles signatures, couleurs et organisation. Du concret, du vécu, des choix argumentés.',
 		],
 		'travaux' => [
 			'label'    => 'Travaux',
@@ -44,7 +44,7 @@ function pcs_content_structure(): array {
 			'page_intro' => 'Tout pour rénover sans se tromper : guides par pièce, repères techniques (DTU, normes), budgets réels et aides publiques.',
 		],
 		'jardin' => [
-			'label'    => 'Jardin',
+			'label'    => 'Jardin & extérieur',
 			'sub_cats' => [
 				'amenagement-exterieur' => 'Aménagement extérieur',
 				'entretien'             => 'Entretien',
@@ -59,23 +59,9 @@ function pcs_content_structure(): array {
 			],
 			'page_intro' => 'Comprendre l\'architecture pour mieux rénover : styles, époques et extensions modernes.',
 		],
-		'immobilier' => [
-			'label'    => 'Immobilier',
-			'sub_cats' => [
-				'acheter'         => 'Acheter',
-				'louer-investir'  => 'Louer & investir',
-				'vendre'          => 'Vendre',
-			],
-			'page_intro' => 'Acheter, louer, vendre, investir : repères concrets sur le marché immobilier français, sans baratin.',
-		],
-		'lifestyle' => [
-			'label'    => 'Lifestyle',
-			'sub_cats' => [
-				'bien-etre-accessoires' => 'Bien-être & accessoires',
-				'rangement-nettoyage'   => 'Rangement & nettoyage',
-			],
-			'page_intro' => 'Bien vivre chez soi : organisation, bien-être et accessoires utiles au quotidien.',
-		],
+		// Piliers 'immobilier' et 'lifestyle' RETIRÉS (resserrage déco/travaux/jardin/architecture, 2026-06).
+		// Pages/catégories/archives redirigées 301 + noindex via inc/retired-pillars.php ; contenu
+		// rangement (ex-lifestyle) rapatrié sous decoration/rangement-organisation.
 	];
 }
 
