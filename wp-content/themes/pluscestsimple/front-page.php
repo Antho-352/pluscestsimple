@@ -12,8 +12,9 @@
  *   7. Sections par catégorie × 5 — automatiques (derniers articles par catégorie)
  *
  * Tags WP à utiliser dans l'éditeur d'article :
- *   - pcs-hero     → article héro (1 max, le plus récent tagué)
- *   - pcs-une      → 4 articles pour la grille 2×2 "À la une"
+ *   - pcs-hero     → OVERRIDE du héro (sinon = dernier article publié, auto)
+ *   - pcs-une      → OVERRIDE de la une (tagués en 1er, complétés auto par les
+ *                    derniers publiés hors héro ; sans tag = articles 2 à 5 auto)
  *   - pcs-tendance → 2 articles featured "Tendance" (1er = grand 2/3, 2e = petit 1/3)
  *   - pcs-plus-lu  → jusqu'à 9 articles pour "Les + lus"
  *
@@ -28,17 +29,48 @@ get_header();
 
 // ── Requêtes préchargées ─────────────────────────────────────────────────────
 
+// ── HÉRO : automatique (dernier article publié) SAUF override par tag "pcs-hero". ──
 $pcs_hero_q = new WP_Query( [
 	'tag'            => 'pcs-hero',
 	'posts_per_page' => 1,
 	'no_found_rows'  => true,
 ] );
+if ( ! $pcs_hero_q->have_posts() ) {
+	$pcs_hero_q = new WP_Query( [
+		'posts_per_page'      => 1,
+		'ignore_sticky_posts' => true,
+		'no_found_rows'       => true,
+	] );
+}
+$pcs_hero_id = ! empty( $pcs_hero_q->posts ) ? (int) $pcs_hero_q->posts[0]->ID : 0;
 
-$pcs_sel_q = new WP_Query( [
-	'tag'            => 'pcs-une',
-	'posts_per_page' => 4,
-	'no_found_rows'  => true,
+// ── À LA UNE (4 slots) : les articles tagués "pcs-une" passent en PREMIER (ordre date),
+//    puis on complète automatiquement par les derniers publiés, en EXCLUANT le héro
+//    (pas de doublon). Aucun tag = 100 % automatique (articles 2 à 5). 1 tag = 1er slot
+//    tagué + 3 auto, etc. ──
+$pcs_une_tagged = get_posts( [
+	'tag'                 => 'pcs-une',
+	'posts_per_page'      => 4,
+	'post__not_in'        => array_filter( [ $pcs_hero_id ] ),
+	'orderby'             => 'date',
+	'order'               => 'DESC',
+	'ignore_sticky_posts' => true,
 ] );
+$pcs_une_ids   = wp_list_pluck( $pcs_une_tagged, 'ID' );
+$pcs_une_need  = 4 - count( $pcs_une_ids );
+$pcs_sel_posts = $pcs_une_tagged;
+if ( $pcs_une_need > 0 ) {
+	$pcs_sel_posts = array_merge(
+		$pcs_une_tagged,
+		get_posts( [
+			'posts_per_page'      => $pcs_une_need,
+			'post__not_in'        => array_filter( array_merge( [ $pcs_hero_id ], $pcs_une_ids ) ),
+			'orderby'             => 'date',
+			'order'               => 'DESC',
+			'ignore_sticky_posts' => true,
+		] )
+	);
+}
 
 $pcs_une_q = new WP_Query( [
 	'tag'            => 'pcs-tendance',
@@ -101,7 +133,7 @@ if ( function_exists( 'pcs_banner_render' ) ) {
 <?php /* ═══════════════════════════════════════════════════════════════════════
  * 3. GRILLE 2×2 + SIDEBAR PUB
  * ═══════════════════════════════════════════════════════════════════════════ */ ?>
-<?php if ( $pcs_sel_q->have_posts() ) :
+<?php if ( ! empty( $pcs_sel_posts ) ) :
 	$pcs_sel_show_sidebar = function_exists( 'pcs_banner_slot_will_render' )
 		? pcs_banner_slot_will_render( 'homepage-sidebar' )
 		: true;
@@ -115,7 +147,10 @@ if ( function_exists( 'pcs_banner_render' ) ) {
 	<div class="pcs-home__selection-layout <?php echo $pcs_sel_show_sidebar ? 'has-sidebar' : 'no-sidebar'; ?>">
 
 		<div class="pcs-home__selection-grid">
-			<?php while ( $pcs_sel_q->have_posts() ) : $pcs_sel_q->the_post(); ?>
+			<?php foreach ( $pcs_sel_posts as $pcs_sel_post ) :
+				$GLOBALS['post'] = $pcs_sel_post; // phpcs:ignore WordPress.WP.GlobalVariablesOverride
+				setup_postdata( $pcs_sel_post );
+			?>
 			<article class="pcs-home__sel-card">
 				<a href="<?php the_permalink(); ?>">
 					<?php if ( has_post_thumbnail() ) : ?>
@@ -131,7 +166,7 @@ if ( function_exists( 'pcs_banner_render' ) ) {
 					</div>
 				</a>
 			</article>
-			<?php endwhile; wp_reset_postdata(); ?>
+			<?php endforeach; wp_reset_postdata(); ?>
 		</div>
 
 		<?php if ( $pcs_sel_show_sidebar ) : ?>
