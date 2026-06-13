@@ -101,11 +101,10 @@ function pcs_content_utility_pages(): array {
 			'template' => 'page-templates/tpl-wide.php',
 			'content'  => '__OUTILS__',
 		],
-		'annuaire' => [
-			'title'    => 'Annuaire',
-			'template' => 'page-templates/tpl-wide.php',
-			'content'  => "<!-- wp:heading {\"level\":1} --><h1 class=\"wp-block-heading\">Annuaire des magasins déco / maison</h1><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>L'annuaire national, filtrable par type et région. Données officielles (Sirene), géocodées, mises à jour.</p><!-- /wp:paragraph -->\n\n<!-- wp:shortcode -->[pcs_directory limit=\"12\"]<!-- /wp:shortcode -->",
-		],
+		// NOTE : la page "annuaire" n'est PLUS seedée. Elle est gérée à la main
+		// (l'annuaire réel est piloté par le plugin pcs-directory). Le seed la
+		// recréait à chaque bump de version avec un shortcode obsolète [pcs_directory]
+		// qui écrasait l'annuaire existant → retiré (2026-06).
 		'travailler-avec-nous' => [
 			'title'    => 'Travailler avec nous',
 			'template' => 'page-templates/tpl-wide.php',
