@@ -273,6 +273,15 @@ wp_reset_postdata();
 <div class="pcs-container pcs-home__body">
 
 <?php /* ═══════════════════════════════════════════════════════════════════════
+ * 5b. SÉLECTION DÉCO TENDANCE (produits affiliés mis en avant)
+ * ═══════════════════════════════════════════════════════════════════════════ */ ?>
+<?php
+if ( function_exists( 'pcs_render_product_selection' ) ) {
+	echo pcs_render_product_selection( 4 ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+}
+?>
+
+<?php /* ═══════════════════════════════════════════════════════════════════════
  * 6. LES + LUS
  * ═══════════════════════════════════════════════════════════════════════════ */ ?>
 <?php if ( $pcs_lus_q->have_posts() ) : ?>
