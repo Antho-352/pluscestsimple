@@ -155,8 +155,8 @@ function pcs_render_partners( int $limit = 6 ): string {
 			<?php endwhile; wp_reset_postdata(); ?>
 		</div>
 		<p class="pcs-partners__charter">
-			<a href="/charte-partenaires/">Pourquoi ces partenaires ?</a>
-			<a href="/travailler-avec-nous/">Devenir partenaire</a>
+			<a href="<?php echo esc_url( home_url( '/charte-partenaires/' ) ); ?>">Pourquoi ces partenaires ?</a>
+			<a href="<?php echo esc_url( home_url( '/travailler-avec-nous/' ) ); ?>">Devenir partenaire</a>
 		</p>
 	</section>
 	<?php

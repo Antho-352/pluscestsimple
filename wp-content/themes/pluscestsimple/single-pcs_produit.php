@@ -20,7 +20,7 @@ while ( have_posts() ) :
 	$marque = pcs_prod_meta( $pid, 'marque' );
 
 	$cta_link = $url
-		? '<a class="pcs-prod__cta" href="' . esc_url( $url ) . '" target="_blank" rel="sponsored nofollow noopener">' . esc_html( $cta ) . ' <span aria-hidden="true">→</span></a>'
+		? '<a class="pcs-prod__cta" href="' . esc_url( $url ) . '" target="_blank" rel="sponsored nofollow noopener noreferrer">' . esc_html( $cta ) . ' <span aria-hidden="true">→</span></a>'
 		: '';
 	?>
 	<div class="pcs-container pcs-prod" id="post-<?php echo (int) $pid; ?>">
@@ -43,7 +43,7 @@ while ( have_posts() ) :
 				<?php $avis = pcs_prod_meta( $pid, 'avis30' ); if ( $avis ) : ?>
 				<div class="pcs-prod__verdict">
 					<p class="pcs-eyebrow"><?php esc_html_e( 'Notre avis en 30 secondes', 'pluscestsimple' ); ?></p>
-					<p><?php echo wp_kses_post( wpautop( esc_html( $avis ) ) ); ?></p>
+					<?php echo wpautop( esc_html( $avis ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped — esc_html déjà appliqué ?>
 				</div>
 				<?php endif; ?>
 			</div>
@@ -113,7 +113,7 @@ while ( have_posts() ) :
 		<?php $pourqui = pcs_prod_meta( $pid, 'pourqui' ); if ( $pourqui ) : ?>
 		<section class="pcs-prod__section">
 			<h2 class="pcs-section__title"><?php esc_html_e( 'Pour qui ce produit est-il fait ?', 'pluscestsimple' ); ?></h2>
-			<?php echo wp_kses_post( wpautop( esc_html( $pourqui ) ) ); ?>
+			<?php echo wpautop( esc_html( $pourqui ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped — esc_html déjà appliqué ?>
 		</section>
 		<?php endif; ?>
 

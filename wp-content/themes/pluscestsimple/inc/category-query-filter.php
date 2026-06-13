@@ -11,7 +11,7 @@
  * on intercepte côté serveur via le hook `query_loop_block_query_vars` :
  *
  *   - Si la page courante a un slug correspondant à un pilier connu
- *     (decoration, travaux, jardin, architecture, immobilier, lifestyle)
+ *     (decoration, travaux, jardin, architecture)
  *   - Et que le bloc Query Loop a le namespace `pcs/cat-loop`
  *   → on injecte automatiquement `category_name = <slug>-cat`
  *

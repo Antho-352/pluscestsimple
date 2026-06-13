@@ -137,7 +137,8 @@ add_action( 'init', function () {
 	}
 
 	update_option( 'pcs_style_pages_seeded', PCS_VERSION );
-}, 30 ); // après init-content (priorité par défaut 10) qui crée la structure 2-niveaux
+}, 30 ); // init-content seed à la priorité 99 (plus tardive) : style-pages vérifie que la
+         // structure parente existe (get_page_by_path/get_term_by) et retente au prochain init sinon.
 
 /**
  * Squelette éditorial d'une page style (blocs Gutenberg).

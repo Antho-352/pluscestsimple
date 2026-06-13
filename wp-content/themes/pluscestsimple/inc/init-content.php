@@ -2,7 +2,7 @@
 /**
  * Initialisation du contenu structurel : catégories + pages WP.
  *
- * Crée la nouvelle arborescence éditoriale (6 piliers + sous-catégories
+ * Crée la nouvelle arborescence éditoriale (4 piliers + sous-catégories
  * + pages correspondantes) en respectant la stratégie D1 :
  *   - Slug catégorie suffixé `-cat` (interne, jamais visible)
  *   - Slug page sans suffixe (URL visible côté front)
@@ -450,7 +450,7 @@ function pcs_init_content_page(): void {
 	?>
 	<div class="wrap">
 		<h1><?php esc_html_e( 'Plus c\'est simple — Initialisation du contenu', 'pluscestsimple' ); ?></h1>
-		<p><?php esc_html_e( 'Crée (ou met à jour) la structure éditoriale : 6 catégories pilier + sous-catégories + pages WP correspondantes. Idempotent — ne touche pas aux contenus existants.', 'pluscestsimple' ); ?></p>
+		<p><?php esc_html_e( 'Crée (ou met à jour) la structure éditoriale : 4 catégories pilier + sous-catégories + pages WP correspondantes. Idempotent — ne touche pas aux contenus existants.', 'pluscestsimple' ); ?></p>
 		<form method="post" style="display:flex;gap:1rem;flex-wrap:wrap;align-items:center">
 			<?php wp_nonce_field( 'pcs_reseed_content' ); ?>
 			<button type="submit" name="pcs_reseed" class="button button-primary">

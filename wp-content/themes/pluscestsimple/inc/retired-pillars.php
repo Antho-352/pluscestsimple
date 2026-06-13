@@ -35,12 +35,14 @@ add_action( 'template_redirect', function () {
 		$root = $anc->post_name;
 		if ( 'immobilier' === $root ) { wp_safe_redirect( home_url( '/' ), 301 ); exit; }
 		if ( 'lifestyle' === $root )  { wp_safe_redirect( home_url( '/decoration/' ), 301 ); exit; }
-		if ( 'petits-budgets' === $page->post_name ) {
-			$p = $page->post_parent ? get_post( $page->post_parent ) : null;
-			if ( $p instanceof WP_Post && 'decoration' === $p->post_name ) {
-				wp_safe_redirect( home_url( '/decoration/' ), 301 ); exit;
+		// petits-budgets : la page directe OU toute sous-page éventuelle (via ancêtres).
+		$pb = ( 'petits-budgets' === $page->post_name );
+		if ( ! $pb ) {
+			foreach ( get_post_ancestors( $page ) as $anc_id ) {
+				if ( 'petits-budgets' === get_post_field( 'post_name', $anc_id ) ) { $pb = true; break; }
 			}
 		}
+		if ( $pb ) { wp_safe_redirect( home_url( '/decoration/' ), 301 ); exit; }
 	}
 
 	// Archives catégories retirées.
@@ -89,4 +91,5 @@ add_action( 'init', function () {
 	}
 
 	update_option( 'pcs_retired_migrated', PCS_VERSION );
-}, 40 ); // après init-content (crée rangement-organisation) + seeds
+}, 100 ); // APRÈS init-content (prio 99) qui crée decoration-rangement-organisation-cat,
+          // sinon la recatégorisation lifestyle→rangement échoue silencieusement (H1).

@@ -37,7 +37,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 function pcs_pilier_slugs(): array {
 	if ( ! function_exists( 'pcs_content_structure' ) ) {
-		return [ 'decoration', 'travaux', 'jardin', 'architecture', 'lifestyle', 'immobilier' ];
+		return [ 'decoration', 'travaux', 'jardin', 'architecture' ];
 	}
 	return array_keys( pcs_content_structure() );
 }
