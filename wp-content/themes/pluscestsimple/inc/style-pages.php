@@ -57,6 +57,16 @@ function pcs_style_pages(): array {
 			'kw'    => 'déco campagne chic',
 			'intro' => "La campagne chic réchauffe l'authentique rustique d'une élégance maîtrisée : patines douces, lin, bois et touches modernes. Le guide pour l'adopter pièce par pièce.",
 		],
+		'vintage' => [
+			'label' => 'Vintage',
+			'kw'    => 'déco vintage',
+			'intro' => "Le vintage mêle pièces chinées, mobilier des années 50-70 et patine du temps. Comment l'adopter avec justesse, du salon à la chambre, sans tomber dans le bric-à-brac.",
+		],
+		'coloree' => [
+			'label' => 'Colorée',
+			'kw'    => 'déco colorée',
+			'intro' => "La déco colorée assume les teintes vives et les associations audacieuses. Les règles pour oser la couleur sans surcharge, pièce par pièce.",
+		],
 	];
 }
 

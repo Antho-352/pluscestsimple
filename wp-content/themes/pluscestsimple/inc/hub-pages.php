@@ -25,7 +25,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
  * @return array<string,array>
  */
 function pcs_hubs(): array {
-	return [
+	$hubs = [
 		'mur-porteur' => [
 			'parent_path' => 'travaux/gros-oeuvre',
 			'parent_cat'  => 'travaux-gros-oeuvre-cat',
@@ -56,6 +56,44 @@ function pcs_hubs(): array {
 			],
 		],
 	];
+
+	// ── Pièces déco (scaffolding cocon, brouillon) sous /decoration/par-piece/ ──
+	$pcs_pieces = [
+		'salon'          => 'Salon',
+		'chambre-enfant' => "Chambre d'enfant",
+		'cuisine'        => 'Cuisine',
+		'salle-a-manger' => 'Salle à manger',
+		'salle-de-bain'  => 'Salle de bain',
+		'bureau'         => 'Bureau',
+		'entree'         => 'Entrée',
+	];
+	foreach ( $pcs_pieces as $pcs_p_slug => $pcs_p_label ) {
+		$pcs_p_low = mb_strtolower( $pcs_p_label );
+		$hubs[ $pcs_p_slug ] = [
+			'parent_path' => 'decoration/par-piece',
+			'parent_cat'  => 'decoration-par-piece-cat',
+			'cat_slug'    => 'decoration-par-piece-' . $pcs_p_slug . '-cat',
+			'title'       => 'Déco ' . $pcs_p_low,
+			'label'       => 'Déco ' . $pcs_p_label,
+			'kw'          => 'déco ' . $pcs_p_low,
+			'intro'       => 'Idées, styles et conseils déco pour ' . $pcs_p_low . '. (À rédiger.)',
+			'related'     => [],
+		];
+	}
+
+	// ── Haussmannien (différenciateur architecture × déco × travaux) ──
+	$hubs['haussmannien'] = [
+		'parent_path' => 'architecture/styles-epoques',
+		'parent_cat'  => 'architecture-styles-epoques-cat',
+		'cat_slug'    => 'architecture-styles-epoques-haussmannien-cat',
+		'title'       => 'Le style haussmannien : codes, moulures et rénovation',
+		'label'       => 'Haussmannien',
+		'kw'          => 'style haussmannien',
+		'intro'       => 'Comprendre et rénover le style haussmannien : moulures, parquet point de Hongrie, hauteur sous plafond, et comment moderniser sans le trahir. (À rédiger.)',
+		'related'     => [],
+	];
+
+	return $hubs;
 }
 
 /** Retourne la clé de hub si $page est une page hub, sinon ''. */

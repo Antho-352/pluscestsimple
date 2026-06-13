@@ -82,6 +82,14 @@ function pcs_menu_fallback(): void {
 			);
 		}
 	}
+	$etre_publie = get_page_by_path( 'travailler-avec-nous' );
+	if ( $etre_publie ) {
+		printf(
+			'<li class="menu-item"><a href="%s">%s</a></li>',
+			esc_url( get_permalink( $etre_publie ) ),
+			esc_html__( 'Être publié', 'pluscestsimple' )
+		);
+	}
 	$contact = get_page_by_path( 'contact' );
 	if ( $contact ) {
 		printf(
