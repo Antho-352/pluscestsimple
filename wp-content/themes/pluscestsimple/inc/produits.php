@@ -172,3 +172,58 @@ function pcs_render_product_selection( int $limit = 4 ): string {
 	<?php
 	return (string) ob_get_clean();
 }
+
+// ─── Phase 3 : shortcodes de sélection éditoriale (style AD Magazine) ───────────
+
+/** Carte produit compacte (insérable dans un article). */
+function pcs_render_product_inline( int $id ): string {
+	if ( get_post_type( $id ) !== PCS_PRODUIT_CPT ) { return ''; }
+	$url    = pcs_prod_meta( $id, 'url' );
+	$marque = pcs_prod_meta( $id, 'marque' );
+	$prix   = pcs_prod_meta( $id, 'prix' );
+	$perm   = get_permalink( $id );
+	ob_start(); ?>
+	<div class="pcs-prod-inline">
+		<a class="pcs-prod-inline__media" href="<?php echo esc_url( $perm ); ?>">
+			<?php echo has_post_thumbnail( $id ) ? get_the_post_thumbnail( $id, 'pcs-card', [ 'class' => 'pcs-prod-inline__img', 'loading' => 'lazy' ] ) : ''; ?>
+		</a>
+		<div class="pcs-prod-inline__body">
+			<?php if ( $marque ) : ?><span class="pcs-eyebrow"><?php echo esc_html( $marque ); ?></span><?php endif; ?>
+			<h3 class="pcs-prod-inline__name"><a href="<?php echo esc_url( $perm ); ?>"><?php echo esc_html( get_the_title( $id ) ); ?></a></h3>
+			<?php if ( $url ) : ?>
+			<a class="pcs-prod-inline__cta" href="<?php echo esc_url( $url ); ?>" target="_blank" rel="sponsored nofollow noopener noreferrer">
+				<?php if ( $prix ) : ?><strong><?php echo esc_html( $prix ); ?></strong><?php endif; ?>
+				<?php if ( $marque ) : ?><span><?php echo esc_html( $marque ); ?></span><?php endif; ?>
+			</a>
+			<?php endif; ?>
+		</div>
+	</div>
+	<?php
+	return (string) ob_get_clean();
+}
+
+/** [pcs_produit id="12"] ou [pcs_produit slug="canape-nils"] → 1 carte. */
+add_shortcode( 'pcs_produit', function ( $atts ) {
+	$atts = shortcode_atts( [ 'id' => 0, 'slug' => '' ], $atts, 'pcs_produit' );
+	$id   = (int) $atts['id'];
+	if ( ! $id && $atts['slug'] ) {
+		$p  = get_posts( [ 'name' => sanitize_title( $atts['slug'] ), 'post_type' => PCS_PRODUIT_CPT, 'numberposts' => 1, 'fields' => 'ids', 'post_status' => 'publish' ] );
+		$id = $p ? (int) $p[0] : 0;
+	}
+	return $id ? pcs_render_product_inline( $id ) : '';
+} );
+
+/** [pcs_produits ids="12,15,21"] → grille de cartes. */
+add_shortcode( 'pcs_produits', function ( $atts ) {
+	$atts = shortcode_atts( [ 'ids' => '' ], $atts, 'pcs_produits' );
+	$ids  = array_filter( array_map( 'intval', explode( ',', (string) $atts['ids'] ) ) );
+	if ( ! $ids ) { return ''; }
+	$out = '<div class="pcs-prod-inline-grid">';
+	foreach ( $ids as $id ) { $out .= pcs_render_product_inline( $id ); }
+	return $out . '</div>';
+} );
+
+/** [pcs_disclosure] → encadré transparence affiliation réutilisable. */
+add_shortcode( 'pcs_disclosure', function () {
+	return '<p class="pcs-disclosure">' . esc_html__( "Tous les produits de cet article sont sélectionnés indépendamment par notre rédaction. Lorsque vous achetez via nos liens, nous pouvons percevoir une commission d'affiliation, sans surcoût pour vous.", 'pluscestsimple' ) . '</p>';
+} );
