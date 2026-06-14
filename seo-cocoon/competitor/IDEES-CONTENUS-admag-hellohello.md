@@ -35,7 +35,7 @@ AD ajoute deux moules à **autorité** (notre différenciateur si on les reprend
 
 2. **Le tic "instagrammable / hashtags".** "12 Hashtags Instagram pour les Passionnés de Déco", "Ce que vous allez avoir envie d'Instagrammer cet été", "6 paquets cadeaux instagrammables". Réflexe blog 2018, zéro valeur SEO, zéro intent. → **À bannir.**
 
-3. **Le contenu sponsorisé déguisé.** Énormément de "Maisons du Monde x Hellø Blogzine", "C'est le mois des travaux chez Leroy Merlin", "avec LOBERON", "nouveautés La Redoute 2025". C'est de la pub native non transparente — précisément ce qui leur a valu l'infraction DGCCRF. → **Nous : affiliation isolée, fiche produit CPT + disclosure visible. La transparence est notre arête.**
+3. **Le contenu marque/modèle : c'est une FORCE, pas une faille — à condition de le déclarer.** Ranker une page sur un modèle précis ("canapé Bobochic", "pots Elho") est excellent pour la conversion d'affiliation : intent d'achat maximal, requête navigationnelle captée. La seule erreur de HH n'est pas d'en faire, c'est de **ne pas afficher la mention d'affiliation** (d'où l'infraction DGCCRF). → **Nous : on EN FAIT, abondamment, via fiches produit CPT + sélections — avec disclosure visible. Anthony source les affiliations/marques/modèles à cibler ; la rédac construit la page autour.**
 
 4. **L'overpromise incohérent.** "Comment Changer sa Déco pour Pas Un Centime (ou Presque)" (le "ou presque" trahit la promesse), "Quand on dépoussière les tendances !" (vague, pas recherchable). → **Nous : si le titre promet, le contenu tient. Pas de titre qui ne mappe pas une intention claire.**
 
@@ -151,7 +151,7 @@ AD/HH gagnent des featured snippets avec des how-to ménagers ultra-pratiques. F
 1. **On vole la FORME (4 moules de titres), pas le calendrier éditorial.** Leurs titres sont bons car littéraux et mono-intention.
 2. **On évite leur dette** : daté, instagrammable, sponsorisé opaque, luxe people.
 3. **On occupe leur angle mort** : travaux technique + crossover technique×déco + architecture. C'est là qu'on n'a pas de concurrence frontale.
-4. **L'affiliation** se branche sur leurs intents "Où trouver / Quel choisir" — mais via fiche produit CPT + disclosure (transparence = notre arête vs leur infraction DGCCRF).
+4. **L'affiliation est un axe offensif, pas un à-côté.** On rank volontairement sur marques/modèles précis (intent d'achat) via fiches produit CPT + sélections, branchés sur les intents "Où trouver / Quel choisir". Disclosure systématique (légal + différenciant vs HH). Anthony fournit les marques/modèles à cibler.
 5. **Priorité de production** : par-pièce (volume) + crossover gros-œuvre (différenciation) en premier, conformément au PLAN-PRODUCTION.
 
 > Fichiers bruts conservés : `/tmp/hh_titles.txt` (1 528), `/tmp/admag_slugs.txt` (649). Régénérables.
