@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="https://hello-hello.fr/sitemaps_xsl.xsl"?>
+<sitemapindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/siteindex.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<sitemap>
+<loc>https://hello-hello.fr/post-sitemap1.xml</loc>
+<lastmod>2026-06-05T00:09:50+02:00</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://hello-hello.fr/post-sitemap2.xml</loc>
+<lastmod>2024-10-21T00:37:38+02:00</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://hello-hello.fr/page-sitemap1.xml</loc>
+<lastmod>2026-05-03T12:00:56+02:00</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://hello-hello.fr/adresses-sitemap1.xml</loc>
+<lastmod>2026-01-07T17:59:17+01:00</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://hello-hello.fr/category-sitemap1.xml</loc>
+</sitemap>
+<sitemap>
+<loc>https://hello-hello.fr/adresse-sitemap1.xml</loc>
+</sitemap>
+</sitemapindex>
