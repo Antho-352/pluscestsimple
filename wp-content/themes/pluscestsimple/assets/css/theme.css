@@ -2188,9 +2188,9 @@ a.pcs-link-partner:hover {
 }
 .pcs-home__section-title {
 	font-family: var(--wp--preset--font-family--display);
-	font-size: clamp(1.75rem, 3.5vw, 2.625rem);
-	font-weight: 700;
-	letter-spacing: -0.02em;
+	font-size: clamp(1.4rem, 2.6vw, 1.875rem);
+	font-weight: 400;
+	letter-spacing: -0.015em;
 	margin: 0;
 }
 
@@ -2400,9 +2400,9 @@ a.pcs-link-partner:hover {
 }
 .pcs-home__cat-name {
 	font-family: var(--wp--preset--font-family--display);
-	font-size: clamp(1.75rem, 3.5vw, 2.625rem);
-	font-weight: 700;
-	letter-spacing: -0.02em;
+	font-size: clamp(1.4rem, 2.6vw, 1.875rem);
+	font-weight: 400;
+	letter-spacing: -0.015em;
 	margin: 0;
 }
 .pcs-home__cat-more {
