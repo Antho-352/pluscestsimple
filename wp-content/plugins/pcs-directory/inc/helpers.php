@@ -43,7 +43,9 @@ function pcs_directory_top_enseignes( string $taxonomy, int $term_id, int $limit
  * @return array<int, array{term_id:int, name:string, slug:string, count:int}>
  */
 function pcs_directory_villes_in_dept( int $dept_term_id, int $limit = 0 ): array {
-	$cache_key = 'pcs_villes_dept_' . $dept_term_id;
+	// v2 : la clé de cache est versionnée pour invalider les anciens transients
+	// (qui comptaient les boutiques non publiées — compteurs faux).
+	$cache_key = 'pcs_villes_dept_v2_' . $dept_term_id;
 	$cached    = get_transient( $cache_key );
 	if ( is_array( $cached ) ) {
 		return $limit > 0 ? array_slice( $cached, 0, $limit ) : $cached;
@@ -56,11 +58,16 @@ function pcs_directory_villes_in_dept( int $dept_term_id, int $limit = 0 ): arra
 
 	global $wpdb;
 	$ids_in = implode( ',', array_map( 'intval', $object_ids ) );
+	$cpt    = PCS_DIR_CPT;
+	// JOIN sur wp_posts pour ne compter QUE les boutiques publiées : sans ce filtre,
+	// les brouillons/corbeille/relations orphelines gonflaient le compteur (ex. dept
+	// affichait 38 pour Bordeaux alors que la page ville en compte 27 publiées).
 	$rows   = $wpdb->get_results(
 		"SELECT t.term_id, t.name, t.slug, COUNT(*) AS cnt
 		 FROM {$wpdb->term_relationships} tr
 		 JOIN {$wpdb->term_taxonomy} tt ON tt.term_taxonomy_id = tr.term_taxonomy_id AND tt.taxonomy = 'pcs_ville'
 		 JOIN {$wpdb->terms} t ON t.term_id = tt.term_id
+		 JOIN {$wpdb->posts} p ON p.ID = tr.object_id AND p.post_type = '{$cpt}' AND p.post_status = 'publish'
 		 WHERE tr.object_id IN ($ids_in)
 		 GROUP BY t.term_id, t.name, t.slug
 		 ORDER BY cnt DESC, t.name ASC"
