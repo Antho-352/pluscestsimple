@@ -348,24 +348,11 @@ add_action( 'template_redirect', function () {
 	}
 }, 9 );
 
-// ─── Hn auto-fix : prévient les hiérarchies plates (article 64×H2 sans H3) ──
-// Détecte 4+ H2 consécutifs et transforme les suivants en H3 pour donner une
-// vraie hiérarchie. N'altère pas les pages dont l'auteur a structuré
-// correctement (alternance H2/H3 dès le départ).
-
-add_filter( 'the_content', function ( $content ) {
-	if ( ! is_singular() ) { return $content; }
-	if ( substr_count( strtolower( $content ), '<h2' ) < 5 ) { return $content; }
-	if ( substr_count( strtolower( $content ), '<h3' ) > 2 ) { return $content; }
-
-	$count = 0;
-	return preg_replace_callback( '#<(h2)\b([^>]*)>(.*?)</h2>#is', function ( $m ) use ( &$count ) {
-		$count++;
-		// Garder les 2 premiers H2 comme jalons, transformer les suivants en H3.
-		if ( $count <= 2 ) { return $m[0]; }
-		return '<h3' . $m[2] . '>' . $m[3] . '</h3>';
-	}, $content );
-}, 25 );
+// NB : un ancien filtre « Hn auto-fix » rétrogradait en H3 les H2 au-delà du 2e
+// quand un article avait ≥5 H2 et ≤2 H3. Retiré (v2.16.4) : il fabriquait une
+// hiérarchie sémantiquement fausse (H3 sous-sections de rien) et désynchronisait
+// l'éditeur (H2 stockés) du front + sommaire (H3 affichés). La structure Hn est
+// désormais maîtrisée à la rédaction, jamais réécrite à l'affichage.
 
 // ─── Author archive nofollow ──────────────────────────────────────────────────
 
