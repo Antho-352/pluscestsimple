@@ -40,6 +40,12 @@ add_filter( 'robots_txt', function ( $output, $public ) {
 		'Disallow: /*?*replytocom=',
 		'Allow: /wp-admin/admin-ajax.php',
 		'',
+		'# Pagination des blocs Query Loop (?query-{id}-page=) : pages synthétiques',
+		'# sans valeur SEO (canonical déjà vers la base) → on évite le gaspillage',
+		'# de budget de crawl sur des combinaisons quasi infinies.',
+		'Disallow: /*?query-',
+		'Disallow: /*&query-',
+		'',
 	];
 
 	// Filter pour permettre aux extensions d'ajouter des Disallow ciblés.
