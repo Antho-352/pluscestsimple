@@ -6,9 +6,12 @@ Cadre commun identique à VAGUE 1 (ton expert sobre, pas de prix/devis, FAQ 3-5 
 
 ## A. SOUS-PILIER DÉCORATION / STYLES (mappe les style-pages existantes)
 
-### 13. Réussir une déco bohème : les 6 codes [I] → silo `boheme`
-- **Slug** : `/decoration/styles/boheme/` (page style EXISTANTE — enrichir, pas créer) ou article fille `.../boheme/codes-deco-boheme/`.
-- **KW** : déco bohème (+ ambiance boho).
+> **RÉSOLUTION COLLISION D'URL (validé).** Les pages `/decoration/styles/{slug}/` existent déjà (engine `inc/style-pages.php`, statut brouillon) comme HUBS de catégorie ciblant le terme-tête. Pour `scandinave`, `boheme`, `japandi`, `campagne-chic` : **on enrichit le CORPS de la page-hub existante avec le contenu du brief** — on ne crée PAS d'article concurrent (cannibalisation du hub). La page reste comprehensive sur le terme-tête ; l'angle du brief (codes / erreurs) devient sa colonne vertébrale éditoriale. Le brief ci-dessous = plan de rédaction du corps de la page. `urban-jungle` n'existe pas au registre → article autonome (cf. 14).
+
+### 13. Réussir une déco bohème : les 6 codes [I] → ENRICHIT la page-hub `boheme`
+- **Cible** : corps de la page-hub EXISTANTE `/decoration/styles/boheme/` (ne pas créer d'URL).
+- **Cat** : `decoration-styles-boheme-cat` (déjà rattachée à la page).
+- **KW** : déco bohème (terme-tête) + ambiance boho.
 - **Hn** : Origines & esprit · Les matières (rotin, lin, macramé, jonc) · La palette · Le mix vintage/ethnique · Les plantes · Les erreurs (effet bric-à-brac) · FAQ.
 - **À couvrir** : matières naturelles, superposition textile, plantes, chiner, équilibre.
 - **Différenciateur** : section "éviter l'effet bazar" (HH reste descriptif).
@@ -16,32 +19,36 @@ Cadre commun identique à VAGUE 1 (ton expert sobre, pas de prix/devis, FAQ 3-5 
 - **Meta** : Déco bohème : les 6 codes pour réussir l'ambiance boho / Adopter une déco bohème sans tomber dans le bric-à-brac : matières naturelles, palette, plantes et mix vintage. Les 6 codes essentiels.
 
 ### 14. Créer une ambiance Urban Jungle sans tuer ses plantes [I] (déco × jardin)
-- **Slug** : `/decoration/styles/urban-jungle/`
+- **Cible** : ARTICLE autonome (pas au registre des styles). **Slug** : `/decoration/urban-jungle/` (hors chemin `/styles/` réservé au registre).
+- **Cat** : `decoration-styles-boheme-cat` (sous-thème du bohème) ou `decoration-cat`.
 - **KW** : urban jungle (+ déco jungle intérieur).
 - **Hn** : Le principe · Choisir des plantes adaptées à la lumière de chaque pièce · Composer en hauteur et en groupes · Cache-pots et supports · Entretien réaliste · FAQ.
 - **Différenciateur** : croise déco ET réussite des plantes (pont jardin) — angle plus utile que la simple inspi.
 - **Maillage** : ↑ styles · ↔ "plantes peu de lumière", "bouturer" (jardin) · → cache-pots [A].
 - **Meta** : Urban Jungle : créer l'ambiance sans tuer ses plantes / Réussir une déco Urban Jungle durable : choisir les bonnes plantes selon la lumière, composer en hauteur et les entretenir sans peine.
 
-### 15. 6 erreurs qui ratent une déco scandinave [I] → silo `scandinave`
-- **Slug** : `/decoration/styles/scandinave/` (page EXISTANTE) ou fille `.../erreurs-deco-scandinave/`.
-- **KW** : déco scandinave (angle erreurs).
+### 15. Déco scandinave : les codes + les 6 erreurs à éviter [I] → ENRICHIT la page-hub `scandinave`
+- **Cible** : corps de la page-hub EXISTANTE `/decoration/styles/scandinave/` (ne pas créer d'URL). NB : l'intro existante positionne déjà sur "les erreurs à éviter, sans tomber dans le catalogue" → l'angle erreurs est cohérent avec la page, mais le corps doit rester comprehensive (codes + pièce par pièce + section erreurs), pas un article "erreurs" seul.
+- **Cat** : `decoration-styles-scandinave-cat`.
+- **KW** : déco scandinave (terme-tête ; l'angle erreurs est une section différenciante).
 - **Hn** : Ce qu'est vraiment le style scandinave · Erreur 1 trop de blanc froid · 2 le hygge oublié (textiles, lumière) · 3 meubles dépareillés · 4 zéro plante/bois · 5 lumière unique au plafond · 6 confondre scandinave et minimalisme · FAQ.
 - **Différenciateur** : format "erreurs" = angle critique qui se démarque des 50 pages "déco scandinave".
 - **Maillage** : ↑ styles · ↔ "japandi", "bien dormir".
 - **Meta** : Déco scandinave : 6 erreurs qui gâchent tout / Réussir une déco scandinave : les 6 erreurs classiques (blanc froid, hygge oublié, éclairage raté) et comment les corriger.
 
-### 16. Adopter le japandi : mobilier, couleurs, matières [I] → silo `japandi`
-- **Slug** : `/decoration/styles/japandi/` (EXISTANTE) ou fille.
-- **KW** : japandi (+ style japandi).
+### 16. Adopter le japandi : mobilier, couleurs, matières [I] → ENRICHIT la page-hub `japandi`
+- **Cible** : corps de la page-hub EXISTANTE `/decoration/styles/japandi/` (ne pas créer d'URL).
+- **Cat** : `decoration-styles-japandi-cat`.
+- **KW** : déco japandi (terme-tête).
 - **Hn** : Japandi = japonais + scandinave · Palette (terreux + neutres) · Matières (bois clair, céramique, lin) · Mobilier bas et épuré · Le wabi-sabi (imperfection) · Erreurs · FAQ.
 - **Différenciateur** : expliquer la philosophie (wabi-sabi) pour éviter le japandi "catalogue".
 - **Maillage** : ↑ styles · ↔ "scandinave", "bien dormir".
 - **Meta** : Japandi : mobilier, couleurs et matières pour réussir / Adopter le style japandi : fusion japonaise et scandinave, palette terreuse, matières naturelles et mobilier épuré. Le guide complet.
 
-### 17. Déco campagne chic : éviter l'effet "gîte" [I] → silo `campagne-chic`
-- **Slug** : `/decoration/styles/campagne-chic/` (EXISTANTE) ou fille.
-- **KW** : déco campagne chic (angle critique).
+### 17. Déco campagne chic : les codes + éviter l'effet "gîte" [I] → ENRICHIT la page-hub `campagne-chic`
+- **Cible** : corps de la page-hub EXISTANTE `/decoration/styles/campagne-chic/` (ne pas créer d'URL).
+- **Cat** : `decoration-styles-campagne-chic-cat`.
+- **KW** : déco campagne chic (terme-tête ; l'angle anti-gîte est une section différenciante).
 - **Hn** : Campagne chic vs rustique · Mélanger ancien et contemporain · Matières et patines justes · Palette · Erreur de la surcharge "cottage" · FAQ.
 - **Différenciateur** : la frontière chic/kitsch — angle que HH n'aborde pas.
 - **Maillage** : ↑ styles · ↔ "rénover meuble ancien", "cachet de l'ancien".
@@ -154,6 +161,6 @@ Cadre commun identique à VAGUE 1 (ton expert sobre, pas de prix/devis, FAQ 3-5 
 ---
 
 ## Production VAGUE 2
-- 16 pièces. Les 5 styles enrichissent/complètent les style-pages existantes (vérifier collision d'URL : préférer page pilier enrichie + articles filles si la page existe déjà).
+- 16 pièces. Collision d'URL tranchée : 13/15/16/17 = enrichissement du corps des pages-hub styles EXISTANTES (zéro nouvelle URL) ; 14 (urban jungle) = article autonome hors `/styles/`. Publier la page-hub style fait passer la page de brouillon à publié.
 - Jardin : prioriser 24/25 (volume "plantes") + 28 (crossover technique, vol HH prouvé).
 - Maillage croisé déco↔jardin (urban jungle ↔ plantes) à activer.
