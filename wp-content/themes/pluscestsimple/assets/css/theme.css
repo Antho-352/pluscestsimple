@@ -18,6 +18,14 @@
 	--pcs-dur-slow: 600ms;
 	--pcs-container-max: 1180px;
 	--pcs-container-px: clamp(1rem, 4vw, 2rem);
+
+	/* Rattrapage presets font-size à slug numérique : WordPress n'émet PAS
+	   --wp--preset--font-size--{2xl,3xl,4xl} (un identifiant CSS ne peut pas
+	   commencer par un chiffre), donc tout ce qui les référence (h1=3xl, h2=2xl…)
+	   retombait à la taille du corps. On les redéfinit avec les valeurs theme.json. */
+	--wp--preset--font-size--2xl: 2.75rem;
+	--wp--preset--font-size--3xl: 3.75rem;
+	--wp--preset--font-size--4xl: 5rem;
 }
 
 /* ====================================================================
