@@ -81,8 +81,11 @@ add_action( 'wp_head', function (): void {
 }, 20 );
 
 // ─── Meta description ─────────────────────────────────────────────────────────
+// On ALIMENTE le filtre du thème (couche SEO unique) au lieu d'émettre notre
+// propre balise : évite la double <meta name="description"> sur les pages annuaire.
+// Bonus : og:description du thème hérite automatiquement de cette valeur.
 
-add_action( 'wp_head', function (): void {
+add_filter( 'pcs_meta_description', function ( $desc_theme ) {
 	$desc = '';
 
 	// Fiche boutique.
@@ -137,10 +140,10 @@ add_action( 'wp_head', function (): void {
 	$desc = wp_strip_all_tags( $desc );
 	$desc = mb_substr( $desc, 0, 160 );
 
-	if ( '' !== trim( $desc ) ) {
-		echo "\n" . '<meta name="description" content="' . esc_attr( $desc ) . '" />' . "\n";
-	}
-}, 5 );
+	// Sur une page annuaire → on remplace la description générique du thème.
+	// Ailleurs → on laisse la valeur du thème intacte.
+	return ( '' !== trim( $desc ) ) ? $desc : $desc_theme;
+}, 10 );
 
 // ─── Titre document ──────────────────────────────────────────────────────────
 
@@ -154,6 +157,21 @@ add_filter( 'document_title_parts', function ( array $title ): array {
 		$title['tagline'] = '';
 	} elseif ( is_post_type_archive( PCS_DIR_CPT ) ) {
 		$title['title']   = 'Annuaire magasins déco et maison en France';
+		$title['tagline'] = '';
+	} elseif ( is_tax( [ 'pcs_ville', 'pcs_dept', 'pcs_region', 'pcs_cat' ] ) ) {
+		// Titres descriptifs (mot-clé + zone + compteur) au lieu de « {Terme} – {Site} ».
+		$term  = get_queried_object();
+		$count = (int) ( $term->count ?? 0 );
+		$n     = $count > 1 ? "{$count} boutiques" : "{$count} boutique";
+		if ( is_tax( 'pcs_ville' ) ) {
+			$title['title'] = "Magasins déco et maison à {$term->name} ({$n})";
+		} elseif ( is_tax( 'pcs_dept' ) ) {
+			$title['title'] = 'Magasins déco et maison ' . pcs_directory_dept_prep( $term->name ) . " ({$n})";
+		} elseif ( is_tax( 'pcs_region' ) ) {
+			$title['title'] = "Magasins déco et ameublement en {$term->name} ({$n})";
+		} else { // pcs_cat
+			$title['title'] = "Magasins {$term->name} en France ({$n})";
+		}
 		$title['tagline'] = '';
 	}
 	return $title;

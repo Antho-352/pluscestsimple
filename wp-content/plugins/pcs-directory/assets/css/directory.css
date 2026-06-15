@@ -569,3 +569,17 @@
 .pcs-directory-admin .form-table textarea {
   max-width: 560px;
 }
+
+/* ─── FAQ annuaire (ville/dept) — accordéon natif, 0 JS ─── */
+.pcs-faq { margin-block: clamp(2rem, 4vw, 3rem); }
+.pcs-faq > h2 { margin-bottom: 1rem; }
+.pcs-faq__item { border-bottom: 1px solid var(--wp--preset--color--border, #e5e0d6); padding: .75rem 0; }
+.pcs-faq__item summary { cursor: pointer; font-weight: 600; list-style: none; }
+.pcs-faq__item summary::-webkit-details-marker { display: none; }
+.pcs-faq__item summary::after { content: "+"; float: right; font-weight: 400; opacity: .6; }
+.pcs-faq__item[open] summary::after { content: "−"; }
+.pcs-faq__item p { margin: .6rem 0 0; color: var(--wp--preset--color--muted, #6b6357); }
+
+/* Liste villes en colonnes (page annuaire) */
+.pcs-index__list--cols { columns: 2; column-gap: 2rem; }
+@media (min-width: 700px) { .pcs-index__list--cols { columns: 3; } }

@@ -117,6 +117,33 @@ function pcs_directory_region_term_for_dept( WP_Term $dept ): ?WP_Term {
 	return $t instanceof WP_Term ? $t : null;
 }
 
+/**
+ * Préposition locative correcte pour un département (« dans le Var », « en Gironde »,
+ * « dans les Bouches-du-Rhône », « dans l'Aisne »). Défaut féminin « en ».
+ * Liste curated des cas non-féminins ; le défaut couvre la majorité des départements.
+ */
+function pcs_directory_dept_prep( string $name ): string {
+	$plural = [
+		'Alpes-de-Haute-Provence', 'Alpes-Maritimes', 'Hautes-Alpes', 'Ardennes',
+		'Bouches-du-Rhône', "Côtes-d'Armor", 'Deux-Sèvres', 'Hauts-de-Seine',
+		'Landes', 'Pyrénées-Atlantiques', 'Hautes-Pyrénées', 'Pyrénées-Orientales',
+		'Vosges', 'Yvelines',
+	];
+	$masculin = [
+		'Calvados', 'Cantal', 'Cher', 'Doubs', 'Finistère', 'Gard', 'Gers', 'Jura',
+		'Loir-et-Cher', 'Loiret', 'Lot', 'Lot-et-Garonne', 'Maine-et-Loire', 'Morbihan',
+		'Nord', 'Pas-de-Calais', 'Puy-de-Dôme', 'Bas-Rhin', 'Haut-Rhin', 'Rhône',
+		'Tarn', 'Tarn-et-Garonne', 'Territoire de Belfort', 'Val-de-Marne',
+		"Val-d'Oise", 'Var', 'Vaucluse',
+	];
+	$elision = [ 'Ain', 'Aisne', 'Allier', 'Aube', 'Aude', 'Eure', 'Eure-et-Loir', 'Indre', 'Indre-et-Loire', 'Oise', 'Orne', 'Yonne', 'Hérault' ];
+
+	if ( in_array( $name, $plural, true ) )   { return "dans les {$name}"; }
+	if ( in_array( $name, $masculin, true ) ) { return "dans le {$name}"; }
+	if ( in_array( $name, $elision, true ) )  { return "dans l'{$name}"; }
+	return "en {$name}";
+}
+
 // ─── Rendu d'une ligne boutique (remplace get_template_part) ───────────────────
 
 /**
@@ -229,15 +256,24 @@ function pcs_directory_auto_intro( WP_Term $term ): string {
 	}
 
 	if ( 'pcs_region' === $tax ) {
-		$depts = pcs_directory_departments_in_region( $term->name );
+		$depts     = pcs_directory_departments_in_region( $term->name );
+		$enseignes = pcs_directory_top_enseignes( 'pcs_region', $term->term_id, 6 );
 		$p = sprintf(
-			'La région <strong>%s</strong> rassemble <strong>%s</strong> %s de décoration et d\'ameublement répartis sur %d département%s.',
+			'La région <strong>%s</strong> rassemble <strong>%s</strong> %s de décoration, d\'ameublement et d\'aménagement de la maison répartis sur %d département%s.',
 			esc_html( $term->name ),
 			number_format_i18n( $count ),
 			$count > 1 ? 'magasins' : 'magasin',
 			count( $depts ),
 			count( $depts ) > 1 ? 's' : ''
 		);
+		if ( $depts ) {
+			$noms = array_map( fn( $d ) => $d->name, array_slice( $depts, 0, 8 ) );
+			$p .= ' Elle couvre notamment ' . esc_html( implode( ', ', $noms ) ) . '.';
+		}
+		if ( $enseignes ) {
+			$p .= ' On y retrouve des enseignes comme ' . esc_html( implode( ', ', array_slice( $enseignes, 0, 6 ) ) ) . '.';
+		}
+		$p .= ' Sélectionnez un département ou une ville pour trouver une boutique de déco, de meubles ou de luminaires près de chez vous.';
 		return '<p>' . $p . '</p>';
 	}
 
@@ -283,9 +319,10 @@ function pcs_directory_auto_outro( WP_Term $term ): string {
 				$liens[] = '<a href="' . esc_url( $link ) . '">' . esc_html( $v['name'] ) . '</a>';
 			}
 		}
-		$html  = '<h2>Trouver un magasin de déco dans le ' . $name . '</h2>';
+		$prep  = pcs_directory_dept_prep( $term->name );
+		$html  = '<h2>Trouver un magasin de déco ' . esc_html( $prep ) . '</h2>';
 		$html .= '<p>Que vous cherchiez du mobilier, des objets de décoration, des luminaires ou une cuisine équipée, '
-			. 'l\'annuaire référence ' . number_format_i18n( $count ) . ' boutiques dans le ' . $name . '. '
+			. 'l\'annuaire référence ' . number_format_i18n( $count ) . ' boutiques ' . esc_html( $prep ) . '. '
 			. 'Chaque fiche précise l\'adresse, le téléphone, les horaires et le site web quand ils sont disponibles.</p>';
 		if ( $liens ) {
 			$html .= '<p><strong>Villes du département :</strong> ' . implode( ' · ', $liens ) . '</p>';
@@ -307,6 +344,83 @@ function pcs_directory_auto_outro( WP_Term $term ): string {
 
 	return '<h2>Les magasins « ' . $name .' » en France</h2>'
 		. '<p>Plus c\'est simple référence ' . number_format_i18n( $count ) . ' boutiques dans cette catégorie partout en France.</p>';
+}
+
+// ─── FAQ générée depuis les données + schema FAQPage ───────────────────────────
+
+/**
+ * Paires question/réponse factuelles pour une page ville ou département.
+ * Alimente la FAQ visible (<details>, 0 JS) ET le schema FAQPage.
+ *
+ * @return array<int,array{q:string,a:string}>
+ */
+function pcs_directory_faq( WP_Term $term ): array {
+	$count = (int) $term->count;
+	if ( $count < 1 ) { return []; }
+	$name  = $term->name;
+	$faq   = [];
+
+	if ( 'pcs_ville' === $term->taxonomy ) {
+		$enseignes = pcs_directory_top_enseignes( 'pcs_ville', $term->term_id, 6 );
+		$faq[] = [
+			'q' => "Combien de magasins de décoration y a-t-il à {$name} ?",
+			'a' => "L'annuaire Plus c'est simple référence {$count} " . ( $count > 1 ? 'magasins' : 'magasin' )
+				. " de décoration, de meubles et d'aménagement intérieur à {$name}, avec adresse, horaires et coordonnées.",
+		];
+		if ( $enseignes ) {
+			$faq[] = [
+				'q' => "Quelles enseignes de déco trouve-t-on à {$name} ?",
+				'a' => "À {$name}, on retrouve notamment " . implode( ', ', $enseignes ) . '.',
+			];
+		}
+		$faq[] = [
+			'q' => "Où acheter des meubles et de la déco à {$name} ?",
+			'a' => "Chaque fiche de l'annuaire indique l'adresse exacte, le téléphone, les horaires d'ouverture et le site web du magasin "
+				. "quand ils sont disponibles, pour préparer votre visite à {$name}.",
+		];
+	} elseif ( 'pcs_dept' === $term->taxonomy ) {
+		$prep   = pcs_directory_dept_prep( $name );
+		$villes = pcs_directory_villes_in_dept( $term->term_id, 5 );
+		$faq[]  = [
+			'q' => "Combien de magasins de déco sont référencés {$prep} ?",
+			'a' => "L'annuaire compte {$count} " . ( $count > 1 ? 'magasins' : 'magasin' )
+				. " de décoration et d'ameublement {$prep}.",
+		];
+		if ( $villes ) {
+			$noms  = array_map( fn( $v ) => $v['name'], $villes );
+			$faq[] = [
+				'q' => "Dans quelles villes trouver de la déco {$prep} ?",
+				'a' => "Les principales villes du département pour la déco sont " . implode( ', ', $noms ) . '.',
+			];
+		}
+	}
+
+	return $faq;
+}
+
+/**
+ * Affiche la FAQ (HTML <details> + JSON-LD FAQPage) pour le terme courant.
+ */
+function pcs_directory_render_faq( WP_Term $term ): void {
+	$faq = pcs_directory_faq( $term );
+	if ( ! $faq ) { return; }
+
+	echo '<section class="pcs-faq"><h2>Questions fréquentes</h2>';
+	foreach ( $faq as $item ) {
+		echo '<details class="pcs-faq__item"><summary>' . esc_html( $item['q'] ) . '</summary>'
+			. '<p>' . esc_html( $item['a'] ) . '</p></details>';
+	}
+	echo '</section>';
+
+	$entities = array_map( fn( $i ) => [
+		'@type'          => 'Question',
+		'name'           => $i['q'],
+		'acceptedAnswer' => [ '@type' => 'Answer', 'text' => $i['a'] ],
+	], $faq );
+	$schema = [ '@context' => 'https://schema.org', '@type' => 'FAQPage', 'mainEntity' => $entities ];
+	echo "\n" . '<script type="application/ld+json">'
+		. wp_json_encode( $schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE )
+		. "</script>\n";
 }
 
 // ─── Breadcrumb (fil d'Ariane) + schema BreadcrumbList ─────────────────────────

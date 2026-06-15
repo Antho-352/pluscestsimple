@@ -11,6 +11,8 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 get_header();
 
 $regions = get_terms( [ 'taxonomy' => 'pcs_region', 'orderby' => 'name', 'hide_empty' => true ] );
+$depts   = get_terms( [ 'taxonomy' => 'pcs_dept',   'orderby' => 'name', 'hide_empty' => true ] );
+$villes_top = get_terms( [ 'taxonomy' => 'pcs_ville', 'orderby' => 'count', 'order' => 'DESC', 'number' => 30, 'hide_empty' => true ] );
 $cats    = get_terms( [ 'taxonomy' => 'pcs_cat',    'orderby' => 'name', 'hide_empty' => true ] );
 $types   = get_terms( [ 'taxonomy' => 'pcs_type',   'orderby' => 'count', 'order' => 'DESC', 'hide_empty' => true ] );
 $total   = (int) wp_count_posts( PCS_DIR_CPT )->publish;
@@ -44,6 +46,36 @@ $outro = get_option( 'pcs_archive_outro', '' );
 			<?php endforeach; endif; ?>
 		</ul>
 	</section>
+
+	<!-- ─── Index par département (réduit la profondeur de clic) ──────────── -->
+	<?php if ( is_array( $depts ) && $depts ) : ?>
+	<section class="pcs-index">
+		<h2 class="pcs-index__title">Parcourir par département</h2>
+		<ul class="pcs-index__list">
+			<?php foreach ( $depts as $d ) : ?>
+				<li class="pcs-index__item">
+					<a href="<?php echo esc_url( get_term_link( $d ) ); ?>"><?php echo esc_html( $d->name ); ?></a>
+					<span class="pcs-index__count"><?php echo number_format_i18n( $d->count ); ?></span>
+				</li>
+			<?php endforeach; ?>
+		</ul>
+	</section>
+	<?php endif; ?>
+
+	<!-- ─── Principales villes ───────────────────────────────────────────── -->
+	<?php if ( is_array( $villes_top ) && $villes_top ) : ?>
+	<section class="pcs-index">
+		<h2 class="pcs-index__title">Principales villes</h2>
+		<ul class="pcs-index__list pcs-index__list--cols">
+			<?php foreach ( $villes_top as $v ) : ?>
+				<li class="pcs-index__item">
+					<a href="<?php echo esc_url( get_term_link( $v ) ); ?>"><?php echo esc_html( $v->name ); ?></a>
+					<span class="pcs-index__count"><?php echo number_format_i18n( $v->count ); ?></span>
+				</li>
+			<?php endforeach; ?>
+		</ul>
+	</section>
+	<?php endif; ?>
 
 	<!-- ─── Recherche rapide ─────────────────────────────────────────────── -->
 	<section class="pcs-quicksearch">

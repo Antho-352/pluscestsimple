@@ -56,6 +56,8 @@ $markers_json = pcs_directory_get_map_markers_json( [ [
 		<p><a href="<?php echo esc_url( get_post_type_archive_link( PCS_DIR_CPT ) ); ?>">← Annuaire national</a></p>
 	</div>
 
+	<?php pcs_directory_render_faq( $term ); ?>
+
 </div>
 
 <?php get_footer(); ?>

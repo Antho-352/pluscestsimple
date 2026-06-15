@@ -30,7 +30,7 @@ $markers_json = pcs_directory_get_map_markers_json( [ [
 	<?php pcs_directory_breadcrumb(); ?>
 
 	<div class="pcs-tax-header">
-		<h1>Magasins déco et maison dans le <?php echo esc_html( $term->name ); ?></h1>
+		<h1>Magasins déco et maison <?php echo esc_html( pcs_directory_dept_prep( $term->name ) ); ?></h1>
 		<?php echo pcs_directory_term_intro( $term ); ?>
 	</div>
 
@@ -109,6 +109,8 @@ $markers_json = pcs_directory_get_map_markers_json( [ [
 			<p><a href="<?php echo esc_url( get_term_link( $rterm ) ); ?>">← Tous les départements de <?php echo esc_html( $rterm->name ); ?></a></p>
 		<?php endif; ?>
 	</div>
+
+	<?php pcs_directory_render_faq( $term ); ?>
 
 </div>
 

@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Annuaire — pluscestsimple
  * Description: Annuaire des magasins déco/maison. CPT pcs_boutique + 6 taxonomies + import JSONL + carte Leaflet + filtres AJAX.
- * Version:     2.4.3
+ * Version:     2.4.4
  * Author:      Anthony Russo
  * Requires PHP: 8.0
  * Requires at least: 7.0
@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 
 // ─── Constantes ───────────────────────────────────────────────────────────────
 
-const PCS_DIR_VERSION = '2.4.3';
+const PCS_DIR_VERSION = '2.4.4';
 const PCS_DIR_CPT     = 'pcs_boutique';
 
 define( 'PCS_DIR_DIR', __DIR__ );
