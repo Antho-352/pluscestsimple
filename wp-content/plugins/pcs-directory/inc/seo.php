@@ -57,6 +57,19 @@ add_action( 'wp_head', function (): void {
 	if ( $site ) { $schema['sameAs'] = [ $site ]; }
 	if ( $horaires ) { $schema['openingHours'] = $horaires; }
 
+		// Note Google (données tierces, affichées de façon transparente) → étoiles SERP.
+		$rating  = (float) get_post_meta( $pid, '_pcs_rating', true );
+		$reviews = (int) get_post_meta( $pid, '_pcs_reviews', true );
+		if ( $rating > 0 && $reviews > 0 ) {
+			$schema['aggregateRating'] = [
+				'@type'       => 'AggregateRating',
+				'ratingValue' => round( $rating, 1 ),
+				'reviewCount' => $reviews,
+				'bestRating'  => 5,
+				'worstRating' => 1,
+			];
+		}
+
 	if ( has_post_thumbnail( $pid ) ) {
 		$img = wp_get_attachment_image_url( get_post_thumbnail_id( $pid ), 'large' );
 		if ( $img ) { $schema['image'] = $img; }
