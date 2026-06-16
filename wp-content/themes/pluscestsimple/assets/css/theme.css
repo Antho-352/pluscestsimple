@@ -2686,14 +2686,16 @@ a.pcs-link-partner:hover {
 }
 .pcs-keypoints__title {
 	text-align: center;
-	font-size: var(--wp--preset--font-size--sm);
-	text-transform: uppercase;
-	letter-spacing: .12em;
+	font-size: var(--wp--preset--font-size--lg);
+	font-family: var(--wp--preset--font-family--display);
+	font-weight: 400;
+	letter-spacing: .02em;
 	color: var(--wp--preset--color--accent);
-	margin: 0 0 1.25rem;
+	margin: 0 0 1.5rem;
 }
-.pcs-keypoints__item {
-	padding: .7rem 0 .75rem 1.4rem;
+/* Spécificité .pcs-keypoints .item pour battre le has-global-padding de Gutenberg. */
+.pcs-keypoints .pcs-keypoints__item {
+	padding: .75rem 0 .8rem 2rem;
 	border-left: 4px solid var(--wp--preset--color--accent);
 }
 .pcs-keypoints__item + .pcs-keypoints__item { border-top: 1px solid var(--wp--preset--color--border); }
