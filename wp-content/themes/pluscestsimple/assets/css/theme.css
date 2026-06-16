@@ -2760,7 +2760,16 @@ a.pcs-link-partner:hover {
 	.pcs-stats__row { display: grid; grid-template-columns: 1fr 1fr; }
 }
 
-/* ── Maillage interne automatique (zone "Sur le même sujet") ── */
+/* ── Lien contextuel auto in-body (maillage interne) : lien éditorial discret ── */
+.pcs-autolink {
+	color: var(--wp--preset--color--accent);
+	text-decoration: underline;
+	text-decoration-thickness: 1px;
+	text-underline-offset: 2px;
+}
+.pcs-autolink:hover { text-decoration-thickness: 2px; }
+
+/* ── (Legacy) zone "Sur le même sujet" — conservée pour compat, plus générée ── */
 .pcs-autolinks {
 	margin-block: 2rem;
 	padding: 1rem 1.25rem;
