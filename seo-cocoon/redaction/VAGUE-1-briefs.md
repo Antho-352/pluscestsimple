@@ -143,3 +143,23 @@ Légende intent : **[I]** informationnel · **[A]** affiliation/produit · **[C]
 - Chaque pièce maille ↑ vers son pilier et ↔ vers 1-2 sœurs. Les ponts vers le cluster mur porteur renforcent l'autorité du money-hub existant.
 - Catégorie obligatoire renseignée (sinon le filtre auto ne range pas).
 - Pas de prix, pas de devis, pas de citation d'expert inventée.
+
+---
+
+## Blocs modulaires & infographies (cf. CONVENTION-BLOCS.md)
+Légende : ESS=L'essentiel · PC=Points clés · CIT=Citation sourcée · CHF=Chiffres clés · SRC=Sources.
+
+| # | Article | Blocs | Infographie |
+|---|---|---|---|
+| 1 | Petite salle de bain | ESS, PC | **INFO-12** (plan annoté) |
+| 2 | Cuisine ouverte | ESS, PC, SRC | — |
+| 3 | Rangement petite cuisine | ESS, PC | — |
+| 4 | Aménager une entrée | ESS, PC | — |
+| 5 | Chambre pour bien dormir | ESS, PC | — |
+| 6 | Chambre enfant petit espace | ESS, PC | — |
+| 7 | Diviser une pièce sans mur | ESS, PC, SRC | **INFO-3** (6 solutions comparées) |
+| 8 | Installer une verrière | ESS, PC, SRC | **INFO-2** (pose/fixation) |
+| 9 | Camoufler un carrelage | ESS, PC, SRC | — |
+| 10 | Aménager des combles | ESS, PC, SRC | **INFO-4** (critères aménageabilité) |
+| 11 | Sous l'escalier | ESS, PC | — |
+| 12 | Crédence de cuisine | ESS, CHF, SRC | **INFO-5** (comparatif matériaux) |

@@ -164,3 +164,27 @@ Cadre commun identique à VAGUE 1 (ton expert sobre, pas de prix/devis, FAQ 3-5 
 - 16 pièces. Collision d'URL tranchée : 13/15/16/17 = enrichissement du corps des pages-hub styles EXISTANTES (zéro nouvelle URL) ; 14 (urban jungle) = article autonome hors `/styles/`. Publier la page-hub style fait passer la page de brouillon à publié.
 - Jardin : prioriser 24/25 (volume "plantes") + 28 (crossover technique, vol HH prouvé).
 - Maillage croisé déco↔jardin (urban jungle ↔ plantes) à activer.
+
+---
+
+## Blocs modulaires & infographies (cf. CONVENTION-BLOCS.md)
+Légende : ESS=L'essentiel · PC=Points clés · CIT=Citation sourcée · CHF=Chiffres clés · SRC=Sources.
+
+| # | Article | Blocs | Infographie |
+|---|---|---|---|
+| 13 | Déco bohème | ESS, PC | — |
+| 14 | Urban jungle | ESS, PC | **INFO-7** (plante/lumière) |
+| 15 | Scandinave : erreurs | ESS, PC | — |
+| 16 | Japandi | ESS, PC | — |
+| 17 | Campagne chic | ESS, PC | — |
+| 18 | Choisir son parquet | ESS, CHF, SRC | **INFO-6** (massif/contrecollé/stratifié) |
+| 19 | Parquet flottant | ESS, PC, SRC | — |
+| 20 | Rénover un meuble ancien | ESS, PC | — |
+| 21 | Relooker meubles Ikea | ESS, PC | — |
+| 22 | Éclairer un intérieur sombre | ESS, PC | — |
+| 23 | Aménager un balcon | ESS, PC | — |
+| 24 | Plantes peu de lumière | ESS, PC | **INFO-7** (plante/lumière) |
+| 25 | Plantes increvables | ESS, PC | **INFO-7** (plante/lumière) |
+| 26 | Bouturer ses plantes | ESS, PC | **INFO-8** (eau vs terreau) |
+| 27 | Compost en appartement | ESS, PC, SRC | — |
+| 28 | Douche extérieure | ESS, PC, SRC | **INFO-9** (alimentation/évacuation) |

@@ -168,3 +168,28 @@ Cadre commun identique (ton expert sobre, pas de prix/devis, FAQ 3-5 Q, pas d'ex
 | | **Total** | **45** | |
 
 Règles transverses : catégorie obligatoire (filtre auto), FAQ depuis PAA, pas de prix/devis, pas de fait perso inventé, disclosure sur toute page d'affiliation, millésimes évités (evergreen ou page roulante).
+
+---
+
+## Blocs modulaires & infographies (cf. CONVENTION-BLOCS.md)
+Légende : ESS=L'essentiel · PC=Points clés · CIT=Citation sourcée · CHF=Chiffres clés · SRC=Sources.
+
+| # | Article | Blocs | Infographie |
+|---|---|---|---|
+| 29 | Optimiser < 25 m² | ESS, PC | **INFO-11** (plan studio) |
+| 30 | Doubler la surface perçue | ESS, PC | — |
+| 31 | Agrandir une petite chambre | ESS, PC | — |
+| 32 | Mobilier sur-mesure | ESS, PC, SRC | — |
+| 33 | Cachet de l'ancien (neuf) | ESS, PC | — |
+| 34 | Rénovation haussmannienne | ESS, PC, SRC | **INFO-10** (anatomie haussmannien) |
+| 35 | Quel canapé convertible | ESS, CHF, (SRC) | — |
+| 36 | Canapés modulables | ESS, CHF | — |
+| 37 | 16 lampes à poser | ESS | — |
+| 38 | Tête de lit (+ tuto) | ESS, PC | — |
+| 39 | Choisir son composteur | ESS, CHF, SRC | — |
+| 40 | Braseros | ESS, CHF | — |
+| 41 | Nettoyer poêle en fonte | ESS, PC | — |
+| 42 | Affûter ses couteaux | ESS, PC | — |
+| 43 | Sécher le linge (petit espace) | ESS, PC | — |
+| 44 | Raccourcir des rideaux | ESS, PC | — |
+| 45 | Ménage de printemps | ESS, PC | — |
