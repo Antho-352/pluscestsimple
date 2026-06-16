@@ -10,9 +10,9 @@
 ?>
 <!-- wp:group {"className":"pcs-sources","layout":{"type":"constrained"}} -->
 <div class="wp-block-group pcs-sources">
-	<!-- wp:heading {"level":2,"className":"pcs-sources__title"} -->
-	<h2 class="wp-block-heading pcs-sources__title">Sources</h2>
-	<!-- /wp:heading -->
+	<!-- wp:paragraph {"className":"pcs-sources__title"} -->
+	<p class="pcs-sources__title">Sources</p>
+	<!-- /wp:paragraph -->
 	<!-- wp:list {"className":"pcs-sources__list"} -->
 	<ul class="wp-block-list pcs-sources__list">
 		<!-- wp:list-item --><li><a href="#">Nom de la source</a> — précision (organisme, document, date).</li><!-- /wp:list-item -->

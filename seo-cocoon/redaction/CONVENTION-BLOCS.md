@@ -75,3 +75,18 @@ les auto-liens »). Scoping : **intra-silo strict** (cohérence cocon), cap 8 li
 
 **À tester avant de s'y fier :** lancer « Reconstruire » une fois, inspecter quelques articles,
 ajuster. Le bouton « Supprimer tous les auto-liens » annule tout proprement.
+
+---
+
+## Sourcing obligatoire — un élément vérifiable par article (validé 2026-06-17)
+**Chaque article doit intégrer au moins un élément factuel vérifiable** (statistique, donnée, norme, citation) issu d'une **source reconnue**, qui ajoute de la valeur — pas du remplissage.
+
+- **Étape recherche** (avant rédaction) : Claude cherche, en thread principal (recherche web), 1-2 éléments chiffrés/factuels d'une source d'autorité, **datés et vérifiés**. Jamais inventé : si pas de source réelle → on ne chiffre pas.
+- **Intégration** : la donnée est mise **dans le corps** (pas juste listée), attribuée, + le **bloc Sources (SRC)** en fin d'article avec le lien. SRC devient **obligatoire sur tous les articles** (plus seulement les [C]).
+- **Sources reconnues** (par défaut) : officiel FR — **ADEME, ANAH, INSEE, CSTB/DTU, Qualibat, observatoires pro, services-publics.fr, Cieau/eaufrance** — + **données techniques fabricants** + **études sérieuses**. Pas de blog non sourcé.
+- **Réutilisation** : les sources sont documentées **par article** (section « Sources » du brief / doc de l'article), donc greppables dans `seo-cocoon/redaction/` pour réemploi.
+
+### Sources déjà vérifiées (réutilisables)
+| Source | Donnée | Sujets |
+|---|---|---|
+| [Nos Gestes Climat — ADEME](https://nosgestesclimat.fr/documentation/logement/eau-domestique/bains-et-douches) | Bain ≈ 150 L · douche 6 min ≈ 72 L (12 L/min) | salle de bain, douche, eau, éco |
