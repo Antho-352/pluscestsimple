@@ -2693,12 +2693,20 @@ a.pcs-link-partner:hover {
 	margin: 0 0 1.25rem;
 }
 .pcs-keypoints__item {
-	padding: .55rem 0 .7rem 1.6rem;
+	padding: .7rem 0 .75rem 1.4rem;
 	border-left: 4px solid var(--wp--preset--color--accent);
 }
 .pcs-keypoints__item + .pcs-keypoints__item { border-top: 1px solid var(--wp--preset--color--border); }
-.pcs-keypoints__item-title { font-size: var(--wp--preset--font-size--md); line-height: 1.2; margin: 0 0 .2rem; }
-.pcs-keypoints__item-text { margin: 0; color: var(--wp--preset--color--muted); line-height: 1.55; }
+/* Neutralise le block-gap natif de Gutenberg (layout constrained) qui écartait
+   titre et texte ; on reprend la main pour un couple titre/desc serré façon info.fr. */
+.pcs-keypoints__item > * { margin-block: 0; }
+.pcs-keypoints__item-title { font-size: var(--wp--preset--font-size--md); line-height: 1.2; margin: 0 0 .15rem; }
+.pcs-keypoints__item-text { margin: 0; color: var(--wp--preset--color--muted); line-height: 1.5; }
+
+/* Même neutralisation dans l'encart L'essentiel (titre ↔ liste). */
+.pcs-essentiel > * { margin-block: 0; }
+.pcs-essentiel__title { margin-bottom: .6rem; }
+.pcs-essentiel__list { margin-block: 0; }
 
 /* ── Citation sourcée ── */
 .pcs-citation {
