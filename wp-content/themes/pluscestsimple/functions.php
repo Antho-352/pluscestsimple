@@ -35,6 +35,7 @@ $pcs_modules = [
 	'form',            // CPT arw_submission + REST endpoint /pcs/v1/submit
 	'partners',        // CPT Partenaires + rendu dynamique section "Nos partenaires" [pcs_partners]
 	'maillage',        // Cocon : articles liés même silo (P4) + nav piliers↔sous-piliers (P3)
+	'auto-maillage',   // Moteur de liens entrants : ≥3 liens intra-silo par article (zone balisée)
 	'produits',        // CPT pcs_produit : fiches avis affiliées + section home "Sélection déco tendance"
 	'cookie-consent',  // Bandeau natif Consent Mode v2
 	'legal-defaults',  // Page admin mentions légales + placeholders

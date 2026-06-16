@@ -2760,3 +2760,23 @@ a.pcs-link-partner:hover {
 @media (max-width: 600px) {
 	.pcs-stats__row { display: grid; grid-template-columns: 1fr 1fr; }
 }
+
+/* ── Maillage interne automatique (zone "Sur le même sujet") ── */
+.pcs-autolinks {
+	margin-block: 2rem;
+	padding: 1rem 1.25rem;
+	background: var(--wp--preset--color--surface);
+	border-left: 4px solid var(--wp--preset--color--accent);
+	border-radius: 0 10px 10px 0;
+}
+.pcs-autolinks__title {
+	font-size: var(--wp--preset--font-size--xs);
+	text-transform: uppercase;
+	letter-spacing: .1em;
+	color: var(--wp--preset--color--accent);
+	margin: 0 0 .5rem;
+	font-weight: 700;
+}
+.pcs-autolinks__list { margin: 0; padding-left: 1.1rem; display: flex; flex-direction: column; gap: .3rem; }
+.pcs-autolinks__list a { color: var(--wp--preset--color--foreground); text-decoration: none; }
+.pcs-autolinks__list a:hover { color: var(--wp--preset--color--accent); text-decoration: underline; }
