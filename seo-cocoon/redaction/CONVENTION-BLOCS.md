@@ -56,3 +56,22 @@ si un visuel **comparatif / process / arbre de décision** apporte une vraie val
 4. **Infographie** près de la section qu'elle illustre
 5. **CIT** au fil du texte si pertinent
 6. **SRC** en fin d'article (avant les articles liés)
+
+---
+
+## Maillage interne entrant automatique (thème ≥ 2.17.0)
+Chaque article publié reçoit automatiquement **jusqu'à 3 liens entrants** depuis d'autres
+articles **du même silo** (catégorie principale), dans une zone balisée « Sur le même sujet »
+en fin d'article. Édition réelle de `post_content` mais **réversible** (zone `<!--pcs-autolinks-->`).
+
+**Ce que le rédacteur doit faire :** définir l'**ancre cible** de l'article = son mot-clé
+(= le champ « KW cible » du brief). Renseigner la meta `_pcs_anchor` si on veut une ancre
+différente du titre ; sinon le titre sert d'ancre. C'est ce texte qui apparaît comme lien
+dans les autres articles.
+
+**Déclenchement :** auto à la publication (`wp_after_insert_post`). Backfill / contrôle via
+**Outils → Maillage interne** (« Reconstruire tout le maillage entrant » / « Supprimer tous
+les auto-liens »). Scoping : **intra-silo strict** (cohérence cocon), cap 8 liens sortants/article.
+
+**À tester avant de s'y fier :** lancer « Reconstruire » une fois, inspecter quelques articles,
+ajuster. Le bouton « Supprimer tous les auto-liens » annule tout proprement.
