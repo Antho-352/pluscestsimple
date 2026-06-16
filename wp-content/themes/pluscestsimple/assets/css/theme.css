@@ -1753,6 +1753,9 @@ a.pcs-link-partner:hover {
 	line-height: 1.6;
 	margin-top: 1rem;
 	max-width: 60ch;
+	/* Renfort visuel type info.fr : barre d'accent verticale. */
+	border-left: 4px solid var(--wp--preset--color--accent);
+	padding-left: 1.1rem;
 }
 .pcs-article__meta {
 	display: flex;
@@ -2643,4 +2646,117 @@ a.pcs-link-partner:hover {
 	.pcs-prod-inline__media { flex: none; }
 	.pcs-prod-inline__img { width: 100%; height: auto; aspect-ratio: 4/3; }
 	.pcs-prod-inline__cta { align-self: stretch; justify-content: center; }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   BLOCS MODULAIRES D'ARTICLE (patterns pcs-article)
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* ── L'essentiel (TL;DR) ── */
+.pcs-essentiel {
+	background: var(--wp--preset--color--surface);
+	border: 1px solid var(--wp--preset--color--border);
+	border-radius: var(--wp--custom--radius--md, 12px);
+	padding: clamp(1.25rem, 3vw, 1.75rem);
+	margin-block: 2rem;
+}
+.pcs-essentiel__title {
+	font-size: var(--wp--preset--font-size--lg);
+	margin: 0 0 .75rem;
+	display: flex;
+	align-items: center;
+	gap: .5rem;
+}
+.pcs-essentiel__title::before {
+	content: "";
+	width: .55rem; height: 1.4rem;
+	background: var(--wp--preset--color--accent);
+	border-radius: 2px;
+	flex: none;
+}
+.pcs-essentiel__list { margin: 0; padding-left: 1.1rem; display: flex; flex-direction: column; gap: .4rem; }
+.pcs-essentiel__list li { line-height: 1.5; }
+
+/* ── Points clés (lignes barre + titre + texte) ── */
+.pcs-keypoints {
+	border: 1px solid var(--wp--preset--color--border);
+	border-radius: var(--wp--custom--radius--md, 12px);
+	padding: clamp(1.25rem, 3vw, 2rem);
+	margin-block: 2rem;
+}
+.pcs-keypoints__title {
+	text-align: center;
+	font-size: var(--wp--preset--font-size--sm);
+	text-transform: uppercase;
+	letter-spacing: .12em;
+	color: var(--wp--preset--color--accent);
+	margin: 0 0 1.25rem;
+}
+.pcs-keypoints__item {
+	padding: 1rem 0 1rem 1.1rem;
+	border-left: 4px solid var(--wp--preset--color--accent);
+	border-bottom: 1px solid var(--wp--preset--color--border);
+}
+.pcs-keypoints__item:last-child { border-bottom: 0; }
+.pcs-keypoints__item-title { font-size: var(--wp--preset--font-size--md); margin: 0 0 .3rem; }
+.pcs-keypoints__item-text { margin: 0; color: var(--wp--preset--color--muted); line-height: 1.55; }
+
+/* ── Citation sourcée ── */
+.pcs-citation {
+	border-left: 4px solid var(--wp--preset--color--accent);
+	background: var(--wp--preset--color--surface);
+	padding: 1.25rem 1.5rem;
+	margin-block: 2rem;
+	border-radius: 0 10px 10px 0;
+}
+.pcs-citation p {
+	font-family: var(--wp--preset--font-family--display);
+	font-size: var(--wp--preset--font-size--lg);
+	line-height: 1.4;
+	margin: 0 0 .6rem;
+}
+.pcs-citation cite {
+	font-style: normal;
+	font-size: var(--wp--preset--font-size--sm);
+	color: var(--wp--preset--color--muted);
+}
+.pcs-citation cite a { color: var(--wp--preset--color--accent); }
+
+/* ── Chiffres clés ── */
+.pcs-stats { margin-block: 2rem; }
+.pcs-stats__row { gap: 1rem; }
+.pcs-stats .wp-block-column { text-align: center; }
+.pcs-stats__num {
+	font-family: var(--wp--preset--font-family--display);
+	font-size: clamp(1.75rem, 4vw, 2.5rem);
+	font-weight: 400;
+	color: var(--wp--preset--color--accent);
+	line-height: 1;
+	margin: 0 0 .25rem;
+}
+.pcs-stats__label {
+	font-size: var(--wp--preset--font-size--sm);
+	color: var(--wp--preset--color--muted);
+	margin: 0;
+	line-height: 1.3;
+}
+
+/* ── Sources ── */
+.pcs-sources {
+	border-top: 2px solid var(--wp--preset--color--foreground);
+	padding-top: 1.25rem;
+	margin-block: 2.5rem;
+}
+.pcs-sources__title {
+	font-size: var(--wp--preset--font-size--sm);
+	text-transform: uppercase;
+	letter-spacing: .1em;
+	margin: 0 0 .75rem;
+}
+.pcs-sources__list { margin: 0; padding-left: 1.1rem; display: flex; flex-direction: column; gap: .4rem; }
+.pcs-sources__list li { font-size: var(--wp--preset--font-size--sm); line-height: 1.5; color: var(--wp--preset--color--muted); }
+.pcs-sources__list a { color: var(--wp--preset--color--accent); }
+
+@media (max-width: 600px) {
+	.pcs-stats__row { display: grid; grid-template-columns: 1fr 1fr; }
 }

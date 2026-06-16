@@ -22,5 +22,6 @@ add_action(
 		register_block_pattern_category( 'pcs-hero',    [ 'label' => __( 'Plus c\'est simple — Hero', 'pluscestsimple' ) ] );
 		register_block_pattern_category( 'pcs-section', [ 'label' => __( 'Plus c\'est simple — Sections', 'pluscestsimple' ) ] );
 		register_block_pattern_category( 'pcs-page',    [ 'label' => __( 'Plus c\'est simple — Pages', 'pluscestsimple' ) ] );
+		register_block_pattern_category( 'pcs-article', [ 'label' => __( 'Plus c\'est simple — Article', 'pluscestsimple' ) ] );
 	}
 );
