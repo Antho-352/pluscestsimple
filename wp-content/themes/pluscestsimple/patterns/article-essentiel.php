@@ -10,9 +10,9 @@
 ?>
 <!-- wp:group {"className":"pcs-essentiel","layout":{"type":"constrained"}} -->
 <div class="wp-block-group pcs-essentiel">
-	<!-- wp:heading {"level":2,"className":"pcs-essentiel__title"} -->
-	<h2 class="wp-block-heading pcs-essentiel__title">L'essentiel</h2>
-	<!-- /wp:heading -->
+	<!-- wp:paragraph {"className":"pcs-essentiel__title"} -->
+	<p class="pcs-essentiel__title">L'essentiel</p>
+	<!-- /wp:paragraph -->
 	<!-- wp:list {"className":"pcs-essentiel__list"} -->
 	<ul class="wp-block-list pcs-essentiel__list">
 		<!-- wp:list-item --><li>Premier point clé à retenir.</li><!-- /wp:list-item -->

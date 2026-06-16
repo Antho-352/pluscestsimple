@@ -1752,7 +1752,7 @@ a.pcs-link-partner:hover {
 	color: var(--wp--preset--color--muted);
 	line-height: 1.6;
 	margin-top: 1rem;
-	max-width: 60ch;
+	max-width: none;
 	/* Renfort visuel type info.fr : barre d'accent verticale. */
 	border-left: 4px solid var(--wp--preset--color--accent);
 	padding-left: 1.1rem;
@@ -2693,12 +2693,11 @@ a.pcs-link-partner:hover {
 	margin: 0 0 1.25rem;
 }
 .pcs-keypoints__item {
-	padding: 1rem 0 1rem 1.1rem;
+	padding: .55rem 0 .7rem 1.6rem;
 	border-left: 4px solid var(--wp--preset--color--accent);
-	border-bottom: 1px solid var(--wp--preset--color--border);
 }
-.pcs-keypoints__item:last-child { border-bottom: 0; }
-.pcs-keypoints__item-title { font-size: var(--wp--preset--font-size--md); margin: 0 0 .3rem; }
+.pcs-keypoints__item + .pcs-keypoints__item { border-top: 1px solid var(--wp--preset--color--border); }
+.pcs-keypoints__item-title { font-size: var(--wp--preset--font-size--md); line-height: 1.2; margin: 0 0 .2rem; }
 .pcs-keypoints__item-text { margin: 0; color: var(--wp--preset--color--muted); line-height: 1.55; }
 
 /* ── Citation sourcée ── */
